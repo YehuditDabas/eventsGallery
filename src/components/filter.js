@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 
 export default function Filter() {
 
-    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    const years = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"]
     const events = [{
         name: "1",
         date: new Date("02/25/2019")
