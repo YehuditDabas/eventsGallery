@@ -1,8 +1,32 @@
-.event{
+/* --unnamed-color-9653ff: #9653FF;
+--unnamed-color-0a102e: #0A102E;
+--unnamed-color-707070: #707070; */
+.eventImg{
     top: 1420px;
 left: 192px;
 width: 467px;
 height: 272px;
-background: transparent url('img/rear-side-audiences-sitting-listening-speackers-stage.png') 0% 0% no-repeat padding-box;
+/* background: transparent url('img/rear-side-audiences-sitting-listening-speackers-stage.png') 0% 0% no-repeat padding-box; */
 opacity: 1;
+}
+.eventDescription{
+    top: 1175px;
+left: 727px;
+width: 467px;
+height: 180px;
+background: #F0F2FA 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+.title{
+    top: 1217px;
+    left: 1291px;
+    width: 215px;
+    height: 48px;
+    color: #0A102E;
+    text-align: left;
+    font: normal normal bold 40px/48px Roboto;
+    letter-spacing: 0px;
+    color: #0A102E;
+    text-transform: capitalize;
+    opacity: 1;
 }

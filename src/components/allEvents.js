@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+
 import { actionsStore } from '../redux/actions';
 import DisplayEvent from './displayEvent'
 function mapStateToProps(state) {
@@ -10,12 +11,12 @@ function mapStateToProps(state) {
 }
 const mapDispatchToProps = (dispatch) => ({
     addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
-    addUserName:(username)=>dispatch(actionsStore.addUserName(username)),
-    addDevJwt:(devJwt)=>dispatch(actionsStore.addDevJwt(devJwt)),
+    addUserName: (username) => dispatch(actionsStore.addUserName(username)),
+    addDevJwt: (devJwt) => dispatch(actionsStore.addDevJwt(devJwt)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
     const [numCols, setNumCols] = useState('col-4')
-    const { events, addAllEvents,addUserName,addDevJwt } = props
+    const { events, addAllEvents, addUserName, addDevJwt } = props
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
         ? document.cookie
             .split(';')
@@ -24,7 +25,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             .pop()
         : null
     const userName = window.location.pathname.split('/')[1]
-    
+
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -40,7 +41,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             .then(resJson => {
                 debugger;
                 addAllEvents(resJson)
-                console.log('events',events)
+                console.log('events', events)
 
             }
 
@@ -48,13 +49,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             .catch(err => {
                 console.log(err)
             })
-            addUserName(userName)
-            addDevJwt(TokenToString)
+        addUserName(userName)
+        addDevJwt(TokenToString)
     }, [])
 
-
+    // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
     return (
-
         <>
             {events.length === 0 ? <p>loading</p> :
                 <div className="row">
@@ -66,8 +66,22 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                         ))
                     }
                 </div>}
-
         </>
     )
-
 })
+// export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
+//     const { events } = props;
+//     const [settings,setSettings]=useState({eventsPageTitle:'opop', picteventsPageImageure:'', eventsPageDescription:'opppppppppppp',amountEventsInRow:'3'});//יקבל עדכון נתוני הגדרות מהשרת
+
+
+
+
+//     return (
+//         <>
+//         <h1>my title:   {settings.eventsPageTitle}</h1>
+//         {/* <img src={settings.picteventsPageImageure} /> */}      
+//         <p>my description:   {settings.eventsPageDescription}</p>    
+//         </>
+//     )
+
+// })

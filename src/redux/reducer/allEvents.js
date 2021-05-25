@@ -19,7 +19,7 @@ const events = {
     },
     addDevJwt(state, action) {
         debugger;
-        state.devJwt = action.payload;
+        state.devJwt = action.payload
     },
 }
 export default produce((state, action) => createReducer(state, action, events), intioanalState);

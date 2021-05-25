@@ -14,7 +14,7 @@ function App() {
         <AllEvents />
       </div>
     </Router>
-  );
+  )
 }
 
 export default App;
