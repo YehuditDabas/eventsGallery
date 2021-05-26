@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import AllEvents from './components/allEvents'
+import AllEvents from './components/allEvents1';
+
 
 function App() {
   return (
