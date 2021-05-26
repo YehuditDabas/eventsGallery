@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Filter from './components/filter'
+import AllEvents from './components/allEvents'
 
 function App() {
   return (
     <div className="App">
-      <Filter/>
+      <AllEvents></AllEvents>
+
+
     </div>
   );
 }
