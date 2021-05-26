@@ -1,20 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import AllEvents from './components/allEvents'
-import {
-  BrowserRouter as Router,
-  Switch,
-  useLocation
-} from "react-router-dom";
+import AllEvents from './components/allEvents';
+
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <AllEvents />
-      </div>
-    </Router>
-  )
+    <div className="App">
+      <AllEvents></AllEvents>
+
+
+    </div>
+  );
 }
 
 export default App;
