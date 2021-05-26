@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import AllEvents from './components/allEvents1';
+import AllEvents from './components/allEvents';
 
 
 function App() {

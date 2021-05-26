@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import './allEvents.css'
+import DisplayEvent from './displayEvent';
 function mapStateToProps(state) {
     return {
         events: state.events
@@ -55,8 +56,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                 {month.map((item, index) => <button value={index} id={index} class="btn" onClick={filterByMonth}>{item}</button>)}</div>
 
             <div class="row">
-                {eventsByMonth&&
-                eventsByMonth.map(item => <div class="col" >{item.title + "  " + item.start}</div>)}</div>
+                {eventsByMonth.map((item, index) => <div class="col-4" ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>)}</div>
         </div>
 
     )

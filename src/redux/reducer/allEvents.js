@@ -3,19 +3,24 @@ import produce from 'immer'
 import createReducer from './reducerUtils'
 
 const intioanalState = {
-    events:
-    {
-       
-    }
+    events:[],
+    userName:{},
+    devJwt:{}
 }
 const events = {
     addAllEvents(state, action) {
         debugger;
         state.events = action.payload;
-        console.log("allevents"+state.events[2].title);
+        console.log("allevents" + state.events);
     },
-
-
+    addUserName(state, action) {
+        debugger;
+        state.userName = action.payload;
+    },
+    addDevJwt(state, action) {
+        debugger;
+        state.devJwt = action.payload
+    },
 }
 export default produce((state, action) => createReducer(state, action, events), intioanalState);
 
