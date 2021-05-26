@@ -3,19 +3,19 @@
 --unnamed-color-707070: #707070; */
 .eventImg{
     top: 1420px;
-left: 192px;
-width: 467px;
-height: 272px;
+    left: 192px;
+    width: 467px;
+    height: 272px;
 /* background: transparent url('img/rear-side-audiences-sitting-listening-speackers-stage.png') 0% 0% no-repeat padding-box; */
-opacity: 1;
+    opacity: 1;
 }
 .eventDescription{
     top: 1175px;
-left: 727px;
-width: 467px;
-height: 180px;
-background: #F0F2FA 0% 0% no-repeat padding-box;
-opacity: 1;
+    left: 727px;
+    width: 467px;
+    height: 180px;
+    background: #F0F2FA 0% 0% no-repeat padding-box;
+    opacity: 1;
 }
 .title{
     top: 1217px;
