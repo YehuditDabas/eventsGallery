@@ -2,16 +2,11 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import DisplayUrlJoin from './displayUrlJoin';
 import './event.css';
 import SimpleImg from '../assets/simpleImg.png'
-
+import {withRouter} from 'react-router-dom'
+ 
 function mapStateToProps(state) {
     console.log("userName", state.userName)
     console.log("state.devJwt", state.devJwt)
@@ -22,8 +17,8 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(function DisplayEvent(props) {
-    const { index, events, userName, TokenToString } = props;
+export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) {
+    const { index, events, userName, TokenToString,history } = props;
     // const [events, setEvents] = useState([{ title: 'aaa', start: '03-03', place: 'urnu,jrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: 'urnujrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: ',urnujrn' }])
     const [url, setUrl] = useState('')
     const [isShown, setIsShown] = useState(false)
@@ -31,10 +26,18 @@ export default connect(mapStateToProps)(function DisplayEvent(props) {
     const join = (url) => {
         setUrl(url)
     }
+    function details() {
+        console.log('details')
+        debugger
+        history.push({pathname:`/${userName}/eventDetails/${index}`,state:{ index:index}})
+       
+       // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />
+    }
     return (
         <>
-            <Card className="eventCard" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+            <Card className="eventCard" onClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
                 <img src={SimpleImg} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} className="eventImg" />
+                {/* <div className="price"></div> */}
                 <div className="eventDescription">
                     <div className="container">
                         <div className="row">
@@ -45,14 +48,17 @@ export default connect(mapStateToProps)(function DisplayEvent(props) {
                                 <br className="d-sm-none"></br>
                             </div>
                         </div>
-                            <br hidden={!isShown}></br>
-                            <span hidden={!isShown} className="showDetails">Show Details</span>
-                            <div className="details" hidden={!isShown}>
-                                <div hidden={!isShown} class="arrow">
-                                    <div class="line"></div>
-                                    <div class="point"></div>
-                                </div>
+                        <br hidden={!isShown}></br>
+                        <div className="dShowDetails">
+                        </div>
+                        <span hidden={!isShown} className="showDetails">View Details</span>
+
+                        <div className="details" hidden={!isShown}>
+                            <div hidden={!isShown} class="arrow">
+                                <div class="line"></div>
+                                <div class="point"></div>
                             </div>
+                        </div>
 
                         <div className="row no-gutters mx-0" hidden={isShown}>
                             <span className="col-sm-12 col-md-3 col-lg-3 time padding-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar4 biTime" viewBox="0 0 16 16">
@@ -74,7 +80,7 @@ export default connect(mapStateToProps)(function DisplayEvent(props) {
         </>
 
     )
-})
+}))
 
 const useStyles = makeStyles({
     root: {

@@ -1,17 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-import AllEvents from './components/allEvents'
+import MyAllEvents from './components/myAllEvents'
 import {
   BrowserRouter as Router,
   Switch,
-  useLocation
+  useLocation, Route
 } from "react-router-dom";
+import EventDetails from './components/eventDetails';
 
 function App() {
   return (
     <Router>
+      <Route exact path="/:userName">
+        <MyAllEvents />
+      </Route>
+      <Route  path="/:userName/eventDetails/:index">
+        <EventDetails />
+      </Route>
       <div className="App">
-        <AllEvents />
+
       </div>
     </Router>
   )
