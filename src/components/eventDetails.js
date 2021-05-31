@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './eventDetails.css';
+import MiniEvent from './miniEvent'
 import { withRouter } from 'react-router-dom'
 import SimpleImg from '../assets/simpleImg.png'
-import user from '../assets/user.svg'
 
 function mapStateToProps(state) {
     return {
@@ -80,7 +80,8 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                         </div>
                     </div>
                 </div>
-
+                <div className="col-3"><MiniEvent index={index} /></div>
+                
 
             </> : ''}
 

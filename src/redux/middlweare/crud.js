@@ -1,6 +1,5 @@
 import { actionsStore } from '../actions'
 export const getEvents = ({ dispatch, getState }) => next => action => {
-  debugger;
   if (action.type === 'GET_DATA') {
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
       ? document.cookie

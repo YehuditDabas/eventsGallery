@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-
+import './event.css';
 import { actionsStore } from '../redux/actions';
 import DisplayEvent from './displayEvent'
 function mapStateToProps(state) {
@@ -35,11 +35,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         headers: myHeaders,
     };
     useEffect(() => {
-        debugger
         fetch('https://calendar.dev.leader.codes/api/' + userName, requestOptions)
             .then(res => res.json())
             .then(resJson => {
-                debugger;
                 addAllEvents(resJson)
                 console.log('events', events)
 
@@ -60,7 +58,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                 <div className="row">
                     {
                         events.map((item, key) => (
-                            <div key={key} className={numCols}>
+                            <div key={key} className="cardEvent" className={numCols}>
                                 <DisplayEvent index={key} />
                             </div>
                         ))
