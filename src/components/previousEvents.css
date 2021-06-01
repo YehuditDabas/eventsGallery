@@ -1,0 +1,13 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+.videoText{
+    text-align: left;
+    font: normal normal normal 30px/30px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    position:absolute;
+    bottom: 0%;
+    width: 25%;
+    height: 16vh;
+    background: transparent linear-gradient(0deg, #0A102E 0%, #363B5375 66%, #5B5F7300 100%) 0% 0% no-repeat padding-box;
+}
