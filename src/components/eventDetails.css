@@ -1,0 +1,125 @@
+.body{
+    height:100vh;
+    width:100vw;
+}
+.title{
+    width:100%;
+  z-index: -1;
+}
+.eventTitle{
+position:absolute;
+top:14%;
+left:1%;
+font-size:15vh;
+width:50%;
+text-align: left;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+margin-left:10%;
+
+}
+.eventDetails{
+position: absolute;
+top:25%;
+margin-left:10%;
+width:40%;
+font-size: 5vh;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+}
+.description{
+  
+    top: 909px;
+left: 192px;
+width: 1014px;
+height: 657px;
+color: var(--unnamed-color-0a102e);
+text-align: left;
+letter-spacing: NaNpx;
+color: #0A102E;
+text-transform: capitalize;
+opacity: 1;
+  width:75%;
+  height:100%;
+}
+.aboutTitle{
+top: 810px;
+left: 192px;
+width: 100%;
+height: 54px;
+font: var(--unnamed-font-style-normal) normal normal 45px/54px var(--unnamed-font-family-roboto);
+letter-spacing: var(--unnamed-character-spacing-0);
+color: var(--unnamed-color-0a102e);
+text-align: left;
+font: normal normal normal 45px/54px Roboto;
+letter-spacing: 0px;
+color: #0A102E;
+text-transform: capitalize;
+opacity: 1;
+}
+.col-5{
+    border-left:  1px solid #707070;
+    padding-left:7%; 
+
+}
+.col-7{
+    padding-left:10%; 
+
+}
+.about{
+    border-right:  1px solid #707070 !important; 
+    width:60vw;
+    height:50vh
+}
+.time{
+    width:30vw !important;
+    height:50vh !important
+}
+.timeText{
+    text-align: left;
+    font: normal normal 300 34px/41px Roboto;
+    letter-spacing: 0px;
+    color: #0A102E;
+    text-transform: uppercase;
+    opacity: 1;
+}
+.priceText{
+    text-align: left;
+    font: normal normal 300 41px/49px Roboto;
+    letter-spacing: 0px;
+    color: #9653FF;
+    opacity: 1;
+}
+.ticketsButton{
+    width: 40%;
+    height: 40px;
+background: #53EEFF 0% 0% no-repeat padding-box;
+    font: normal normal medium 22px/27px Roboto;
+    letter-spacing: 2.2px;
+   color: #4B1A98;
+   text-transform: uppercase;
+   opacity: 1;
+   margin-top: 2%;
+}
+
+.ticketsButton:hover{
+    letter-spacing: 4.4px;
+}
+.col-7{
+    height:100%;
+}
+.bi-heart{
+position: absolute;
+right:50%;
+}
+.bi-share{
+    position: absolute;
+    right:53%;
+}
+.moreEvents{
+    text-align: left;
+    margin-left: 7%;
+
+}
