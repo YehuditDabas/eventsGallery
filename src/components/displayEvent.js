@@ -5,8 +5,10 @@ import Card from '@material-ui/core/Card';
 import DisplayUrlJoin from './displayUrlJoin';
 import './event.css';
 import SimpleImg from '../assets/simpleImg.png'
-import {withRouter} from 'react-router-dom'
- 
+import price from '../assets/price.png'
+import arrow from '../assets/arrow.png'
+import { withRouter } from 'react-router-dom'
+
 function mapStateToProps(state) {
     console.log("userName", state.userName)
     console.log("state.devJwt", state.devJwt)
@@ -17,7 +19,7 @@ function mapStateToProps(state) {
 }
 
 export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) {
-    const { index, events, userName, TokenToString,history } = props;
+    const { index, events, userName, TokenToString, history } = props;
     // const [events, setEvents] = useState([{ title: 'aaa', start: '03-03', place: 'urnu,jrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: 'urnujrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: ',urnujrn' }])
     const [url, setUrl] = useState('')
     const [isShown, setIsShown] = useState(false)
@@ -27,16 +29,19 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
     }
     function details() {
         console.log('details')
-        debugger
-        history.push({pathname:`/${userName}/eventDetails/${index}`,state:{ index:index}})
-       
-       // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />
+
+        history.push({ pathname: `/${userName}/eventDetails/${index}`, state: { index: index } })
+
+        // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />
     }
     return (
         <>
-            <Card className="eventCard" onClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
-                <img src={SimpleImg} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} className="eventImg" />
-                {/* <div className="price"></div> */}
+            <Card className="eventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                <div className="row pRow">
+                    <img src={SimpleImg} className="eventImg" />
+                    <div className="priceD"><img className="price" src={price}></img></div>
+                    <div className="priceTextEvent">{events[index].price === undefined ? 'Free' : events[index].price}</div>
+                </div>
                 <div className="eventDescription">
                     <div className="container">
                         <div className="row">
@@ -48,29 +53,33 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                             </div>
                         </div>
                         <br hidden={!isShown}></br>
-                        <div className="dShowDetails">
-                        </div>
+                        <br hidden={!isShown}></br>
+                        {/* <div className="dShowDetails">
+                        </div> */}
                         <span hidden={!isShown} className="showDetails">View Details</span>
-
                         <div className="details" hidden={!isShown}>
-                            <div hidden={!isShown} class="arrow">
+                            <img src={arrow}></img>
+                            {/* <div hidden={!isShown} class="arrow">
                                 <div class="line"></div>
                                 <div class="point"></div>
-                            </div>
+                            </div> */}
                         </div>
-
-                        <div className="row no-gutters mx-0" hidden={isShown}>
-                            <span className="col-sm-12 col-md-3 col-lg-3 time padding-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar4 biTime" viewBox="0 0 16 16">
-                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z" />
-                            </svg> {events[index].start.slice(8, 10)}/{events[index].start.slice(5, 7)}</span>
-                            <span className="col-sm-12 col-md-6 col-lg-3 time padding-0" hidden={isShown}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock biTime" viewBox="0 0 16 16">
-                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                            </svg>  {events[index].start.slice(11, 16)}</span>
-                            <span className="col-sm-6 col-md-6 col-lg-6 time padding-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt biTime" viewBox="0 0 16 16">
-                                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                            </svg> {events[index].place.split(',')[2]}</span>
+                        <br></br>
+                        <div className="row padding-0" hidden={isShown}>
+                            <div className="col-8 padding-0">
+                                <span className="timeDetails"> {events[index].start.slice(8, 10)}/{events[index].start.slice(5, 7)} . {events[index].start.slice(11, 16)} . {events[index].place.split(',')[2]}
+                                </span>
+                            </div>
+                            <div className="col-1 padding-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                                </svg>
+                            </div>
+                            <div className="col-1 padding-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>

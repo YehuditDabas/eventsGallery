@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import './eventDetails.css';
 import { withRouter } from 'react-router-dom'
 import SimpleImg from '../assets/simpleImg.png'
 import user from '../assets/user.svg'
-import title from '../assets/title.png'
+import title from '../assets/title.png';
+import MiniEvent from '../components/miniEvent';
 
 function mapStateToProps(state) {
     return {
@@ -57,8 +58,13 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         console.log("moreE " + numMonth)
         e1 = await events.filter((item, indexM) => item.start.indexOf(numMonth) == 5 && indexM != index);
         setMore(e1);
-        console.log(moreEvents!=undefined? moreEvents[0] : "no more")
+        console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
+    useEffect(() => {
+        if (events.length != 0) {
+            addMoreEvents()
+        }
+    }, [])
     return (
         <>
             {events.length !== 0 ? <>
@@ -66,10 +72,10 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                     <div className="row">
                         <div className="title">
                             <img src={title} height="100%" width="100%"></img>
-                            <div className="eventTitle">{events[index].title}</div>
-                            <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
-                                <br /><button className="btn ticketsButton">Tickets</button></div>
-
+                            <div className="eventTitle">{events[index].title}
+                                <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
+                                    <br /><button className="btn ticketsButton">Tickets</button></div>
+                            </div>
                         </div>
                     </div>
                     <div className="row">
@@ -89,9 +95,9 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                             </svg> </span>
                             <br></br>
-                            <span className="timeText"> {day()} | {month()}</span>
+                            <span className="time"> {day()} | {month()}</span>
                             <br></br>
-                            <span className="timeText"> {hour()}</span>
+                            <span className="time"> {hour()}</span>
                             <br></br>
                             <span className="col-sm-6 col-md-6 col-lg-6 time padding-0"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-geo-alt biTime" viewBox="0 0 16 16">
                                 <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
@@ -101,7 +107,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                             <span className="timeText">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person biTime" viewBox="0 0 16 16">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                                </svg>{events[index].participants[0]} Participants
+                                </svg>{events[index].participants[0]}<span>Participants</span> 
                             </span>
 
                             <p className="priceText">{events[index].price === undefined ? 'Free' : events[index].price}</p>
@@ -109,8 +115,11 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
 
                         </div>
                     </div>
-                    <div class="row moreEvents">
-                        <h1 onClick={addMoreEvents}>more events on {month().slice(3, 10)}</h1>
+                    <div class="moreEvents">
+                        <h1>more events on {month().slice(3, 10)}</h1>
+                        <div className="row">
+                            {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title}></MiniEvent> </div>)}
+                        </div>
                     </div>
                 </div>
 
