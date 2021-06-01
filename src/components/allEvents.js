@@ -6,9 +6,7 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = (dispatch) => ({
-
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
-
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
     const { events } = props;
@@ -16,9 +14,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
 
 
    
-
     return (
-        <>
+        <>       
         <h1>my title:   {settings.eventsPageTitle}</h1>
         {/* <img src={settings.picteventsPageImageure} /> */}      
         <p>my description:   {settings.eventsPageDescription}</p>    
