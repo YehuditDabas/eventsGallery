@@ -7,12 +7,14 @@ import {
   useLocation, Route
 } from "react-router-dom";
 import EventDetails from './components/eventDetails';
+import PreviousEvents from './components/previousEvents';
 
 function App() {
   return (
     <Router>
       <Route exact path="/:userName">
         <MyAllEvents />
+        {/* <PreviousEvents/> */}
       </Route>
       <Route  path="/:userName/eventDetails/:index">
         <EventDetails />

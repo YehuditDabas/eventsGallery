@@ -48,22 +48,14 @@
 .container{
     padding: 0%;
 }
-.time{
+/* .time{
     text-align: left;
     font: normal normal normal 28px/34px Roboto;
     letter-spacing: 0px;
     color: #0A102E;
     text-transform: capitalize;
     opacity: 1;
-    /* color: #0A102E;
-    text-align: left;
-    font: normal normal bold Roboto;
-    letter-spacing: 0px;
-    color: #0A102E;
-    text-transform: capitalize;
-    opacity: 1;
-    left: 0% */
-}
+} */
 .arrow{
     color: #FFFFFF;
     width: 101px;

@@ -54,17 +54,17 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                     <div className="container">
                         <div className="row">
                             <div hidden={isShown} >
-                                <br></br>
+                                <br/>
                                 <span className="col-sm-12 eventTitle" >{events[index].title}</span>
                             </div>
                         </div>
-                        <br hidden={!isShown}></br>
-                        <br hidden={!isShown}></br>
+                        <br hidden={!isShown}/>
+                        <br hidden={!isShown}/>
                         <span hidden={!isShown} className="showDetails">View Details</span>
                         <div className="details" hidden={!isShown}>
                             <img src={arrow}></img>
                         </div>
-                        <br></br>
+                        <br/>
                         <div className="row padding-0" hidden={isShown}>
                             <div className="col-12 padding-0">
                                 <span className="timeDetails"> {events[index].start.slice(8, 10)}/{events[index].start.slice(5, 7)} . {events[index].start.slice(11, 16)} . {events[index].place.split(',')[2]}</span>
