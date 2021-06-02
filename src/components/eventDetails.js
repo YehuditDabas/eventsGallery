@@ -20,8 +20,9 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
     const [moreEvents, setMoreEvents] = useState();
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let e1 = [];
-
+    console.log(events[index])
     console.log('index', index)
+    console.log("tickets ", events[index].registrationURL)
     function day() {
         const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         let str = events[index].start.slice(0, 10).split('-')
@@ -70,11 +71,12 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
             {events.length !== 0 ? <>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="title">
+                        <div className="rtitle">
                             <img src={title} height="100%" width="100%"></img>
                             <div className="eventTitle">{events[index].title}
                                 <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
-                                    <br /><button className="btn ticketsButton">Tickets</button></div>
+                                    <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +89,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
                                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
                                 </svg></div>
-                            <div className="description"  >{events[index].description === '' ? events[index].description : <p>Which is the most effective therapeutic approach, if any? Are the ‘core conditions’, like empathy really necessary for therapeutic personality change?</p>}</div>
+                            <div className="description"  >{events[index].description != '' ? events[index].description : <p>Which is the most effective therapeutic approach, if any? Are the ‘core conditions’, like empathy really necessary for therapeutic personality change? Which clients seem to get the most out of person-centred therapy, or CBT? In this workshop, participants will have an opportunity to look at these questions and many more, learning about the latest research findings in the counselling and psychotherapy field. This workshop has been developed for counsellors and psychotherapists of all orientations, both in training and in practice. It will specifically look at how research findings can be used to enhance therapeutic work, with a range of take-away messages on what seems to ‘work’ and ‘not work’. The workshop will have a substantial taught component, but there will also be opportunity for discussion, exercises, questions, and dialogue. Knowing the evidence base for counselling and psychotherapy is becoming an increasingly important competence for therapy professionals. While there are many other important sources of knowledge and guidance on effective practice, this workshop will help practitioners and trainees develop in this area. the workshop will have a substantial taught component, but there will also be opportunity for discussion, exercises, questions, and dialogue.</p>}</div>
                         </div>
                         <div className="col-5">
                             <span className="col-sm-12 col-md-6 col-lg-3 time padding-0"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clock biTime" viewBox="0 0 16 16">
@@ -107,11 +109,11 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                             <span className="timeText">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person biTime" viewBox="0 0 16 16">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                                </svg>{events[index].participants[0]}<span>Participants</span> 
+                                </svg>{events[index].participants[0]}<span>Participants</span>
                             </span>
 
                             <p className="priceText">{events[index].price === undefined ? 'Free' : events[index].price}</p>
-                            <br /><button className="btn ticketsButton"  >Tickets</button>
+                            <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a>
 
                         </div>
                     </div>

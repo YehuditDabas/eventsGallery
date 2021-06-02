@@ -4,7 +4,6 @@ import './miniEvent.css';
 import SimpleImg from '../assets/simpleImg.png'
 
 export default function MiniEvent(props) {
-    debugger;
     const {img,title} = props;
     const [isShown, setIsShown] = useState(false)
     console.log("image!!!!!!!!!!!!!"+ img);

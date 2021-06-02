@@ -16,16 +16,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     const { events } = props;
     // const [settings, setSettings] = useState({ eventsPageTitle: 'opop', picteventsPageImageure: '', eventsPageDescription: 'opppppppppppp', amountEventsInRow: '3' });//יקבל עדכון נתוני הגדרות מהשרת
     const [eventsByMonth, setEventsByMonth] = useState(events);
+    const [pastEvents,setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     const numCols = "col-" + 4;
     var arrow = ["<", ">"];
     const [prevMonth, setPrevMonth] = useState(0);
     useEffect(() => {
-
-        console.log(events)
+        setEventsByMonth(events)
     }, [])
 
     var e1 = [];
+    // function past(){
+    //     if(pastEvents==true){
+    //         setPastEvents(false);
+    //         // document.getElementById("ifPast").innerHTML="להצגת אירועי העבר";
+    //     }
+    //     else{ 
+    //         setPastEvents(true);
+    //         // document.getElementById("ifPast").innerHTML="להסתרת אירועי העבר";
+    //     }
+    // }
     function filterByMonth(e) {
         console.log("m " + e.target.value);
         var d, m;
@@ -37,17 +47,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             m = prevMonth * 1 + 1;
             console.log("next " + document.getElementById(m).innerHTML);
             document.getElementById(m).setAttribute('class', 'f_bt');
-            document.getElementById(m-1).setAttribute('class', 'bt');
-
+            document.getElementById(m - 1).setAttribute('class', 'bt');
         }
         else if (m == "prev" && prevMonth > 0) {
             m = prevMonth - 1;
             console.log("prev" + document.getElementById(m).innerHTML);
             // document.querySelector('#'+m).classList.toggle('f_bt');
             document.getElementById(m).setAttribute('class', 'f_bt');
-            document.getElementById(m+1).setAttribute('class', 'bt');
+            document.getElementById(m + 1).setAttribute('class', 'bt');
 
-            console.log("the  "+ document.getElementsByClassName('f_bt').innerHTML);
+            console.log("the  " + document.getElementsByClassName('f_bt').innerHTML);
 
         }
         else if ((m == "next" || m == "prev") && (prevMonth == 12 || prevMonth == 0)) {
@@ -63,7 +72,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             if (d == m && events[i].start > date.toISOString()) { e1.push(events[i]) }
         }
         if (m == 0) {
-            e1=events.filter(item=>item.start>date.toISOString())
+            e1 = events.filter(item => item.start > date.toISOString())
             setEventsByMonth(e1)
         }
         else { setEventsByMonth(e1); }
@@ -83,14 +92,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         <>
 
             <div class="container-fluid">
-                <div class="row title"><h2>our upcoming events</h2></div>
-                <div ><button class="bt" value="prev" onClick={filterByMonth}>{arrow[0]}</button>
+                <div class="row title"><p>our upcoming events</p></div>
+                <div ><button class="bt" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
-                <div class="row">
+                <div class="row events">
                     {eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>)}
                 </div>
             </div>
+            {/* <button className="btn" id="ifPast" >להסתרת אירועי עבר</button> */}
 
         </>
 
