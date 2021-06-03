@@ -51,8 +51,7 @@ export default connect(mapStateToProps)(function PreviousEvents(props) {
                                             playerVars: { modestbranding: 1 }
                                         }
                                     }} controls={false} />
-                                    <button className="playerButton"></button>
-                                    <span className="col-3 videoText"><br /><br />{item.title} . {item.start.slice(8, 10)}/{item.start.slice(5, 7)}</span>
+                                    <span className="col-3 videoText"><br /><br />title event . {item.start.slice(8, 10)}/{item.start.slice(5, 7)}</span>
                                 </div>
                             )
                         })
@@ -64,14 +63,6 @@ export default connect(mapStateToProps)(function PreviousEvents(props) {
                     <div className="col-11 video"  >
                         <ReactPlayer width='100%' height='100%' url='https://youtu.be/goCN79SruQU' />
                         <span width='100%' className="col-3 videoText"><br /><br />title </span>
-                    </div>
-                    <div className="col-11 video"  >
-                        <ReactPlayer width='100%' height='100%' url='https://youtu.be/goCN79SruQU' />
-                        <span className="col-3 videoText"><br /><br />title </span>
-                    </div>
-                    <div className="col-11 video"  >
-                        <ReactPlayer width='100%' height='100%' url='https://youtu.be/goCN79SruQU' />
-                        <span className="col-3 videoText"><br /><br />title </span>
                     </div>
                 </Carousel> : 'loading'}
         </>
