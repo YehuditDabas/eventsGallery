@@ -15,6 +15,12 @@
     background: #9653FF 0% 0% no-repeat padding-box !important;
     box-shadow: 0px 3px 20px #00000029 !important;
 }
+.react-multiple-carousel__arrow--right {
+    right: calc(0% + 1px) !important;
+}
+.react-multiple-carousel__arrow--left {
+    left: calc(0% + 1px) !important;
+}
 .previousEventsTitle{
     text-align: left;
     font: normal normal normal 45px/54px Roboto;
