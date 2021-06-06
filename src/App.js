@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import MyAllEvents from './components/myAllEvents'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +14,6 @@ function App() {
   return (
     <Router>
       <Route exact path="/:userName">
-        <MyAllEvents />
         <FooterEventsGallery/>
         {/* <PreviousEvents/> */}
       </Route>
@@ -27,5 +25,4 @@ function App() {
     </Router>
   )
 }
-
 export default App;

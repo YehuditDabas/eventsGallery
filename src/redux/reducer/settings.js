@@ -4,10 +4,13 @@ import createReducer from './reducerUtils'
 const intioanalState = {
     settings:
     {
-        eventsPagelogo:"",
-        eventsGalleryTitle:"",
-        eventsGalleryTitle:"",
-        eventsGalleryDescription:"",
+        name:"",
+        email:"",
+        phone:"",
+        address:"",
+        eventsPageLogo:"",
+        eventsPageTitle:"",
+        eventsPageDescription:"",
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
         eventsGalleryImage:'',

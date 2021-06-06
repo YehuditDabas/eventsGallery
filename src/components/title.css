@@ -1,0 +1,193 @@
+
+.myImg{
+    width:100vW!important;
+    height: 75vh!important;
+    z-index: -1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding:0;
+
+}
+.titleAndDescription{
+    z-index: 2!important;
+    position: absolute;
+    margin-left:6vw!important;
+    margin-top: 10vh;
+}
+
+.titleH1{
+text-align: left;
+font: normal normal bold 13vh Roboto;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+z-index: 4!important;
+}
+.imgOrVieo{
+    padding: inherit;
+    position: absolute;
+    box-shadow: 0px 3px 50px #00000087;
+    opacity: 1;
+    z-index: 2!important;
+    width: 32%;
+    height: 51%;
+    margin-left: 60vw!important;
+    margin-top: 15vh!important;
+}
+
+.subscribe{
+    margin-top: 4vh;
+    height: 6vh;
+    width: 10vw;
+    background-color: #86F3FF;
+    opacity: 100%;
+    font-size: 3vh;
+    font-size: 3vh,6vw;
+    margin-right: 65vw!important;
+    /* text-align: left; */
+    font: normal normal medium 22px/27px Roboto;
+    /* letter-spacing: 4.4px; */
+    color: #4B1A98;
+    text-transform: uppercase;
+    opacity: 1;
+
+}
+.descriptionP{
+    /* font-size: 200%; */
+    text-align: left;
+font: normal normal normal 3vh/2vw  Roboto;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+
+}
+.mylogo{
+    width: 6%;
+    height: 3%;
+    z-index: 2!important;
+    position: absolute;
+    margin-left: 4vw!important;
+    margin-top: 5vh;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1
+    
+}
+
+.video_or_picture{
+    width: 32vw;
+    height: 52vh;
+}
+.add-app{
+    margin-left:6vw!important;
+
+
+    
+}
+.backgroundForm{
+    background:#00000024
+
+}
+.form-control{
+width: 13.4vw!important;
+    
+}
+ .btn-primary 
+{
+    margin-left: -31vw
+}
+.submitInput{
+    background:#86F3FF;
+    text-align: center; 
+
+}
+
+
+.subscribeArea{
+    margin-right:75vw!important;
+    margin-left: 10vw!important;
+    margin-top: -19vh; 
+
+
+}
+.dropDown{
+    
+    width: 18vw;
+    margin-left: 0vw;
+    /* height: -6vh!important; */
+    margin-top: 21vh;
+    background-color:#F0F2FA;
+    /* padding: 2px; */
+    /* height: 23vh; */
+}
+.formSubscribe{
+    margin-left: 2vw;
+    z-index: 3;
+    margin-top: -23vh;
+}
+form .form-control:focus{
+    border-color: #ced4da;
+    box-shadow: none;
+  }
+    
+
+.arrow{
+    margin-left: -6vw;
+    margin-top: -2.5vh;
+    width: 2vw;
+    height: 2vh;
+    z-index: 0;
+}
+#subscribeInside{
+    background-color: #53EEFF;
+    
+    margin-top: -4vh;
+    height: 6vh;
+}
+.createEventArea:hover{
+    background: #F0F2FA 0% 0% no-repeat padding-box;
+    opacity: 1 
+}
+.createEventArea{
+    padding-top: 20vh;
+
+    height: 62vh;
+    border: 2px dashed #707070;
+
+
+}
+
+/* @media(min-width:1500px)
+{
+    .myImg{
+        width:20px;
+    }
+
+
+
+} */
+/* @media(max-width:500px)
+{
+    .
+
+
+}
+@media(min-width:500px)and (max-width: 1000px)
+{
+
+
+
+}
+@media(min-width:500px)and (max-width: 1000px)
+{
+
+
+} */
+/* גדלים שצריך  */
+
+/* 3840x2160
+1920x1080
+1440x990
+1280x800 */
