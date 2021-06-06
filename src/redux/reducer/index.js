@@ -3,8 +3,8 @@ import allEvents from './allEvents'
 
 import settings from './settings'
 import site from './site'
-import channelSettings from './channelSettings.reducer'
+import pageSettings from './pageSettings.reducer'
 import editHeader from './editHeader.reducer'
-import subscription from './editSubscription.reducer'
+import editSubscription from './editSubscription.reducer'
 
-export default combineReducers({ allEvents, settings, site, channelSettings, editHeader,subscription })
+export default combineReducers({ allEvents, settings, site, pageSettings, editHeader,editSubscription })

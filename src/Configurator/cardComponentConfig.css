@@ -3,16 +3,20 @@
     border-radius: 0% !important;
     border-left: none !important;
     border-right: none !important;
-    color: black;
+    color: white;
     width: 100% !important;
+    background: #0A102E 0% 0% no-repeat padding-box;
+    text-align: left;
+
   }
   .WidthCardDiv{
     width:95%;
   }
   .card-header {   
     /* background-color: #F0F0F0 !important; */
-    background-color: #fff !important;
+    /* background-color: #fff !important; */
     cursor: pointer;
+    background: #0A102E 0% 0% no-repeat padding-box;
   }
   
   .rotateArrowIconRight {
@@ -27,8 +31,9 @@
   
   .accordion {
     /* height: calc(68vh - 2.6vh); */
-    height: calc(80vh - 0.3vh);
-    overflow-y: auto !important;
+    /* height: calc(80vh - 0.3vh); */
+     overflow-y: unset !important; 
+    
   }
   
   .CardConfigMargin {
@@ -39,4 +44,32 @@
     /* margin: 0px !important; */
     position: sticky !important;
   }
-  
+  .configurator{
+    background: #0A102E 0% 0% no-repeat padding-box;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    overflow: scroll;
+    color:white;
+  }
+  /* .accordion{
+    overflow-y: unset !important;
+  } */
+  .accordion_warps{
+    background: #0A102E 0% 0% no-repeat padding-box;
+    
+  }
+  ::-webkit-scrollbar{
+    width: 0;
+  }
+  .buttoncreate{
+    position:absolute;
+    bottom: 0vh;
+    background: #9653FF 0% 0% no-repeat padding-box;
+    opacity: 1;
+color: white;
+
+width: 150px;
+height: 42px; 
+
+  }

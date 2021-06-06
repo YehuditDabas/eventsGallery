@@ -2,9 +2,9 @@ import createReducer from './reducerUtils';
 import produce from 'immer';
 
 const initialState = {
-    editGrid: 'grid',
+    // editGrid: 'grid',
     showInPage: '20',
-    columns: '3',
+    // columns: '3',
     mainColor: '#4B0083',
     buttonStyle: '50',
     showCounterViews: true
@@ -18,11 +18,11 @@ const configImage = {
         state.columns = action.payload.columns;
         state.mainColor = action.payload.mainColor;
         state.buttonStyle = action.payload.buttonStyle;
-    },
-    setEditGrid(state, action) {
-        state.editGrid = action.payload;
-        if (action.payload == 'list') state.columns = '1';
-        if (action.payload == 'grid') state.columns = '3';
+    
+    // setEditGrid(state, action) {
+    //     state.editGrid = action.payload;
+    //     if (action.payload == 'list') state.columns = '1';
+    //     if (action.payload == 'grid') state.columns = '3';
     },
     setShowInPage(state, action) {
         state.showInPage = action.payload;

@@ -17,19 +17,19 @@ import FooterEventsGallery from './components/footerEventsGallery';
 function App() {
   return (
     <Router>
+      <div className="App">
+         <ConfiguratorSettings/>    
+       
       <Route exact path="/:userName">
-<<<<<<< HEAD
         <AllEvents />
-=======
         <FooterEventsGallery/>
         {/* <PreviousEvents/> */}
->>>>>>> f5e95be5cd846759c0a59b92e2a326e3f8c6f191
+
       </Route>
       <Route  path="/:userName/eventDetails/:index">
         <EventDetails />
       </Route>
-      <div className="App">
-      </div>
+     </div>
     </Router>
   )
 }

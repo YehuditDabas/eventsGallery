@@ -4,6 +4,12 @@ import createReducer from './reducerUtils'
 const intioanalState = {
     settings:
     {
+<<<<<<< HEAD
+        eventsPagelogo:"",
+        eventsGalleryTitle:"",
+       
+        eventsGalleryDescription:"",
+=======
         name:"",
         email:"",
         phone:"",
@@ -11,6 +17,7 @@ const intioanalState = {
         eventsPageLogo:"",
         eventsPageTitle:"",
         eventsPageDescription:"",
+>>>>>>> eventsGalleryDev
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
         eventsGalleryImage:'',
@@ -34,8 +41,7 @@ const settings = {
     updateTitle(state, action) {
         
                 state.settings.eventsGalleryTitle = action.payload;
-                console.log("updateTitle"+state.settings.eventsGalleryTitle)
-       
+                // console.log("updateTitle"+state.settings.eventsGalleryTitle)
     },
     updateDescription(state, action) {
         
@@ -60,12 +66,15 @@ const settings = {
         
         state.devJwt = action.payload
     },
-    // updateOrCreateSettings(state,action){
-    //     // state.action.settings=action.payload;
-    //     state.settings.eventsGalleryTitle = action.payload;
-    //     state.settings.eventsGalleryDescription= action.payload;
-    //     state.settings.amountEventsInRow= action.payload;
-    // },
+    updateOrCreateSettingsAgain(state,action){
+        // state.action.settings=action.payload;
+        debugger;
+        state.settings.eventsGalleryTitle = action.payload.settings;
+        state.settings.eventsGalleryDescription= action.payload;
+        state.settings.amountEventsInRow= action.payload;
+        console.log("from dispatch")
+       console.log("settings"+state.settings)
+    },
     addAllSettings(state, action) {
         state.settings.facebook = action.payload.settings.facebook;
         state.settings.facebookLink = action.payload.settings.facebookLink;
