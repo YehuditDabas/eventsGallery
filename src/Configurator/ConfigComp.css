@@ -20,7 +20,13 @@ label {
 .DivEditHeader{
     background-color: #F0F0F0;
     display: inline;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 0.2;
 
+}
+.DivEditHeader:hover{
+background: #9653FF;
 }
 .configuratorTextarea {
     border: none;

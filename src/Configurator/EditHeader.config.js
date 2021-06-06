@@ -64,34 +64,36 @@ function EditHeader(props) {
                     />
 
                 </FormGroup>
-                <div className="mt-2 container-fluid">
-                    <div className="row ml-1">
-                        <Form.Label className="textField"><b titlesettings className='d-inline col-5'>Alignment</b></Form.Label>
-                    </div>
-                    <div className=" row ml-1 mb-2 col-7">
-                        <div className="d-inline d-flex justify-content-start align-items-center m-1  col-2 DivEditHeader">
-                            <FontAwesomeIcon
-                                className={"textField ChannelColorIcn m-1", alignment === 'left' ? ' BoldIconColor' : 'IconColor'}
-                                id='align-left-solid'
-                                icon={['fas', 'align-left']}
-                                onClick={() => changeAlignment('left')}
-                            ></FontAwesomeIcon>
-                        </div>
-                        <div className="d-inline d-flex justify-content-center align-items-center m-1 p-1 col-2 DivEditHeader" >
-                            <FontAwesomeIcon
-                                className={"d-inline textField m-1 ChannelColorIcn ", alignment === 'center' ? ' BoldIconColor' : 'IconColor'}
-                                id='align-center'
-                                icon={['fas', 'align-center']}
-                                onClick={() => changeAlignment('center')}
-                            ></FontAwesomeIcon>
-                        </div>
-                        <div className="d-inline d-flex justify-content-center align-items-center m-1 p-1 col-2 DivEditHeader" >
-                            <FontAwesomeIcon
-                                className={"textField m-1 ChannelColorIcn ", alignment === 'right' ? ' BoldIconColor' : 'IconColor'}
-                                id='align-right'
-                                icon={['fas', 'align-right']}
-                                onClick={() => changeAlignment('right')}
-                            ></FontAwesomeIcon>
+                <div className="mt-2 container-fluid ">
+                    <div className="row  ">
+                    {/* titlesettings */}
+                        <div className="d-inline col-5"> <Form.Label className="textField"><b   >Alignment</b></Form.Label></div>
+{/* ml-1 mb-2 */}
+                        <div className="d-inline  col-7">
+                            <div className="d-inline d-flex justify-content-start align-items-center m-1 p-1  DivEditHeader">
+                                <FontAwesomeIcon
+                                    className={"textField ChannelColorIcn m-1", alignment === 'left' ? ' BoldIconColor' : 'IconColor'}
+                                    id='align-left-solid'
+                                    icon={['fas', 'align-left']}
+                                    onClick={() => changeAlignment('left')}
+                                ></FontAwesomeIcon>
+                            </div>
+                            <div className="d-inline d-flex justify-content-center align-items-center m-1 p-1  DivEditHeader" >
+                                <FontAwesomeIcon
+                                    className={"d-inline textField m-1 ChannelColorIcn ", alignment === 'center' ? ' BoldIconColor' : 'IconColor'}
+                                    id='align-center'
+                                    icon={['fas', 'align-center']}
+                                    onClick={() => changeAlignment('center')}
+                                ></FontAwesomeIcon>
+                            </div>
+                            <div className="d-inline d-flex justify-content-center align-items-center m-1 p-1  DivEditHeader" >
+                                <FontAwesomeIcon
+                                    className={"textField m-1 ChannelColorIcn ", alignment === 'right' ? ' BoldIconColor' : 'IconColor'}
+                                    id='align-right'
+                                    icon={['fas', 'align-right']}
+                                    onClick={() => changeAlignment('right')}
+                                ></FontAwesomeIcon>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,7 +140,7 @@ function EditHeader(props) {
                     </div>
                 </div>
 
-                
+
                 <div>
                     <div className="row ml-1">
                         <Form.Label className="textField"><b> Logo</b></Form.Label>
