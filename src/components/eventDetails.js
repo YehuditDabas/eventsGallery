@@ -120,7 +120,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                         </div>
                     </div>
                     <div class="moreEvents">
-                        <h1>more events on {month().slice(3, 10)}</h1>
+                        <h1 className="more">more events on {month().slice(3, 10)}</h1>
                         <div className="row">
                             {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title}></MiniEvent> </div>)}
                         </div>
