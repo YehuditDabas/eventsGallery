@@ -7,7 +7,7 @@ import PreviousEvents from './previousEvents'
 function mapStateToProps(state) {
     console.log("event", state.events)
     return {
-        events: state.events
+        events: state.allEvents.events
     }
 }
 const mapDispatchToProps = (dispatch) => ({
@@ -35,22 +35,22 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         method: 'GET',
         headers: myHeaders,
     };
-    useEffect(() => {
-        fetch('https://calendar.dev.leader.codes/api/' + userName, requestOptions)
-            .then(res => res.json())
-            .then(resJson => {
-                addAllEvents(resJson)
-                console.log('events', events)
+    // useEffect(() => {
+    //     fetch('https://calendar.dev.leader.codes/api/' + userName, requestOptions)
+    //         .then(res => res.json())
+    //         .then(resJson => {
+    //             addAllEvents(resJson)
+    //             console.log('events', events)
 
-            }
+    //         }
 
-            )
-            .catch(err => {
-                console.log(err)
-            })
-        addUserName(userName)
-        addDevJwt(TokenToString)
-    }, [])
+    //         )
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    //     addUserName(userName)
+    //     addDevJwt(TokenToString)
+    // }, [])
 
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
     return (

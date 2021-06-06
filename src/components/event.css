@@ -1,9 +1,6 @@
-/* --unnamed-color-9653ff: #9653FF;
---unnamed-color-0a102e: #0A102E;
---unnamed-color-707070: #707070; */
+
 .eventImg{
-    /* width: 26vw;
-    height: 36vh; */
+
     opacity: 1; 
     z-index: 1;
     height: 36vh;
@@ -45,27 +42,26 @@
     color: #0A102E;
     text-transform: capitalize;
     opacity: 1;
-    /* margin-left:10%; */
+    margin-left:0%;
+}
+.padding-8{
+    padding-left: 7% !important;
+}
+.leftSite{
+    padding-left: 3%;
+    text-align: left !important
 }
 .container{
     padding: 0%;
 }
-.time{
+/* .time{
     text-align: left;
     font: normal normal normal 28px/34px Roboto;
     letter-spacing: 0px;
     color: #0A102E;
     text-transform: capitalize;
     opacity: 1;
-    /* color: #0A102E;
-    text-align: left;
-    font: normal normal bold Roboto;
-    letter-spacing: 0px;
-    color: #0A102E;
-    text-transform: capitalize;
-    opacity: 1;
-    left: 0% */
-}
+} */
 .arrow{
     color: #FFFFFF;
     width: 101px;
@@ -179,6 +175,7 @@ opacity: 1;
 
  }
 .bi-heart{
+    
     position: absolute;
     z-index: 8;
     color: #FFFFFF;

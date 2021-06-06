@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import './allEvents.css'
 import DisplayEvent from './displayEvent';
+
 function mapStateToProps(state) {
     return {
         events: state.events
