@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import AllEvents from './components/allEvents'
+import CreateEvent from './components/createEvent'
 import TitleEvent from './components/titleEvents'
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       {/* <AllEvents></AllEvents> */}
       <TitleEvent></TitleEvent>
+      {/* <CreateEvent></CreateEvent> */}
     </div>
   );
 }
-
 export default App;
