@@ -14,14 +14,12 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
-    "is-an-image-url": "^1.0.4",
-    "jquery": "^3.6.0",
-    "popper.js": "^1.16.1",
+    "bootstrap-icons": "^1.5.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
     "react-css-dropdown": "^1.1.2",
     "react-dom": "^17.0.2",
-    "react-jquery-plugin": "^1.1.7",
+    "react-multi-carousel": "^2.6.3",
     "react-player": "^2.9.0",
     "react-redux": "^7.2.4",
     "react-redux-form": "^1.16.14",
@@ -54,5 +52,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify-icons/ion": "^1.1.2",
+    "@iconify/react": "^1.1.4",
+    "react-alice-carousel": "^2.5.1"
   }
 }

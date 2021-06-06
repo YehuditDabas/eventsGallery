@@ -14,8 +14,14 @@ const intioanalState = {
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
         eventsGalleryImage:'',
-        eventsPageImageOrVideo:''
-
+        facebook:'',
+        facebookLink:'',
+        twitter:'',
+        twitterLink:'',
+        instagram:'',
+        instagramLink:'',
+        youtube:'',
+        youtubeLink:''
     },
     userName:{},
     devJwt:{}
@@ -61,20 +67,16 @@ const settings = {
     //     state.settings.amountEventsInRow= action.payload;
     // },
     addAllSettings(state, action) {
-        debugger
-        state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;
-        state.settings.eventsPageDescription =action.payload.settings.eventsPageDescription;
-        state.settings.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;
-        state.settings.eventsPageLogo =action.payload.settings.eventsPageLogo;
-        state.settings.name=action.payload.settings.name;
-        state.settings.phone=action.payload.settings.phone;
-        state.settings.email=action.payload.settings.email;
-        state.settings.address=action.payload.settings.address;
- 
-
-
-        console.log("GET_SETTINGS" +  action.payload.settings.eventsPageDescription);
-;    },
+        state.settings.facebook = action.payload.settings.facebook;
+        state.settings.facebookLink = action.payload.settings.facebookLink;
+        state.settings.twitter = action.payload.settings.twitter;
+        state.settings.twitterLink = action.payload.settings.twitterLink;
+        state.settings.instagram = action.payload.settings.instagram;
+        state.settings.instagramLink = action.payload.settings.instagramLink;
+        state.settings.youtube = action.payload.settings.youtube;
+        state.settings.youtubeLink = action.payload.settings.youtubeLink;
+        console.log("GET_SETTINGS" + state.settings.facebook);
+    },
 
 }
 export default produce((state, action) => createReducer(state, action, settings), intioanalState);
