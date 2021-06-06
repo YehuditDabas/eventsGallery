@@ -7,7 +7,7 @@ import PreviousEvents from './previousEvents'
 function mapStateToProps(state) {
     console.log("event", state.events)
     return {
-        events: state.events
+        events: state.allEvents.events
     }
 }
 const mapDispatchToProps = (dispatch) => ({
