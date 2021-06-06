@@ -18,7 +18,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     const [eventsByMonth, setEventsByMonth] = useState(events);
     const [pastEvents,setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    const numCols = "col-" + 4;
+    const numCols = "col-" + 3;
     var arrow = ["<", ">"];
     const [prevMonth, setPrevMonth] = useState(0);
     useEffect(() => {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './event.css';
 import { actionsStore } from '../redux/actions';
 import DisplayEvent from './displayEvent'
+import PreviousEvents from './previousEvents'
 function mapStateToProps(state) {
     console.log("event", state.events)
     return {
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
     addDevJwt: (devJwt) => dispatch(actionsStore.addDevJwt(devJwt)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    const [numCols, setNumCols] = useState('col-4')
+    const [numCols, setNumCols] = useState('col-3')
     const { events, addAllEvents, addUserName, addDevJwt } = props
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
         ? document.cookie
@@ -56,7 +57,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         <>
             {events.length === 0 ? <p>loading</p> :
                 <div className="row">
-                    {
+                   {
                         events.map((item, key) => (
                             <div key={key} className="cardEvent" className={numCols}>
                                 <DisplayEvent index={key} />
@@ -64,6 +65,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                         ))
                     }
                 </div>}
+                <PreviousEvents/>
         </>
     )
 })

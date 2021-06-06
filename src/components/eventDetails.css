@@ -3,9 +3,9 @@
     width:100vw;
 }
 .rtitle{
-    width:100%;
     height:60vh;
   padding:0;
+  position: absolute;
 }
 .eventTitle{
 position:absolute;
@@ -62,16 +62,16 @@ color: #0A102E;
 text-transform: capitalize;
 opacity: 1;
 }
-.col-5{
+.dm{
     border-left:  1px solid #707070;
     padding-left:3%;
     padding-right:5%; 
 
 }
-.col-7{
+.at{
     padding-left:10%; 
 
-}
+}                
 .aboutD{
     border-right:  1px solid #707070 !important; 
     width:60vw;
@@ -115,16 +115,17 @@ background: #53EEFF 0% 0% no-repeat padding-box;
 .col-7{
     height:100%;
 }
-.bi-heart{
+.edh{
 position: absolute;
 right:50%;
 }
-.bi-share{
+.eds{
     position: absolute;
     right:53%;
 }
 .bi-heart:hover,.bi-share:hover{
     color:darkgray;
+    cursor: pointer;
 }
 .moreEvents{
     text-align: left;
@@ -137,4 +138,9 @@ h1{
 svg{
 height:4vh;
 width:4vw;
+}
+.picTitle{
+    position: absolute;
+    right: 7%;
+    top: 13%;
 }
