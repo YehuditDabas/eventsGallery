@@ -1,0 +1,18 @@
+ .plus{
+     /* width: 103vw!important; */
+    /* height: 30vh!important; */
+    text-align: center!important;
+    /* font: normal normal bold 66vh Roboto !important; */
+    color:#4B1A98 !important;
+}
+.create{
+    /* margin-left: 12vw; */
+    /* margin-top: 32vh; */
+    text-align: center;
+    /* font: normal normal normal 4vh Roboto; */
+    letter-spacing: 0px;
+    color:#000000;
+    opacity: 1;
+
+
+}  

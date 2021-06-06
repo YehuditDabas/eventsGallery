@@ -14,12 +14,13 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
-    "form-input": "^0.1.2",
+    "bootstrap-icons": "^1.5.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
-    "react-color": "^2.19.3",
-    "react-devtools": "^4.13.5",
+    "react-css-dropdown": "^1.1.2",
     "react-dom": "^17.0.2",
+    "react-multi-carousel": "^2.6.3",
+    "react-player": "^2.9.0",
     "react-redux": "^7.2.4",
     "react-redux-form": "^1.16.14",
     "react-router-dom": "^5.2.0",
@@ -51,5 +52,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify-icons/ion": "^1.1.2",
+    "@iconify/react": "^1.1.4",
+    "react-alice-carousel": "^2.5.1"
   }
 }

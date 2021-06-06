@@ -4,13 +4,31 @@ import createReducer from './reducerUtils'
 const intioanalState = {
     settings:
     {
+<<<<<<< HEAD
         eventsPagelogo:"",
         eventsGalleryTitle:"",
        
         eventsGalleryDescription:"",
+=======
+        name:"",
+        email:"",
+        phone:"",
+        address:"",
+        eventsPageLogo:"",
+        eventsPageTitle:"",
+        eventsPageDescription:"",
+>>>>>>> eventsGalleryDev
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
-        eventsGalleryImage:''
+        eventsGalleryImage:'',
+        facebook:'',
+        facebookLink:'',
+        twitter:'',
+        twitterLink:'',
+        instagram:'',
+        instagramLink:'',
+        youtube:'',
+        youtubeLink:''
     },
     userName:{},
     devJwt:{}
@@ -58,9 +76,15 @@ const settings = {
        console.log("settings"+state.settings)
     },
     addAllSettings(state, action) {
-      
-        state.settings = action.payload;
-        console.log("GET_SETTINGS" + state.events);
+        state.settings.facebook = action.payload.settings.facebook;
+        state.settings.facebookLink = action.payload.settings.facebookLink;
+        state.settings.twitter = action.payload.settings.twitter;
+        state.settings.twitterLink = action.payload.settings.twitterLink;
+        state.settings.instagram = action.payload.settings.instagram;
+        state.settings.instagramLink = action.payload.settings.instagramLink;
+        state.settings.youtube = action.payload.settings.youtube;
+        state.settings.youtubeLink = action.payload.settings.youtubeLink;
+        console.log("GET_SETTINGS" + state.settings.facebook);
     },
 
 }
