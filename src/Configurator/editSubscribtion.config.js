@@ -8,9 +8,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import './ConfigComp.css';
 
-export default function SwitchesGroup() {
+export default function EditSubscribtion(props) {
 
-  const fieldSubscription = useSelector(state => state.editSubscriptionConfigurator)
+  const fieldSubscription = useSelector(state => state.editSubscription)
   const dispatch = useDispatch()
   const handleChange = (event) => {
     dispatch(actionsStore.settingFields({ "filedName": [event.target.name], "value": event.target.checked }));
@@ -26,12 +26,12 @@ export default function SwitchesGroup() {
             control={<Switch checked={fieldSubscription.name} onChange={handleChange} name="name" />}
             label="Name"
           />
-          <FormControlLabel className="d-flex justify-content-between" checked={true} disabled={true}
-            control={<Switch  name="Email" />}
+          {/* checked={true} disabled={true} */}
+          <FormControlLabel className="d-flex justify-content-between" 
+            control={<Switch checked={fieldSubscription.email} onChange={handleChange} name="email" />}
             label="Email"
           />
-          <FormControlLabel 
-            className="switch d-flex justify-content-between"
+          <FormControlLabel className="switch d-flex justify-content-between"
             control={<Switch checked={fieldSubscription.phone} onChange={handleChange} name="phone" />}
             label="Phone"
           />

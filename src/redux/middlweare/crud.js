@@ -24,7 +24,9 @@ export  const getEvents = ({ dispatch, getState }) => next => action => {
     };
 
     fetch('https://calendar.dev.leader.codes/api/' + userName+ requestOptions)
-      .then(res => res.json())
+      .then(res => {
+        
+        res.json()})
       .then(resJson =>dispatch(actionsStore.addAllEvents(resJson)))
       .catch(err => {
         console.log(err)
@@ -56,9 +58,9 @@ export const getSettings =({dispatch,getState})=> next=>action=>{
     
   };
 
-  return fetch(API_URL+userName+"/getEventsPageSettings" , requestOptions )
+   fetch(API_URL+userName+"/getEventsPageSettings" , requestOptions )
     .then(res => res.json())
-    .then(resJson =>dispatch(actionsStore.addAllSettings(resJson)))
+    .then(  resJson =>  dispatch(actionsStore.addAllSettings(resJson)))
     .catch(err => {
       console.log(err)
     })
@@ -67,8 +69,18 @@ export const getSettings =({dispatch,getState})=> next=>action=>{
   }
   return next(action)
 }
-export const updateOrCreateSettings = ({ dispatch, getState }) => next => action => {
 
+
+export const updateOrCreateSettings = ({ dispatch, getState }) => next => action => {
+   const devJwt="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJZMlVSTVp0dWhTZlY3S2I0ZG1zc1VZU0FqQ2UyIiwiZW1haWwiOiJjaGF5YWJsYXVAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjIyNjIyNzA2fQ.qvLWECleqZ-cFiIyhzQAOjKlSU2J1IM_5U3iYwQ69mY"
+
+     
+let date = new Date(Date.now() + 86400e3);
+date = date.toUTCString();
+var expires = "expires=" + date;
+
+  document.cookie = "devJwt" + "=" + devJwt + ";" + expires + ";path=/";
+  debugger;
   if(action.type==="UPDATE_OR_CREATE_SETTINGS"){
   
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
@@ -85,24 +97,18 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("authorization", TokenToString)//cookies;
+    
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body:JSON.stringify(action.payload.newr)
+      body:JSON.stringify(action.payload)
     }
      
-  
-    console.log(action.payload)
-    
+    // console.log(action.payload)
     debugger;
      fetch(API_URL+userName+"/createOrUpadteEventsPageSettings" , requestOptions )
-      .then(res =>{
-        debugger
-        res.json()
-      } 
-       
-        )
-      .then(resJson =>dispatch(actionsStore.updateOrCreateSettings(resJson)))
+      .then(res =>res.json()).then(res=>console.log("settings come back"+res))
+      .then(resJson =>dispatch(actionsStore.updateOrCreateSettingsAgain(resJson)))
       .catch(err => {
         console.log(err)
       })

@@ -49,15 +49,15 @@ const editHeader = {
     setTitleText(state, action) {
         state.text.title = action.payload;
     },
-    setTitleTextColor(state, action) {
-        state.textColor.title = action.payload;
-    },
+    // setTitleTextColor(state, action) {
+    //     state.textColor.title = action.payload;
+    // },
     setBodyText(state, action) {
         state.text.body = action.payload;
     },
-    setBodyTextColor(state, action) {
-        state.textColor.body = action.payload;
-    },
+    // setBodyTextColor(state, action) {
+    //     state.textColor.body = action.payload;
+    // },
 };
 
 export default produce((state, action) => createReducer(state, action, editHeader), initialState);

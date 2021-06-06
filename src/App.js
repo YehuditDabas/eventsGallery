@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <ConfiguratorSettings/>   
+         <ConfiguratorSettings/>    
        
         <AllEvents />
         <Settings/>

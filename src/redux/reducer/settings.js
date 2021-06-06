@@ -6,7 +6,7 @@ const intioanalState = {
     {
         eventsPagelogo:"",
         eventsGalleryTitle:"",
-        eventsGalleryTitle:"",
+       
         eventsGalleryDescription:"",
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
@@ -23,8 +23,7 @@ const settings = {
     updateTitle(state, action) {
         
                 state.settings.eventsGalleryTitle = action.payload;
-                console.log("updateTitle"+state.settings.eventsGalleryTitle)
-       
+                // console.log("updateTitle"+state.settings.eventsGalleryTitle)
     },
     updateDescription(state, action) {
         
@@ -49,12 +48,15 @@ const settings = {
         
         state.devJwt = action.payload
     },
-    // updateOrCreateSettings(state,action){
-    //     // state.action.settings=action.payload;
-    //     state.settings.eventsGalleryTitle = action.payload;
-    //     state.settings.eventsGalleryDescription= action.payload;
-    //     state.settings.amountEventsInRow= action.payload;
-    // },
+    updateOrCreateSettingsAgain(state,action){
+        // state.action.settings=action.payload;
+        debugger;
+        state.settings.eventsGalleryTitle = action.payload.settings;
+        state.settings.eventsGalleryDescription= action.payload;
+        state.settings.amountEventsInRow= action.payload;
+        console.log("from dispatch")
+       console.log("settings"+state.settings)
+    },
     addAllSettings(state, action) {
       
         state.settings = action.payload;
