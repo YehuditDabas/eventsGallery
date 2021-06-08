@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import './allEvents.css'
 import DisplayEvent from './displayEvent';
 import PreviousEvents from './previousEvents';
+
+
 function mapStateToProps(state) {
     return {
         events: state.events

@@ -2,7 +2,8 @@
 function convertActionNameToType(actionName) {
     return actionName.replace(/([A-Z])/g, "_$1").toUpperCase();
 }
-export  const actionsStore = new Proxy(
+
+export const  actionsStore = new Proxy(
     {},
     {
         get: function (target, prop) {
