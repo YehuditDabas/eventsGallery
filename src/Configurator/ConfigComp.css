@@ -216,11 +216,10 @@ height: 14.3312101910828%;
     
 }
  .accordion>.card>.card-header:hover{
-  /*  background-color: #E8EAEC !important;    */
-/* 
-    background-color:  rgba(#FFFFFF, #006C8000 ); */
+ 
     opacity: 0.18;
     background: transparent linear-gradient(90deg, #FFFFFF 0%, #006C8000 100%) 0% 0% no-repeat padding-box;
+    color: white !important;
 }
 
 .MuiFormControl-root {
@@ -273,4 +272,23 @@ height: 14.3312101910828%;
 }
 .MuiFormControl-root{
     margin-left: 0px !important;
+}
+Form.Label{
+    font:normal;
+}
+.inputLinkIcon{
+    background: #505066 0% 0% no-repeat padding-box;
+/* border-radius: 2px; */
+opacity: 0.30;
+display: inline-block;
+
+}
+.iconFooter{
+    display:flex;
+    margin-left: 1vh;
+    
+}
+.icon{
+    margin: 1vh;
+    margin-right: 2vh;
 }

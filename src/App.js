@@ -20,8 +20,8 @@ function App() {
       <div className="App">
          <ConfiguratorSettings/>    
        
-        <AllEvents />
-        <Settings/>
+        {/* <AllEvents />
+        <Settings/> */}
       </div>
     </Router>
   )

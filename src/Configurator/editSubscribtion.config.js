@@ -7,6 +7,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import './ConfigComp.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function EditSubscribtion(props) {
 
@@ -16,6 +17,7 @@ export default function EditSubscribtion(props) {
     dispatch(actionsStore.settingFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };
+  
 
   return (
     <FormControl component="fieldset" className="FormControlW">

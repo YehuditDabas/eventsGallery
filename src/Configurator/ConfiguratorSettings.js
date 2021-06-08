@@ -31,11 +31,11 @@ function ConfiguratorSettings(props) {
               eventKey={'Edit Subscription'}
               component={EditSubscription} קומפוננטה שלישית
             />
-            {/* <CardComponentConfig
+            <CardComponentConfig
           // className="PositionA"      
           eventKey={'Edit Footer'}
           component={EditFooter}קומפוננטה שלישית
-        /> */}
+        />
 
             {/* <CardComponentConfig eventKey={1} component={ChannelDetails} nameComponent={'ChannelDetails'} />
                 <CardComponentConfig eventKey={2} component={AudioDetails} nameComponent={'AudioDetails'} />  */}

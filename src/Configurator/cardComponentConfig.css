@@ -51,6 +51,7 @@
     height: 100vh;
     overflow: scroll;
     color:white;
+    margin-bottom:3vh;
   }
   /* .accordion{
     overflow-y: unset !important;
