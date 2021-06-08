@@ -1,6 +1,11 @@
-.body{
+:root {
+    --main-color:#4B1A98;
+    --button-color:#53EEFF;
+}
+.container-fluid{
     height:100vh;
     width:100vw;
+    padding:0;
 }
 .rtitle{
     height:60vh;
@@ -93,17 +98,18 @@ opacity: 1;
     text-align: left;
     font: normal normal 300 2vw Roboto;
     letter-spacing: 0px;
-    color: #9653FF;
+    color: var(--main-color);
     opacity: 1;
 }
 .ticketsButton{
     width: 40%;
     height: 7vh;
-background: #53EEFF 0% 0% no-repeat padding-box;
+/* background:  0% 0% no-repeat padding-box; */
+background-color: var(--button-color);
     font: normal normal medium 22px/27px Roboto;
     font-size:3.5vh;
     letter-spacing: 2.2px;
-   color: #4B1A98;
+   color: var(--main-color);
    text-transform: uppercase;
    opacity: 1;
    margin-top: 2%;

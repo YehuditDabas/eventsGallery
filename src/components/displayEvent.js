@@ -20,6 +20,9 @@ function mapStateToProps(state) {
 
 export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) {
     const { index, events, userName, TokenToString, history } = props;
+    document.documentElement.style.setProperty('--main-color',"aqua");
+
+
     // const [events, setEvents] = useState([{ title: 'aaa', start: '03-03', place: 'urnu,jrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: 'urnujrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: ',urnujrn' }])
     const [url, setUrl] = useState('')
     const [isShown, setIsShown] = useState(false)
@@ -54,16 +57,15 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                     <div className="container">
                         <div className="row leftSite">
                             <div hidden={isShown} >
-                                <br></br><br/>
+                                <br></br>
                                 <span padding-top="3px" className="col-sm-12 eeventTitle" >{events[index].title}</span>
                             </div>
                         </div>
                         <br hidden={!isShown}></br>
-                        <br hidden={!isShown}></br><br/>
+                        <br hidden={!isShown}></br>
                         <span hidden={!isShown} className="showDetails">View Details</span>
                         <div className="details" hidden={!isShown}>
-                            <br/><br/>
-                            <img src={arrow}></img>
+                            <img src={arrow} ></img>
                         </div>
                         <br/>
                         <div className="row padding-0" hidden={isShown}>

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import './allEvents.css'
 import DisplayEvent from './displayEvent';
+import PreviousEvents from './previousEvents';
 function mapStateToProps(state) {
     return {
         events: state.events
@@ -14,9 +15,11 @@ const mapDispatchToProps = (dispatch) => ({
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
     const { events } = props;
+    document.documentElement.style.setProperty('--main-color',"aqua");
+
     // const [settings, setSettings] = useState({ eventsPageTitle: 'opop', picteventsPageImageure: '', eventsPageDescription: 'opppppppppppp', amountEventsInRow: '3' });//יקבל עדכון נתוני הגדרות מהשרת
     const [eventsByMonth, setEventsByMonth] = useState(events);
-    const [pastEvents,setPastEvents] = useState(true);
+    const [pastEvents, setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     const numCols = "col-" + 3;
     var arrow = ["<", ">"];
@@ -25,7 +28,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         setEventsByMonth(events)
     }, [])
 
-    var e1 = [];
+    var e1 = [],dt=true;
     // function past(){
     //     if(pastEvents==true){
     //         setPastEvents(false);
@@ -64,7 +67,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             document.getElementById(m).setAttribute('class', 'bt');
 
         }
-        var date = new Date("1-1-1900");
+        var date =dt==true ?new Date("1-1-1900"): new Date();
         for (var i = 0; i < events.length; i++) {
             d = i < 10 ? events[i].start.slice(6, 7) : events[i].start.slice(5, 7)
             console.log("d=" + d);
@@ -91,7 +94,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     return (
         <>
 
-            <div class="container-fluid">
+         <div class="container-fluid">
                 <div class="row title"><p>our upcoming events</p></div>
                 <div ><button class="bt" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
@@ -99,8 +102,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                 <div class="row events">
                     {eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>)}
                 </div>
+
             </div>
-            {/* <button className="btn" id="ifPast" >להסתרת אירועי עבר</button> */}
 
         </>
 

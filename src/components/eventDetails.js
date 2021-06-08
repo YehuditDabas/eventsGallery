@@ -14,15 +14,17 @@ function mapStateToProps(state) {
 }
 
 export default withRouter(connect(mapStateToProps)(function EventDetails(props) {
-    const index = window.location.pathname.split('/')[3]
+    document.documentElement.style.setProperty('--main-color',"aqua");
+    document.documentElement.style.setProperty('--button-color',"pink");
 
+    const index = window.location.pathname.split('/')[3]
     const { events } = props;
     const [moreEvents, setMoreEvents] = useState();
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let e1 = [];
-    console.log(events[index])
+    // console.log(events[index])
     console.log('index', index)
-    console.log("tickets ", events[index].registrationURL)
+    // console.log("tickets ", events[index].registrationURL)
     function day() {
         const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         let str = events[index].start.slice(0, 10).split('-')
@@ -71,7 +73,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
             {events.length !== 0 ? <>
                 <div className="container-fluid">
                     <div className="row">
-                        <img src={title} height="100%" width="100%"></img>
+                        <img src={title} height="100%" width="100%" ></img>
                         <div className="col-7 rtitle">
                             <div className="eventTitle">{events[index].title}
                                 <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
