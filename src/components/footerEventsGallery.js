@@ -5,6 +5,9 @@ import { Icon, InlineIcon } from '@iconify/react';
 import logoTwitter from '@iconify-icons/ion/logo-twitter';
 
 function mapStateToProps(state) {
+
+    document.documentElement.style.setProperty('--main-color',state.settings.settings.eventsPageColor);
+console.log('settings', state.settings.settings)
     return {
         settings: state.settings.settings
     }

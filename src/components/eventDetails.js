@@ -7,7 +7,7 @@ import SimpleImg from '../assets/simpleImg.png'
 
 function mapStateToProps(state) {
     return {
-        events: state.events,
+        events: state.allEvents.events,
     }
 }
 
