@@ -32,7 +32,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                         ))
                     }
                 </div>}
-                <PreviousEvents/>
+                {/* <PreviousEvents/> */}
         </>
     )
 })

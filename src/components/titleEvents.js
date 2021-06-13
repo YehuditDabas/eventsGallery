@@ -23,7 +23,7 @@ import { subscribe } from '../redux/middlweare/crud'
 function mapStateToProps(state) {
     console.log(state.settings.settings)
     // red #86F3FF
-    document.documentElement.style.setProperty('--Button-color', 'red');
+    document.documentElement.style.setProperty('--Button-color', '#9F9CB5');
     // state.settings.settings.eventsButtonColor
 
     // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
@@ -101,7 +101,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
 
                 <div className="row title" >
-                    <img className="myImg" src={img['#9F9CB5']}></img>
+                    <img className="myImg" src={img['#63F597']}></img>
                     <img className="mylogo" src={settings.eventsPageLogo}></img>
                     <div className="col-5 titleAndDescription">
                         <h1 className="titleH1"> {settings.eventsPageTitle}</h1>
@@ -124,7 +124,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                             {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
                             {showing ?
                                 <div>
-                                    <img className="arrow" src={arrow}></img>
+                                    <img className="arrow_" src={arrow}></img>
                                     <div className="dropDown">
                                         <form className="formSubscribe">
                                             <br></br>
@@ -154,9 +154,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             </div> : <div></div>}
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-3 createEventArea">
+                    {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

@@ -8,12 +8,15 @@ import {
 import EventDetails from './components/eventDetails';
 import PreviousEvents from './components/previousEvents';
 import FooterEventsGallery from './components/footerEventsGallery';
-
+import TitleEvents from './components/titleEvents';
+import MyAllEvents from './components/myAllEvents';
 
 function App() {
   return (
     <Router>
       <Route exact path="/:userName">
+        <TitleEvents></TitleEvents>
+        <MyAllEvents></MyAllEvents>
         <FooterEventsGallery/>
         {/* <PreviousEvents/> */}
       </Route>
