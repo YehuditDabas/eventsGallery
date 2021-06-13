@@ -21,7 +21,7 @@ import turkiz from '../assets/arrows/turkiz.png'
 import yellow from '../assets/arrows/yellow.png'
 import { withRouter } from 'react-router-dom'
 
-function mapStateToProps(state) {
+function mapStateToProps(state) { 
     console.log("userName", state.userName)
     console.log("state.devJwt", state.devJwt)
     return {
@@ -39,7 +39,7 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
     const [url, setUrl] = useState('')
     const [isShown, setIsShown] = useState(false)
     const classes = useStyles();
-    document.documentElement.style.setProperty('--main-color',eventsPageColor);
+    document.documentElement.style.setProperty('--main-color','#63F597');
 
    const images={
        '#424149':black,
@@ -75,7 +75,7 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
                     </svg>
 
-                    <div hidden={isShown} className="priceD"><img className="price" src={images[eventsPageColor]}></img></div>
+                    <div hidden={isShown} className="priceD"><img className="price" src={images['#63F597']}></img></div>
                     {/* <div hidden={isShown} className="priceD">
                         <div className="rectangle"></div>
                         <div className="triangle-left"></div>

@@ -9,11 +9,12 @@ import EventDetails from './components/eventDetails';
 import PreviousEvents from './components/previousEvents';
 import FooterEventsGallery from './components/footerEventsGallery';
 import MyAllEvents from './components/myAllEvents';
-
+import TitleEvents from './components/titleEvents';
 function App() {
   return (
     <Router>
       <Route exact path="/:userName">
+        <TitleEvents></TitleEvents>
         <MyAllEvents/>
         <FooterEventsGallery/>
         {/* <PreviousEvents/> */}
