@@ -10,7 +10,6 @@ import PreviousEvents from './components/previousEvents';
 import FooterEventsGallery from './components/footerEventsGallery';
 import TitleEvents from './components/titleEvents';
 import MyAllEvents from './components/myAllEvents';
-import TitleEvents from './components/titleEvents';
 function App() {
   return (
     <Router>
