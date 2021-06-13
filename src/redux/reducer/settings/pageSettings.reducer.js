@@ -5,6 +5,7 @@ const initialState = {
     page: {
         eventsPageColor: "",
         amountEventsInRow: "",
+        eventsButtonColor:""
     }
 
     // Watch previous events:"",
@@ -38,6 +39,7 @@ const configImage = {
     addAllSettings(state, action) {
         state.page.amountEventsInRow = action.payload.settings.amountEventsInRow
         state.page.eventsPageColor = action.payload.settings.eventsPageColor
+        state.page.eventsButtonColor = action.payload.settings.eventsButtonColor
 
     }
 };

@@ -73,7 +73,7 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                         </div>
                         <div className="row padding-0" hidden={isShown}>
                             <div className="col-12 padding-0 leftSite">
-                                <span style={{marginTop: "5%"}} className="timeDetails"> {events[index].start.slice(8, 10)}/{events[index].start.slice(5, 7)} . {events[index].start.slice(11, 16)} . {events[index].place.split(',')[2]}</span>
+                                <span  className="timeDetails"> {events[index].start.slice(8, 10)}/{events[index].start.slice(5, 7)} . {events[index].start.slice(11, 16)} . {events[index].place.split(',')[2]}</span>
                             </div>
                         </div>
                     </div>

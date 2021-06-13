@@ -10,16 +10,17 @@ import MiniEvent from '../components/miniEvent';
 function mapStateToProps(state) {
     return {
         events: state.allEvents.events,
-        mainColor:state.pageSettings.page.eventsPageColor
+        mainColor:state.pageSettings.page.eventsPageColor,
+        eventsButtonColor:state.pageSettings.page.eventsButtonColor
 
     }
 }
 
 export default withRouter(connect(mapStateToProps)(function EventDetails(props) {
-    const { events,mainColor } = props;
+    const { events,mainColor,eventsButtonColor } = props;
 
     document.documentElement.style.setProperty('--main-color', mainColor);
-    document.documentElement.style.setProperty('--button-color', "pink");
+    document.documentElement.style.setProperty('--button-color',eventsButtonColor );
 
     const index = window.location.pathname.split('/')[3]
     const [moreEvents, setMoreEvents] = useState();
