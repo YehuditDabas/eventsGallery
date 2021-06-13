@@ -1,3 +1,9 @@
+/* --unnamed-color-9653ff: #9653FF;
+--unnamed-color-0a102e: #0A102E;
+--unnamed-color-707070: #707070; */
+:root {
+    --main-color:#4B1A98;
+}
 
 .eventImg{
 
@@ -6,15 +12,15 @@
     height: 36vh;
 }
 .eventCard:hover .eventTitle{
-    color:#9653FF;
+    color:var(--main-color)
 }
 .eventCard:hover .eventDescription{
-   background: #9653FF 0% 0% no-repeat padding-box;
+   background: var(--main-color) 0% 0% no-repeat padding-box;
    opacity: 1;
 }
 .eventCard{
-    border: #9653FF;
-    border-bottom:3px #9653FF;
+    border: var(--main-color);
+    border-bottom:3px var(--main-color);
     text-align: center;
     position: relative;
 }
@@ -25,7 +31,7 @@
     height: 26vh;
     background: #F0F2FA 0% 0% no-repeat padding-box;
     opacity: 1;
-    border-bottom:3px solid #9653FF;
+    border-bottom:3px solid var(--main-color);
 }
 .priceD{
     z-index: 2;
@@ -68,7 +74,7 @@
 }
 .biTime{
     font-weight: 2px !important;
-    color:#9653FF !important;
+    color:var(--main-color) !important;
 }
 .padding-0{
     padding-right:0%;
@@ -143,21 +149,20 @@ opacity: 1;
         z-index: 7;
         text-align: right;
         position: absolute;
-        top: 55%;
-        right: 0%;
+        top: 35vh;
+    right: 0vw;
         /* transform: translate(-50%, -50%); */
-        color: #FFFFFF;
-        opacity: 1;
-        font: normal normal 300 5vh/3vw Roboto;
-        letter-spacing: 0px;
-    
+    color: #FFFFFF;
+    opacity: 1;
+    font: normal normal 300 5vh/3vw Roboto;
+    letter-spacing: 0px;
 }
 .price{
     position: absolute;
     z-index: 6;
     /* position:initial; */
     top: 55%;
-    right: 0%;
+    right: 0vw;
     width: 9vw;
     height: 8vh;
 }
@@ -176,6 +181,29 @@ opacity: 1;
     color: #FFFFFF;
     top: 4%;
     left: -41%;
+}
+.triangle-left {
+	width: 0;
+    height: 0;
+    border-top: 4vh solid transparent;
+    border-right: 6vh solid red;
+    border-bottom: 4vh solid transparent;
+    position: absolute;
+    z-index: 6;
+    top: 55%;
+    right: 32%;
+}
+.rectangle {
+    position:absolute;
+	height: 50px;
+    width: 100px;
+    background-color: var(--main-color);
+	/* border-top: 25px solid transparent;
+	border-right: 50px solid var(--main-color);
+	border-bottom: 25px solid transparent; */
+    z-index: 6;
+    top: 55%;
+    right: 32%;
 }
 /* @media screen and (max-width: 500px){
     .cardEvent{

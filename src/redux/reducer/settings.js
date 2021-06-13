@@ -67,6 +67,7 @@ const settings = {
     //     state.settings.amountEventsInRow= action.payload;
     // },
     addAllSettings(state, action) {
+        debugger;
         state.settings.facebook = action.payload.settings.facebook;
         state.settings.facebookLink = action.payload.settings.facebookLink;
         state.settings.twitter = action.payload.settings.twitter;
@@ -75,7 +76,9 @@ const settings = {
         state.settings.instagramLink = action.payload.settings.instagramLink;
         state.settings.youtube = action.payload.settings.youtube;
         state.settings.youtubeLink = action.payload.settings.youtubeLink;
-        console.log("GET_SETTINGS" + state.settings.facebook);
+        state.settings.eventsButtonColor = action.payload.settings.eventsButtonColor;
+        state.settings.eventsPageColor = action.payload.settings.eventsPageColor;
+        console.log("GET_SETTINGS" + state.settings);
     },
 
 }

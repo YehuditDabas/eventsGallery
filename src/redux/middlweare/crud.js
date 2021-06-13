@@ -24,11 +24,8 @@ export const getEvents = ({ dispatch, getState }) => next => action => {
       headers: myHeaders,
     };
 
-    fetch('https://calendar.dev.leader.codes/api/' + userName, requestOptions)
-      .then(res =>
-        res.json()
-
-      )
+    fetch('https://calendar.dev.leader.codes/api/' + userName +"/getCalendarEventsCategory", requestOptions)
+      .then(res => res.json())
       .then(resJson => dispatch(actionsStore.addAllEvents(resJson)))
       .catch(err => {
         console.log(err)
@@ -73,6 +70,22 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
         console.log(err)
       })
 
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("authorization", TokenToString)//cookies;
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+
+    };
+
+    return fetch(API_URL + userName + "/getEventsPageSettings", requestOptions)
+      .then(res => res.json())
+      .then(resJson=>dispatch(actionsStore.addAllSettings(resJson)))
+      .catch(err => {
+        console.log(err)
+      })
 
   }
   return next(action)
