@@ -18,6 +18,10 @@ const editSubscriptionConfigurator = {
     },
     settingFields(state, action) {
         state[action.payload.filedName] = action.payload.value;
+    },
+    addAllSettings(state, action) {
+        debugger;
+       
     }
 }
 export default produce((state, action) => createReducer(state, action, editSubscriptionConfigurator), initialState)
