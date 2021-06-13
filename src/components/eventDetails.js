@@ -9,16 +9,19 @@ import MiniEvent from '../components/miniEvent';
 
 function mapStateToProps(state) {
     return {
-        events: state.events,
+        events: state.allEvents.events,
+        mainColor:state.pageSettings.page.eventsPageColor
+
     }
 }
 
 export default withRouter(connect(mapStateToProps)(function EventDetails(props) {
-    document.documentElement.style.setProperty('--main-color',"aqua");
-    document.documentElement.style.setProperty('--button-color',"pink");
+    const { events,mainColor } = props;
+
+    document.documentElement.style.setProperty('--main-color', mainColor);
+    document.documentElement.style.setProperty('--button-color', "pink");
 
     const index = window.location.pathname.split('/')[3]
-    const { events } = props;
     const [moreEvents, setMoreEvents] = useState();
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let e1 = [];
@@ -64,7 +67,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
     useEffect(() => {
-        if (events.length != 0) {
+        if (events && events.length != 0) {
             addMoreEvents()
         }
     }, [])
@@ -81,8 +84,8 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 picTitle"><img src={events[index].image==""?SimpleImg:events[index].image} height="100%" width="100%"></img>
-</div>
+                        <div class="col-5 picTitle"><img src={events[index].image == "" ? SimpleImg : events[index].image} height="100%" width="100%"></img>
+                        </div>
                     </div>
                     <div className="row">
                         <div className="at col-7">
@@ -124,7 +127,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                     <div class="moreEvents">
                         <h1 className="more">more events on {month().slice(3, 10)}</h1>
                         <div className="row">
-                            {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title}></MiniEvent> </div>)}
+                            {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title} mainColor={mainColor}></MiniEvent> </div>)}
                         </div>
                     </div>
                 </div>

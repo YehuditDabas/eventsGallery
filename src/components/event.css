@@ -2,7 +2,7 @@
 --unnamed-color-0a102e: #0A102E;
 --unnamed-color-707070: #707070; */
 :root {
-    --main-color:#4B1A98;
+    --main-color:#d46317;
 }
 .eventImg{
     /* width: 26vw;
@@ -24,6 +24,7 @@
     /* border-bottom:7px #9653FF; */
     text-align: center;
     position: relative;
+    margin-bottom: 7%;
 
 }
 .eventCard:hover .eventImg{
@@ -54,6 +55,10 @@
 .container{
     padding: 0%;
 }
+.eventContainer{
+margin:0% !important;
+padding: 0% !important;
+}
 .time{
     text-align: left;
     font: normal normal normal 28px/34px Roboto;
@@ -83,6 +88,7 @@
 .padding-0{
     padding-right:0%;
     padding-left:0%;
+    margin-top: 3% !important;
 }
 
 .showDetails{
@@ -96,6 +102,7 @@
     opacity: 1;
     padding-left: 0%;
     text-align: center;
+    cursor: pointer;
 }
 .details{
     width:100%;
@@ -199,7 +206,7 @@ padding-left: 3%;
     top: 4%;
     width: 60px;
     cursor: pointer;
-    left:9%;
+    left:12%;
 
 }
 .deh{

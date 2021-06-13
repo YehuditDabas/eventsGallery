@@ -7,7 +7,8 @@ import PreviousEvents from './previousEvents';
 
 function mapStateToProps(state) {
     return {
-        events: state.events
+        events: state.allEvents.events,
+        mainColor:state.pageSettings.page.eventsPageColor
     }
 }
 const mapDispatchToProps = (dispatch) => ({
@@ -16,8 +17,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    const { events } = props;
-    document.documentElement.style.setProperty('--main-color',"aqua");
+    const { events,mainColor } = props;
+    document.documentElement.style.setProperty('--main-color', mainColor);
 
     // const [settings, setSettings] = useState({ eventsPageTitle: 'opop', picteventsPageImageure: '', eventsPageDescription: 'opppppppppppp', amountEventsInRow: '3' });//יקבל עדכון נתוני הגדרות מהשרת
     const [eventsByMonth, setEventsByMonth] = useState(events);
@@ -30,7 +31,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         setEventsByMonth(events)
     }, [])
 
-    var e1 = [],dt=true;
+    var e1 = [], dt = true;
     // function past(){
     //     if(pastEvents==true){
     //         setPastEvents(false);
@@ -69,7 +70,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             document.getElementById(m).setAttribute('class', 'bt');
 
         }
-        var date =dt==true ?new Date("1-1-1900"): new Date();
+        var date = dt == true ? new Date("1-1-1900") : new Date();
+
         for (var i = 0; i < events.length; i++) {
             d = i < 10 ? events[i].start.slice(6, 7) : events[i].start.slice(5, 7)
             console.log("d=" + d);
@@ -80,6 +82,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             e1 = events.filter(item => item.start > date.toISOString())
             setEventsByMonth(e1)
         }
+
+
         else { setEventsByMonth(e1); }
 
         if (!eventsByMonth) { console.log("אין אירועים"); }
@@ -96,13 +100,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     return (
         <>
 
-         <div class="container-fluid">
+            <div class="container-fluid">
                 <div class="row title"><p>our upcoming events</p></div>
                 <div ><button class="bt" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row events">
-                    {eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>)}
+                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>) : ''}
                 </div>
 
             </div>

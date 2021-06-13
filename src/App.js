@@ -18,15 +18,16 @@ import EventDetails from './components/eventDetails';
 function App() {
   return (
     <Router>
-      <Route exact path="/:userName">
+       <Route exact path="/:userName">
         <AllEvents />
       </Route>
       <Route  path="/:userName/eventDetails/:index">
         <EventDetails />
-      </Route>
+      </Route> 
 
-      <div className="App"></div>
-         <ConfiguratorSettings/>    
+      {/* <Route  path="/"><ConfiguratorSettings/>  </Route> */}
+     <div className="App"></div>
+
    
     </Router>
   )
