@@ -9,25 +9,15 @@ const intioanalState = {
 }
 const events = {
     addAllEvents(state, action) {
-<<<<<<< HEAD
-        debugger;
-=======
->>>>>>> yehudit
         state.events = action.payload;
         console.log("allevents" + state.events);
     },
     addUserName(state, action) {
-<<<<<<< HEAD
         
         state.userName = action.payload;
     },
     addDevJwt(state, action) {
         // debugger;
-=======
-        state.userName = action.payload;
-    },
-    addDevJwt(state, action) {
->>>>>>> yehudit
         state.devJwt = action.payload
     },
     

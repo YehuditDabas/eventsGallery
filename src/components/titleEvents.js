@@ -19,6 +19,7 @@ import purple1 from '../assets/purple1.png'
 import purple2 from '../assets/purple2.png'
 import turquoise from '../assets/turquoise.png'
 import { subscribe } from '../redux/middlweare/crud'
+import AllEvents from './allEvents'
 
 function mapStateToProps(state) {
     console.log(state.settings.settings)
@@ -100,7 +101,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             {settings.eventsPageTitle !== "" && settings.displayHeader == true ? <div className="container-fluid" >
 
 
-                <div className="row title" >
+                <div className="row" >
                     <img className="myImg" src={img['#63F597']}></img>
                     <img className="mylogo" src={settings.eventsPageLogo}></img>
                     <div className="col-5 titleAndDescription">
@@ -152,8 +153,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                 </div>
 
             </div> : <div></div>}
-            <div className="container-fluid">
+            <div className="container-fluid evnetsUnderFilter">
                 <div className="row">
+                    <AllEvents style={{zIndex:1}}></AllEvents>
                     {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div> */}

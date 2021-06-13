@@ -4,7 +4,6 @@ import createReducer from './reducerUtils'
 const intioanalState = {
     settings:
     {
-<<<<<<< HEAD
         name:"",
         email:"",
         phone:"",
@@ -12,12 +11,6 @@ const intioanalState = {
         eventsPageLogo:"",
         eventsPageTitle:"",
         eventsPageDescription:"",
-=======
-        eventsPagelogo:"",
-        eventsGalleryTitle:"",
-       
-        eventsGalleryDescription:"",
->>>>>>> yehudit
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
         eventsGalleryImage:'',
@@ -53,10 +46,6 @@ const settings = {
         state.settings.amountEventsInRow= action.payload;
         
     },
-<<<<<<< HEAD
-   
-  
-=======
     addUserName(state, action) {
       
         state.userName = action.payload;
@@ -74,7 +63,6 @@ const settings = {
         console.log("from dispatch")
        console.log("settings"+state.settings)
     },
->>>>>>> yehudit
     addAllSettings(state, action) {
         debugger
         state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;

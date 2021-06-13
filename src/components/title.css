@@ -134,11 +134,15 @@ form .form-control:focus{
     border-color: #ced4da;
     box-shadow: none;
   }
-    
+    .evnetsUnderFilter{
+        height: 100vh !important;
+        z-index: 1;
+    }
 
 .arrow_{
-    margin-left: -6vw;
-    margin-top: -2.5vh;
+ 
+    margin-left: 8vw;
+    margin-top: -1.5vh;
     width: 2vw;
     height: 2vh;
     z-index: 0;

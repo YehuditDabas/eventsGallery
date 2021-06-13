@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './allEvents.css'
 import DisplayEvent from './displayEvent';
 import PreviousEvents from './previousEvents';
+import CreateEvent from './createEvent';
 
 
 function mapStateToProps(state) {
@@ -104,7 +105,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row events">
+                     <div className="col-3 createEventArea">
+                        <CreateEvent></CreateEvent>
+                    </div>
                     {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>) : ''}
+
                 </div>
 
             </div>

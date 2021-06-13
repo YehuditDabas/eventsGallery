@@ -21,7 +21,6 @@ import turkiz from '../assets/arrows/turkiz.png'
 import yellow from '../assets/arrows/yellow.png'
 import { withRouter } from 'react-router-dom'
 
-<<<<<<< HEAD
 function mapStateToProps(state) { 
     console.log("userName", state.userName)
     console.log("state.devJwt", state.devJwt)
@@ -30,32 +29,15 @@ function mapStateToProps(state) {
         eventsPageColor: state.settings.settings.eventsPageColor,
         userName: state.userName,
         devJwt: state.devJwt
-=======
-function mapStateToProps(state) {
-    console.log("userName", state.allEvents.userName)
-    console.log("state.devJwt", state.allEvents.devJwt)
-    console.log("state.pageSettings.page ",state.pageSettings.page.eventsPageColor)
-    return {
-        userName: state.allEvents.userName,
-        devJwt: state.allEvents.devJwt, 
-        mainColor:state.pageSettings.page.eventsPageColor
-        
-
->>>>>>> yehudit
     }
 }
 
 export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) {
-<<<<<<< HEAD
     const { index, events,eventsPageColor, userName, TokenToString, history } = props;
     console.log("event",events)
-=======
-    const { index, events, userName,mainColor, TokenToString, history } = props;
-    console.log("color  ",mainColor)
-    document.documentElement.style.setProperty('--main-color',mainColor);
+    document.documentElement.style.setProperty('--main-color',eventsPageColor);
 
 
->>>>>>> yehudit
     // const [events, setEvents] = useState([{ title: 'aaa', start: '03-03', place: 'urnu,jrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: 'urnujrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: ',urnujrn' }])
     const [url, setUrl] = useState('')
     const [isShown, setIsShown] = useState(false)
