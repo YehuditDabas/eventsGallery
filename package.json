@@ -19,8 +19,9 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
     "react-color": "^2.19.3",
-    "react-devtools": "^4.13.5",
+    "react-css-dropdown": "^1.1.2",
     "react-dom": "^17.0.2",
+    "react-multi-carousel": "^2.6.3",
     "react-player": "^2.9.0",
     "react-redux": "^7.2.4",
     "react-redux-form": "^1.16.14",
@@ -55,6 +56,8 @@
     ]
   },
   "devDependencies": {
+    "@iconify-icons/ion": "^1.1.2",
+    "@iconify/react": "^1.1.4",
     "react-alice-carousel": "^2.5.1"
   }
 }

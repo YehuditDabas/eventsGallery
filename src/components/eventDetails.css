@@ -2,10 +2,10 @@
     /* --main-color:#e9a411; */
     --button-color:#53EEFF;
 }
-.container-fluid{
-    height:100vh;
-    width:100vw;
-    padding:0;
+.container-fluid {
+    height: 74vh;
+    width: 100vw;
+    padding: 0;
 }
 .rtitle{
     height:60vh;
@@ -35,7 +35,6 @@ color: #FFFFFF;
 opacity: 1;
 }
 .description{
-  
     top: 909px;
 left: 192px;
 width: 1014px;

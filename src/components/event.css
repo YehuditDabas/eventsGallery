@@ -2,17 +2,17 @@
 --unnamed-color-0a102e: #0A102E;
 --unnamed-color-707070: #707070; */
 :root {
-    --main-color:#d46317;
+    --main-color:#4B1A98;
 }
+
 .eventImg{
-    /* width: 26vw;
-    height: 36vh; */
+
     opacity: 1; 
     z-index: 1;
     height: 36vh;
 }
-.eventCard:hover .eeventTitle{
-    color:var(--main-color);
+.eventCard:hover .eventTitle{
+    color:var(--main-color)
 }
 .eventCard:hover .eventDescription{
    background: var(--main-color) 0% 0% no-repeat padding-box;
@@ -21,7 +21,7 @@
 
 .eventCard{
     border: var(--main-color);
-    /* border-bottom:7px #9653FF; */
+    border-bottom:3px var(--main-color);
     text-align: center;
     position: relative;
     margin-bottom: 7%;
@@ -50,31 +50,26 @@
     color: #0A102E;
     text-transform: capitalize;
     opacity: 1;
-    /* margin-left:10%; */
+    margin-left:0%;
+}
+.padding-8{
+    padding-left: 7% !important;
+}
+.leftSite{
+    padding-left: 3%;
+    text-align: left !important
 }
 .container{
     padding: 0%;
 }
-.eventContainer{
-margin:0% !important;
-padding: 0% !important;
-}
-.time{
+/* .time{
     text-align: left;
     font: normal normal normal 28px/34px Roboto;
     letter-spacing: 0px;
     color: #0A102E;
     text-transform: capitalize;
     opacity: 1;
-    /* color: #0A102E;
-    text-align: left;
-    font: normal normal bold Roboto;
-    letter-spacing: 0px;
-    color: #0A102E;
-    text-transform: capitalize;
-    opacity: 1;
-    left: 0% */
-}
+} */
 .arrow{
     color: #FFFFFF;
     width: 101px;
@@ -161,21 +156,20 @@ padding-left: 3%;
         z-index: 7;
         text-align: right;
         position: absolute;
-        top: 55%;
-        right: 0%;
+        top: 35vh;
+    right: 0vw;
         /* transform: translate(-50%, -50%); */
-        color: #FFFFFF;
-        opacity: 1;
-        font: normal normal 300 5vh/3vw Roboto;
-        letter-spacing: 0px;
-    
+    color: #FFFFFF;
+    opacity: 1;
+    font: normal normal 300 5vh/3vw Roboto;
+    letter-spacing: 0px;
 }
 .price{
     position: absolute;
     z-index: 6;
     /* position:initial; */
     top: 55%;
-    right: 0%;
+    right: 0vw;
     width: 9vw;
     height: 8vh;
 }
@@ -191,6 +185,7 @@ padding-left: 3%;
 
  }
 .bi-heart{
+    
     position: absolute;
     z-index: 8;
     color: #FFFFFF;
@@ -221,6 +216,29 @@ padding-left: 3%;
 .leftSite{
     text-align: left;
     padding-left: 3%;
+}
+.triangle-left {
+	width: 0;
+    height: 0;
+    border-top: 4vh solid transparent;
+    border-right: 6vh solid red;
+    border-bottom: 4vh solid transparent;
+    position: absolute;
+    z-index: 6;
+    top: 55%;
+    right: 32%;
+}
+.rectangle {
+    position:absolute;
+	height: 50px;
+    width: 100px;
+    background-color: var(--main-color);
+	/* border-top: 25px solid transparent;
+	border-right: 50px solid var(--main-color);
+	border-bottom: 25px solid transparent; */
+    z-index: 6;
+    top: 55%;
+    right: 32%;
 }
 /* @media screen and (max-width: 500px){
     .cardEvent{
