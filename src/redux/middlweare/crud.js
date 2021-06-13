@@ -68,7 +68,10 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
 
         res.json()
       )
-      .then(resJson => dispatch(actionsStore.addAllSettings(resJson)))
+      .then(resJson => { 
+        dispatch(actionsStore.addAllSettings(resJson))
+       }
+      )
       .catch(err => {
         console.log(err)
       })
@@ -104,7 +107,6 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
 
     console.log(action.payload)
 
-    debugger;
     fetch(API_URL + userName + "/createOrUpadteEventsPageSettings", requestOptions)
       .then(res => {
         debugger
@@ -120,3 +122,34 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
   return next(action)
 
 }
+
+
+export const subscribe = (obj)=>{
+
+
+    const TokenToString = document.cookie && document.cookie.includes('devJwt')
+      ? document.cookie
+        .split(';')
+        .filter(s => s.includes('devJwt'))[0]
+        .split('=')
+        .pop()
+      : null
+    const userName = window.location.pathname.split('/')[1]
+  
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("authorization", TokenToString)//cookies;
+    var requestOptions = {
+      method: 'post',
+      headers: myHeaders,
+    };
+
+    fetch('https://calendar.dev.leader.codes/api/'+userName+'/subscribeNewEventsNotification', requestOptions)
+      .then(res =>
+        res.json())
+      .catch(err => {
+        console.log(err)
+      })
+  
+}
+

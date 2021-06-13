@@ -14,7 +14,8 @@ const intioanalState = {
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
         eventsGalleryImage:'',
-        eventsPageImageOrVideo:''
+        eventsPageImageOrVideo:'',
+        displayHeader:''
 
     },
     userName:{},
@@ -46,20 +47,8 @@ const settings = {
         state.settings.amountEventsInRow= action.payload;
         
     },
-    addUserName(state, action) {
-      
-        state.userName = action.payload;
-    },
-    addDevJwt(state, action) {
-        
-        state.devJwt = action.payload
-    },
-    // updateOrCreateSettings(state,action){
-    //     // state.action.settings=action.payload;
-    //     state.settings.eventsGalleryTitle = action.payload;
-    //     state.settings.eventsGalleryDescription= action.payload;
-    //     state.settings.amountEventsInRow= action.payload;
-    // },
+   
+  
     addAllSettings(state, action) {
         debugger
         state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;
@@ -70,6 +59,7 @@ const settings = {
         state.settings.phone=action.payload.settings.phone;
         state.settings.email=action.payload.settings.email;
         state.settings.address=action.payload.settings.address;
+        state.settings.displayHeader=action.payload.settings.displayHeader
  
 
 

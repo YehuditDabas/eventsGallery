@@ -3,7 +3,8 @@
     /* height: 30vh!important; */
     text-align: center!important;
     /* font: normal normal bold 66vh Roboto !important; */
-    color:#4B1A98 !important;
+    /* color:#4B1A98 !important; */
+    color: var(--Backgound-color);  
 }
 .create{
     /* margin-left: 12vw; */
