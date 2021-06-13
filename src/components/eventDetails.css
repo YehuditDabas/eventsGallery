@@ -85,7 +85,7 @@ opacity: 1;
     width:30vw !important;
     height:50vh !important
 }
-.time,span{
+.time{
     text-align: left;
     font: normal normal 300 2vw Roboto;
     letter-spacing: 0px;
