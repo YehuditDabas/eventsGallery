@@ -1,13 +1,15 @@
-import createReducer from './reducerUtils';
+import createReducer from '../reducerUtils';
 import produce from 'immer';
 
 const initialState = {
-    editGrid: 'grid',
-    showInPage: '20',
-    columns: '3',
-    mainColor: '#4B0083',
-    buttonStyle: '50',
-    showCounterViews: true
+    page: {
+        eventsPageColor: "",
+        amountEventsInRow: "",
+        eventsButtonColor:""
+    }
+
+    // Watch previous events:"",
+    // eventsPagButton:""
 };
 
 const configImage = {
@@ -18,18 +20,13 @@ const configImage = {
         state.columns = action.payload.columns;
         state.mainColor = action.payload.mainColor;
         state.buttonStyle = action.payload.buttonStyle;
-    },
-    setEditGrid(state, action) {
-        state.editGrid = action.payload;
-        if (action.payload == 'list') state.columns = '1';
-        if (action.payload == 'grid') state.columns = '3';
+
+
     },
     setShowInPage(state, action) {
         state.showInPage = action.payload;
     },
-    setColumns(state, action) {
-        state.columns = action.payload;
-    },
+
     setMainColor(state, action) {
         state.mainColor = action.payload;
     },
@@ -39,6 +36,12 @@ const configImage = {
     setShowCounterViews(state, action) {
         state.showCounterViews = action.payload;
     },
+    addAllSettings(state, action) {
+        state.page.amountEventsInRow = action.payload.settings.amountEventsInRow
+        state.page.eventsPageColor = action.payload.settings.eventsPageColor
+        state.page.eventsButtonColor = action.payload.settings.eventsButtonColor
+
+    }
 };
 
 export default produce((state, action) => createReducer(state, action, configImage), initialState);

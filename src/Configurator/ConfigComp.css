@@ -19,6 +19,14 @@ label {
 }
 .DivEditHeader{
     background-color: #F0F0F0;
+    display: inline;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 0.2;
+
+}
+.DivEditHeader:hover{
+background: #9653FF;
 }
 .configuratorTextarea {
     border: none;
@@ -26,6 +34,7 @@ label {
     resize: none !important;
     width: 100%;
     /* height: 80px; */
+    
 }
 .LogoChnnel{
     margin-top: 10px;
@@ -35,13 +44,11 @@ label {
     size: 300px;
 }
 
-
-
 .inputfilelogin {
     width: 1px;
     height:  1px;
     opacity: 1;
-    overflow:hidden;
+     overflow:hidden;
     position: absolute;
     z-index: -1;
 }
@@ -73,7 +80,7 @@ element.style {
     width:  0.1px;
     height: 0.1px;
     opacity: 0;
-    overflow: hidden;
+     overflow: hidden; 
     position: absolute;
     z-index: -1;
 }
@@ -202,10 +209,17 @@ height: 14.3312101910828%;
 
 .accordion>.card>.card-header {
     /* background-color: #E8EAEC !important; */
-    background-color: #fff;
+    background-color: #0A102E;
+    color: #FFFFFF;
+    text-align: left;
+/* font: normal normal bold 18px/24px Nunito Sans; */
+    
 }
-.accordion>.card>.card-header:hover{
-    background-color: #E8EAEC !important;  
+ .accordion>.card>.card-header:hover{
+ 
+    opacity: 0.18;
+    background: transparent linear-gradient(90deg, #FFFFFF 0%, #006C8000 100%) 0% 0% no-repeat padding-box;
+    color: white !important;
 }
 
 .MuiFormControl-root {
@@ -258,4 +272,23 @@ height: 14.3312101910828%;
 }
 .MuiFormControl-root{
     margin-left: 0px !important;
+}
+Form.Label{
+    font:normal;
+}
+.inputLinkIcon{
+    background: #505066 0% 0% no-repeat padding-box;
+/* border-radius: 2px; */
+opacity: 0.30;
+display: inline-block;
+
+}
+.iconFooter{
+    display:flex;
+    margin-left: 1vh;
+    
+}
+.icon{
+    margin: 1vh;
+    margin-right: 2vh;
 }

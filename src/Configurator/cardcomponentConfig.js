@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 
 function CardComponentConfig(props) {
     return (
-        
         <Card className="card"
         //  style={{width:"100% !important"}}
         >

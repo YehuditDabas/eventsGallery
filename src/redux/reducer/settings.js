@@ -4,6 +4,7 @@ import createReducer from './reducerUtils'
 const intioanalState = {
     settings:
     {
+<<<<<<< HEAD
         name:"",
         email:"",
         phone:"",
@@ -11,6 +12,12 @@ const intioanalState = {
         eventsPageLogo:"",
         eventsPageTitle:"",
         eventsPageDescription:"",
+=======
+        eventsPagelogo:"",
+        eventsGalleryTitle:"",
+       
+        eventsGalleryDescription:"",
+>>>>>>> yehudit
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
         eventsGalleryImage:'',
@@ -29,8 +36,7 @@ const settings = {
     updateTitle(state, action) {
         
                 state.settings.eventsGalleryTitle = action.payload;
-                console.log("updateTitle"+state.settings.eventsGalleryTitle)
-       
+                // console.log("updateTitle"+state.settings.eventsGalleryTitle)
     },
     updateDescription(state, action) {
         
@@ -47,8 +53,28 @@ const settings = {
         state.settings.amountEventsInRow= action.payload;
         
     },
+<<<<<<< HEAD
    
   
+=======
+    addUserName(state, action) {
+      
+        state.userName = action.payload;
+    },
+    addDevJwt(state, action) {
+        
+        state.devJwt = action.payload
+    },
+    updateOrCreateSettingsAgain(state,action){
+        // state.action.settings=action.payload;
+        debugger;
+        state.settings.eventsGalleryTitle = action.payload.settings;
+        state.settings.eventsGalleryDescription= action.payload;
+        state.settings.amountEventsInRow= action.payload;
+        console.log("from dispatch")
+       console.log("settings"+state.settings)
+    },
+>>>>>>> yehudit
     addAllSettings(state, action) {
         debugger
         state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;

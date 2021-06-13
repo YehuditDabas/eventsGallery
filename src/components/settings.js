@@ -44,12 +44,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function SettingsEve
         
     }
 
-
-
     const handleUpdateSettings = (e) => {
-        debugger;
+        
         e.preventDefault();
-const newr= {  eventsPagelogo: logo,
+   const newr= {  eventsPagelogo: logo,
     eventsGalleryTitle: title,
     eventsGalleryDescription: description,
     amountEventsInRow: eventsInRow,
