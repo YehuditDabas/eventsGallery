@@ -1,4 +1,7 @@
-
+:root {
+    --Button-color:#86F3FF;
+  
+}
 .myImg{
     width:100vW!important;
     height: 75vh!important;
@@ -42,7 +45,7 @@ z-index: 4!important;
     margin-top: 4vh;
     height: 6vh;
     width: 10vw;
-    background-color: #86F3FF;
+    background-color: var(--Button-color);
     opacity: 100%;
     font-size: 3vh;
     font-size: 3vh,6vw;
@@ -141,8 +144,7 @@ form .form-control:focus{
     z-index: 0;
 }
 #subscribeInside{
-    background-color: #53EEFF;
-    
+    background-color: var(--Button-color);  
     margin-top: -4vh;
     height: 6vh;
 }

@@ -60,8 +60,8 @@ const editHeader = {
     },
     addAllSettings(state, action) {
         debugger;
-        
-    }
+        state.textColor.body = action.payload;
+    },
 };
 
 export default produce((state, action) => createReducer(state, action, editHeader), initialState);

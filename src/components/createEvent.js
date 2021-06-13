@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect}from 'react';
 import './createEvent.css'
+
 
 export default function CreateEvent(props) {
 
+    // לקבל בפרופס eventsPageColor
+    useEffect(() => {
+        document.documentElement.style.setProperty('--Backgound-color', 'red')
+        // document.documentElement.style.setProperty('--Backgound-color', props.eventsPageColor)
+
+    }, [])
     function newPage() {
         debugger;
         window.open("https://calendar.dev.leader.codes/gilalorents");

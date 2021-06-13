@@ -14,14 +14,9 @@ const intioanalState = {
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
         eventsGalleryImage:'',
-        facebook:'',
-        facebookLink:'',
-        twitter:'',
-        twitterLink:'',
-        instagram:'',
-        instagramLink:'',
-        youtube:'',
-        youtubeLink:''
+        eventsPageImageOrVideo:'',
+        displayHeader:''
+
     },
     userName:{},
     devJwt:{}
@@ -52,34 +47,24 @@ const settings = {
         state.settings.amountEventsInRow= action.payload;
         
     },
-    addUserName(state, action) {
-      
-        state.userName = action.payload;
-    },
-    addDevJwt(state, action) {
-        
-        state.devJwt = action.payload
-    },
-    // updateOrCreateSettings(state,action){
-    //     // state.action.settings=action.payload;
-    //     state.settings.eventsGalleryTitle = action.payload;
-    //     state.settings.eventsGalleryDescription= action.payload;
-    //     state.settings.amountEventsInRow= action.payload;
-    // },
+   
+  
     addAllSettings(state, action) {
-        debugger;
-        state.settings.facebook = action.payload.settings.facebook;
-        state.settings.facebookLink = action.payload.settings.facebookLink;
-        state.settings.twitter = action.payload.settings.twitter;
-        state.settings.twitterLink = action.payload.settings.twitterLink;
-        state.settings.instagram = action.payload.settings.instagram;
-        state.settings.instagramLink = action.payload.settings.instagramLink;
-        state.settings.youtube = action.payload.settings.youtube;
-        state.settings.youtubeLink = action.payload.settings.youtubeLink;
-        state.settings.eventsButtonColor = action.payload.settings.eventsButtonColor;
-        state.settings.eventsPageColor = action.payload.settings.eventsPageColor;
-        console.log("GET_SETTINGS" + state.settings);
-    },
+        debugger
+        state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;
+        state.settings.eventsPageDescription =action.payload.settings.eventsPageDescription;
+        state.settings.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;
+        state.settings.eventsPageLogo =action.payload.settings.eventsPageLogo;
+        state.settings.name=action.payload.settings.name;
+        state.settings.phone=action.payload.settings.phone;
+        state.settings.email=action.payload.settings.email;
+        state.settings.address=action.payload.settings.address;
+        state.settings.displayHeader=action.payload.settings.displayHeader
+ 
+
+
+        console.log("GET_SETTINGS" +  action.payload.settings.eventsPageDescription);
+;    },
 
 }
 export default produce((state, action) => createReducer(state, action, settings), intioanalState);
