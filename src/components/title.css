@@ -61,7 +61,7 @@ z-index: 4!important;
 .descriptionP{
     /* font-size: 200%; */
     text-align: left;
-font: normal normal normal 3vh/2vw  Roboto;
+font: normal normal normal 5vh/2vw  Roboto;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
@@ -109,6 +109,7 @@ width: 13.4vw!important;
 
 
 .subscribeArea{
+    position: absolute;
     margin-right:75vw!important;
     margin-left: 10vw!important;
     margin-top: -19vh; 
