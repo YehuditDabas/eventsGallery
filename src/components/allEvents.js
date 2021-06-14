@@ -23,7 +23,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     const [eventsByMonth, setEventsByMonth] = useState(events);
     const [pastEvents, setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    const numCols = "col-" + 3;
+    const numCols = "col-" + 4;
     var arrow = ["<", ">"];
     const [prevMonth, setPrevMonth] = useState(0);
     useEffect(() => {
@@ -105,7 +105,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row events">
-                     <div className="col-3 createEventArea">
+                     <div className="col-4 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div>
                     {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>) : ''}
