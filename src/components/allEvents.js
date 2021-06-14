@@ -9,22 +9,23 @@ import CreateEvent from './createEvent';
 function mapStateToProps(state) {
     return {
         events: state.allEvents.events,
-        mainColor:state.pageSettings.page.eventsPageColor
+        mainColor: state.pageSettings.page.eventsPageColor
     }
 }
 const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    const { events,mainColor } = props;
+    const { events, mainColor } = props;
     document.documentElement.style.setProperty('--main-color', mainColor);
-
-    // const [settings, setSettings] = useState({ eventsPageTitle: 'opop', picteventsPageImageure: '', eventsPageDescription: 'opppppppppppp', amountEventsInRow: '3' });//יקבל עדכון נתוני הגדרות מהשרת
     const [eventsByMonth, setEventsByMonth] = useState(events);
     const [pastEvents, setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    const numCols = "col-" + 3;
+    const numCols = "col-" + 4;
     var arrow = ["<", ">"];
+    var eventsHeight =eventsByMonth.length<3?90: Math.ceil((eventsByMonth.length + 1) / 3) * 75;
+    document.documentElement.style.setProperty('--events-height', eventsHeight+"vh");    console.log("height ", eventsHeight)
+
     const [prevMonth, setPrevMonth] = useState(0);
     useEffect(() => {
         setEventsByMonth(events)
@@ -105,10 +106,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row events">
-                     <div className="col-3 createEventArea">
+                    <div className="col-4 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div>
-                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} events={eventsByMonth}></DisplayEvent> </div>) : ''}
+
+                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
 
                 </div>
 

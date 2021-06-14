@@ -20,6 +20,8 @@ import purple2 from '../assets/purple2.png'
 import turquoise from '../assets/turquoise.png'
 import { subscribe } from '../redux/middlweare/crud'
 import AllEvents from './allEvents'
+import FooterEventsGallery from './footerEventsGallery';
+
 
 function mapStateToProps(state) {
     console.log(state.settings.settings)
@@ -98,7 +100,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }
     return (
         <>
-            {settings.eventsPageTitle !== "" && settings.displayHeader == true ? <div className="container-fluid" >
+            {settings.eventsPageTitle !== "" && settings.displayHeader == true ? <div className="container-fluid titleImg" >
 
 
                 <div className="row" >
@@ -159,8 +161,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div> */}
-                </div>
-            </div>
+                </div></div>
+                <div><FooterEventsGallery/></div>
+
+            
 
         </>
     )
