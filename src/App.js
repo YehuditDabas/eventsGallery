@@ -22,7 +22,7 @@ function App() {
       <Route exact path="/:userName">
         <TitleEvents style={{zIndex:3}}></TitleEvents>
         {/* <MyAllEvents></MyAllEvents> */}
-        <FooterEventsGallery/>
+        {/* <FooterEventsGallery/> */}
         {/* <PreviousEvents/> */}
       </Route>
       <Route  path="/:userName/eventDetails/:index">

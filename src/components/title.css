@@ -3,7 +3,7 @@
   
 }
 .myImg{
-    width:100vW!important;
+    /* width:100vW!important; */
     height: 75vh!important;
     z-index: -1;
     height: 100%;
@@ -13,6 +13,11 @@
     overflow: hidden;
     padding:0;
 
+}
+.titleImg {
+    height: 74vh;
+    width: 100vw;
+    padding: 0;
 }
 .titleAndDescription{
     z-index: 2!important;
@@ -42,9 +47,10 @@ z-index: 4!important;
 }
 
 .subscribe{
+    cursor: pointer;
     margin-top: 4vh;
     height: 6vh;
-    width: 10vw;
+    /* width: 10vw; */
     background-color: var(--Button-color);
     opacity: 100%;
     font-size: 3vh;
@@ -136,8 +142,9 @@ form .form-control:focus{
     box-shadow: none;
   }
     .evnetsUnderFilter{
-        height: 100vh !important;
+        /* height: 100vh !important; */
         z-index: 1;
+        cursor: pointer;
     }
 
 .arrow_{
