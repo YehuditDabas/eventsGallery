@@ -80,7 +80,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             objPhone: phone,
             objAdress: adress
         };
-        subscribe();
 
         setPlaceHolderEmail("email");
         setPlaceHolderName("name");
