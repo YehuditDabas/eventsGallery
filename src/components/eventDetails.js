@@ -6,7 +6,18 @@ import SimpleImg from '../assets/simpleImg.png'
 import user from '../assets/user.svg'
 import title from '../assets/title.png';
 import MiniEvent from '../components/miniEvent';
-
+import red from '../assets/red.png'
+import yellow from '../assets/yellow.png'
+import pink from '../assets/pink.png'
+import black from '../assets/black.png'
+import gray from '../assets/gray.png'
+import lightBlue from '../assets/lightBlue.png'
+import lightBlue2 from '../assets/lightBlue2.png'
+import orange from '../assets/orange.png'
+import pink2 from '../assets/pink2.png'
+import purple1 from '../assets/purple1.png'
+import purple2 from '../assets/purple2.png'
+import turquoise from '../assets/turquoise.png'
 function mapStateToProps(state) {
     return {
         events: state.allEvents.events,
@@ -18,7 +29,21 @@ function mapStateToProps(state) {
 
 export default withRouter(connect(mapStateToProps)(function EventDetails(props) {
     const { events,mainColor,eventsButtonColor } = props;
-
+const img =
+    {
+        '#AD60FF': purple1,
+        '#4F40D0': purple2,
+        '#FF53F7': pink,
+        '#FF62B2': pink2,
+        '#FA5252': red,
+        '#FF803F': orange,
+        '#FAEE3A': yellow,
+        '#424149': black,
+        '#9F9CB5': gray,
+        '#63F597': turquoise,
+        '#54B9FF': lightBlue,
+        '#51E7FB': lightBlue2
+    }
     document.documentElement.style.setProperty('--main-color', mainColor);
     document.documentElement.style.setProperty('--button-color',eventsButtonColor );
 
@@ -77,7 +102,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
             {events.length !== 0 ? <>
                 <div className="container-fluid">
                     <div className="row">
-                        <img src={title} height="100%" width="100%" ></img>
+                        <img src={img[mainColor]} height="100%" width="100%" ></img>
                         <div className="col-7 rtitle">
                             <div className="eventTitle">{events[index].title}
                                 <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}

@@ -159,13 +159,13 @@ export const subscribe = (obj) => {
     headers: myHeaders,
     body: JSON.stringify(obj)
   };
-console.log(requestOptions.body,"body");
-  // fetch('https://calendar.dev.leader.codes/api/' + userName + '/subscribeNewEventsNotification', requestOptions)
-  //   .then(res =>
-  //     res.json())
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
+  console.log(requestOptions.body, "body");
+  fetch('https://calendar.dev.leader.codes/api/' + userName + '/subscribeNewEventsNotification', requestOptions)
+    .then(res =>
+      res.json())
+    .catch(err => {
+      console.log(err)
+    })
 
 }
 

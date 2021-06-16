@@ -20,16 +20,28 @@ function App() {
   return (
     <Router>
       <Route exact path="/:userName">
-        <TitleEvents style={{zIndex:3}}></TitleEvents>
+        <div className="App">
+          <div className="container settingsAndEvents">
+            <div className="row">
+              <div className="col-3">
+                <ConfiguratorSettings />
+              </div>
+              <div className="col-9">
+                <TitleEvents style={{ zIndex: 3 }}></TitleEvents>
+                <FooterEventsGallery />
+
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* <MyAllEvents></MyAllEvents> */}
-        <FooterEventsGallery/>
         {/* <PreviousEvents/> */}
       </Route>
-      <Route  path="/:userName/eventDetails/:index">
-        <EventDetails />
+      <Route path="/:userName/eventDetails/:index">
+        <EventDetails></EventDetails>
+        <FooterEventsGallery />
       </Route>
-      <div className="App">
-      </div>
     </Router>
   )
 }

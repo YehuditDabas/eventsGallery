@@ -20,6 +20,8 @@ import purple2 from '../assets/purple2.png'
 import turquoise from '../assets/turquoise.png'
 import { subscribe } from '../redux/middlweare/crud'
 import AllEvents from './allEvents'
+import FooterEventsGallery from './footerEventsGallery';
+
 
 function mapStateToProps(state) {
 
@@ -64,7 +66,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         '#FA5252': red,
         '#FF803F': orange,
         '#FAEE3A': yellow,
-        '##424149': black,
+        '#424149': black,
         '#9F9CB5': gray,
         '#63F597': turquoise,
         '#54B9FF': lightBlue,
@@ -79,10 +81,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     function beforeSubscribe() {
         debugger
         const obj = {
-            objEmail: email,
-            objName: name,
-            objPhone: phone,
-            objAdress: adress
+            email: email,
+            name: name,
+            phone: phone,
+            adress: adress
         };
         let valid = true
         // subscribe();
@@ -130,6 +132,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             setShowing(false)
             handleShow()
         }
+        setErrorsForm("")
         setPlaceHolderEmail("email");
         setPlaceHolderName("name");
         setPlaceHolderPhone("phone");
