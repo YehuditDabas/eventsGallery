@@ -2,9 +2,11 @@
     /* --main-color:#e9a411; */
     --button-color:#53EEFF;
 }
-.detailsContainer{
-    padding:0;
-}
+/* .container-fluid {
+    height: 74vh;
+    width: 100vw;
+    padding: 0;
+} */
 .rtitle{
     height:60vh;
   padding:0;
@@ -83,7 +85,7 @@ opacity: 1;
     width:30vw !important;
     height:50vh !important
 }
-.time,span{
+.time{
     text-align: left;
     font: normal normal 300 2vw Roboto;
     letter-spacing: 0px;
@@ -148,4 +150,5 @@ width:4vw;
     top: 13%;
     height: 50vh;
     width:35vw;
+    padding: 0;
 }

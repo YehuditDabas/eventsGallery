@@ -6,26 +6,54 @@ import SimpleImg from '../assets/simpleImg.png'
 import user from '../assets/user.svg'
 import title from '../assets/title.png';
 import MiniEvent from '../components/miniEvent';
+import red from '../assets/red.png'
+import yellow from '../assets/yellow.png'
+import pink from '../assets/pink.png'
+import black from '../assets/black.png'
+import gray from '../assets/gray.png'
+import lightBlue from '../assets/lightBlue.png'
+import lightBlue2 from '../assets/lightBlue2.png'
+import orange from '../assets/orange.png'
+import pink2 from '../assets/pink2.png'
+import purple1 from '../assets/purple1.png'
+import purple2 from '../assets/purple2.png'
+import turquoise from '../assets/turquoise.png'
 
 function mapStateToProps(state) {
     return {
         events: state.allEvents.events,
-        mainColor:state.pageSettings.page.eventsPageColor,
-        eventsButtonColor:state.pageSettings.page.eventsButtonColor
+        mainColor: state.pageSettings.page.eventsPageColor,
+        eventsButtonColor: state.pageSettings.page.eventsButtonColor,
 
     }
 }
 
 export default withRouter(connect(mapStateToProps)(function EventDetails(props) {
-    const { events,mainColor,eventsButtonColor } = props;
+    const { events, mainColor, eventsButtonColor } = props;
 
     document.documentElement.style.setProperty('--main-color', mainColor);
-    document.documentElement.style.setProperty('--button-color',eventsButtonColor );
+    document.documentElement.style.setProperty('--button-color', eventsButtonColor);
 
     const index = window.location.pathname.split('/')[3]
     const [moreEvents, setMoreEvents] = useState();
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let e1 = [];
+
+    const img =
+    {
+        '#ad60ff': purple1,
+        '#4f40d0': purple2,
+        '#ff53f7': pink,
+        '#ff62b2': pink2,
+        '#fa5252': red,
+        '#ff803f': orange,
+        '#faee3a': yellow,
+        '#424149': black,
+        '#9f9cb5': gray,
+        '#63f597': turquoise,
+        '#54b9ff': lightBlue,
+        '#51e7fb': lightBlue2
+    }
     // console.log(events[index])
     console.log('index', index)
     // console.log("tickets ", events[index].registrationURL)
@@ -41,8 +69,9 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         let mydate = new Date(str[0], str[1], str[2]);
         console.log(mydate.toDateString())
         let date = events[index].start.slice(8, 10).split('-');
-        console.log("date  " + date)
         let month = date + " " + months[mydate.getMonth() - 1];
+        console.log("month  " + month)
+
         return month
     }
     function hour() {
@@ -77,11 +106,11 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
             {events.length !== 0 ? <>
                 <div className="container-fluid detailsContainer">
                     <div className="row">
-                        <img src={title} height="100%" width="100%" ></img>
+                        <img src={img[mainColor]} height="100%" width="100%" style={{ padding: 0 }}></img>
                         <div className="col-7 rtitle">
                             <div className="eventTitle">{events[index].title}
                                 <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
-                                    <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a>
+                                    {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
                                 </div>
                             </div>
                         </div>
@@ -91,7 +120,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                     <div className="row">
                         <div className="at col-7">
                             <div className="aboutTitle">About The Event
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi eds bi-share" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi eds bi-share" viewBox="0 0 16 16">
                                     <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
                                 </svg>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi edh bi-heart" viewBox="0 0 16 16">
@@ -121,12 +150,12 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                             </span>
 
                             <p className="priceText">{events[index].price === undefined ? 'Free' : events[index].price}</p>
-                            <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a>
+                            {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
 
                         </div>
                     </div>
                     <div class="moreEvents">
-                        <h1 className="more">more events on {month().slice(3, 10)}</h1>
+                        <h1 className="more">more events on {month().slice(3, 15)}</h1>
                         <div className="row">
                             {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title} mainColor={mainColor}></MiniEvent> </div>)}
                         </div>
