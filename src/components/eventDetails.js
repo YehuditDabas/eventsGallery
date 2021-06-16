@@ -29,20 +29,20 @@ function mapStateToProps(state) {
 
 export default withRouter(connect(mapStateToProps)(function EventDetails(props) {
     const { events,mainColor,eventsButtonColor } = props;
-const img =
+    const img =
     {
-        '#AD60FF': purple1,
-        '#4F40D0': purple2,
-        '#FF53F7': pink,
-        '#FF62B2': pink2,
-        '#FA5252': red,
-        '#FF803F': orange,
-        '#FAEE3A': yellow,
+        '#ad60ff': purple1,
+        '#4f40d0': purple2,
+        '#ff53f7': pink,
+        '#ff62b2': pink2,
+        '#fa5252': red,
+        '#ff803f': orange,
+        '#faee3a': yellow,
         '#424149': black,
-        '#9F9CB5': gray,
-        '#63F597': turquoise,
-        '#54B9FF': lightBlue,
-        '#51E7FB': lightBlue2
+        '#9f9cb5': gray,
+        '#63f597': turquoise,
+        '#54b9ff': lightBlue,
+        '#51e7fb': lightBlue2
     }
     document.documentElement.style.setProperty('--main-color', mainColor);
     document.documentElement.style.setProperty('--button-color',eventsButtonColor );
