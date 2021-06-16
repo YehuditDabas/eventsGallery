@@ -27,19 +27,24 @@ function EditHeader(props) {
 
             <div>
                 <FormGroup className="d-flex justify-content-between">
-                    <FormControlLabel className="d-flex justify-content-between"
+                    <FormControlLabel className="d-flex justify-content-between "
                         control={<Switch name="name" />}
                         label="Header"
+                        style={{marginLeft:"1.5vw"}}
                     />
 
                 </FormGroup>
                 <div className="mt-2 container-fluid ">
                     <div className="row  ">
                     {/* titlesettings */}
-                        <div className="d-inline col-5"> <Form.Label className="textField"><b   >Alignment</b></Form.Label></div>
-{/* ml-1 mb-2 */}
-                        <div className="d-inline  col-7">
-                            <div className="d-inline d-flex justify-content-start align-items-center m-1 p-1  DivEditHeader">
+                        <div className=" col-5 one"> 
+                        {/* <Form.Label className="textField"><b>Alignment</b></Form.Label> */}
+                        <span className="AlignmentSpan">Alignment</span>
+                        </div>
+
+{/* ml-1 mb-2 */}<div className=" col-7 warpDivalignment mb-3">
+                       
+                            <div className=" d-flex justify-content-start align-items-center m-1 p-1  DivEditHeader">
                                 <FontAwesomeIcon
                                     className={"textField ChannelColorIcn m-1", alignment === 'left' ? ' BoldIconColor' : 'IconColor'}
                                     id='align-left-solid'
@@ -47,7 +52,7 @@ function EditHeader(props) {
                                     onClick={() => changeAlignment('left')}
                                 ></FontAwesomeIcon>
                             </div>
-                            <div className="d-inline d-flex justify-content-center align-items-center m-1 p-1  DivEditHeader" >
+                            <div className=" d-flex justify-content-center align-items-center m-1 p-1  DivEditHeader" >
                                 <FontAwesomeIcon
                                     className={"d-inline textField m-1 ChannelColorIcn ", alignment === 'center' ? ' BoldIconColor' : 'IconColor'}
                                     id='align-center'
@@ -55,7 +60,7 @@ function EditHeader(props) {
                                     onClick={() => changeAlignment('center')}
                                 ></FontAwesomeIcon>
                             </div>
-                            <div className="d-inline d-flex justify-content-center align-items-center m-1 p-1  DivEditHeader" >
+                            <div className=" d-flex justify-content-center align-items-center m-1 p-1  DivEditHeader" >
                                 <FontAwesomeIcon
                                     className={"textField m-1 ChannelColorIcn ", alignment === 'right' ? ' BoldIconColor' : 'IconColor'}
                                     id='align-right'
@@ -63,27 +68,27 @@ function EditHeader(props) {
                                     onClick={() => changeAlignment('right')}
                                 ></FontAwesomeIcon>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
+                <div >
+                    <div className="row ml-1 ">
+                        <span className="SpanSettings mb-1">Upload Video/Image </span> 
+                    </div>
+                     <UploadImageFromConfigurator kind={'Image'} />
+                    {/* className="row ml-1 mr-1 mb-3  divUploadImage" */}                   
+                </div>
+
                 <div>
                     <div className="row ml-1">
-                        <Form.Label className="textField"><b> Logo</b></Form.Label>
-                    </div>
-                    <div className="row ml-1 mr-1">
-                        <UploadImageFromConfigurator kind={'channelLogo'} />
-                    </div>
+                    <span className="SpanSettings  mb-1">Logo </span> 
+                    </div>                  
+                        <UploadImageFromConfigurator kind={'Logo'} />
                 </div>
-                <div>
-                    <div className="row ml-1">
-                        <Form.Label className="textField"><b> Image</b></Form.Label>
-                    </div>
-                    <div className="row ml-1 mr-1">
-                        <UploadImageFromConfigurator kind={'channelImage'} />
-                    </div>
-                </div>
+
                 <div className="row ml-1">
-                    <Form.Label className="textField"><b>Title Text</b></Form.Label>
+                <span className="SpanSettings">Title Text </span> 
                 </div>
                 <div className="row ml-1 mb-3 mr-1">
                     <textarea
@@ -93,7 +98,7 @@ function EditHeader(props) {
                         value={props.editHeader.eventsPageTitle}
                         rows="1"
                         maxLength="50"
-                        style={{ height: '45px', textAlign: alignment }}
+                        style={{ height: '25px', textAlign: alignment }}
                         placeholder="Welcome to&#13;&#10;your channel"
                     />
                 </div>
@@ -102,7 +107,7 @@ function EditHeader(props) {
             <div >
                 <div>
                     <div className="row ml-1">
-                        <Form.Label className="textField"><b>Body Text</b></Form.Label>
+                    <span className="SpanSettings">Body Text </span> 
                     </div>
                     <div className="row ml-1 mb-3 mr-1">
                         <textarea
@@ -138,12 +143,8 @@ const mapDispatchToProps = (dispatch) => {
         changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)) },
         changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) },
         // onChangeLogoHeader: (logo) => dispatch(actionsStore.updateLogo(logo)),
-
-        // onChangeTitle: (title) => dispatch(actionsStore.updateTitle(title)),
-        // onChangeEventsGalleryDescription: (description) => dispatch(actionsStore.updateDescription(description))
         // onChangeImageHeader: (image) => dispatch(actionsStore.updateImage(image)),
-        // onChangeAmountEventsInRowHeader: (eventsinrow) => dispatch(actionsStore.updateMountInRow(eventsinrow)),
-        // OnSubmitupdateOrCreateSettingsHeader: (g) => dispatch(actionsStore.updateOrCreateSettings(g))
+        
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EditHeader);

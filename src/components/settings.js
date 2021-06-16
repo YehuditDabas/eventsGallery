@@ -20,12 +20,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function SettingsEve
     const [eventsInRow, setEventsInRow] = useState("66");
 
     function onChangeLogo(e) {
-        
+
         onChangeLogoHeader(e);
         setLogo(e)
     }
     function onChangeTitle(e) {
-        
+
         onChangeTitleHeader(e);
         setTitle(e)
     }
@@ -36,24 +36,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(function SettingsEve
     function onChangeAmountEventsInRow(e) {
         onChangeAmountEventsInRowHeader(e)
         setEventsInRow(e)
-        
+
     }
     function onChangeImage(e) {
         onChangeImageHeader(e)
         setImage(e)
-        
+
     }
 
     const handleUpdateSettings = (e) => {
-        
+
         e.preventDefault();
-   const newr= {  eventsPagelogo: logo,
-    eventsGalleryTitle: title,
-    eventsGalleryDescription: description,
-    amountEventsInRow: eventsInRow,
-    eventsGalleryImage: image}
+        const newr = {
+            eventsPagelogo: logo,
+            eventsGalleryTitle: title,
+            eventsGalleryDescription: description,
+            amountEventsInRow: eventsInRow,
+            eventsGalleryImage: image
+        }
         OnSubmitupdateOrCreateSettingsHeader(
-           newr
+            newr
         )
 
     }
@@ -104,12 +106,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function SettingsEve
 });
 
 function mapDispatchToProps(dispatch) {
+    debugger;
     return {
         onChangeLogoHeader: (logo) => dispatch(actionsStore.updateLogo(logo)),
         onChangeTitleHeader: (title) => dispatch(actionsStore.updateTitle(title)),
         onChangeEventsGalleryDescriptionHeader: (description) => dispatch(actionsStore.updateDescription(description)),
         onChangeImageHeader: (image) => dispatch(actionsStore.updateImage(image)),
         onChangeAmountEventsInRowHeader: (eventsinrow) => dispatch(actionsStore.updateMountInRow(eventsinrow)),
+        
         OnSubmitupdateOrCreateSettingsHeader: (g) => dispatch(actionsStore.updateOrCreateSettings(g))
     }
 }

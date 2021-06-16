@@ -45,6 +45,7 @@
     position: sticky !important;
   }
   .configurator{
+    padding: unset;
     background: #0A102E 0% 0% no-repeat padding-box;
     position: fixed;
     top: 0;
@@ -68,9 +69,7 @@
     bottom: 0vh;
     background: #9653FF 0% 0% no-repeat padding-box;
     opacity: 1;
-color: white;
-
-width: 150px;
-height: 42px; 
-
+    color: white;
+    width: 14vw; 
+    height: 7vh;
   }

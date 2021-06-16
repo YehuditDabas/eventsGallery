@@ -22,11 +22,12 @@ const editSubscriptionConfigurator = {
         state[action.payload.filedName] = action.payload.value;
     },
     addAllSettings(state, action){
+        debugger
         state.subscribe.name=action.payload.settings.name;
         state.subscribe.phone=action.payload.settings.phone;
         state.subscribe.email=action.payload.settings.email;
         state.subscribe.address=action.payload.settings.address;
- 
+ console.log("subscibe  "+state.subscribe.name)
     }
 }
 export default produce((state, action) => createReducer(state, action, editSubscriptionConfigurator), initialState)

@@ -48,15 +48,15 @@ const settings = {
         
         state.devJwt = action.payload
     },
-    updateOrCreateSettingsAgain(state,action){
-        // state.action.settings=action.payload;
-        debugger;
-        state.settings.eventsGalleryTitle = action.payload.settings;
-        state.settings.eventsGalleryDescription= action.payload;
-        state.settings.amountEventsInRow= action.payload;
-        console.log("from dispatch")
-       console.log("settings"+state.settings)
-    },
+    // updateOrCreateSettingsAgain(state,action){
+    //     // state.action.settings=action.payload;
+    //     debugger;
+    //     state.settings.eventsGalleryTitle = action.payload.settings;
+    //     state.settings.eventsGalleryDescription= action.payload;
+    //     state.settings.amountEventsInRow= action.payload;
+    //     console.log("from dispatch")
+    //    console.log("settings"+state.settings)
+    // },
     addAllSettings(state, action) {
       
         state.settings = action.payload;
