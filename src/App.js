@@ -1,6 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import MyAllEvents from './components/myAllEvents'
+// import Configurator from './components/settings'
+import AllEvents from './components/allEvents'
+import { Card, Accordion } from 'react-bootstrap';
+import ConfiguratorSettings from './Configurator/ConfiguratorSettings'
+import Settings from './components/settings'
+
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +15,7 @@ import {
 } from "react-router-dom";
 import EventDetails from './components/eventDetails';
 import PreviousEvents from './components/previousEvents';
+
 
 function App() {
   return (
@@ -20,7 +28,10 @@ function App() {
         <EventDetails />
       </Route>
       <div className="App">
-
+         <ConfiguratorSettings/>    
+       
+        {/* <AllEvents />
+        <Settings/> */}
       </div>
     </Router>
   )
