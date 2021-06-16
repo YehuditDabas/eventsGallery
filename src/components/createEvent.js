@@ -1,12 +1,12 @@
-import React, {useEffect}from 'react';
+import React, { useEffect } from 'react';
 import './createEvent.css'
 
 
 export default function CreateEvent(props) {
-
+    const { color } = props;
     // לקבל בפרופס eventsPageColor
     useEffect(() => {
-        document.documentElement.style.setProperty('--Backgound-color', 'red')
+        document.documentElement.style.setProperty('--Backgound-color', color);
         // document.documentElement.style.setProperty('--Backgound-color', props.eventsPageColor)
 
     }, [])

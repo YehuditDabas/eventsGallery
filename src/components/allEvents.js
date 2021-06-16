@@ -107,7 +107,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row events">
                     <div className="col-4 createEventArea">
-                        <CreateEvent></CreateEvent>
+                    {mainColor!==" "?  <CreateEvent color={mainColor}></CreateEvent>:<div></div>}
                     </div>
 
                     {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}

@@ -23,7 +23,7 @@ export const getEvents = ({ dispatch, getState }) => next => action => {
       headers: myHeaders,
     };
 
-    fetch('https://calendar.dev.leader.codes/api/' + userName +"/getCalendarEventsCategory", requestOptions)
+    fetch('https://calendar.dev.leader.codes/api/' + userName + "/getCalendarEventsCategory", requestOptions)
       .then(res => res.json())
       .then(resJson => dispatch(actionsStore.addAllEvents(resJson)))
       .catch(err => {
@@ -58,36 +58,36 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
 
     };
 
-    fetch(API_URL + userName + "/getEventsPageSettings", requestOptions)
+    fetch("https://events.calendar.dev.leader.codes/api/" + userName + "/getEventsPageSettings", requestOptions)
 
       .then(res =>
 
         res.json()
       )
-      .then(resJson => { 
+      .then(resJson => {
         dispatch(actionsStore.addAllSettings(resJson))
-       }
+      }
       )
       .catch(err => {
         console.log(err)
       })
 
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", TokenToString)//cookies;
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
+    // var myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
+    // myHeaders.append("authorization", TokenToString)//cookies;
+    // var requestOptions = {
+    //   method: 'GET',
+    //   headers: myHeaders,
 
-    };
+    // };
 
-    return fetch(API_URL + userName + "/getEventsPageSettings", requestOptions)
-      .then(res => res.json())
-      .then(resJson=>dispatch(actionsStore.addAllSettings(resJson)))
-      .catch(err => {
-        console.log(err)
-      })
+    // return fetch('https://events.calendar.dev.leader.codes/api' + userName + "/getEventsPageSettings", requestOptions)
+    //   .then(res => res.json())
+    //   .then(resJson => dispatch(actionsStore.addAllSettings(resJson)))
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
 
   }
   return next(action)
@@ -120,7 +120,7 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
 
     console.log(action.payload)
 
-    fetch(API_URL + userName + "/createOrUpadteEventsPageSettings", requestOptions)
+    fetch('https://events.calendar.dev.leader.codes/api' + userName + "/createOrUpadteEventsPageSettings", requestOptions)
       .then(res => {
         debugger
         res.json()
@@ -135,36 +135,37 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
   return next(action)
 
 
-  }
+}
 
 
 
-export const subscribe = (obj)=>{
+export const subscribe = (obj) => {
 
+  debugger
+  const TokenToString = document.cookie && document.cookie.includes('devJwt')
+    ? document.cookie
+      .split(';')
+      .filter(s => s.includes('devJwt'))[0]
+      .split('=')
+      .pop()
+    : null
+  const userName = window.location.pathname.split('/')[1]
 
-    const TokenToString = document.cookie && document.cookie.includes('devJwt')
-      ? document.cookie
-        .split(';')
-        .filter(s => s.includes('devJwt'))[0]
-        .split('=')
-        .pop()
-      : null
-    const userName = window.location.pathname.split('/')[1]
-  
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", TokenToString)//cookies;
-    var requestOptions = {
-      method: 'post',
-      headers: myHeaders,
-    };
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("authorization", TokenToString)//cookies;
+  var requestOptions = {
+    method: 'post',
+    headers: myHeaders,
+    body: JSON.stringify(obj)
+  };
+console.log(requestOptions.body,"body");
+  fetch('https://calendar.dev.leader.codes/api/' + userName + '/subscribeNewEventsNotification', requestOptions)
+    .then(res =>
+      res.json())
+    .catch(err => {
+      console.log(err)
+    })
 
-    fetch('https://calendar.dev.leader.codes/api/'+userName+'/subscribeNewEventsNotification', requestOptions)
-      .then(res =>
-        res.json())
-      .catch(err => {
-        console.log(err)
-      })
-  
 }
 

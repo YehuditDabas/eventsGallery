@@ -75,7 +75,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
     return (
         <>
             {events.length !== 0 ? <>
-                <div className="container-fluid">
+                <div className="container-fluid detailsContainer">
                     <div className="row">
                         <img src={title} height="100%" width="100%" ></img>
                         <div className="col-7 rtitle">

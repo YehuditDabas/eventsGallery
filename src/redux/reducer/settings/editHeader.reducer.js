@@ -59,6 +59,7 @@ const editHeader = {
         state.header.eventsPageDescription =action.payload.settings.eventsPageDescription;
         state.header.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;
         state.header.eventsPageLogo =action.payload.settings.eventsPageLogo;
+        state.header.displayHeader =action.payload.settings.displayHeader;
        
 
 
