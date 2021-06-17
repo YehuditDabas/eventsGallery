@@ -32,11 +32,13 @@ background: #9653FF;
     border: none;
     /* background-color:#E8EAEC; */
     resize: none !important;
-    width: 13vw;
-    margin-left: 7%;
+    
     /* height: 80px; */
     background: #505066 0% 0% no-repeat padding-box;
-    
+    height: 25px;
+    text-align: left;
+    width: 13vw;
+    margin-left: 2.5vw;
 }
 .LogoChnnel{
     margin-top: 10px;
@@ -327,9 +329,11 @@ display: flex;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 2px;
     opacity: 0.46;
-    width: 5vw;
-    height: 3vh;
+    width: 13vw;
+    height: 16vh;
+    margin-left: 1.5vw;
 }
+
 .showinpageRow{
 font-size: smaller;
     margin-left: 0vw;

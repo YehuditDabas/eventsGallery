@@ -19,8 +19,6 @@ function UploadImageFromConfigurator(props) {
         debugger;
         const file = e.target.files[0];
         // var url = URL.createObjectURL(file);
-        
-
         var myFile = new FormData();
         myFile.append("file", file);
 
@@ -43,31 +41,49 @@ function UploadImageFromConfigurator(props) {
             },
 
         });
-      
-    }
-
+    } 
+    let currentImage = (props.kind === "Logo") ? props.imgSrc.eventsPageLogo : props.imgSrc.eventsPageImageOrVideo;
+    
     return (
-        <div className="d-flex justify-content-center align-items-center divOnHover ml-1 mr-1 mb-3  divUploadImage" >
+        <div className="d-flex justify-content-center align-items-center divOnHover ml-1 mr-1 mb-3  divUploadImage divOnHover" >
             <input type="file" name="file" accept="image/*" id={`${props.kind}file`} className="inputfile" onChange={changeImage} />
             <label htmlFor={`${props.kind}file`}>
+               
 
-                <img src={props.imgSrc} id="img_homeImg" alt="homeImage"></img>
-                <div className="iconDiv">
-                    <FontAwesomeIcon
-                        id='angle-right'
-                        className='iconCloudUpload'
-                        icon={['fas', 'cloud-upload-alt']}
-                    ></FontAwesomeIcon>
+                    <img src={currentImage}  alt="homeImage" style={{width:"13vw",height:"16vh"}}></img>
+                    <div className="iconDiv">
+                        <FontAwesomeIcon
+                            id='angle-right'
+                            className='iconCloudUpload'
+                            icon={['fas', 'cloud-upload-alt']}
+                        ></FontAwesomeIcon>
 
                 </div>
             </label>
-        </div>
+        </div >
     );
 }
+// return (
+//     <div className="d-flex justify-content-center align-items-center divOnHover" >
+//      <input type="file" name="file" accept="image/*" id={`${props.kind}file`} className="inputfile" onChange={props.changeImage} />
+//         <label htmlFor={`${props.kind}file`}>
+//             <div >
+//                 <img src={props.imgSrc} id="img_homeImg" className="divUploadImage" alt="homeImage"></img>
+//                 <div className="iconDiv">
+//                     <FontAwesomeIcon
+//                         id='angle-right'
+//                         className='iconCloudUpload'
+//                         icon={['fas', 'cloud-upload-alt']}
+//                     ></FontAwesomeIcon>
+//                 </div>
+//             </div>
+//         </label>
+//     </div>
+// );
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        imgSrc: state.editHeader
+        imgSrc: state.editHeader.header
     }
 }
 

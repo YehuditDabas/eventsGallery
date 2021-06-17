@@ -76,12 +76,14 @@ function EditHeader(props) {
                     <div className="row ml-1 ">
                         <span className="SpanSettings mb-1">Upload Video/Image </span> 
                     </div>
+                    {/* <div className="row ml-1 mr-1 mb-3  divUploadImage"> */}
                      <UploadImageFromConfigurator kind={'Image'} />
-                    {/* className="row ml-1 mr-1 mb-3  divUploadImage" */}                   
+                     {/* </div> */}
+                    {/*  */}                   
                 </div>
 
                 <div>
-                    <div className="row ml-1">
+                    <div className="row ml-1 ">
                     <span className="SpanSettings  mb-1">Logo </span> 
                     </div>                  
                         <UploadImageFromConfigurator kind={'Logo'} />
@@ -98,7 +100,7 @@ function EditHeader(props) {
                         value={props.editHeader.eventsPageTitle}
                         rows="1"
                         maxLength="50"
-                        style={{ height: '25px', textAlign: alignment }}
+                        style={{  textAlign: alignment }}
                         placeholder="Welcome to&#13;&#10;your channel"
                     />
                 </div>
@@ -118,7 +120,7 @@ function EditHeader(props) {
                             value={props.editHeader.eventsPageDescription}
                             rows="1"
                             maxLength="250"
-                            style={{ height: '60px', textAlign: alignment }}
+                            style={{  textAlign: alignment }}
                             placeholder="don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy&#13;&#10;Mission This Time. Seve…"
 
                         />
