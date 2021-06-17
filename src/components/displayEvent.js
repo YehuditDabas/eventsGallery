@@ -45,17 +45,17 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
 
     const images = {
         '#424149': black,
-        '#4F40D0': blue,
-        '#9F9CB5': gray,
-        '#63F597': green,
-        '#54B9FF': turkiz,
-        '#FF53F7': lightpink,
-        '#FF803F': orange,
-        '#FF62B2': pink,
-        '#AD60FF': purple,
-        '#FA5252': red,
-        '#51E7FB': lightblue,
-        '#FAEE3A': yellow
+        '#4f40d0': blue,
+        '#9f9cb5': gray,
+        '#63f597': green,
+        '#54b9ff': turkiz,
+        '#ff53f7': lightpink,
+        '#ff803f': orange,
+        '#ff62b2': pink,
+        '#ad60ff': purple,
+        '#fa5252': red,
+        '#51e7fb': lightblue,
+        '#faee3a': yellow
     }
 
     function details() {
