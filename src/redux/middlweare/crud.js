@@ -4,7 +4,6 @@ import $ from "jquery";
 const API_URL = "https://calendar.dev.leader.codes/api/"
 
 export const getEvents = ({ dispatch, getState }) => next => action => {
-
   if (action.type === 'GET_DATA') {
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
       ? document.cookie

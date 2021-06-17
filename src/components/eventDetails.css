@@ -1,0 +1,64 @@
+.description{
+    top: 909px;
+left: 192px;
+width: 1014px;
+height: 657px;
+color: var(--unnamed-color-0a102e);
+text-align: left;
+letter-spacing: NaNpx;
+color: #0A102E;
+text-transform: capitalize;
+opacity: 1;
+}
+.aboutTitle{
+    top: 810px;
+left: 192px;
+width: 327px;
+height: 54px;
+font: var(--unnamed-font-style-normal) normal normal 45px/54px var(--unnamed-font-family-roboto);
+letter-spacing: var(--unnamed-character-spacing-0);
+color: var(--unnamed-color-0a102e);
+text-align: left;
+font: normal normal normal 45px/54px Roboto;
+letter-spacing: 0px;
+color: #0A102E;
+text-transform: capitalize;
+opacity: 1;
+}
+.aboutD{
+    border-right:  1px solid #707070 !important; 
+    width:60vw;
+    height:50vh
+}
+.time{
+    width:30vw !important;
+    height:50vh !important
+}
+.timeText{
+    text-align: left;
+    font: normal normal 300 34px/41px Roboto;
+    letter-spacing: 0px;
+    color: #0A102E;
+    text-transform: uppercase;
+    opacity: 1;
+}
+.priceText{
+    text-align: left;
+    font: normal normal 300 41px/49px Roboto;
+    letter-spacing: 0px;
+    color: #9653FF;
+    opacity: 1;
+}
+.ticketsButton{
+    width: 353px;
+height: 57px;
+background: #53EEFF 0% 0% no-repeat padding-box;
+    font: normal normal medium 22px/27px Roboto;
+    letter-spacing: 2.2px;
+   color: #4B1A98;
+   text-transform: uppercase;
+   opacity: 1;
+}
+.ticketsButton:hover{
+    letter-spacing: 4.4px;
+}
