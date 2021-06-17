@@ -19,21 +19,20 @@ import PreviousEvents from './components/previousEvents';
 
 function App() {
   return (
-    <Router>
-      <Route exact path="/:userName">
-        <MyAllEvents />
-        {/* <PreviousEvents/> */}
-      </Route>
-      <Route  path="/:userName/eventDetails/:index">
-        <EventDetails />
-      </Route>
+    // <Router>
+    //   <Route exact path="/:userName">
+    //     <MyAllEvents />
+       
+    //   </Route>
+    //   <Route  path="/:userName/eventDetails/:index">
+    //     <EventDetails />
+    //   </Route>
       <div className="App">
          <ConfiguratorSettings/>    
        
-        {/* <AllEvents />
-        <Settings/> */}
+       
       </div>
-    </Router>
+    // </Router>
   )
 }
 
