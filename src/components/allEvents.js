@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
+    debugger;
     const { events, mainColor, amountEventsInRow ,WatchPreviousEvents} = props;
     console.log("amountEventsInRow  ", amountEventsInRow);
     document.documentElement.style.setProperty('--main-color', mainColor);
@@ -48,16 +49,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     var e1 = [];
 
 
-    // function past(){
-    //     if(pastEvents==true){
-    //         setPastEvents(false);
-    //         // document.getElementById("ifPast").innerHTML="להצגת אירועי העבר";
-    //     }
-    //     else{ 
-    //         setPastEvents(true);
-    //         // document.getElementById("ifPast").innerHTML="להסתרת אירועי העבר";
-    //     }
-    // }
     function filterByMonth(e) {
         console.log("m " + e.target.value);
         var d, m, y;
@@ -117,7 +108,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         <>
 
             <div class="container-fluid">
-                <div class="row title"><p>our upcoming events</p></div>
+                <div class="row title" ><p>our upcoming events</p></div>
                 <div ><button class="bt" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>

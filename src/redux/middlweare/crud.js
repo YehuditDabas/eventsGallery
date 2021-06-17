@@ -122,7 +122,6 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
 
     fetch('https://events.calendar.dev.leader.codes/api' + userName + "/createOrUpadteEventsPageSettings", requestOptions)
       .then(res => {
-        debugger
         res.json()
       }
 
@@ -141,7 +140,6 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
 
 export const subscribe = (obj) => {
 
-  debugger
   const TokenToString = document.cookie && document.cookie.includes('devJwt')
     ? document.cookie
       .split(';')

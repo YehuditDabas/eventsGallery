@@ -11,7 +11,6 @@ export default function CreateEvent(props) {
 
     }, [])
     function newPage() {
-        debugger;
         window.open("https://calendar.dev.leader.codes/gilalorents");
         console.log("hi")
         return true;

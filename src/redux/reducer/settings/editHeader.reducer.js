@@ -54,7 +54,6 @@ const editHeader = {
         console.log( state.header.eventsPageDescription)
     },
     addAllSettings(state, action) {
-        debugger
         state.header.eventsPageTitle =action.payload.settings.eventsPageTitle;
         state.header.eventsPageDescription =action.payload.settings.eventsPageDescription;
         state.header.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;

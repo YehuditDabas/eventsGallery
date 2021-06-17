@@ -3,7 +3,7 @@ import './App.css';
 import AllEvents from './components/allEvents'
 import { Card, Accordion } from 'react-bootstrap';
 import ConfiguratorSettings from './Configurator/ConfiguratorSettings'
-import Settings from './components/settings'
+import Settings from './components/settings';
 
 
 import {
@@ -26,7 +26,7 @@ function App() {
         {/* <PreviousEvents/> */}
       </Route>
       <Route  path="/:userName/eventDetails/:index">
-        <EventDetails />
+        <EventDetails /><FooterEventsGallery style={{marginTop:"5%"}}/>
       </Route>
       <div className="App">
       </div>

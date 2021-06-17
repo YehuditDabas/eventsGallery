@@ -93,6 +93,9 @@ opacity: 1;
     text-transform: uppercase;
     opacity: 1;
 }
+.timeText{
+    font:normal normal 300 2vw Roboto;
+}
 .priceText{
     text-align: left;
     font: normal normal 300 2vw Roboto;

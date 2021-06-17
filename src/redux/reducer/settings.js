@@ -56,7 +56,6 @@ const settings = {
     },
     updateOrCreateSettingsAgain(state,action){
         // state.action.settings=action.payload;
-        debugger;
         state.settings.eventsGalleryTitle = action.payload.settings;
         state.settings.eventsGalleryDescription= action.payload;
         state.settings.amountEventsInRow= action.payload;
@@ -64,7 +63,6 @@ const settings = {
        console.log("settings"+state.settings)
     },
     addAllSettings(state, action) {
-        debugger
         state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;
         state.settings.eventsPageDescription =action.payload.settings.eventsPageDescription;
         state.settings.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;

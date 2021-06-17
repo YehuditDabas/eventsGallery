@@ -29,7 +29,6 @@ const responsive = {
 };
 function mapStateToProps(state) {
     console.log("event", state.allEvents.events)
-    debugger
     return {
         events: state.allEvents.events,
         eventsPageColor: state.settings.settings.eventsPageColor

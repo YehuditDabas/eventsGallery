@@ -20,7 +20,10 @@ import purple2 from '../assets/purple2.png'
 import turquoise from '../assets/turquoise.png'
 
 function mapStateToProps(state) {
+    var year = new Date();
+    year = year.getUTCFullYear();
     return {
+
         events: state.allEvents.events,
         mainColor: state.pageSettings.page.eventsPageColor,
         eventsButtonColor: state.pageSettings.page.eventsButtonColor,
@@ -35,6 +38,11 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
     document.documentElement.style.setProperty('--button-color', eventsButtonColor);
 
     const index = window.location.pathname.split('/')[3]
+    // var year = new Date();
+    // year = year.getUTCFullYear();
+    // var mon = index < 10 ? events[index].start.slice(6, 7) : events[index].start.slice(5, 7);
+    // console.log("inddddddd  ", mon);
+    // var ev = events.filter(item => item.start.slice(6, 7) == mon && item != events[index]&&item.start.slice(0,4) ==year);
     const [moreEvents, setMoreEvents] = useState();
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let e1 = [];

@@ -33,7 +33,7 @@ function mapStateToProps(state) {
 }
 
 export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) {
-     debugger;const { eventsPageColor, userName, TokenToString, history, currentEvent,events } = props;
+    const { eventsPageColor, userName, TokenToString, history, currentEvent,events } = props;
     // console.log("event",events)
     document.documentElement.style.setProperty('--main-color', eventsPageColor);
 
@@ -64,7 +64,6 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
         console.log('details')
         var index = events.indexOf(currentEvent);
         console.log('index ', index);
-        debugger;
         history.push({ pathname: `/${userName}/eventDetails/${index}`, state: { index: index } })
 
         // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />

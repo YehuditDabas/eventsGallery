@@ -79,7 +79,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     // const [settings, setSettings] = useState({ eventsPageTitle: 'welcome to leader event', picteventsPageImageure: '', eventsPageDescription: 'Don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy Mission This Time. Seve…', amountEventsInRow: '3' });//ימלא נתונים מהפרופס מהרידאקס את ההגדרות..
     const [showing, setShowing] = useState(false);
     function beforeSubscribe() {
-        debugger
         const obj = {
             objEmail: email,
             objName: name,
@@ -140,7 +139,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
         console.log(obj)
     }
-debugger;
     function checkImg() {
         if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
             return true;
