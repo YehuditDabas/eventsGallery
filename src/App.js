@@ -1,16 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import AllEvents from './components/allEvents';
-
+import ConfiguratorSettings from './Configurator/ConfiguratorSettings'
 
 function App() {
   return (
     <div className="App">
-      <AllEvents></AllEvents>
-
-
+      
+<ConfiguratorSettings></ConfiguratorSettings>
     </div>
   );
 }
-
 export default App;
