@@ -59,9 +59,7 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
     };
 
     fetch(API_URL + userName + "/getEventsPageSettings", requestOptions)
-
       .then(res =>
-
         res.json()
       )
       .then(resJson => {
