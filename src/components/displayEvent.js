@@ -24,8 +24,7 @@ import { withRouter } from 'react-router-dom'
 function mapStateToProps(state) { 
     
     return {
-        events: state.allEvents.events,
-       
+        events: state.allEvents.events,   
         eventsPageColor: state.pageSettings.page.eventsPageColor,
         userName: state.allEvents.userName,
         devJwt: state.allEvents.devJwt

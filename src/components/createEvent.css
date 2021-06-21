@@ -1,3 +1,9 @@
+ :root{
+    --Backgound-color:"";
+ }
+ .createNewComponent{
+     cursor: pointer;
+ }
  .plus{
      /* width: 103vw!important; */
     /* height: 30vh!important; */
@@ -14,6 +20,7 @@
     letter-spacing: 0px;
     color:#000000;
     opacity: 1;
+    cursor: pointer;
 
 
 }  

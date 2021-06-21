@@ -21,19 +21,17 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    debugger;
     const { events, mainColor, amountEventsInRow ,WatchPreviousEvents} = props;
     console.log("amountEventsInRow  ", amountEventsInRow);
     document.documentElement.style.setProperty('--main-color', mainColor);
     var year = new Date();
     year = year.getUTCFullYear();
-    debugger;
     const [eventsByMonth, setEventsByMonth] = useState(events.sort( (a, b) => new Date(a.start) -new Date( b.start)));
     const [pastEvents, setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     var classCols = amountEventsInRow == 4 ? 3 : 4;
     const numCols = "col-" + classCols;
-    const isAdmin=false;
+    const isAdmin=true;
     console.log("num cols  ", numCols);
     
     console.log("year  ", year);
@@ -44,7 +42,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     const [prevMonth, setPrevMonth] = useState(0);
     useEffect(() => {
         setEventsByMonth(events)
-    }, [])
+    }, [events])
 
     var e1 = [];
 
@@ -114,7 +112,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row events">
                     {isAdmin==true?<div className={numCols} id="createEventArea">
-                        <CreateEvent></CreateEvent>
+                        <CreateEvent color={mainColor}></CreateEvent>
                     </div>:''}
                     
 

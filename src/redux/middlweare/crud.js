@@ -1,8 +1,11 @@
-import { actionsStore } from '../actions'
+import { actionsStore } from '../actions';
+import imageCompression from 'browser-image-compression';
+import $ from "jquery";
 const API_URL = "https://calendar.dev.leader.codes/api/"
 
-export const getEvents = ({ dispatch, getState }) => next => action => {
 
+
+export const getEvents = ({ dispatch, getState }) => next => action => {
   if (action.type === 'GET_DATA') {
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
       ? document.cookie
@@ -23,7 +26,7 @@ export const getEvents = ({ dispatch, getState }) => next => action => {
       headers: myHeaders,
     };
 
-    fetch('https://calendar.dev.leader.codes/api/' + userName + "/getCalendarEventsCategory", requestOptions)
+    fetch("https://events.calendar.dev.leader.codes/api/" + userName + "/getCalendarEventsCategory", requestOptions)
       .then(res => res.json())
       .then(resJson => dispatch(actionsStore.addAllEvents(resJson)))
       .catch(err => {
@@ -58,40 +61,16 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
 
     };
 
-    fetch(API_URL + userName + "/getEventsPageSettings", requestOptions)
-
-      .then(res =>
-
-        res.json()
-      )
-      .then(resJson => {
-        dispatch(actionsStore.addAllSettings(resJson))
-      }
-      )
-      .catch(err => {
-        console.log(err)
-      })
-
-
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", TokenToString)//cookies;
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-
-    };
-
-    return fetch('https://events.calendar.dev.leader.codes/api' + userName + "/getEventsPageSettings", requestOptions)
+    fetch("https://events.calendar.dev.leader.codes/api/" + userName + "/getEventsPageSettings", requestOptions)
       .then(res => res.json())
-      .then(resJson => dispatch(actionsStore.addAllSettings(resJson)))
+      .then(resJson => { dispatch(actionsStore.addAllSettings(resJson)) })
       .catch(err => {
         console.log(err)
       })
-
   }
   return next(action)
 }
+
 export const updateOrCreateSettings = ({ dispatch, getState }) => next => action => {
 
   if (action.type === "UPDATE_OR_CREATE_SETTINGS") {
@@ -111,29 +90,27 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("authorization", TokenToString)//cookies;
+
+
+
     var requestOptions = {
-      method: 'GET',
+      method: 'POST',
       headers: myHeaders,
-      body: JSON.stringify(action.payload.newr)
+      body: JSON.stringify(action.payload)
     }
 
-
-    console.log(action.payload)
-
-    fetch('https://events.calendar.dev.leader.codes/api' + userName + "/createOrUpadteEventsPageSettings", requestOptions)
+    fetch("https://events.calendar.dev.leader.codes/api/" + userName + "/createOrUpadteEventsPageSettings", requestOptions)
+      .then(res => res.json())
       .then(res => {
-        res.json()
-      }
-
-      )
-      .then(resJson => dispatch(actionsStore.updateOrCreateSettings(resJson)))
-      .catch(err => {
-        console.log(err)
+        dispatch(actionsStore.addAllSettings(res))
       })
-  }
-  return next(action)
+      .catch(err =>
+        console.log(err)
+      )
+}
 
 
+return next(action)
 }
 
 
@@ -157,7 +134,7 @@ export const subscribe = (obj) => {
     headers: myHeaders,
     body: JSON.stringify(obj)
   };
-console.log(requestOptions.body,"body");
+  console.log(requestOptions.body, "body");
   // fetch('https://calendar.dev.leader.codes/api/' + userName + '/subscribeNewEventsNotification', requestOptions)
   //   .then(res =>
   //     res.json())

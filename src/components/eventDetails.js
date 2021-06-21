@@ -24,7 +24,7 @@ function mapStateToProps(state) {
     year = year.getUTCFullYear();
     return {
 
-        events: state.allEvents.events,
+        events: state.allEvents.events,   
         mainColor: state.pageSettings.page.eventsPageColor,
         eventsButtonColor: state.pageSettings.page.eventsButtonColor,
 
@@ -70,6 +70,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         let str = events[index].start.slice(0, 10).split('-')
         var mydate = new Date(str[0], str[1] - 1, str[2]);
         console.log(mydate.toDateString())
+        // addMoreEvents()
         return weekday[mydate.getDay()];
     }
     function month() {
@@ -105,15 +106,16 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
     useEffect(() => {
+
         if (events && events.length != 0) {
             addMoreEvents()
         }
-    }, [])
+    }, [events])
     return (
         <>
             {events.length !== 0 ? <>
                 <div className="container-fluid detailsContainer">
-                    <div className="row">
+                    <div className="row imgTitleDetails">
                         <img src={img[mainColor]} height="100%" width="100%" style={{ padding: 0 }}></img>
                         <div className="col-7 rtitle">
                             <div className="eventTitle">{events[index].title}

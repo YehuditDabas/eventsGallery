@@ -62,6 +62,14 @@ const settings = {
         console.log("from dispatch")
        console.log("settings"+state.settings)
     },
+    // updateOrCreateSettingsAgain(state,action){
+    //     // state.action.settings=action.payload;
+    //     state.settings.eventsGalleryTitle = action.payload.settings;
+    //     state.settings.eventsGalleryDescription= action.payload;
+    //     state.settings.amountEventsInRow= action.payload;
+    //     console.log("from dispatch")
+    //    console.log("settings"+state.settings)
+    // },
     addAllSettings(state, action) {
         state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;
         state.settings.eventsPageDescription =action.payload.settings.eventsPageDescription;

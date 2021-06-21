@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './title.css'
+import './adminEventTitle.css'
 import logo from '../assets/logo.jpg'
 import arrow from '../assets/Polygon 24@2x.png'
 import ReactPlayer from 'react-player'
@@ -42,7 +43,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(props) {
+export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
     const { pagesettings, headersettings, subscribesettings } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
@@ -72,7 +73,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         '#54b9ff': lightBlue,
         '#51e7fb': lightBlue2
     }
-    const isAdmin = false;
 
 
     // const display = true;//ימלא נתונים בפרופס מהרידאקס אם מעונין שיציג כותרת
@@ -148,7 +148,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }
     return (
         <>
-            {headersettings.displayHeader == true ? <div className="container-fluid" >
+            {headersettings.eventsPageTitle !== "" && headersettings.displayHeader == true ? <div className="container-fluid adminEventTitle" >
 
                 <div className="row" >
                     <img className="myImg" src={img[pagesettings.eventsPageColor]}></img>
@@ -158,16 +158,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                         <p className="descriptionP"> {headersettings.eventsPageDescription}</p>
 
                     </div>
-                    <div className="imgOrVieo">
+                    <div className="adminImgOrVieo">
                         {checkImg() === true ?
                             <img className="myImg" src={headersettings.eventsPageImageOrVideo}></img>
                             : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true}/>
+                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo}  controls={true}/>
                         }
 
                     </div>
-            {isAdmin==false ?
-                    <div className="row">
+                         <div className="row">
                         <div className="col-3 subscribeArea">
                             {/* <input type="text" value="subscribe" className="subscribe"></input> */}
                             <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
@@ -199,17 +198,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                         </div>
 
-                    </div>:''}
+                    </div>
 
                 </div>
 
             </div> : <div></div>}
-            <div className="container-fluid evnetsUnderFilter">
+            <div className="container-fluid adminEvnetsUnderFilter">
                 <div className="row">
                     <AllEvents style={{ zIndex: 1 }}></AllEvents>
-                    {/* <div className="col-3 createEventArea">
-                        <CreateEvent></CreateEvent>
-                    </div> */}
                 </div>
                 <FooterEventsGallery/>
             </div>
@@ -232,6 +228,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     <Button variant="secondary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
+           
         </>
     )
 

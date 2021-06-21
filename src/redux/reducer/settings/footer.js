@@ -3,9 +3,9 @@ import produce from 'immer';
 
 const initialState = {
     footer: {
-        facebook: false,
+        facebook: true,
         facebookLink: "",
-        twitter: false,
+        twitter: true,
         twitterLink: "",
         instagram: false,
         instagramLink: "",
@@ -53,6 +53,7 @@ const editFooter = {
         state.footer.instagramLink = action.payload.settings.instagramLink;
         state.footer.youtube = action.payload.settings.youtube;
         state.footer.youtubeLink = action.payload.settings.youtubeLink
+        console.log("footer  "+ state.footer.facebook)
     },
 
 }
