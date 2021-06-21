@@ -91,6 +91,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }
 
     function checkImg() {
+        debugger;
         if (settings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
             return true;
         } else {
@@ -114,7 +115,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                         {checkImg() === true ?
                             <img className="myImg" src={settings.eventsPageImageOrVideo}></img>
                             : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={settings.eventsPageImageOrVideo} />
+                                height='100%' className="video_or_picture" url={settings.eventsPageImageOrVideo} controls={true} />
                         }
 
                     </div>
