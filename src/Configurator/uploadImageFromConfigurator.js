@@ -57,16 +57,14 @@ function UploadImageFromConfigurator(props) {
     }
     return (
         <div className="d-flex justify-content-center align-items-center divOnHover ml-1 mr-1 mb-3  divUploadImage divOnHover" >
-            <input type="file" name="file" accept="image/*" id={`${props.kind}file`} className="inputfile" onChange={changeImage} />
+            <input type="file" name="file" accept="image/*" id={`${props.kind}file`} className="inputfile"  onChange={changeImage} />
             <label htmlFor={`${props.kind}file`}>
                 {checkImg() === true ?
                     <img className="myImg" src={currentImage} style={{ width: "13vw", height: "16vh" }} ></img>
-                    : <ReactPlayer width="13vw"
-                        height="16vh" className="video_or_picture" url={currentImage} controls={true} />
+                    : <ReactPlayer style={{ width: "13vw", height: "16vh" }}
+                         className="video_or_picture" url={currentImage} controls={true} />
                 }
 
-
-                {/* <img src={currentImage} alt="homeImage" style={{ width: "13vw", height: "16vh" }}></img> */}
                 <div className="iconDiv">
                     <FontAwesomeIcon
                         id='angle-right'
