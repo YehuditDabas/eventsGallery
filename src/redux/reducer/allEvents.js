@@ -9,18 +9,20 @@ const intioanalState = {
 }
 const events = {
     addAllEvents(state, action) {
-        debugger;
         state.events = action.payload;
         console.log("allevents" + state.events);
     },
     addUserName(state, action) {
-        debugger;
+        
         state.userName = action.payload;
     },
     addDevJwt(state, action) {
-        debugger;
+        state.userName = action.payload;
+    },
+    addDevJwt(state, action) {
         state.devJwt = action.payload
     },
+    
 }
 export default produce((state, action) => createReducer(state, action, events), intioanalState);
 
