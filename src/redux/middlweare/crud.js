@@ -137,7 +137,7 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
 
 
 
-export const subscribe = (obj) => {
+export const subscribe = async (obj) => {
 
   debugger
   const TokenToString = document.cookie && document.cookie.includes('devJwt')
@@ -158,11 +158,16 @@ export const subscribe = (obj) => {
     body: JSON.stringify(obj)
   };
   console.log(requestOptions.body, "body");
-  fetch('https://calendar.dev.leader.codes/api/' + userName + '/subscribeNewEventsNotification', requestOptions)
+  return await fetch('https://calendar.dev.leader.codes/api/' + userName + '/subscribeNewEventsNotification', requestOptions)
     .then(res =>
       res.json())
+    .then(resData => {
+      if (resData.contacts !== null) {
+        return true
+      }
+    })
     .catch(err => {
-      console.log(err)
+      return false
     })
 
 }
