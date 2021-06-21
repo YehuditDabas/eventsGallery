@@ -1,6 +1,6 @@
 :root {
     --Button-color:#86F3FF;
-  
+    --align-text:left;
 }
 .myImg{
     /* width:100vW!important; */
@@ -27,7 +27,7 @@
 }
 
 .titleH1{
-text-align: left;
+    text-align: var(--align-text);
 font: normal normal bold 13vh Roboto;
 letter-spacing: 0px;
 color: #FFFFFF;
@@ -45,7 +45,6 @@ z-index: 4!important;
     margin-left: 60vw!important;
     margin-top: 15vh!important;
 }
-
 .subscribe{
     cursor: pointer;
     margin-top: 4vh;
@@ -64,9 +63,10 @@ z-index: 4!important;
     opacity: 1;
 
 }
+
 .descriptionP{
     /* font-size: 200%; */
-    text-align: left;
+    text-align: var(--align-text);
 font: normal normal normal 5vh/2vw  Roboto;
 letter-spacing: 0px;
 color: #FFFFFF;
@@ -84,7 +84,6 @@ opacity: 1;
     opacity: 1
     
 }
-
 .video_or_picture{
     width: 32vw;
     height: 52vh;

@@ -17,7 +17,7 @@ const editHeader = {
         // state = { ...action.payload };
         // state = action.payload;
         //todo: 
-        state.eventsPageAlignment = action.payload. eventsPageAlignment;
+        state.eventsPageAlignment = action.payload.eventsPageAlignment;
         state.eventsPageImageOrVideo = action.payload.eventsPageImageOrVideo;
         state.eventsPageLogo = action.payload.eventsPageLogo;
         state.eventsPageTitle = action.payload.eventsPageTitle;
@@ -60,6 +60,7 @@ const editHeader = {
         state.header.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;
         state.header.eventsPageLogo =action.payload.settings.eventsPageLogo;
         state.header.displayHeader =action.payload.settings.displayHeader;
+        state.header.eventsPageAlignment =action.payload.settings.eventsPageAlignment;
        
 
 

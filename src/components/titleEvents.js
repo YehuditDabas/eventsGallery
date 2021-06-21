@@ -3,7 +3,7 @@ import './title.css'
 import logo from '../assets/logo.jpg'
 import arrow from '../assets/Polygon 24@2x.png'
 import ReactPlayer from 'react-player'
-import { Modal , Button } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 import CreateEvent from './createEvent'
 import { connect } from 'react-redux'
 import red from '../assets/red.png'
@@ -24,9 +24,9 @@ import FooterEventsGallery from './footerEventsGallery';
 
 
 function mapStateToProps(state) {
-
-    // red #86F3FF
+debugger
     document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
+    document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
     // state.settings.settings.eventsButtonColor
 
     // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
@@ -157,9 +157,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     <img className="myImg" src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
                     <div className="col-5 titleAndDescription">
-                        <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p>
-
+                            <h1 className="titleH1" > {headersettings.eventsPageTitle}</h1>
+                            <p  className="descriptionP"> {headersettings.eventsPageDescription}</p>
                     </div>
                     <div className="imgOrVieo">
                         {checkImg() === true ?

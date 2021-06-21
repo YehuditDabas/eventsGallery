@@ -1,5 +1,5 @@
 import { actionsStore } from '../actions'
-const API_URL = "https://calendar.dev.leader.codes/api/"
+const API_URL = 'https://events.calendar.dev.leader.codes/api/'
 
 export const getEvents = ({ dispatch, getState }) => next => action => {
 
@@ -23,7 +23,7 @@ export const getEvents = ({ dispatch, getState }) => next => action => {
       headers: myHeaders,
     };
 
-    fetch('https://calendar.dev.leader.codes/api/' + userName + "/getCalendarEventsCategory", requestOptions)
+    fetch(API_URL + userName + '/getCalendarEventsCategory', requestOptions)
       .then(res => res.json())
       .then(resJson => dispatch(actionsStore.addAllEvents(resJson)))
       .catch(err => {
@@ -59,9 +59,7 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
     };
 
     fetch(API_URL + userName + "/getEventsPageSettings", requestOptions)
-
       .then(res =>
-
         res.json()
       )
       .then(resJson => {
@@ -73,21 +71,21 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
       })
 
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", TokenToString)//cookies;
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
+    // var myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
+    // myHeaders.append("authorization", TokenToString)//cookies;
+    // var requestOptions = {
+    //   method: 'GET',
+    //   headers: myHeaders,
 
-    };
+    // };
 
-    return fetch('https://events.calendar.dev.leader.codes/api' + userName + "/getEventsPageSettings", requestOptions)
-      .then(res => res.json())
-      .then(resJson => dispatch(actionsStore.addAllSettings(resJson)))
-      .catch(err => {
-        console.log(err)
-      })
+    // return fetch(API_URL + userName + "/getEventsPageSettings", requestOptions)
+    //   .then(res => res.json())
+    //   .then(resJson => dispatch(actionsStore.addAllSettings(resJson)))
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
 
   }
   return next(action)
@@ -120,7 +118,7 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
 
     console.log(action.payload)
 
-    fetch('https://events.calendar.dev.leader.codes/api' + userName + "/createOrUpadteEventsPageSettings", requestOptions)
+    fetch(API_URL + userName + "/createOrUpadteEventsPageSettings", requestOptions)
       .then(res => {
         debugger
         res.json()

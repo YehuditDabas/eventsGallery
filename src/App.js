@@ -21,18 +21,18 @@ function App() {
     <Router>
       <Route exact path="/:userName">
         <div className="App">
-          <div className="container settingsAndEvents">
+          {/* <div className="container settingsAndEvents">
             <div className="row">
               <div className="col-3">
                 <ConfiguratorSettings />
               </div>
-              <div className="col-9">
+              <div className="col-9"> */}
                 <TitleEvents style={{ zIndex: 3 }}></TitleEvents>
                 <FooterEventsGallery />
 
-              </div>
+              {/* </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* <MyAllEvents></MyAllEvents> */}
