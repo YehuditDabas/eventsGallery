@@ -24,7 +24,7 @@ export const getEvents = ({ dispatch, getState }) => next => action => {
       headers: myHeaders,
     };
 
-    fetch('https://calendar.dev.leader.codes/api/' + userName + requestOptions)
+    fetch("https://events.calendar.dev.leader.codes/api/" + userName + requestOptions)
       .then(res => {
 
         res.json()
@@ -72,7 +72,6 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
 
 
 export const updateOrCreateSettings = ({ dispatch, getState }) => next => action => {
-
   if (action.type === "UPDATE_OR_CREATE_SETTINGS") {
 
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
@@ -89,10 +88,7 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("authorization", TokenToString)//cookies;
-    debugger
 
-    
-    debugger;
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -109,8 +105,6 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
       console.log(err)
     )
   }
-
-  
     return next(action)
 }
 

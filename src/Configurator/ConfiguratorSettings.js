@@ -59,23 +59,25 @@ function ConfiguratorSettings(props) {
             className="accordion_warps"
           >
             <CardComponentConfig
+             className="cardName"  
               eventKey={'Page Settings'}
               component={pageSettings} קומפוננטה אחת
             />
             <CardComponentConfig
+             className="cardName"  
               eventKey={'Edit Header'}
               component={EditHeader} קומפוננטה שניה
             />
             <CardComponentConfig
-              className="PositionA"
+               className="cardName"  
               // eventKey={3}
               eventKey={'Edit Subscription'}
               component={EditSubscription} קומפוננטה שלישית
             />
             <CardComponentConfig
-              // className="PositionA"      
+             className="cardName"      
               eventKey={'Edit Footer'}
-              component={EditFooter} קומפוננטה שלישית
+              component={EditFooter} קומפוננטה רביעית
             />
 
             {/* <CardComponentConfig eventKey={1} component={ChannelDetails} nameComponent={'ChannelDetails'} />

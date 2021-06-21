@@ -1,15 +1,16 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
 
+import logoImage from '../../../assets/Group 21405.svg'
+
 const initialState = {
     header: {
         eventsPageAlignment: "",
         eventsPageImageOrVideo: "",
-        eventsPageLogo: "",
+        eventsPageLogo: logoImage,
         eventsPageTitle: "",
-        eventsPageDescription: "",
+        eventsPageDescription: " ",
         displayHeader: true
-
     }
 };
 const editHeader = {
@@ -24,18 +25,18 @@ const editHeader = {
 
     },
     setAlignment(state, action) {
-        debugger;
+      
         state.header.eventsPageAlignment = action.payload;
         console.log(state.header.eventsPageAlignment)
     },
     
     setImage(state, action) {
-        debugger;
+      
        state.header.eventsPageImageOrVideo = action.payload.url;
         console.log(state.header.eventsPageImageOrVideo) 
      },
      setLogo(state, action) {
-        debugger;
+        debugger
             state.header.eventsPageLogo = action.payload.url;
         console.log(state.header.eventsPageLogo) 
      },
