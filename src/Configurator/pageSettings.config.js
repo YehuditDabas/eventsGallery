@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { actionsStore } from '../redux/actions';
 import { connect } from 'react-redux';
 import dropper from '../assets/dropper.svg';
-import { GithubPicker } from 'react-color';
+import { GithubPicker,CirclePicker  } from 'react-color';
 // import StopIcon from '@material-ui/icons/Stop';
 
 import './ConfigComp.css';
@@ -16,41 +16,46 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
 function pageSettings(props) {
-    let color = ['#CCCCCC', '#44D7B6', '#6DD41F', '#BFD41F', '#F0D923', '#F8B520', '#F88C20', '#40D9ED', '#3598F4', '#8580FD', '#6236FC', '#B620E0', '#F13B7F', '#F84A20']
+    
+    //let color = ['#CCCCCC', '#44D7B6', '#6DD41F', '#BFD41F', '#F0D923', '#F8B520', '#F88C20', '#40D9ED', '#3598F4', '#8580FD', '#6236FC', '#B620E0', '#F13B7F', '#F84A20']
+    let color = ['#AD60FF', '#FF53F7', '#FF62B2', '#FA5252', '#FF803F', '#FAEE3A',
+     '#424149', '#9F9CB5', '#4F40D0', '#54B9FF', '#51E7FB', '#63F597']
     return (
         <div >
             <div className="ml-1">
-                <b> <Form.Label >Main Color</Form.Label></b>
+                <span className="titleSettings"> Main Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker colors={color} onChange={(e) => props.changeMainColor(e.hex)} /></div>
+                <GithubPicker  colors={color} onChange={(e) => props.changeMainColor(e.hex)} className="colorSelected" /></div>
             <div className="ml-1">
-                <b> <Form.Label >Botton Color</Form.Label></b>
+            <span className="titleSettings"> Button Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker colors={color} onChange={(e) => props.changeMainColor(e.hex)} /></div>
+                <GithubPicker icker colors={color} onChange={(e) => props.changeButtonStyle(e.hex)}  /></div>
            
             {/* <br /> */}
            
-            <div className="row m-1">
-                <Form.Label className="textField">Show In Page</Form.Label>
-                <select
+            <div className="row m-2">
+               <div className="col-7 showinpageRow">Show In Row</div> 
+                <div className="col-5 " ><select
                     className="textField SelectChanel"
                     name="showInPage"
                     id="showInPage"
                     style={{ backgroundColor: "#F0F0F0" }}
                     onChange={(e) => props.changeShowInPage(e.target.value)}
                     value={props.showInPage}
-                >
+                   
+                    >
+                        
                     <option value="3">3</option>
                     <option value="4">4</option>
                     
-                </select>
+                </select></div>
             </div>       
             <div>
                 <FormGroup className="d-flex justify-content-between">
                     <FormControlLabel className="d-flex justify-content-between"
-                        control={<Switch name="name" />}
+                        control={<Switch onChange={(e)=>{props.changeShowHistoricalEvents(e.target.checked)}} name="name" />}
                         label="Watch previous events"
                     />
 
@@ -63,75 +68,17 @@ function pageSettings(props) {
 
 const mapStateToProps = (state) => {
     return {
-        // editGrid: state.channelSettings.editGrid,
         // mainColor: state.configImage.mainColor,
-        // showInPage: state.configImage.showInPage,
+        showInPage: state.pageSettings.amountEventsInRow,
         // buttonStyle: state.configImage.buttonStyle
     };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    // changeEditGrid: (e) => dispatch(actionsStore.setEditGrid(e)),
+    changeShowHistoricalEvents:(e)=>dispatch(actionsStore.setShowHistoricalEvents(e)),
     changeShowInPage: (e) => dispatch(actionsStore.setShowInPage(e)),
-    // changeColumns: (e) => dispatch(actionsStore.setColumns(e)),
     changeMainColor: (e) => dispatch(actionsStore.setMainColor(e)),
     changeButtonStyle: (e) => dispatch(actionsStore.setButtonStyle(e))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(pageSettings);
 
-// 3 צורות
- {/* <div className="ml-1">
-                <b><Form.Label className="textField">Button Style</Form.Label></b>
-            </div> */}
-            {/* <div className="row ml-1 mb-2">
-                <div className="d-inline-flex d-flex justify-content-center align-items-center m-1 p-1 ChnnelSettingsColor" >
-                    <FontAwesomeIcon
-                        id='square'
-                        icon={['fas', 'square']}
-                        className={ props.buttonStyle === 25 ? 'BoldIconColor textField ChannelColorIcn m-1' : 'textField ChannelColorIcn m-1'}
-                        onClick={() => props.changeButtonStyle(25)}
-                    ></FontAwesomeIcon>
-                </div>
-                <div className="d-inline-flex d-flex justify-content-center align-items-center m-1 p-1 ChnnelSettingsColor" >
-                    <FontAwesomeIcon
-                        className={ props.buttonStyle === 0 ? 'BoldIconColor textField ChannelColorIcn m-1' : 'textField ChannelColorIcn m-1'}
-                        id='square-full'
-                        icon={['fas', 'square-full']}
-                        onClick={() => props.changeButtonStyle(0)}
-                    ></FontAwesomeIcon>
-                </div>
-                <div className="d-inline-flex d-flex justify-content-center align-items-center m-1 p-1 ChnnelSettingsColor" >
-                    <FontAwesomeIcon
-                        className={ props.buttonStyle === 50 ? 'BoldIconColor textField ChannelColorIcn m-1' : 'textField ChannelColorIcn m-1'}
-                        id='circle'
-                        icon={['fas', 'circle']}
-                        onClick={() => props.changeButtonStyle(50)}
-                    ></FontAwesomeIcon>
-                </div>
-            </div> */}
-
-        //     <div className="ml-1">
-        //     <b><Form.Label className="textField" >Podcasts View</Form.Label></b>
-        // </div>
-        // <div className="row m-1" >
-        //     <Form.Check inline label="List" type="radio" name="editGrid" value="list" checked={props.editGrid == "list"} onChange={() => props.changeEditGrid("list")} />
-        //     <Form.Check inline label="Grid" type="radio" name="editGrid" value="grid" checked={props.editGrid == "grid"} onChange={() => props.changeEditGrid("grid")} />
-        //     {/* checked  */}
-        // </div>
-
-          {/* {props.editGrid === 'grid' &&
-                <div className="row m-1">
-                    <Form.Label className="textField">Columns</Form.Label>
-                    <select
-                        className="textField SelectChanel"
-                        name="columns"
-                        id="columns"
-                        style={{ backgroundColor: "#F0F0F0" }}
-                        onChange={(e) => props.changeColumns(e.target.value)}
-                    >
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-            } */}

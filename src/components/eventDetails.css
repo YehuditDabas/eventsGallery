@@ -88,6 +88,9 @@ opacity: 1;
     text-transform: uppercase;
     opacity: 1;
 }
+.timeText{
+    font:normal normal 300 2vw Roboto;
+}
 .priceText{
     text-align: left;
     font: normal normal 300 2vw Roboto;
@@ -142,5 +145,8 @@ width:4vw;
 .picTitle{
     position: absolute;
     right: 7%;
-    top: 13%;
+    top: 10%;
+    height: 50vh;
+    width:35vw;
+    padding: 0;
 }

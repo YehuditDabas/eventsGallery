@@ -1,8 +1,11 @@
-import { actionsStore } from '../actions'
+import { actionsStore } from '../actions';
+import imageCompression from 'browser-image-compression';
+import $ from "jquery";
+
 const API_URL = 'https://events.calendar.dev.leader.codes/api/'
 
-export const getEvents = ({ dispatch, getState }) => next => action => {
 
+export const getEvents = ({ dispatch, getState }) => next => action => {
   if (action.type === 'GET_DATA') {
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
       ? document.cookie
@@ -90,6 +93,7 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
   }
   return next(action)
 }
+
 export const updateOrCreateSettings = ({ dispatch, getState }) => next => action => {
 
   if (action.type === "UPDATE_OR_CREATE_SETTINGS") {
@@ -109,37 +113,33 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("authorization", TokenToString)//cookies;
+
+
+
     var requestOptions = {
-      method: 'GET',
+      method: 'POST',
       headers: myHeaders,
-      body: JSON.stringify(action.payload.newr)
+      body: JSON.stringify(action.payload)
     }
 
-
-    console.log(action.payload)
-
-    fetch(API_URL + userName + "/createOrUpadteEventsPageSettings", requestOptions)
+    fetch("https://events.calendar.dev.leader.codes/api/" + userName + "/createOrUpadteEventsPageSettings", requestOptions)
+      .then(res => res.json())
       .then(res => {
-        debugger
-        res.json()
-      }
-
-      )
-      .then(resJson => dispatch(actionsStore.updateOrCreateSettings(resJson)))
-      .catch(err => {
-        console.log(err)
+        dispatch(actionsStore.addAllSettings(res))
       })
-  }
-  return next(action)
+      .catch(err =>
+        console.log(err)
+      )
+}
 
 
+return next(action)
 }
 
 
 
 export const subscribe = async (obj) => {
 
-  debugger
   const TokenToString = document.cookie && document.cookie.includes('devJwt')
     ? document.cookie
       .split(';')

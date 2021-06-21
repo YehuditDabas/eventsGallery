@@ -19,16 +19,33 @@ import purple1 from '../assets/purple1.png'
 import purple2 from '../assets/purple2.png'
 import turquoise from '../assets/turquoise.png'
 function mapStateToProps(state) {
+    var year = new Date();
+    year = year.getUTCFullYear();
     return {
-        events: state.allEvents.events,
-        mainColor:state.pageSettings.page.eventsPageColor,
-        eventsButtonColor:state.pageSettings.page.eventsButtonColor
+
+        events: state.allEvents.events,   
+        mainColor: state.pageSettings.page.eventsPageColor,
+        eventsButtonColor: state.pageSettings.page.eventsButtonColor,
 
     }
 }
 
 export default withRouter(connect(mapStateToProps)(function EventDetails(props) {
-    const { events,mainColor,eventsButtonColor } = props;
+    const { events, mainColor, eventsButtonColor } = props;
+
+    document.documentElement.style.setProperty('--main-color', mainColor);
+    document.documentElement.style.setProperty('--button-color', eventsButtonColor);
+
+    const index = window.location.pathname.split('/')[3]
+    // var year = new Date();
+    // year = year.getUTCFullYear();
+    // var mon = index < 10 ? events[index].start.slice(6, 7) : events[index].start.slice(5, 7);
+    // console.log("inddddddd  ", mon);
+    // var ev = events.filter(item => item.start.slice(6, 7) == mon && item != events[index]&&item.start.slice(0,4) ==year);
+    const [moreEvents, setMoreEvents] = useState();
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let e1 = [];
+
     const img =
     {
         '#ad60ff': purple1,
@@ -44,13 +61,6 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         '#54b9ff': lightBlue,
         '#51e7fb': lightBlue2
     }
-    document.documentElement.style.setProperty('--main-color', mainColor);
-    document.documentElement.style.setProperty('--button-color',eventsButtonColor );
-
-    const index = window.location.pathname.split('/')[3]
-    const [moreEvents, setMoreEvents] = useState();
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    let e1 = [];
     // console.log(events[index])
     console.log('index', index)
     // console.log("tickets ", events[index].registrationURL)
@@ -59,6 +69,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         let str = events[index].start.slice(0, 10).split('-')
         var mydate = new Date(str[0], str[1] - 1, str[2]);
         console.log(mydate.toDateString())
+        // addMoreEvents()
         return weekday[mydate.getDay()];
     }
     function month() {
@@ -66,8 +77,9 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         let mydate = new Date(str[0], str[1], str[2]);
         console.log(mydate.toDateString())
         let date = events[index].start.slice(8, 10).split('-');
-        console.log("date  " + date)
         let month = date + " " + months[mydate.getMonth() - 1];
+        console.log("month  " + month)
+
         return month
     }
     function hour() {
@@ -93,20 +105,21 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
     useEffect(() => {
+
         if (events && events.length != 0) {
             addMoreEvents()
         }
-    }, [])
+    }, [events])
     return (
         <>
             {events.length !== 0 ? <>
-                <div className="container-fluid">
-                    <div className="row">
-                        <img src={img[mainColor]} height="100%" width="100%" ></img>
+                <div className="container-fluid detailsContainer">
+                    <div className="row imgTitleDetails">
+                        <img src={img[mainColor]} height="100%" width="100%" style={{ padding: 0 }}></img>
                         <div className="col-7 rtitle">
                             <div className="eventTitle">{events[index].title}
                                 <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
-                                    <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a>
+                                    {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
                                 </div>
                             </div>
                         </div>
@@ -116,7 +129,7 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                     <div className="row">
                         <div className="at col-7">
                             <div className="aboutTitle">About The Event
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi eds bi-share" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi eds bi-share" viewBox="0 0 16 16">
                                     <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
                                 </svg>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi edh bi-heart" viewBox="0 0 16 16">
@@ -146,12 +159,12 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                             </span>
 
                             <p className="priceText">{events[index].price === undefined ? 'Free' : events[index].price}</p>
-                            <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a>
+                            {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
 
                         </div>
                     </div>
                     <div class="moreEvents">
-                        <h1 className="more">more events on {month().slice(3, 10)}</h1>
+                        <h1 className="more">more events on {month().slice(3, 15)}</h1>
                         <div className="row">
                             {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title} mainColor={mainColor}></MiniEvent> </div>)}
                         </div>

@@ -30,11 +30,15 @@ background: #9653FF;
 }
 .configuratorTextarea {
     border: none;
-    background-color:#E8EAEC;
+    /* background-color:#E8EAEC; */
     resize: none !important;
-    width: 100%;
-    /* height: 80px; */
     
+    /* height: 80px; */
+    background: #505066 0% 0% no-repeat padding-box;
+    /* height: 25px; */
+    text-align: left;
+    width: 13vw;
+    margin-left: 2.5vw;
 }
 .LogoChnnel{
     margin-top: 10px;
@@ -54,28 +58,19 @@ background: #9653FF;
 }
 
 /* PICKER */
-element.style {
+/* element.style {
     width: 200px;
     background: #0000(255, 255, 255);
     border: 1px solid rgba(0, 0, 0, 0.2);
-    /* box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px; */
+     box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px; 
     border-radius: 4px;
     position: relative;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
-}
-.github-picker{
-    width: 200px;
-    background: #0000 !important;
-    border: #0000 !important;
-    box-shadow: #0000 0px 0px 0px !important;
-    border-radius: 4px;
-    position: unset !important;
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-} 
+} */
+
+
 .inputfile {
     width:  0.1px;
     height: 0.1px;
@@ -102,11 +97,11 @@ element.style {
     display: block;
 }
 
-.divUploadImage {
+/* .divUploadImage {
     height: auto;
     width: 100%;
     margin-top: 15px;
-}
+} */
 
 .iconDiv {
     position: absolute;
@@ -131,8 +126,9 @@ element.style {
 }
 /* PICKER */
 
+
 .github-picker{
-    width: 100%;
+    width: 13vw;
     background: #0000 !important;
     border: #0000 !important;
     box-shadow: #0000 0px 0px 0px !important;
@@ -141,6 +137,7 @@ element.style {
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
+    margin-left: 1vw;
 } 
 .github-picker>span{
     margin: 3px;
@@ -189,12 +186,13 @@ height: 14.3312101910828%;
 }
 
 .MuiTypography-body1 {
-    font-size: small !important;
+    /* font-size: small !important; */
 }
 
 .MuiFormLabel-root {
     font-size: small !important;
     /* padding-left: 20px; */
+    color: white;
 }
 
 .MuiFormGroup-root {
@@ -247,8 +245,10 @@ height: 14.3312101910828%;
     height: 16px !important;
 }
 .SelectChanel{
-    height: 20px;
-    margin-left: 15px;
+    height: 4vh;
+    /* margin-left: 9vw; */
+    margin-left: 1.5vw;
+    width: 3vw;
     background-color: #F0F0F0; 
 }
 .ChnnelSettingsColor{
@@ -258,14 +258,16 @@ height: 14.3312101910828%;
     width: 100% !important;
 }
 .ChannelColorwidth{
-    width: 185px !important;
+    width: 13vw !important;
+   
 }
 .MuiFormControlLabel-root {
-    margin-left: 0px !important;
+    /* margin-left: 0px !important; */
     margin-right: 0px !important;
 }
 .FormControlW{
     width: 100%;
+    margin-left: 1vw;
 }
 .marginTop{
     margin-top: -12px;
@@ -281,6 +283,12 @@ Form.Label{
 /* border-radius: 2px; */
 opacity: 0.30;
 display: inline-block;
+background: #505066 0% 0% no-repeat padding-box;
+height: 5vh;
+    width: 30vh;
+    /* display: flex; */
+    margin: auto;
+   color: white;
 
 }
 .iconFooter{
@@ -291,4 +299,47 @@ display: inline-block;
 .icon{
     margin: 1vh;
     margin-right: 2vh;
+    float: right;
+}
+.colorSelected{
+   
+    border: 2px solid #FFFFFF;
+    opacity: 1;
+}
+.iii{
+    margin: auto;
+    width: 90%;
+}
+.warpDivalignment{
+display: flex;
+}
+.one{
+    display: inline;
+}
+.AlignmentSpan{
+    font-size: 85%;
+    margin-left: -65%;
+}
+
+.SpanSettings{
+    font-size: 85%;
+    margin-left: 1.5vw;
+}
+.divUploadImage{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 0.46;
+    width: 13vw;
+    height: 16vh;
+    margin-left: 1.5vw;
+}
+
+.showinpageRow{
+font-size: smaller;
+    margin-left: 0vw;
+    margin-bottom: 1vh;
+}
+.titleSettings{
+    margin-left: 1.5vw;
+    font-size: smaller;
 }

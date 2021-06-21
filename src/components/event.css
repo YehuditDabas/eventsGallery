@@ -17,6 +17,7 @@
 .eventCard:hover .eventDescription{
    background: var(--main-color) 0% 0% no-repeat padding-box;
    opacity: 1;
+   
 }   
 
 .eventCard{

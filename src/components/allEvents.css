@@ -53,6 +53,9 @@
     background-color: white;
     cursor: pointer;
 }
+.bt:hover{
+    color:grey;
+}
 .f_bt{
     font-size: 3.8vh;
     color:var(--main-color);

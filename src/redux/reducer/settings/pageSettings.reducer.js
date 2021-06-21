@@ -4,12 +4,14 @@ import produce from 'immer';
 const initialState = {
     page: {
         eventsPageColor: "",
+        eventsButtonColor: "",
         amountEventsInRow: "",
-        eventsButtonColor:""
+        eventsButtonColor: "",
+        WatchPreviousEvents: "",
+        eventsPagButton: ""
     }
 
-    // Watch previous events:"",
-    // eventsPagButton:""
+
 };
 
 const configImage = {
@@ -24,23 +26,25 @@ const configImage = {
 
     },
     setShowInPage(state, action) {
-        state.showInPage = action.payload;
+        state.page.amountEventsInRow = action.payload;
     },
 
     setMainColor(state, action) {
-        state.mainColor = action.payload;
+        state.page.eventsPageColor = action.payload;
     },
     setButtonStyle(state, action) {
-        state.buttonStyle = action.payload;
+        state.page.eventsButtonColor = action.payload;
     },
-    setShowCounterViews(state, action) {
-        state.showCounterViews = action.payload;
+    setShowHistoricalEvents(state, action) {
+        state.page.ShowHistoricalEvents = action.payload;
     },
     addAllSettings(state, action) {
         state.page.amountEventsInRow = action.payload.settings.amountEventsInRow
         state.page.eventsPageColor = action.payload.settings.eventsPageColor
         state.page.eventsButtonColor = action.payload.settings.eventsButtonColor
+        state.page.WatchPreviousEvents=action.payload.settings.watchPreviousEvents
 
+        console.log(" page settings  "+ state.page.amountEventsInRow)
     }
 };
 

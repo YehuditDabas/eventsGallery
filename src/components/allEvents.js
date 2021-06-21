@@ -7,44 +7,49 @@ import CreateEvent from './createEvent';
 
 
 function mapStateToProps(state) {
+    var year=new Date();
+    year = year.getUTCFullYear();
     return {
-        events: state.allEvents.events,
-        mainColor: state.pageSettings.page.eventsPageColor
+        
+        events: state.allEvents.events.filter(item=>item.start.slice(0,4)==year),
+        mainColor: state.pageSettings.page.eventsPageColor,
+        amountEventsInRow: state.pageSettings.page.amountEventsInRow,
+        WatchPreviousEvents:state.pageSettings.page.WatchPreviousEvents
     }
 }
 const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    const { events, mainColor } = props;
+    const { events, mainColor, amountEventsInRow ,WatchPreviousEvents} = props;
+    console.log("amountEventsInRow  ", amountEventsInRow);
     document.documentElement.style.setProperty('--main-color', mainColor);
-    const [eventsByMonth, setEventsByMonth] = useState(events);
+    var year = new Date();
+    year = year.getUTCFullYear();
+    const [eventsByMonth, setEventsByMonth] = useState(events.sort( (a, b) => new Date(a.start) -new Date( b.start)));
     const [pastEvents, setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    const numCols = "col-" + 4;
+    var classCols = amountEventsInRow == 4 ? 3 : 4;
+    const numCols = "col-" + classCols;
+    const isAdmin=true;
+    console.log("num cols  ", numCols);
+    
+    console.log("year  ", year);
     var arrow = ["<", ">"];
-    var eventsHeight =eventsByMonth.length<3?90: Math.ceil((eventsByMonth.length + 1) / 3) * 75;
-    document.documentElement.style.setProperty('--events-height', eventsHeight+"vh");    console.log("height ", eventsHeight)
+    var eventsHeight =eventsByMonth.length==0&&isAdmin==false?30: eventsByMonth.length < amountEventsInRow ? 90 : Math.ceil((eventsByMonth.length+1) / amountEventsInRow) * 75;
+    document.documentElement.style.setProperty('--events-height', eventsHeight + "vh"); console.log("height ", eventsHeight)
 
     const [prevMonth, setPrevMonth] = useState(0);
     useEffect(() => {
         setEventsByMonth(events)
-    }, [])
+    }, [events])
 
-    var e1 = [], dt = true;
-    // function past(){
-    //     if(pastEvents==true){
-    //         setPastEvents(false);
-    //         // document.getElementById("ifPast").innerHTML="להצגת אירועי העבר";
-    //     }
-    //     else{ 
-    //         setPastEvents(true);
-    //         // document.getElementById("ifPast").innerHTML="להסתרת אירועי העבר";
-    //     }
-    // }
+    var e1 = [];
+
+
     function filterByMonth(e) {
         console.log("m " + e.target.value);
-        var d, m;
+        var d, m, y;
         e1 = [];
         m = e.target.value;
         document.getElementById(prevMonth).setAttribute('class', 'bt');
@@ -70,16 +75,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             document.getElementById(m).setAttribute('class', 'bt');
 
         }
-        var date = dt == true ? new Date("1-1-1900") : new Date();
+
 
         for (var i = 0; i < events.length; i++) {
+            y = events[i].start.slice(0, 4);
             d = i < 10 ? events[i].start.slice(6, 7) : events[i].start.slice(5, 7)
-            console.log("d=" + d);
-            console.log("pp  " + date.toISOString())
-            if (d == m && events[i].start > date.toISOString()) { e1.push(events[i]) }
+            console.log("y=" + y);
+            if (d == m &&y==year) { e1.push(events[i]) }
         }
         if (m == 0) {
-            e1 = events.filter(item => item.start > date.toISOString())
+            e1 = events.filter(item => item.start.slice(0, 4)==year)
             setEventsByMonth(e1)
         }
 
@@ -101,14 +106,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         <>
 
             <div class="container-fluid">
-                <div class="row title"><p>our upcoming events</p></div>
+                <div class="row title" ><p>our upcoming events</p></div>
                 <div ><button class="bt" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
                     <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row events">
-                    <div className="col-4 createEventArea">
-                        <CreateEvent></CreateEvent>
-                    </div>
+                    {isAdmin==true?<div className={numCols} id="createEventArea">
+                        <CreateEvent color={mainColor}></CreateEvent>
+                    </div>:''}
+                    
 
                     {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
 

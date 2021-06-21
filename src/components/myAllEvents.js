@@ -5,7 +5,6 @@ import { actionsStore } from '../redux/actions';
 import DisplayEvent from './displayEvent'
 import PreviousEvents from './previousEvents'
 function mapStateToProps(state) {
-    debugger;
     console.log(state.allEvents.events)
     return {
         events: state.allEvents.events

@@ -24,10 +24,10 @@ import { withRouter } from 'react-router-dom'
 function mapStateToProps(state) { 
     
     return {
-        events: state.allEvents.events,
+        events: state.allEvents.events,   
         eventsPageColor: state.pageSettings.page.eventsPageColor,
-        // userName: state.userName,
-        // devJwt: state.devJwt
+        userName: state.allEvents.userName,
+        devJwt: state.allEvents.devJwt
     }
 }
 
@@ -57,12 +57,12 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
         '#51e7fb': lightblue,
         '#faee3a': yellow
     }
+  
 
     function details() {
         console.log('details')
         var index = events.indexOf(currentEvent);
         console.log('index ', index);
-        debugger;
         history.push({ pathname: `/${userName}/eventDetails/${index}`, state: { index: index } })
 
         // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />

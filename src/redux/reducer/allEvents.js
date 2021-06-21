@@ -17,7 +17,9 @@ const events = {
         state.userName = action.payload;
     },
     addDevJwt(state, action) {
-        // debugger;
+        state.userName = action.payload;
+    },
+    addDevJwt(state, action) {
         state.devJwt = action.payload
     },
     
