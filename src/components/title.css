@@ -23,7 +23,7 @@
 .titleAndDescription{
     z-index: 2!important;
     position: absolute;
-    margin-left:6vw!important;
+    margin-left:4vw!important;
     margin-top: 10vh;
 }
 
@@ -69,7 +69,7 @@ line-height: 12vh;
 .descriptionP{
     /* font-size: 200%; */
     text-align: var(--align-text);
-font: normal normal normal 5vh/2vw  Roboto;
+font: normal normal normal 220% Roboto;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;

@@ -152,7 +152,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         <>
             {headersettings.eventsPageTitle !== "" && headersettings.displayHeader == true ? <div className="container-fluid adminEventTitle" >
 
-                <div className="row" >
+                <div className="row" style={{height:"75vh"}}>
                     <img className="myImg" src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
                     <div className="col-5 titleAndDescription">
@@ -171,16 +171,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                          <div className="row">
                         <div className="col-3 subscribeArea">
                             {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                            <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
+                            {/* <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
 
-                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> 
                             {showing ?
                                 <div>
                                     <img className="arrow_" src={arrow}></img>
                                     <div className="dropDown">
                                         <form className="formSubscribe">
                                             <br></br>
-                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress"); */}
+                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress"); 
                                             {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
                                             {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
                                             {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
@@ -194,7 +194,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
                                     </div></div> :
                                 <div></div>
-                            }
+                            } */}
 
 
 
