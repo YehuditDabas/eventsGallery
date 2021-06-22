@@ -77,7 +77,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     // const display = true;//ימלא נתונים בפרופס מהרידאקס אם מעונין שיציג כותרת
     // const [settings, setSettings] = useState({ eventsPageTitle: 'welcome to leader event', picteventsPageImageure: '', eventsPageDescription: 'Don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy Mission This Time. Seve…', amountEventsInRow: '3' });//ימלא נתונים מהפרופס מהרידאקס את ההגדרות..
     const [showing, setShowing] = useState(false);
-    function beforeSubscribe() {
+    async function beforeSubscribe() {
+        debugger
         const obj = {
             objEmail: email,
             objName: name,
@@ -126,7 +127,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             setErrorsForm(...errorsForm, 'Fill in all the details')
         }
         else {
-            subscribe(obj)
+          let x=subscribe(obj)
+          console.log(x)
             setShowing(false)
             handleShow()
         }

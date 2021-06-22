@@ -40,7 +40,11 @@ function pageSettings(props) {
                 <div className="col-5 " ><select
                     className="textField SelectChanel"
                     name="showInPage"
-                    id="showInPage"                
+                    id="showInPage"
+                    style={{
+                        background: "#505066 0% 0% no-repeat padding-box",
+                        color: "white"
+                    }}
                     onChange={(e) => props.changeShowInPage(e.target.value)}
                     value={props.showInPage}
                 >
