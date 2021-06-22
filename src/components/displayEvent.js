@@ -13,7 +13,6 @@ function mapStateToProps(state) {
     console.log("userName", state.userName)
     console.log("state.devJwt", state.devJwt)
     return {
-        events: state.events,
         userName: state.userName,
         devJwt: state.devJwt
     }

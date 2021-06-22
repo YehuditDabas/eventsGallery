@@ -3,10 +3,10 @@ import produce from 'immer';
 
 const initialState = {
     subscribe:{
-        name: true,
-        email: true,
-        phone: true,
-        adress: false,}
+        name:"" ,
+        email: "",
+        phone:"" ,
+        address: "",}
  
 };
 
@@ -19,8 +19,13 @@ const editSubscriptionConfigurator = {
         state.subscribe.adress = action.payload.adress;
     },
     settingFields(state, action) {
-        state[action.payload.filedName] = action.payload.value;
+        debugger;
+        let currentFiledName=action.payload.filedName; 
+        state.subscribe.currentFiledName=action.payload.value;
+        console.log(`1${action.payload.filedName}  --- ${action.payload.value}` )
+        console.log(`${state.subscribe.phone} ------ ${action.payload.value}`)
     },
+
     addAllSettings(state, action){
         debugger
         state.subscribe.name=action.payload.settings.name;
