@@ -138,6 +138,31 @@ return next(action)
 
 
 
+
+
+
+ //    fetch(newFile).then(r => {
+  //     return r.blob();
+  //   }).then(blobFile => {
+  //     let name = `${newFile.split("/")[3]}.png`;
+  //     let fileToUpload = new File([blobFile], name, {
+  //       lastModified: new Date().getTime(),
+  //       type: blobFile.type,
+  //     });
+  //     const options = {
+  //       maxSizeMB: 1,
+  //       maxWidthOrHeight: 1920,
+  //       useWebWorker: true,
+  //     };
+  //     const compressedFile = imageCompression(fileToUpload, options);
+  //     return compressedFile;
+  //   }).then((compressedFile) => {
+  //     newAudio.append('img', compressedFile, compressedFile.name);
+  // console.log("compressedFile  "+compressedFile)
+  //    })
+
+
+
 export const subscribe = async (obj) => {
 
   const TokenToString = document.cookie && document.cookie.includes('devJwt')
@@ -172,3 +197,4 @@ export const subscribe = async (obj) => {
 
 }
 
+  // document.cookie = "devJwt" + "=" + devJwt + ";" + expires + ";path=/";

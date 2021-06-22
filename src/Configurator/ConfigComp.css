@@ -17,17 +17,16 @@ label {
 .ImgEditHeaderStyle{
     width: 35px; height: 25px; border: 0px ;
 }
-.DivEditHeader{
-    background-color: #F0F0F0;
+.EditHeaderAlingment{
+    /* background-color: #F0F0F0; */
     display: inline;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 2px;
-    opacity: 0.2;
+    /* opacity: 0.2; */
+    margin: 0.1vw;
+    color: white !important;
+    background: #505066 0% 0% no-repeat padding-box;
+}
 
-}
-.DivEditHeader:hover{
-background: #9653FF;
-}
 .configuratorTextarea {
     border: none;
     /* background-color:#E8EAEC; */
@@ -35,10 +34,10 @@ background: #9653FF;
     
     /* height: 80px; */
     background: #505066 0% 0% no-repeat padding-box;
-    /* height: 25px; */
+    height: 8vh;
     text-align: left;
     width: 13vw;
-    margin-left: 2.5vw;
+    margin-left:1.5vw;
 }
 .LogoChnnel{
     margin-top: 10px;
@@ -104,25 +103,30 @@ background: #9653FF;
 } */
 
 .iconDiv {
+    width: 13vw;
+    margin-top: 9vh;
+    height: 4vh;
+    background:  0% 0% no-repeat padding-box;
     position: absolute;
     bottom: 0;
     top: 0;
     left: 0;
-    width: 100%;
+    /* width: 100%; */
     color: #cccccc;
-    background-color: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    padding: 20px;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    /* opacity: 0; */
+    padding: 1vw
 }
 
 .iconDiv:hover {
     opacity: 1;
 }
 
+
 .iconCloudUpload {
     position: absolute;
-    bottom: 7px;
-    left: 7px;
+    /* bottom: 7px;
+    left: 7px; */
 }
 /* PICKER */
 
@@ -186,13 +190,14 @@ height: 14.3312101910828%;
 }
 
 .MuiTypography-body1 {
-    /* font-size: small !important; */
+    font-size: 0.8rem !important;
 }
 
 .MuiFormLabel-root {
-    font-size: small !important;
+    /* font-size: small !important; */
     /* padding-left: 20px; */
-    color: white;
+    color: white !important;
+    font-size: 0.9rem;
 }
 
 .MuiFormGroup-root {
@@ -202,38 +207,38 @@ height: 14.3312101910828%;
 }
 
 .MuiTypography-root {
-    margin-right: 0px !important;
+    /* margin-right: 0px !important; */
 }
 
 .accordion>.card>.card-header {
-    /* background-color: #E8EAEC !important; */
+
     background-color: #0A102E;
     color: #FFFFFF;
     text-align: left;
-/* font: normal normal bold 18px/24px Nunito Sans; */
-    
+/* font: normal normal bold 18px/24px Nunito Sans; */  
 }
  .accordion>.card>.card-header:hover{
- 
-    opacity: 0.18;
-    background: transparent linear-gradient(90deg, #FFFFFF 0%, #006C8000 100%) 0% 0% no-repeat padding-box;
+   
+    background: transparent linear-gradient( 
+        115deg , #FFFFFF -200%, #006C8000 100%) 0% 18% no-repeat padding-box;
     color: white !important;
+ }
+
+.accordion>.card>.card-header:hover.cardName{
+    opacity: 0; 
 }
+
 
 .MuiFormControl-root {
     margin: 1rem !important;
 }
-/* .card-header {
-    padding: 3px !important;
-
-} */
 
 .IconColor{
-    color: #959595;
+    color: white;
 }
 
 .BoldIconColor{
-   color: black;
+   color: #9653FF;
 }
 .github-picker>span{
     margin:3px;
@@ -268,6 +273,7 @@ height: 14.3312101910828%;
 .FormControlW{
     width: 100%;
     margin-left: 1vw;
+    color:white;
 }
 .marginTop{
     margin-top: -12px;
@@ -293,13 +299,31 @@ height: 5vh;
 }
 .iconFooter{
     display:flex;
-    margin-left: 1vh;
+    /* margin-left: 1vh; */
     
 }
 .icon{
-    margin: 1vh;
-    margin-right: 2vh;
+    margin-top: 1vh;
+    margin-left: 2vw;
     float: right;
+    /* width: -webkit-fill-available; */
+}
+/* .iconName{
+    margin-right: 0vw;
+} */
+#firstIcon{
+    margin-left: 1.5vw;
+    margin-right: 3vw;
+}
+.MuiTypography-body1 {
+    /* position: absolute;
+    margin-right: 9vw;
+    font-size: 0.8rem !important; */
+}
+#firstLabel{
+    z-index: 11;
+    position: absolute;
+    margin-right: 8vw;
 }
 .colorSelected{
    
@@ -312,9 +336,12 @@ height: 5vh;
 }
 .warpDivalignment{
 display: flex;
+margin-left: 7vw;
+margin-top: -4vh !important;
 }
 .one{
-    display: inline;
+    /* display: inline; */
+    margin-left: 2vw;
 }
 .AlignmentSpan{
     font-size: 85%;
@@ -341,5 +368,13 @@ font-size: smaller;
 }
 .titleSettings{
     margin-left: 1.5vw;
-    font-size: smaller;
+    font-size: 0.9rem;
+}
+.labelToggle{
+    margin-left: 1.5vw !important;
+    font-size: 0.9rem !important;
+}
+.editSubscribtionFileds{
+    margin-left: 1.5vw !important;
+    font-size: 0.9rem !important;
 }

@@ -27,16 +27,16 @@ function EditFooter(props) {
 
         <FormGroup >
 
-        <div className="iconFooter"> 
-          
-        
-            <FormControlLabel className="d-flex justify-content-between" 
-              control={<Switch checked={filedFooter.facebook} onChange={handleChange} name="facebook" />}
-              label=" facebook" />
-               <span className="icon"><FontAwesomeIcon icon={['fab', 'facebook-square']}  ></FontAwesomeIcon> </span> 
+        <div className="iconFooter">     
+            <FormControlLabel className=" iconName" 
+              control={<Switch checked={filedFooter.facebook} onChange={handleChange} name="facebook" id="firstLabel"  />}
+              label={
+                <span className="icon" id="firstIcon"  > 
+                 facebook<FontAwesomeIcon icon={['fab', 'facebook-square']} style={{ width:"3vw" , height: "3vh"}}
+                ></FontAwesomeIcon> </span> 
+
+              } />
           </div> 
-
-
           {/* <Form.Control size="sm" type="text" placeholder="Attach Link" className="inputLinkIcon" /> */}      
                     <textarea
                         className="inputLinkIcon"
@@ -47,13 +47,13 @@ function EditFooter(props) {
                         maxLength="50"                     
                         placeholder="Attach Link"
                     />
-  
           <div className="iconFooter">
 
             <FormControlLabel className="d-flex justify-content-between"
               control={<Switch checked={filedFooter.twitter} onChange={handleChange} name="twitter" />}
-              label="twitter" />
-            <span className="icon"><FontAwesomeIcon icon={['fab', 'twitter']}  ></FontAwesomeIcon></span>
+              label={ <span className="icon" id="secondIcon">
+              twitter  <FontAwesomeIcon icon={['fab', 'twitter']} style={{ width:"3vw" , height: "3vh"}} ></FontAwesomeIcon></span>} />
+           
           </div>
       
                     <textarea
@@ -65,14 +65,13 @@ function EditFooter(props) {
                         maxLength="50"                     
                         placeholder="Attach Link"
                     />
-              
-
+      
           <div className="iconFooter">
             <FormControlLabel className=""
               control={<Switch checked={filedFooter.instagram} onChange={handleChange} name="instagram" />}
-              label="instagram"
-            />
-            <span className="icon"><FontAwesomeIcon icon={['fab', 'instagram']}  ></FontAwesomeIcon></span>
+              label={<span className="icon" id="secondIcon">
+              instagram  <FontAwesomeIcon icon={['fab', 'instagram']} style={{ width:"3vw" , height: "3vh"}} ></FontAwesomeIcon></span>} />
+          
           </div>
           
                     <textarea
@@ -90,8 +89,9 @@ function EditFooter(props) {
             <FormControlLabel
               className="switch d-flex justify-content-between"
               control={<Switch checked={filedFooter.youtube} onChange={handleChange} name="youtube" />}
-              label="youtube" />
-            <span className="icon"><FontAwesomeIcon icon={['fab', 'youtube']}  ></FontAwesomeIcon></span> 
+              label={  <span className="icon" id="fourthIcon">
+               youtube <FontAwesomeIcon icon={['fab', 'youtube']} style={{ width:"3vw" , height: "3vh"}} ></FontAwesomeIcon></span> } />
+          
           </div>
           
                     <textarea
