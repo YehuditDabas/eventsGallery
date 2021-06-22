@@ -162,9 +162,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     </div>
                     <div className="adminImgOrVieo">
                         {checkImg() === true ?
-                            <img className="myImg" src={headersettings.eventsPageImageOrVideo}></img>
+                            <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
                             : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo}  controls={true}/>
+                                height='100%' className="video_or_picture"  url={headersettings.eventsPageImageOrVideo}  controls={true}/>
                         }
 
                     </div>

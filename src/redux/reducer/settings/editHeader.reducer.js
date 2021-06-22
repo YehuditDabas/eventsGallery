@@ -16,6 +16,9 @@ const initialState = {
 };
 const editHeader = {
     initialEditHeaderConfiguration(state, action) {
+        // state = { ...action.payload };
+        // state = action.payload;
+        //todo: 
         state.eventsPageAlignment = action.payload.eventsPageAlignment;
         state.eventsPageImageOrVideo = action.payload.eventsPageImageOrVideo;
         state.eventsPageLogo = action.payload.eventsPageLogo;

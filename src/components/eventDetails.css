@@ -1,6 +1,15 @@
 :root {
     /* --main-color:#e9a411; */
     --button-color:#53EEFF;
+    --image-width:35vh;
+}
+/* .container-fluid {
+    height: 74vh;
+    width: 100vw;
+    padding: 0;
+} */
+.imgTitleDetails{
+    height:75vh !important;
 }
 .rtitle{
     height:60vh;
@@ -147,6 +156,6 @@ width:4vw;
     right: 7%;
     top: 10%;
     height: 50vh;
-    width:35vw;
+    width:var(--image-width);
     padding: 0;
 }

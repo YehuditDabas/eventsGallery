@@ -18,12 +18,14 @@ import pink2 from '../assets/pink2.png'
 import purple1 from '../assets/purple1.png'
 import purple2 from '../assets/purple2.png'
 import turquoise from '../assets/turquoise.png'
+import reactImageSize from 'react-image-size';
+
 function mapStateToProps(state) {
     var year = new Date();
     year = year.getUTCFullYear();
     return {
 
-        events: state.allEvents.events,   
+        events: state.allEvents.events,
         mainColor: state.pageSettings.page.eventsPageColor,
         eventsButtonColor: state.pageSettings.page.eventsButtonColor,
 
@@ -35,7 +37,6 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
 
     document.documentElement.style.setProperty('--main-color', mainColor);
     document.documentElement.style.setProperty('--button-color', eventsButtonColor);
-
     const index = window.location.pathname.split('/')[3]
     // var year = new Date();
     // year = year.getUTCFullYear();
@@ -63,6 +64,13 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
     }
     // console.log(events[index])
     console.log('index', index)
+
+    function setWidth() {
+        const { widthP, heightP } = reactImageSize(events[0].image)
+        return widthP;
+    }
+
+
     // console.log("tickets ", events[index].registrationURL)
     function day() {
         const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -104,10 +112,28 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
         setMore(e1);
         console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
+    function setHeightAndWidth() {
+        // var myImg = document.querySelector("#ti")
+        var myImg = new Image();
+        var size;
+        myImg.src = events[index].image;
+        myImg.onload = function () {
+            size = myImg.width / myImg.height * 25;
+            size+="vw";
+            console.log("myImg.width  ",myImg.width,"  myImg.height  ",myImg.height)
+            console.log("@@"+size+"@@")
+            document.documentElement.style.setProperty('--image-width', size);
+
+        }
+
+
+    }
     useEffect(() => {
 
         if (events && events.length != 0) {
-            addMoreEvents()
+            addMoreEvents();
+            setHeightAndWidth();
+
         }
     }, [events])
     return (
@@ -117,13 +143,13 @@ export default withRouter(connect(mapStateToProps)(function EventDetails(props) 
                     <div className="row imgTitleDetails">
                         <img src={img[mainColor]} height="100%" width="100%" style={{ padding: 0 }}></img>
                         <div className="col-7 rtitle">
-                            <div className="eventTitle">{events[index].title}
+                            <div className="eventTitle" >{events[index].title}
                                 <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
                                     {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 picTitle"><img src={events[index].image == "" ? SimpleImg : events[index].image} height="100%" width="100%"></img>
+                        <div class="col-5 picTitle"><img src={events[index].image} id="ti" height="100%" width="100%"></img>
                         </div>
                     </div>
                     <div className="row">
