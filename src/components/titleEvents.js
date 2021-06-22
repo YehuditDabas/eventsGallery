@@ -27,6 +27,7 @@ function mapStateToProps(state) {
 
     // red #86F3FF
     document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
+    document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
     // state.settings.settings.eventsButtonColor
 
     // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
@@ -73,8 +74,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         '#51e7fb': lightBlue2
     }
     const isAdmin = false;
-
-
     // const display = true;//ימלא נתונים בפרופס מהרידאקס אם מעונין שיציג כותרת
     // const [settings, setSettings] = useState({ eventsPageTitle: 'welcome to leader event', picteventsPageImageure: '', eventsPageDescription: 'Don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy Mission This Time. Seve…', amountEventsInRow: '3' });//ימלא נתונים מהפרופס מהרידאקס את ההגדרות..
     const [showing, setShowing] = useState(false);
@@ -146,6 +145,27 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             return false;
         }
     }
+    function setHeightAndWidth() {
+        // var myImg = document.querySelector("#ti")
+        var myImg = new Image();
+        var size;
+        myImg.src = img[pagesettings.eventsPageColor];
+        myImg.onload = function () {
+            size = myImg.width / myImg.height * 25;
+            size += "vw";
+            console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
+            console.log("@@" + size + "@@")
+            document.documentElement.style.setProperty('--image-width', size);
+
+
+
+        }
+    }
+    useEffect(() => {
+        if (headersettings) {
+            setHeightAndWidth()
+        }
+    }, [headersettings])
     return (
         <>
             {headersettings.displayHeader == true ? <div className="container-fluid" >
@@ -160,46 +180,46 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     </div>
                     <div className="imgOrVieo">
                         {checkImg() === true ?
-                            <img className="myImg" src={headersettings.eventsPageImageOrVideo}></img>
+                            <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo}></img>
                             : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true}/>
+                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                         }
 
                     </div>
-            {isAdmin==false ?
-                    <div className="row">
-                        <div className="col-3 subscribeArea">
-                            {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                            <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
+                    {isAdmin == false ?
+                        <div className="row">
+                            <div className="col-3 subscribeArea">
+                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
+                                <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
 
-                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                            {showing ?
-                                <div>
-                                    <img className="arrow_" src={arrow}></img>
-                                    <div className="dropDown">
-                                        <form className="formSubscribe">
-                                            <br></br>
-                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress"); */}
-                                            {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                            {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
-                                            {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                            {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                            <span style={{ color: "red" }}>{errorsForm}</span>
-                                            <br></br><br></br>
-                                            <input type="button" class="form-control" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
-
-
-                                        </form>
-
-                                    </div></div> :
-                                <div></div>
-                            }
+                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+                                {showing ?
+                                    <div>
+                                        <img className="arrow_" src={arrow}></img>
+                                        <div className="dropDown">
+                                            <form className="formSubscribe">
+                                                <br></br>
+                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress"); */}
+                                                {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                                {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                                <span style={{ color: "red" }}>{errorsForm}</span>
+                                                <br></br><br></br>
+                                                <input type="button" class="form-control" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
 
 
+                                            </form>
 
-                        </div>
+                                        </div></div> :
+                                    <div></div>
+                                }
 
-                    </div>:''}
+
+
+                            </div>
+
+                        </div> : ''}
 
                 </div>
 
@@ -211,7 +231,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                         <CreateEvent></CreateEvent>
                     </div> */}
                 </div>
-                <FooterEventsGallery/>
+                <FooterEventsGallery />
             </div>
             <Modal
                 show={show}

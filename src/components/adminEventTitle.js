@@ -28,6 +28,8 @@ function mapStateToProps(state) {
 
     // red #86F3FF
     document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
+    document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
+
     // state.settings.settings.eventsButtonColor
 
     // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
@@ -160,9 +162,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     </div>
                     <div className="adminImgOrVieo">
                         {checkImg() === true ?
-                            <img className="myImg" src={headersettings.eventsPageImageOrVideo}></img>
+                            <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
                             : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo}  controls={true}/>
+                                height='100%' className="video_or_picture"  url={headersettings.eventsPageImageOrVideo}  controls={true}/>
                         }
 
                     </div>
