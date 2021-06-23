@@ -22,10 +22,10 @@ export default function CreateEvent(props) {
             <div className="container createNewComponent" onClick={newPage}>
                 <div className="row" >
                     <div className="col-12">
-                        <h1 className="plus"> + </h1>
+                        <h1 className="createNewPlus"> + </h1>
                     </div>
                     <div className="col-12">
-                        <p className="create" >Create new</p>
+                        <p className="createNew" >Create new</p>
                     </div>
                 </div>
 

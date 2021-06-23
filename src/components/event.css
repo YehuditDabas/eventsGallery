@@ -38,11 +38,11 @@
     opacity: 1;
     border-bottom:3px solid var(--main-color);
 }
-.priceD{
+.displayEventPrice{
     z-index: 2;
     margin-top: 3%;
 }
-.eeventTitle{
+.displayEventTitle{
     
     color: #0A102E;
     text-align: left;

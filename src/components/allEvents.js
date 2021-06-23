@@ -52,27 +52,27 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         var d, m, y;
         e1 = [];
         m = e.target.value;
-        document.getElementById(prevMonth).setAttribute('class', 'bt');
+        document.getElementById(prevMonth).setAttribute('class', 'allEventsBtns');
         if (m == "next" && prevMonth < 12) {
             console.log("pm" + prevMonth)
             m = prevMonth * 1 + 1;
             console.log("next " + document.getElementById(m).innerHTML);
             document.getElementById(m).setAttribute('class', 'f_bt');
-            document.getElementById(m - 1).setAttribute('class', 'bt');
+            document.getElementById(m - 1).setAttribute('class', 'allEventsBtns');
         }
         else if (m == "prev" && prevMonth > 0) {
             m = prevMonth - 1;
             console.log("prev" + document.getElementById(m).innerHTML);
             // document.querySelector('#'+m).classList.toggle('f_bt');
             document.getElementById(m).setAttribute('class', 'f_bt');
-            document.getElementById(m + 1).setAttribute('class', 'bt');
+            document.getElementById(m + 1).setAttribute('class', 'allEventsBtns');
 
             console.log("the  " + document.getElementsByClassName('f_bt').innerHTML);
 
         }
         else if ((m == "next" || m == "prev") && (prevMonth == 12 || prevMonth == 0)) {
             m = prevMonth;
-            document.getElementById(m).setAttribute('class', 'bt');
+            document.getElementById(m).setAttribute('class', 'allEventsBtns');
 
         }
 
@@ -106,11 +106,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         <>
 
             <div class="container-fluid">
-                <div class="row title" ><p>our upcoming events</p></div>
-                <div ><button class="bt" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
-                    {month.map((item, index) => <button value={index} id={index} class="bt" onClick={filterByMonth}>{item}</button>)}
-                    <button class="bt" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
-                <div class="row events">
+                <div class="row AllEventTitle" ><p>our upcoming events</p></div>
+                <div ><button class="allEventsBtns" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
+                    {month.map((item, index) => <button value={index} id={index} class="allEventsBtns" onClick={filterByMonth}>{item}</button>)}
+                    <button class="allEventsBtns" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
+                <div class="row AEevents">
                     {isAdmin==true?<div className={numCols} id="createEventArea">
                         <CreateEvent color={mainColor}></CreateEvent>
                     </div>:''}

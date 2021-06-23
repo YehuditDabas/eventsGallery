@@ -4,7 +4,7 @@
  .createNewComponent{
      cursor: pointer;
  }
- .plus{
+ .createNewPlus{
      /* width: 103vw!important; */
     /* height: 30vh!important; */
     text-align: center!important;
@@ -12,7 +12,7 @@
     /* color:#4B1A98 !important; */
     color: var(--Backgound-color);  
 }
-.create{
+.createNew{
     /* margin-left: 12vw; */
     /* margin-top: 32vh; */
     text-align: center;
