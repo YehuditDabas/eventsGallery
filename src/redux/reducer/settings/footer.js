@@ -45,6 +45,7 @@ const editFooter = {
         state.footer.youtubeLink = action.payload;
     },
     addAllSettings(state, action) {
+        debugger
         state.footer.facebook = action.payload.settings.facebook;
         state.footer.facebookLink = action.payload.settings.facebookLink;
         state.footer.twitter = action.payload.settings.twitter;

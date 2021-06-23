@@ -31,12 +31,6 @@ function App() {
       <Route path="/:userName/eventDetails/:index">
         <EventDetails /><FooterEventsGallery style={{ marginTop: "5%" }} />
       </Route>
-
-  
-     
-      
-
-
     </Router>
   )
 }

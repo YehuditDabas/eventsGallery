@@ -45,7 +45,7 @@ function UploadImageFromConfigurator(props) {
     }
     let currentImage = (props.kind === "Logo") ? props.imgSrc.eventsPageLogo : props.imgSrc.eventsPageImageOrVideo;
     function checkImg() {
-     
+      
        if(props.kind==="Logo") {
            return true;
        }
@@ -61,10 +61,12 @@ function UploadImageFromConfigurator(props) {
             <label htmlFor={`${props.kind}file`}>
                 {checkImg() === true ?
                     <img className="myImg" src={currentImage} style={{ width: "13vw", height: "16vh" }} ></img>
-                    : <ReactPlayer style={{ width: "13vw", height: "16vh" }}
-                         className="video_or_picture" url={currentImage} controls={true} />
+                    : <ReactPlayer width="13vw"
+                        height="16vh" className="video_or_picture" url={currentImage} controls={true} />
                 }
 
+
+                {/* <img src={currentImage} alt="homeImage" style={{ width: "13vw", height: "16vh" }}></img> */}
                 <div className="iconDiv">
                     <FontAwesomeIcon
                         id='angle-right'

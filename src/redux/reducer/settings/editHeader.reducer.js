@@ -1,6 +1,8 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
 
+import logoImage from '../../../assets/Group 21405.svg'
+
 const initialState = {
     header: {
         eventsPageAlignment: "",
@@ -26,15 +28,18 @@ const editHeader = {
 
     },
     setAlignment(state, action) {
+      
         state.header.eventsPageAlignment = action.payload;
         console.log(state.header.eventsPageAlignment)
     },
     
     setImage(state, action) {
+      
        state.header.eventsPageImageOrVideo = action.payload.url;
         console.log(state.header.eventsPageImageOrVideo) 
      },
      setLogo(state, action) {
+        debugger
             state.header.eventsPageLogo = action.payload.url;
         console.log(state.header.eventsPageLogo) 
      },
@@ -50,14 +55,6 @@ const editHeader = {
         console.log(state.header.eventsPageDescription)
     },
     addAllSettings(state, action) {
-        state.header.eventsPageTitle =action.payload.settings.eventsPageTitle;
-        state.header.eventsPageDescription =action.payload.settings.eventsPageDescription;
-        state.header.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;
-        state.header.eventsPageLogo =action.payload.settings.eventsPageLogo;
-        state.header.displayHeader =action.payload.settings.displayHeader;
-        state.header.eventsPageAlignment =action.payload.settings.eventsPageAlignment;
-       
-
         state.header.eventsPageTitle = action.payload.settings.eventsPageTitle;
         state.header.eventsPageDescription = action.payload.settings.eventsPageDescription;
         state.header.eventsPageImageOrVideo = action.payload.settings.eventsPageImageOrVideo;
