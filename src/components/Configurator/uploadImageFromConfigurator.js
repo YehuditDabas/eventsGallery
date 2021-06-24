@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { actionsStore } from '../redux/actions';
+import { actionsStore } from '../../redux/actions';
 import { connect } from 'react-redux';
 import './ConfigComp.css';
 import $ from 'jquery'

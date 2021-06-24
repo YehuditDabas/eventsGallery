@@ -1,12 +1,10 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
+import EventPageSetings from '../../../models/eventsPageSettngs'
+
 
 const initialState = {
-    subscribe:{
-        name: true,
-        email: true,
-        phone: true,
-        adress: false,}
+    subscribe:EventPageSetings
  
 };
 

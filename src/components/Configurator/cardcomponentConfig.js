@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, Accordion } from 'react-bootstrap';
-import { actionsStore } from '../redux/actions';
+import { actionsStore } from '../../redux/actions';
 import { connect } from 'react-redux';
  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
  import './cardComponentConfig.css';

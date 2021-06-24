@@ -1,0 +1,27 @@
+const EventsPageSettings={
+    eventsPageColor:"",
+    eventsButtonColor:"",
+    amountEventsInRow: 0,
+    ShowHistoricalEvents: "",
+    watchPreviousEvents: "",
+    PreviousEvents:[],
+    eventsPageAlignment: "",
+    eventsPageImageOrVideo:"",
+    eventsPageLogo: "",
+    eventsPageTitle: "",
+    eventsPageDescription: "",
+    displayHeader: "",
+    facebook: "",
+    facebookLink: "",
+    twitter: "",
+    twitterLink: "",
+    instagram:"",
+    youtube: "",
+    youtubeLink:"",
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    user: ""
+}
+export default EventsPageSettings

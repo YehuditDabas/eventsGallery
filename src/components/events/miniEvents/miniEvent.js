@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Card from '@material-ui/core/Card';
 import './miniEvent.css';
-import SimpleImg from '../assets/simpleImg.png'
+import SimpleImg from '../../../assets/simpleImg.png'
 
 export default function MiniEvent(props) {
     const {img,title,mainColor} = props;

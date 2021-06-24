@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { actionsStore } from '../redux/actions';
+import { actionsStore } from '../../redux/actions';
 import { connect } from 'react-redux';
 //import logo from './../../../assets/logo.svg';
 //import dropper from '../../../assets/dropper.svg';

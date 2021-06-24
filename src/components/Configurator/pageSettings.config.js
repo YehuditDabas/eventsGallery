@@ -3,9 +3,9 @@
 import React from 'react';
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { actionsStore } from '../redux/actions';
+import { actionsStore } from '../../redux/actions';
 import { connect } from 'react-redux';
-import dropper from '../assets/dropper.svg';
+import dropper from '../../assets/dropper.svg';
 import { GithubPicker, CirclePicker } from 'react-color';
 // import StopIcon from '@material-ui/icons/Stop';
 

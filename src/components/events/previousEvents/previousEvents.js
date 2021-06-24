@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 import { connect } from 'react-redux';
-import { actionsStore } from '../redux/actions';
+import { actionsStore } from '../../../redux/actions';
 import AliceCarousel from 'react-alice-carousel';
 import './previousEvents.css'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import simpleImg from '../assets/simpleImg.png'
+import simpleImg from '../../../assets/simpleImg.png'
 
 const responsive = {
     superLargeDesktop: {

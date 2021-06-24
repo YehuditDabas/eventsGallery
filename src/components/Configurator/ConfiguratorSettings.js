@@ -4,7 +4,7 @@ import CardComponentConfig from './cardcomponentConfig'
 import { Card, Accordion } from 'react-bootstrap'
 import EditSubscription from './editSubscribtion.config'
 import EditFooter from './EditFooter.config'
-import {actionsStore} from '../redux/actions'
+import {actionsStore} from '../../redux/actions'
 import './cardComponentConfig.css';
 import { connect } from 'react-redux'
 import {useDispatch}from 'react-redux'

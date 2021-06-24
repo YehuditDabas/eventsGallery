@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import './eventDetails.css';
 import { withRouter } from 'react-router-dom'
-import SimpleImg from '../assets/simpleImg.png'
-import user from '../assets/user.svg'
-import title from '../assets/title.png';
-import MiniEvent from '../components/miniEvent';
-import red from '../assets/red.png'
-import yellow from '../assets/yellow.png'
-import pink from '../assets/pink.png'
-import black from '../assets/black.png'
-import gray from '../assets/gray.png'
-import lightBlue from '../assets/lightBlue.png'
-import lightBlue2 from '../assets/lightBlue2.png'
-import orange from '../assets/orange.png'
-import pink2 from '../assets/pink2.png'
-import purple1 from '../assets/purple1.png'
-import purple2 from '../assets/purple2.png'
-import turquoise from '../assets/turquoise.png'
+import SimpleImg from '../../../assets/simpleImg.png'
+import user from '../../../assets/user.svg'
+import title from '../../../assets/title.png';
+import MiniEvent from '../miniEvents/miniEvent';
+import red from '../../../assets/red.png'
+import yellow from '../../../assets/yellow.png'
+import pink from '../../../assets/pink.png'
+import black from '../../../assets/black.png'
+import gray from '../../../assets/gray.png'
+import lightBlue from '../../../assets/lightBlue.png'
+import lightBlue2 from '../../../assets/lightBlue2.png'
+import orange from '../../../assets/orange.png'
+import pink2 from '../../../assets/pink2.png'
+import purple1 from '../../../assets/purple1.png'
+import purple2 from '../../../assets/purple2.png'
+import turquoise from '../../../assets/turquoise.png'
 import reactImageSize from 'react-image-size';
 
 function mapStateToProps(state) {

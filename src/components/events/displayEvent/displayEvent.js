@@ -2,23 +2,22 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import DisplayUrlJoin from './displayUrlJoin';
 import './event.css';
-import SimpleImg from '../assets/simpleImg.png'
-import price from '../assets/price.png'
-import arrow from '../assets/arrow.png'
-import black from '../assets/arrows/black.png'
-import blue from '../assets/arrows/blue.png'
-import gray from '../assets/arrows/gray.png'
-import green from '../assets/arrows/green.png'
-import lightblue from '../assets/arrows/lightblue.png'
-import lightpink from '../assets/arrows/lightpink.png'
-import orange from '../assets/arrows/orange.png'
-import pink from '../assets/arrows/pink.png'
-import purple from '../assets/arrows/purple.png'
-import red from '../assets/arrows/red.png'
-import turkiz from '../assets/arrows/turkiz.png'
-import yellow from '../assets/arrows/yellow.png'
+import SimpleImg from '../../../assets/simpleImg.png'
+import price from '../../../assets/price.png'
+import arrow from '../../../assets/arrow.png'
+import black from '../../../assets/arrows/black.png'
+import blue from '../../../assets/arrows/blue.png'
+import gray from '../../../assets/arrows/gray.png'
+import green from '../../../assets/arrows/green.png'
+import lightblue from '../../../assets/arrows/lightblue.png'
+import lightpink from '../../../assets/arrows/lightpink.png'
+import orange from '../../../assets/arrows/orange.png'
+import pink from '../../../assets/arrows/pink.png'
+import purple from '../../../assets/arrows/purple.png'
+import red from '../../../assets/arrows/red.png'
+import turkiz from '../../../assets/arrows/turkiz.png'
+import yellow from '../../../assets/arrows/yellow.png'
 import { withRouter } from 'react-router-dom'
 
 function mapStateToProps(state) { 
@@ -107,7 +106,6 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                     </div>
                 </div>
             </Card>
-            {url !== '' ? <DisplayUrlJoin url={url}></DisplayUrlJoin> : ''}
         </>
 
     )

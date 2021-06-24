@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { actionsStore } from '../redux/actions';
+import { actionsStore } from '../../redux/actions';
 import { connect } from 'react-redux';
 import './ConfigComp.css';
 import FormGroup from '@material-ui/core/FormGroup';

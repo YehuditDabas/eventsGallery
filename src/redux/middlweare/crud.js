@@ -1,32 +1,56 @@
 import { actionsStore } from '../actions';
-import imageCompression from 'browser-image-compression';
-import $ from "jquery";
+import axios from 'axios'
 
 const API_URL = 'https://events.calendar.dev.leader.codes/api/'
 
+function getJwtFormCookie() {
+  debugger
+  return document.cookie && document.cookie.includes('devJwt')
+    ? document.cookie
+      .split(';')
+      .filter(s => s.includes('devJwt'))[0]
+      .split('=')
+      .pop()
+    : null
+
+}
+const userName = window.location.pathname.split('/')[1]
+const Http = axios.create({
+  baseURL: `${API_URL}/${userName}`,
+  headers: {
+    "Content-Type": "application/json",
+    "authorization": getJwtFormCookie()
+  }
+})
 
 export const getEvents = ({ dispatch, getState }) => next => action => {
   if (action.type === 'GET_DATA') {
-    const TokenToString = document.cookie && document.cookie.includes('devJwt')
-      ? document.cookie
-        .split(';')
-        .filter(s => s.includes('devJwt'))[0]
-        .split('=')
-        .pop()
-      : null
-    const userName = window.location.pathname.split('/')[1]
     dispatch(actionsStore.addUserName(userName))
-    dispatch(actionsStore.addDevJwt(TokenToString))
-
+    debugger
+    Http.interceptors.request.use((config) => { console.log(config); return config })
+    Http.get('/getCalendarEventsCategory')
+      .then(res => res.json())
+      .then(resJson => dispatch(actionsStore.addAllEvents(resJson)))
+      .catch(err => {
+        console.log(err)
+      })
+  }
+  return next(action)
+}
+export const getEvents1 = ({ dispatch, getState }) => next => action => {
+  if (action.type === 'GET_DATA') {
+    dispatch(actionsStore.addUserName(userName))
+    debugger
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", TokenToString)//cookies;
+    myHeaders.append("authorization", getJwtFormCookie())//cookies;
+
+
     var requestOptions = {
-      method: 'GET',
       headers: myHeaders,
     };
 
-    fetch(API_URL + userName + '/getCalendarEventsCategory', requestOptions)
+    axios.get(API_URL + userName + "/getCalendarEventsCategory", requestOptions)
       .then(res => res.json())
       .then(resJson => dispatch(actionsStore.addAllEvents(resJson)))
       .catch(err => {
@@ -38,22 +62,9 @@ export const getEvents = ({ dispatch, getState }) => next => action => {
 
 export const getSettings = ({ dispatch, getState }) => next => action => {
   if (action.type === 'GET_SETTINGS') {
-    const TokenToString = document.cookie && document.cookie.includes('devJwt')
-      ? document.cookie
-        .split(';')
-        .filter(s => s.includes('devJwt'))[0]
-        .split('=')
-        .pop()
-      : null;
-    const userName = window.location.pathname.split('/')[1]
-    dispatch(actionsStore.addUserName(userName))
-    dispatch(actionsStore.addDevJwt(TokenToString))
-
-
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", TokenToString)//cookies;
-
+    myHeaders.append("authorization", getJwtFormCookie())//cookies;
 
     var requestOptions = {
       method: 'GET',
@@ -97,25 +108,9 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
 export const updateOrCreateSettings = ({ dispatch, getState }) => next => action => {
 
   if (action.type === "UPDATE_OR_CREATE_SETTINGS") {
-
-    const TokenToString = document.cookie && document.cookie.includes('devJwt')
-      ? document.cookie
-        .split(';')
-        .filter(s => s.includes('devJwt'))[0]
-        .split('=')
-        .pop()
-      : null;
-    const userName = window.location.pathname.split('/')[1]
-    dispatch(actionsStore.addUserName(userName))
-    dispatch(actionsStore.addDevJwt(TokenToString))
-
-
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("authorization", TokenToString)//cookies;
-
-
-
+    myHeaders.append("authorization", getJwtFormCookie())//cookies;
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
@@ -130,53 +125,35 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
       .catch(err =>
         console.log(err)
       )
+  }
+
+
+  return next(action)
 }
 
-
-return next(action)
-}
-
-
-
-
-
-
- //    fetch(newFile).then(r => {
-  //     return r.blob();
-  //   }).then(blobFile => {
-  //     let name = `${newFile.split("/")[3]}.png`;
-  //     let fileToUpload = new File([blobFile], name, {
-  //       lastModified: new Date().getTime(),
-  //       type: blobFile.type,
-  //     });
-  //     const options = {
-  //       maxSizeMB: 1,
-  //       maxWidthOrHeight: 1920,
-  //       useWebWorker: true,
-  //     };
-  //     const compressedFile = imageCompression(fileToUpload, options);
-  //     return compressedFile;
-  //   }).then((compressedFile) => {
-  //     newAudio.append('img', compressedFile, compressedFile.name);
-  // console.log("compressedFile  "+compressedFile)
-  //    })
-
-
-
+//    fetch(newFile).then(r => {
+//     return r.blob();
+//   }).then(blobFile => {
+//     let name = `${newFile.split("/")[3]}.png`;
+//     let fileToUpload = new File([blobFile], name, {
+//       lastModified: new Date().getTime(),
+//       type: blobFile.type,
+//     });
+//     const options = {
+//       maxSizeMB: 1,
+//       maxWidthOrHeight: 1920,
+//       useWebWorker: true,
+//     };
+//     const compressedFile = imageCompression(fileToUpload, options);
+//     return compressedFile;
+//   }).then((compressedFile) => {
+//     newAudio.append('img', compressedFile, compressedFile.name);
+// console.log("compressedFile  "+compressedFile)
+//    })
 export const subscribe = async (obj) => {
-
-  const TokenToString = document.cookie && document.cookie.includes('devJwt')
-    ? document.cookie
-      .split(';')
-      .filter(s => s.includes('devJwt'))[0]
-      .split('=')
-      .pop()
-    : null
-  const userName = window.location.pathname.split('/')[1]
-
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("authorization", TokenToString)//cookies;
+  myHeaders.append("authorization", getJwtFormCookie())//cookies;
   var requestOptions = {
     method: 'post',
     headers: myHeaders,

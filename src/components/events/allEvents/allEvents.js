@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import './allEvents.css'
-import DisplayEvent from './displayEvent';
-import PreviousEvents from './previousEvents';
-import CreateEvent from './createEvent';
+import DisplayEvent from '../displayEvent/displayEvent';
+import PreviousEvents from '../previousEvents/previousEvents';
+import CreateEvent from '../../events/createEvent/createEvent';
 
 
 function mapStateToProps(state) {

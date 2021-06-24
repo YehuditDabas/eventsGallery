@@ -1,5 +1,5 @@
 import React from 'react';
-import { actionsStore } from '../redux/actions';
+import { actionsStore } from '../../redux/actions';
 import { useDispatch, useSelector } from "react-redux";
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
