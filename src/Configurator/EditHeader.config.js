@@ -14,6 +14,7 @@ import Switch from '@material-ui/core/Switch';
 
 
 function EditHeader(props) {
+    const {headersettings}= props;
     const [alignment, setAlignment] = useState('left');
 
     function changeAlignment(align) {
@@ -91,15 +92,18 @@ function EditHeader(props) {
                 <div className="row ml-1 mb-3 mr-1">
                     <div className="col">
                         <textarea
-                            className="divWidth configuratorTextarea"
-                            onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-                            onChange={(e) => props.changeTitleText(e.target.value)}
-                            value={props.editHeader.eventsPageTitle}
-                            rows="1"
-                            maxLength="50"
-                            style={{ textAlign: alignment }}
-                            placeholder="Welcome to&#13;&#10;your channel"
-                        />
+                         className="divWidth configuratorTextarea"
+                         onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                         onChange={(e) => props.changeTitleText(e.target.value)}
+                         value={props.headersettings.eventsPageTitle}
+                         rows="1"
+                         maxLength="50"
+                         style={{ textAlign: alignment }}
+                        //  placeholder=""
+                        
+                        >{props.headersettings.eventsPageTitle}</textarea>
+                           
+                        
                     </div>
                     </div>
             </div>
@@ -115,8 +119,8 @@ function EditHeader(props) {
                             className="divWidth configuratorTextarea"
                             onKeyPress={(e) => { e.key == 'Enter' && (e.target.value.match(/\n/g) || []).length == 2 && e.preventDefault() }}
                             onChange={(e) => props.changeBodyText(e.target.value)}
-                            // onChange={(e) => props.onChangeEventsGalleryDescription(e.target.value)}
-                            value={props.editHeader.eventsPageDescription}
+                            onChange={(e) => props.changeBodyText(e.target.value)}
+                            value={props.headersettings.eventsPageDescription}
                             rows="1"
                             maxLength="250"
                             style={{ textAlign: alignment }}
@@ -136,7 +140,8 @@ function EditHeader(props) {
 }
 const mapStateToProps = (state) => {
     return {
-        editHeader: state.editHeader
+        headersettings: state.editHeader.header,
+        // headersettings: state.editHeader.header
     }
 }
 const mapDispatchToProps = (dispatch) => {
