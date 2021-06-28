@@ -6,23 +6,18 @@ const initialState = {
         eventsPageColor: "",
         eventsButtonColor: "",
         amountEventsInRow: "",
-        eventsButtonColor: "",
-        WatchPreviousEvents: "",
-        eventsPagButton: ""
+        ShowHistoricalEvents: true
     }
-
-
+    // Watch previous events:"",
+    
 };
 
 const configImage = {
     initialChannelSettingsConfiguration(state, action) {
         //todo: 
-        state.editGrid = action.payload.editGrid;
-        state.showInPage = action.payload.showInPage;
-        state.columns = action.payload.columns;
-        state.mainColor = action.payload.mainColor;
-        state.buttonStyle = action.payload.buttonStyle;
-
+        // state.showInPage = action.payload.showInPage;
+        // state.mainColor = action.payload.mainColor;
+        // state.buttonStyle = action.payload.buttonStyle;
 
     },
     setShowInPage(state, action) {
@@ -38,11 +33,15 @@ const configImage = {
     setShowHistoricalEvents(state, action) {
         state.page.ShowHistoricalEvents = action.payload;
     },
+    // setShowCounterViews(state, action) {
+    //     state.showCounterViews = action.payload;
+    // },
     addAllSettings(state, action) {
+      
         state.page.amountEventsInRow = action.payload.settings.amountEventsInRow
         state.page.eventsPageColor = action.payload.settings.eventsPageColor
-        state.page.eventsButtonColor = action.payload.settings.eventsButtonColor
-        state.page.WatchPreviousEvents=action.payload.settings.watchPreviousEvents
+        state.page.eventsButtonColor = action.payload.settings.eventsButtonColor;
+        state.page.ShowHistoricalEvents = action.payload.settings.ShowHistoricalEvents;
 
         console.log(" page settings  "+ state.page.amountEventsInRow)
     }

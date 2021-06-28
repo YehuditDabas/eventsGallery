@@ -13,6 +13,7 @@ function ConfiguratorSettings(props) {
  const dispatch= useDispatch()
   const hundalCreate = () => {
     // e.preventDefault();
+    debugger;
     const settings = {
 
       eventsPageAlignment: props.EditHeader.header.eventsPageAlignment,
@@ -30,7 +31,8 @@ function ConfiguratorSettings(props) {
       name: props.editSubscription.subscribe.name,
       email: props.editSubscription.subscribe.email,
       phone: props.editSubscription.subscribe.phone,
-      adress: props.editSubscription.subscribe.adress,
+      address: props.editSubscription.subscribe.address,
+
 
       facebook:props. editFooter.footer.facebook,
       facebookLink: props. editFooter.footer.facebookLink,
@@ -58,23 +60,25 @@ function ConfiguratorSettings(props) {
             className="accordion_warps"
           >
             <CardComponentConfig
+             className="cardName"  
               eventKey={'Page Settings'}
               component={pageSettings} קומפוננטה אחת
             />
             <CardComponentConfig
+             className="cardName"  
               eventKey={'Edit Header'}
               component={EditHeader} קומפוננטה שניה
             />
             <CardComponentConfig
-              className="PositionA"
+               className="cardName"  
               // eventKey={3}
               eventKey={'Edit Subscription'}
               component={EditSubscription} קומפוננטה שלישית
             />
             <CardComponentConfig
-              // className="PositionA"      
+             className="cardName"      
               eventKey={'Edit Footer'}
-              component={EditFooter} קומפוננטה שלישית
+              component={EditFooter} קומפוננטה רביעית
             />
 
             {/* <CardComponentConfig eventKey={1} component={ChannelDetails} nameComponent={'ChannelDetails'} />
@@ -85,7 +89,7 @@ function ConfiguratorSettings(props) {
             <button type="submit" className="buttoncreate btn p-2 m-2 ml-2 mr-2"
               onClick={hundalCreate}
             
-            >Create</button></div>
+            >Update</button></div>
         </div>
       </div>
     </div>

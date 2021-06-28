@@ -8,13 +8,11 @@ import { connect } from 'react-redux';
 
 function CardComponentConfig(props) {
     return (
-        <Card className="card"
-        //  style={{width:"100% !important"}}
-        >
+        <Card className="card">
             <Accordion.Toggle as={Card.Header} eventKey={props.eventKey} style={{ width: "100% !important" }} onClick={() => props.currentComponent == props.eventKey ? props.changeCurrentComponent('') : props.changeCurrentComponent(props.eventKey)}>
                 <div className="d-flex justify-content-between align-items-center" >
                     {/* d-flex flex-row justify-content-between className="col-md-10" className="col-md-2"*/}
-                    <div  >
+                    <div  className="cardName"  >
                         {props.eventKey}
                     </div>
                     <div >
