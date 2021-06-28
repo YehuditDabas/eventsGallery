@@ -24,7 +24,7 @@
     /* background: #0A102E 0% 0% no-repeat padding-box; */
 }
 .fooerIcons{
-   margin-right: 12%;
+   margin-right: 8%;
    margin-top: 3%;
     /* margin-top: 20%; */
 }
@@ -44,7 +44,7 @@
     color:var(--main-color) !important;
     text-transform: lowercase;
 }
-a { color: inherit; } 
-a:hover{
+.aFooter { color: inherit; } 
+.aFooter:hover{
     color: var(--main-color) !important;
 }

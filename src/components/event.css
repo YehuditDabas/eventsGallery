@@ -17,6 +17,7 @@
 .eventCard:hover .eventDescription{
    background: var(--main-color) 0% 0% no-repeat padding-box;
    opacity: 1;
+   
 }   
 
 .eventCard{
@@ -141,9 +142,9 @@ padding-left: 3%;
 .pRow{
     flex-wrap: unset;
 }
-.container-fluid{
+/* .container-fluid{
     width: 100%;
-}
+} */
 .priceText{
     text-align: left;
     font: normal normal 300 34px/41px Roboto;

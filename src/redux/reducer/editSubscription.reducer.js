@@ -20,7 +20,6 @@ const editSubscriptionConfigurator = {
         state[action.payload.filedName] = action.payload.value;
     },
     addAllSettings(state, action) {
-        debugger;
        
     }
 }

@@ -1,8 +1,16 @@
 :root {
     /* --main-color:#e9a411; */
     --button-color:#53EEFF;
+    --image-width:35vh;
 }
-
+/* .container-fluid {
+    height: 74vh;
+    width: 100vw;
+    padding: 0;
+} */
+.imgTitleDetails{
+    height:75vh !important;
+}
 .rtitle{
     height:60vh;
   padding:0;
@@ -81,13 +89,16 @@ opacity: 1;
     width:30vw !important;
     height:50vh !important
 }
-.time,span{
+.time{
     text-align: left;
     font: normal normal 300 2vw Roboto;
     letter-spacing: 0px;
     color: #0A102E;
     text-transform: uppercase;
     opacity: 1;
+}
+.timeText{
+    font:normal normal 300 2vw Roboto;
 }
 .priceText{
     text-align: left;
@@ -143,5 +154,8 @@ width:4vw;
 .picTitle{
     position: absolute;
     right: 7%;
-    top: 13%;
+    top: 10%;
+    height: 50vh;
+    width:var(--image-width);
+    padding: 0;
 }

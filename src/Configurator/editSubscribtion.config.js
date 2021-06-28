@@ -21,24 +21,24 @@ export default function EditSubscribtion(props) {
 
   return (
     <FormControl component="fieldset" className="FormControlW">
-      <FormLabel component="legend">Subscription Fields</FormLabel>
+      <FormLabel component="legend"  className="editSubscribtionFileds">Subscription Fields</FormLabel>
       <div >
         <FormGroup className="d-flex justify-content-between">
-          <FormControlLabel className="d-flex justify-content-between" 
+          <FormControlLabel className="d-flex justify-content-between  editSubscribtionFileds " 
             control={<Switch checked={fieldSubscription.name} onChange={handleChange} name="name" />}
             label="Name"
           />
           {/* checked={true} disabled={true} */}
-          <FormControlLabel className="d-flex justify-content-between" 
+          <FormControlLabel className="d-flex justify-content-between editSubscribtionFileds" 
             control={<Switch checked={fieldSubscription.email} onChange={handleChange} name="email" />}
             label="Email"
           />
-          <FormControlLabel className="switch d-flex justify-content-between"
+          <FormControlLabel className="switch d-flex justify-content-between editSubscribtionFileds"
             control={<Switch checked={fieldSubscription.phone} onChange={handleChange} name="phone" />}
             label="Phone"
           />
           <FormControlLabel
-            className="switch d-flex justify-content-between"
+            className="switch d-flex justify-content-between editSubscribtionFileds"
             control={<Switch checked={fieldSubscription.adress} onChange={handleChange} name="adress" />}
             label="Adress"
           />
