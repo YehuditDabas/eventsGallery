@@ -15,7 +15,7 @@ export default function AppRouter() {
       <Route exact path="/:userName">
         <TitleEvents style={{ zIndex: 3 }}></TitleEvents>
       </Route>
-      <Route exact path="/admin/:userName">
+      <Route exact path="/:userName/admin">
         <ConfiguratorSettings />
         <AdminEventTitle style={{ zIndex: 3 }}></AdminEventTitle>
       </Route>

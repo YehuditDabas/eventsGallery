@@ -174,7 +174,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
 
                             {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                            {showing ?
+                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ? 
                                 <div>
                                     <img className="arrow_" src={arrow}></img>
                                     <div className="dropDown">

@@ -5,7 +5,8 @@ import createReducer from './reducerUtils'
 const intioanalState = {
     events:[],
     userName:{},
-    devJwt:{}
+    devJwt:{},
+    message:''
 }
 const events = {
     addAllEvents(state, action) {
@@ -18,6 +19,9 @@ const events = {
     },
     addDevJwt(state, action) {
         state.devJwt = action.payload
+    },
+    setMessage(state, action) {
+        state.message = action.payload
     },
     
 }

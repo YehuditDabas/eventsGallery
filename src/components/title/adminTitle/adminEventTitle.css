@@ -17,22 +17,3 @@
     margin-left: 49vw!important;
     margin-top: 11vh!important;
 }
-.titleH1 span{
-    display:inline-block; 
-    padding:0 5px;
-
-}
-.titleH1{
-    max-width:20vw;
-    overflow:hidden;
-    text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 5; /* number of lines to show */
-   -webkit-box-orient: vertical;
-   display: inline-block;/* or inline-block */
-   word-wrap: break-word;
-   max-height: 3.6em;
-   /* line-height: 1.8em; */
-   
-
-}

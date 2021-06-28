@@ -1,12 +1,17 @@
-import {createStore,applyMiddleware} from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 // import events from './reducer/allEvents'
-import {getEvents,updateOrCreateSettings,getSettings} from './middlweare/crud'
+import { updateOrCreateSettings, getSettings } from './middlweare/crud'
 import rootReducer from './reducer/index'
-
+import appMiddleware from './middlweare/appMiddleware'
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(appReducers,  composeEnhancers(applyMiddleware(...appMiddleware)));
 
 // const eventsReducer = events;
-const store = createStore(rootReducer,applyMiddleware(getEvents,updateOrCreateSettings,getSettings));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(...appMiddleware)));
+// const store = createStore(rootReducer,applyMiddleware(updateOrCreateSettings,getSettings));
 window.store = store;
-store.dispatch({ type: 'GET_DATA'});
-store.dispatch({ type: 'GET_SETTINGS'});
+store.dispatch({ type: 'GET_DATA' });
+store.dispatch({ type: 'GET_SETTINGS' });
 export default store;
+
+
