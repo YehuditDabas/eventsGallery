@@ -106,7 +106,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function SettingsEve
 });
 
 function mapDispatchToProps(dispatch) {
-    debugger;
     return {
         onChangeLogoHeader: (logo) => dispatch(actionsStore.updateLogo(logo)),
         onChangeTitleHeader: (title) => dispatch(actionsStore.updateTitle(title)),

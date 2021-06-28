@@ -89,7 +89,7 @@ function ConfiguratorSettings(props) {
             <button type="submit" className="buttoncreate btn p-2 m-2 ml-2 mr-2"
               onClick={hundalCreate}
             
-            >Create</button></div>
+            >Update</button></div>
         </div>
       </div>
     </div>

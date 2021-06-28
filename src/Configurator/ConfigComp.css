@@ -397,3 +397,9 @@ font-size: smaller;
     margin-left: 1.5vw !important;
     font-size: 0.9rem !important;
 }
+.iconUploadEvent{
+    cursor: pointer;
+    position: absolute;
+    bottom: 17%;
+    left: 34%;
+}

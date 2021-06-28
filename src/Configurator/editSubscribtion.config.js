@@ -10,10 +10,11 @@ import './ConfigComp.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function EditSubscribtion(props) {
+  debugger
   const fieldSubscription = useSelector(state => state.editSubscription)
   const dispatch = useDispatch()
   const handleChange = (event) => {
-    debugger;
+  debugger
     dispatch(actionsStore.settingFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };
@@ -25,22 +26,22 @@ export default function EditSubscribtion(props) {
       <div >
         <FormGroup className="d-flex justify-content-between">
           <FormControlLabel className="d-flex justify-content-between  editSubscribtionFileds " 
-            control={<Switch checked={fieldSubscription.name} onChange={handleChange} name="name" />}
+            control={<Switch checked={fieldSubscription.subscribe.name} onChange={handleChange} name="name"  />}
             label="Name"
           />
           {/* checked={true} disabled={true} */}
           <FormControlLabel className="d-flex justify-content-between editSubscribtionFileds" 
-            control={<Switch checked={fieldSubscription.email} onChange={handleChange} name="email" />}
+            control={<Switch  onChange={handleChange} name="email" checked={true} disabled={true} />}
             label="Email"
           />
           <FormControlLabel className="switch d-flex justify-content-between editSubscribtionFileds"
-            control={<Switch checked={fieldSubscription.phone} onChange={handleChange} name="phone" />}
+            control={<Switch checked={fieldSubscription.subscribe.phone} onChange={handleChange} name="phone" />}
             label="Phone"
           />
           <FormControlLabel
             className="switch d-flex justify-content-between editSubscribtionFileds"
-            control={<Switch checked={fieldSubscription.adress} onChange={handleChange} name="address" />}
-            label="Adress"
+            control={<Switch checked={fieldSubscription.subscribe.address} onChange={handleChange} name="address" />}
+            label="Address"
           />
         </FormGroup>
       </div>

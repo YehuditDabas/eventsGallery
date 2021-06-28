@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 //import logo from './../../../assets/logo.svg';
 //import dropper from '../../../assets/dropper.svg';
 import UploadImageFromConfigurator from './uploadImageFromConfigurator';
+import UploadLogoFromConfigurator from './upLoadLogoFormConfigurator'
 import './ConfigComp.css';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -30,7 +31,7 @@ function EditHeader(props) {
                     <FormControlLabel className="d-flex justify-content-between labelToggle"
                         control={<Switch name="name" />}
                         label="Header"
-                        // style={{ marginLeft: "1.5vw", fontSize:"0.9rem !importnat" }}
+                    // style={{ marginLeft: "1.5vw", fontSize:"0.9rem !importnat" }}
                     />
 
                 </FormGroup>
@@ -42,7 +43,7 @@ function EditHeader(props) {
                             <span className="AlignmentSpan">Alignment</span>
                         </div>
 
-                      <div className=" col-7 warpDivalignment ">
+                        <div className=" col-7 warpDivalignment ">
 
                             <div className=" d-flex justify-content-start align-items-center  p-1  EditHeaderAlingment">
                                 <FontAwesomeIcon
@@ -71,20 +72,23 @@ function EditHeader(props) {
                         </div>
                     </div>
                 </div>
+
                 <div >
                     <div className="row ml-1 ">
                         <span className="SpanSettings mb-1">Upload Video/Image </span>
                     </div>
-                    <UploadImageFromConfigurator kind={'Image'} />
-                  
+                    <UploadImageFromConfigurator />
                 </div>
 
                 <div>
-                    <div className="row ml-1 ">
+                    <div className="row ml-1">
                         <span className="SpanSettings  mb-1">Logo </span>
+
                     </div>
-                    <UploadImageFromConfigurator kind='Logo'/>
+                    <UploadLogoFromConfigurator />
                 </div>
+
+
 
                 <div className="row ml-1">
                     <span className="SpanSettings">Title Text </span>
@@ -102,7 +106,7 @@ function EditHeader(props) {
                             placeholder="Welcome to&#13;&#10;your Events Gallary page"
                         />
                     </div>
-                    </div>
+                </div>
             </div>
 
             <div >
@@ -111,21 +115,21 @@ function EditHeader(props) {
                         <span className="SpanSettings">Body Text </span>
                     </div>
                     <div className="row ml-1 mb-3 mr-1">
-                    <div className="col">
-                        <textarea
-                            className="divWidth configuratorTextarea"
-                            onKeyPress={(e) => { e.key == 'Enter' && (e.target.value.match(/\n/g) || []).length == 2 && e.preventDefault() }}
-                            onChange={(e) => props.changeBodyText(e.target.value)}
-                            // onChange={(e) => props.onChangeEventsGalleryDescription(e.target.value)}
-                            value={props.editHeader.eventsPageDescription}
-                            rows="1"
-                            maxLength="250"
-                            style={{ textAlign: alignment }}
-                            placeholder="don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy&#13;&#10;Mission This Time. Seve…"
+                        <div className="col">
+                            <textarea
+                                className="divWidth configuratorTextarea"
+                                onKeyPress={(e) => { e.key == 'Enter' && (e.target.value.match(/\n/g) || []).length == 2 && e.preventDefault() }}
+                                onChange={(e) => props.changeBodyText(e.target.value)}
+                                // onChange={(e) => props.onChangeEventsGalleryDescription(e.target.value)}
+                                value={props.editHeader.eventsPageDescription}
+                                rows="1"
+                                maxLength="250"
+                                style={{ textAlign: alignment }}
+                                placeholder="don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy&#13;&#10;Mission This Time. Seve…"
 
-                        />
+                            />
+                        </div>
                     </div>
-                  </div>
                 </div>
 
 
@@ -136,8 +140,10 @@ function EditHeader(props) {
     )
 }
 const mapStateToProps = (state) => {
+
     return {
         editHeader: state.editHeader
+
     }
 }
 const mapDispatchToProps = (dispatch) => {

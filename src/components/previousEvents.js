@@ -28,15 +28,20 @@ const responsive = {
     }
 };
 function mapStateToProps(state) {
-    console.log("event", state.events)
+    console.log("event", state.allEvents.events)
     return {
-        events: state.events
+        events: state.allEvents.events,
+        eventsPageColor: state.settings.settings.eventsPageColor
+
     }
 }
 
 export default connect(mapStateToProps)(function PreviousEvents(props) {
-    const { events} = props
-    const ReverseEvents=[...events].reverse()
+    const { events, eventsPageColor } = props
+
+    const ReverseEvents = [...events].reverse()
+    if (eventsPageColor !== '')
+        document.documentElement.style.setProperty('--main-color', eventsPageColor);
     return (
         <>
             <h1 className="previousEventsTitle">Watch previous events</h1>
