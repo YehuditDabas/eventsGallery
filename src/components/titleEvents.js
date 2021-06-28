@@ -21,6 +21,8 @@ import turquoise from '../assets/turquoise.png'
 import { subscribe } from '../redux/middlweare/crud'
 import AllEvents from './allEvents'
 import FooterEventsGallery from './footerEventsGallery';
+import { actionsStore } from '../redux/actions';
+
 
 
 function mapStateToProps(state) {
@@ -41,6 +43,8 @@ function mapStateToProps(state) {
 
 }
 const mapDispatchToProps = (dispatch) => ({
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)) },
+    changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) }
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(props) {
@@ -127,8 +131,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             setErrorsForm(...errorsForm, 'Fill in all the details')
         }
         else {
-          let x=subscribe(obj)
-          console.log(x)
+            let x = subscribe(obj)
+            console.log(x)
             setShowing(false)
             handleShow()
         }
@@ -175,18 +179,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                 <div className="row" style={{height:"75vh"}}>
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
-                    <div className="col-5 titleAndDescription">
-                        <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p>
 
-                    </div>
-                    <div className="imgOrVieo">
-                        {checkImg() === true ?
-                            <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo}></img>
-                            : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                        }
+                    <div className="row ">
 
+                        <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5 titleAndDescription">
+                            {/* <input type="text" value={headersettings.eventsPageTitle}
+                                onChange={(e) => props.changeTitleText(e.target.value)}
+                            ></input> */} 
+                            <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
+                        { <p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
+
+                        </div>
+
+                        <div className="col-xs-7 col-sm-7 col-md-7 col-lg-7 imgOrVieo">
+                            {checkImg() === true ?
+                                <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo}></img>
+                                : <ReactPlayer width='100%'
+                                    height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                            }
+
+                        </div>
                     </div>
                     {isAdmin == false ?
                         <div className="row">

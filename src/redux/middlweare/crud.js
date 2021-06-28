@@ -195,6 +195,10 @@ export const subscribe = async (obj) => {
       return false
     })
 
-}
 
-  // document.cookie = "devJwt" + "=" + devJwt + ";" + expires + ";path=/";
+
+
+
+}
+//  פונקצייה שליחה לבוקס
+// document.cookie = "devJwt" + "=" + devJwt + ";" + expires + ";path=/";

@@ -22,7 +22,7 @@ import turquoise from '../assets/turquoise.png'
 import { subscribe } from '../redux/middlweare/crud'
 import AllEvents from './allEvents'
 import FooterEventsGallery from './footerEventsGallery';
-
+import { actionsStore } from '../redux/actions';
 
 function mapStateToProps(state) {
 
@@ -43,10 +43,12 @@ function mapStateToProps(state) {
 
 }
 const mapDispatchToProps = (dispatch) => ({
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)) },
+    changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) }
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
-    const { pagesettings, headersettings, subscribesettings } = props;
+    const { pagesettings, headersettings, subscribesettings, changeTitleText,changeBodyText } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -155,23 +157,51 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 <div className="row" style={{height:"75vh"}}>
                     <img className="myImg titleImgColor"  src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
-                    <div className="col-5 titleAndDescription">
-                        <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p>
+                    <div className="col-3 adminTitleAndDescription">
+                        <textarea
+                            className="adminEventTitletitleH1"
+                            // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                            onChange={(e) => changeTitleText(e.target.value)}
+                            value={headersettings.eventsPageTitle}
+                            // rows="2"
+                            // cols="16"
+                            maxLength="20"
+                            // style={{ textAlign: 'left' }}
+                            placeholder={headersettings.eventsPageTitle}
+                        >{headersettings.eventsPageTitle}
+                        </textarea>
+
+                        <textarea
+                            className="adminEventDescription"
+                            // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                            onChange={(e) => changeBodyText(e.target.value)}
+                            value={headersettings.eventsPageDescription}
+                            rows="5"
+                            cols="35"
+                            maxLength="140"
+                            // style={{ textAlign: 'left' }}
+                            placeholder={headersettings.eventsPageTitle}
+                        >{headersettings.eventsPageTitle}
+                        </textarea>
+
+
+                        {/* <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
+                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p> */}
 
                     </div>
                     <div className="adminImgOrVieo">
                         {checkImg() === true ?
                             <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
                             : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture"  url={headersettings.eventsPageImageOrVideo}  controls={true}/>
+                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                         }
 
                     </div>
-                         <div className="row">
+                    <div className="row">
                         <div className="col-3 subscribeArea">
+
                             {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                             <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
+                                <button type="button" className="adminSubscribe subscribe" onClick={() =>{debugger; setShowing(!showing)} }>subscribe</button>
 
                             {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
                             {showing ?
@@ -209,7 +239,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 <div className="row">
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
-                <FooterEventsGallery/>
+                <FooterEventsGallery />
             </div>
             <Modal
                 show={show}
@@ -230,7 +260,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <Button variant="secondary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
-           
+
         </>
     )
 
