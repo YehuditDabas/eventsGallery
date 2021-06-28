@@ -59,7 +59,6 @@ const editHeader = {
         state.textColor.body = action.payload;
     },
     addAllSettings(state, action) {
-        debugger;
         state.textColor.body = action.payload;
     },
 };

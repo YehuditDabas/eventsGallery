@@ -1,17 +1,20 @@
+body {
+    background-color: rgb(232, 234, 236);
+}
 :root {
     --main-color:#4B1A98;
-    --events-height:80vh;
+    --events-height:50vh;
 }
 
 
 
 
-.container-fluid{
+/* .container-fluid{
     height:100vh;
     width:100vw;
-}
-.title{
-    width: 50%;
+} */
+.AllEventTitle{
+    width: 100%;
     height: 10vh;     
     text-align: left;
     font: normal normal normal 45px/54px; 
@@ -20,19 +23,20 @@
     text-transform: capitalize;
     opacity: 1;
     font-size: 6vh;
+    padding-left: 5.5%;
 }
 .btns{
     width: 100%;
     height: 6vh;
 }
-.events{
+.AEevents{
     width: 100%;
     /* height:var(--events-height); */
 }
 .evnetsUnderFilter{
     height:var(--events-height);
 }
-.bt{
+.allEventsBtns{
     text-align: left;
     font: normal normal normal 24px/29px;
     letter-spacing: 0px;
@@ -44,14 +48,19 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+    margin-left: 0.8%;
+    margin-right: 0.8%;
 
 }
-.bt:focus{
+.allEventsBtns:focus{
     color:var(--main-color);
     text-decoration: underline;
     border:none;
     background-color: white;
     cursor: pointer;
+}
+.allEventsBtns:hover{
+    color:grey;
 }
 .f_bt{
     font-size: 3.8vh;

@@ -21,12 +21,11 @@ import turkiz from '../assets/arrows/turkiz.png'
 import yellow from '../assets/arrows/yellow.png'
 import { withRouter } from 'react-router-dom'
 
-function mapStateToProps(state) {
-    console.log("userName", state.allEvents.userName)
-    console.log("state.devJwt", state.allEvents.devJwt)
+function mapStateToProps(state) { 
+    
     return {
-        events: state.allEvents.events,
-        eventsPageColor: state.settings.settings.eventsPageColor,
+        events: state.allEvents.events,   
+        eventsPageColor: state.pageSettings.page.eventsPageColor,
         userName: state.allEvents.userName,
         devJwt: state.allEvents.devJwt
     }
@@ -42,37 +41,37 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
     const [url, setUrl] = useState('')
     const [isShown, setIsShown] = useState(false)
     const classes = useStyles();
-    document.documentElement.style.setProperty('--main-color', '#63F597');
+    // document.documentElement.style.setProperty('--main-color','#63F597');
 
     const images = {
         '#424149': black,
-        '#4F40D0': blue,
-        '#9F9CB5': gray,
-        '#63F597': green,
-        '#54B9FF': turkiz,
-        '#FF53F7': lightpink,
-        '#FF803F': orange,
-        '#FF62B2': pink,
-        '#AD60FF': purple,
-        '#FA5252': red,
-        '#51E7FB': lightblue,
-        '#FAEE3A': yellow
+        '#4f40d0': blue,
+        '#9f9cb5': gray,
+        '#63f597': green,
+        '#54b9ff': turkiz,
+        '#ff53f7': lightpink,
+        '#ff803f': orange,
+        '#ff62b2': pink,
+        '#ad60ff': purple,
+        '#fa5252': red,
+        '#51e7fb': lightblue,
+        '#faee3a': yellow
     }
+  
 
     function details() {
         console.log('details')
         var index = events.indexOf(currentEvent);
         console.log('index ', index);
-        debugger;
         history.push({ pathname: `/${userName}/eventDetails/${index}`, state: { index: index } })
 
         // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />
     }
     return (
         <>
-            <Card className="eventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+            <Card className="displayEventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
                 <div className="row pRow">
-                    <img src={currentEvent.image == "" ? SimpleImg : currentEvent.image} className="eventImg" />
+                    <img src={currentEvent.image == "" ? SimpleImg : currentEvent.image} className="displayEventImg" />
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi des bi-share" viewBox="0 0 16 16" style={{ width: "8vw" }}>
                         <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
                     </svg>
@@ -80,21 +79,20 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
                     </svg>
 
-                    <div hidden={isShown} className="priceD"><img className="price" src={images['#63F597']}></img></div>
+                    <div hidden={isShown} className="displayEventPrice"><img className="price" src={images[eventsPageColor]}></img></div>
                     {/* <div hidden={isShown} className="priceD">
                         <div className="rectangle"></div>
                         <div className="triangle-left"></div>
                     </div> */}
                     <div hidden={isShown} className="priceTextEvent">{currentEvent.price === undefined ? 'Free' : currentEvent.price}</div>
                 </div>
-                <div className="eventDescription">
+                <div className="displayEventDescription">
                     <div className="container eventContainer">
                         <div className="row leftSite">
-                            <div style={{ marginTop: "5%" }, { width: "75%" }} hidden={isShown} >
-                                <span className="col-sm-12 eeventTitle" >{currentEvent.title}</span>
+                            <div style={{ width: "90%" , marginTop: "2.5vh" }} hidden={isShown} >
+                                <span className="col-sm-12 displayEventTitle" >{currentEvent.title}</span>
                             </div>
                         </div>
-                        <br hidden={!isShown} />
                         <br hidden={!isShown} />
                         <span hidden={!isShown} className="showDetails">View Details</span>
                         <div className="details" hidden={!isShown}>

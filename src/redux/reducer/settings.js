@@ -4,19 +4,13 @@ import createReducer from './reducerUtils'
 const intioanalState = {
     settings:
     {
-        name:"",
-        email:"",
-        phone:"",
-        address:"",
-        eventsPageLogo:"",
-        eventsPageTitle:"",
-        eventsPageDescription:"",
+        eventsPagelogo:"",
+        eventsGalleryTitle:"",
+       
+        eventsGalleryDescription:"",
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",
-        eventsGalleryImage:'',
-        eventsPageImageOrVideo:'',
-        displayHeader:''
-
+        eventsGalleryImage:''
     },
     userName:{},
     devJwt:{}
@@ -54,31 +48,20 @@ const settings = {
         
         state.devJwt = action.payload
     },
-    updateOrCreateSettingsAgain(state,action){
-        // state.action.settings=action.payload;
-        debugger;
-        state.settings.eventsGalleryTitle = action.payload.settings;
-        state.settings.eventsGalleryDescription= action.payload;
-        state.settings.amountEventsInRow= action.payload;
-        console.log("from dispatch")
-       console.log("settings"+state.settings)
-    },
+    // updateOrCreateSettingsAgain(state,action){
+    //     // state.action.settings=action.payload;
+    //     debugger;
+    //     state.settings.eventsGalleryTitle = action.payload.settings;
+    //     state.settings.eventsGalleryDescription= action.payload;
+    //     state.settings.amountEventsInRow= action.payload;
+    //     console.log("from dispatch")
+    //    console.log("settings"+state.settings)
+    // },
     addAllSettings(state, action) {
-        debugger
-        state.settings.eventsPageTitle =action.payload.settings.eventsPageTitle;
-        state.settings.eventsPageDescription =action.payload.settings.eventsPageDescription;
-        state.settings.eventsPageImageOrVideo =action.payload.settings.eventsPageImageOrVideo;
-        state.settings.eventsPageLogo =action.payload.settings.eventsPageLogo;
-        state.settings.name=action.payload.settings.name;
-        state.settings.phone=action.payload.settings.phone;
-        state.settings.email=action.payload.settings.email;
-        state.settings.address=action.payload.settings.address;
-        state.settings.displayHeader=action.payload.settings.displayHeader
- 
-
-
-        console.log("GET_SETTINGS" +  action.payload.settings.eventsPageDescription);
-;    },
+      
+        state.settings = action.payload;
+        console.log("GET_SETTINGS" + state.events);
+    },
 
 }
 export default produce((state, action) => createReducer(state, action, settings), intioanalState);
