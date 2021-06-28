@@ -1,18 +1,37 @@
+body {
+    background-color: rgb(232, 234, 236);
+}
 :root {
     --Button-color:#86F3FF;
     --align-text:left;
     --image-width:32%;
 }
+.userEventsTitle{
+    background-color: white;
+    width:97vw !important;
+    margin-top: 1%;
+    border-top-left-radius: 12px;
+    border-top-right-radius:12px;
+
+}
 .myImg{
     /* width:100vW!important; */
     /* height: 75vh!important; */
-    z-index: -1;
+        /* width: 100vW!important; */
+    /* height: 75vh!important; */
+    z-index: 0;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding:0;
+    padding: 0;
+    
+}
+.titleImgColor{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 0px !important;
 
 }
 .titleImg {
@@ -24,18 +43,17 @@
     z-index: 2!important;
     position: absolute;
     margin-left:4vw!important;
-    margin-top: 10vh;
+    margin-top: 8vh !important;
 }
 
 .titleH1{
     text-align: var(--align-text);
-font: normal normal bold 13vh Roboto;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
 z-index: 4!important;
-line-height: 12vh;
-}
+font: normal normal bold 11vh/8vw Roboto;
+    line-height: 12vh;}
 .imgOrVieo{
     padding: inherit;
     position: absolute;
@@ -43,46 +61,49 @@ line-height: 12vh;
     opacity: 1;
     z-index: 2!important;
     width: var(--image-width)!important;
+    /* width:30vw; */
     height: 51vh;
     margin-left: 60vw!important;
     margin-top: 15vh!important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 .subscribe{
     cursor: pointer;
     margin-top: 5vh;
     height: 6vh;
-    /* width: 10vw; */
+   *width: 14vw; 
     background-color: var(--Button-color);
     opacity: 100%;
-    font-size: 3vh;
-    font-size: 3vh,6vw;
+    /* font-size: 3vh; */
+    /* font-size: 3vh,6vw; */
     margin-right: 65vw!important;
     /* text-align: left; */
-    font: normal normal medium 22px/27px Roboto;
+    /* font: normal normal medium 22px/27px Roboto; */
     /* letter-spacing: 4.4px; */
     color: #4B1A98;
     text-transform: uppercase;
     opacity: 1;
+    font: normal normal 1.5vw/2.5vh Roboto;
 
 }
 
 .descriptionP{
-    /* font-size: 200%; */
     text-align: var(--align-text);
-font: normal normal normal 220% Roboto;
-letter-spacing: 0px;
-color: #FFFFFF;
-opacity: 1;
-line-height: 4.2vh;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    font: normal normal 2vw/3vh Roboto;
+    line-height: 5vh;
 
 }
 .mylogo{
-    width: 6%;
+    width: 6% !important;
     height: 3%;
     z-index: 2!important;
     position: absolute;
     margin-left: 4vw!important;
-    margin-top: 5vh;
+    margin-top: 3vh !important;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     opacity: 1
     
@@ -119,8 +140,8 @@ width: 13.4vw!important;
 .subscribeArea{
     position: absolute;
     margin-right:75vw!important;
-    margin-left: 10vw!important;
-    margin-top: -19vh; 
+    margin-left: 4vw!important;
+    margin-top: -28vh!important; 
 
 
 }
@@ -151,6 +172,10 @@ form .form-control:focus{
         /* height: 100vh !important; */
         z-index: 1;
         cursor: pointer;
+        background-color:white;
+        width:97vw !important;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius:12px;
     }
 
 .arrow_{
@@ -167,15 +192,16 @@ form .form-control:focus{
     height: 6vh;
 }
 #createEventArea:hover{
-    background: #F0F2FA 0% 0% no-repeat padding-box;
     opacity: 1 
 }
 #createEventArea{
-    padding-top: 20vh;
-
-    height: 62vh;
-    border: 2px dashed #707070;
-
+    /* padding-top: 16vh; */
+    height: 40vh;
+    /* width: 17vw; */
+    /* border: 2px dashed #707070; */
+    margin-top: 2%;
+    /* margin-left: 2%; */
+    /* margin-right: 1.5%; */
 
 }
 #imageInTitle{

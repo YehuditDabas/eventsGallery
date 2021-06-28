@@ -1,7 +1,21 @@
+:root{
+  --float-button:0%;
+}
 .App {
   text-align: center;
-}
+  height:300vh;
+  background-color: rgb(232, 234, 236);
 
+}
+.showSettingsBtn{
+  position: absolute;
+  z-index: 15;
+  left:var(--float-button);
+  float:left;
+  background-color: white;
+    border: none;
+    cursor: pointer;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

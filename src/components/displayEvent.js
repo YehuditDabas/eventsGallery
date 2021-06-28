@@ -69,9 +69,9 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
     }
     return (
         <>
-            <Card className="eventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+            <Card className="displayEventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
                 <div className="row pRow">
-                    <img src={currentEvent.image == "" ? SimpleImg : currentEvent.image} className="eventImg" />
+                    <img src={currentEvent.image == "" ? SimpleImg : currentEvent.image} className="displayEventImg" />
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi des bi-share" viewBox="0 0 16 16" style={{ width: "8vw" }}>
                         <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
                     </svg>
@@ -86,14 +86,13 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
                     </div> */}
                     <div hidden={isShown} className="priceTextEvent">{currentEvent.price === undefined ? 'Free' : currentEvent.price}</div>
                 </div>
-                <div className="eventDescription">
+                <div className="displayEventDescription">
                     <div className="container eventContainer">
                         <div className="row leftSite">
-                            <div style={{ marginTop: "5%" }, { width: "75%" }} hidden={isShown} >
+                            <div style={{ width: "90%" , marginTop: "2.5vh" }} hidden={isShown} >
                                 <span className="col-sm-12 displayEventTitle" >{currentEvent.title}</span>
                             </div>
                         </div>
-                        <br hidden={!isShown} />
                         <br hidden={!isShown} />
                         <span hidden={!isShown} className="showDetails">View Details</span>
                         <div className="details" hidden={!isShown}>

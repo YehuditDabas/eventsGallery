@@ -153,7 +153,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         var size;
         myImg.src = img[pagesettings.eventsPageColor];
         myImg.onload = function () {
-            size = myImg.width / myImg.height * 25;
+            size = myImg.width / myImg.height * 11;
             size += "vw";
             console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
             console.log("@@" + size + "@@")
@@ -170,10 +170,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
-            {headersettings.displayHeader == true ? <div className="container-fluid" >
+            {headersettings.displayHeader == true ? <div className="container-fluid userEventsTitle" >
 
-                <div className="row" >
-                    <img className="myImg" src={img[pagesettings.eventsPageColor]}></img>
+                <div className="row" style={{height:"75vh"}}>
+                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
                     <div className="col-5 titleAndDescription">
                         <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
@@ -228,7 +228,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             </div> : <div></div>}
             <div className="container-fluid evnetsUnderFilter">
                 <div className="row">
-                    <AllEvents style={{ zIndex: 1 }}></AllEvents>
+                    <AllEvents style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEvents>
                     {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div> */}

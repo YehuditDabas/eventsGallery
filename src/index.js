@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 library.add(fab, fas)
 
 ReactDOM.render(
+  
   <Provider store={store}>
     <App />
   </Provider>,

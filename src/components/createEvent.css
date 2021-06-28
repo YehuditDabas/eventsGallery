@@ -1,8 +1,22 @@
  :root{
     --Backgound-color:"";
  }
- .createNewComponent{
-     cursor: pointer;
+ .createNewComponent {
+    border: 2px dashed #707070;
+    padding-top: 12vh;
+    padding-bottom: 12vh;
+    /* padding-left: 2vw; */
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    cursor: pointer;
+    margin-left: 0.8vw !important;
+    margin-right: 2vw !important;
+    width: 93% !important;
+    
+ }
+ .createNewComponent:hover{
+    background: #F0F2FA 0% 0% no-repeat padding-box;
+
  }
  .createNewPlus{
      /* width: 103vw!important; */

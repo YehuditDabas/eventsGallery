@@ -153,7 +153,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             {headersettings.eventsPageTitle !== "" && headersettings.displayHeader == true ? <div className="container-fluid adminEventTitle" >
 
                 <div className="row" style={{height:"75vh"}}>
-                    <img className="myImg" src={img[pagesettings.eventsPageColor]}></img>
+                    <img className="myImg titleImgColor"  src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
                     <div className="col-5 titleAndDescription">
                         <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
@@ -207,7 +207,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             </div> : <div></div>}
             <div className="container-fluid adminEvnetsUnderFilter">
                 <div className="row">
-                    <AllEvents style={{ zIndex: 1 }}></AllEvents>
+                    <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <FooterEventsGallery/>
             </div>

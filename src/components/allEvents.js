@@ -4,6 +4,7 @@ import './allEvents.css'
 import DisplayEvent from './displayEvent';
 import PreviousEvents from './previousEvents';
 import CreateEvent from './createEvent';
+import titleEvents from './titleEvents';
 
 
 function mapStateToProps(state) {
@@ -21,7 +22,8 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    const { events, mainColor, amountEventsInRow ,WatchPreviousEvents} = props;
+    const { events, mainColor, amountEventsInRow ,WatchPreviousEvents,sentBy} = props;
+    console.log("sentBy  ",sentBy)
     console.log("amountEventsInRow  ", amountEventsInRow);
     document.documentElement.style.setProperty('--main-color', mainColor);
     var year = new Date();
@@ -116,7 +118,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     </div>:''}
                     
 
-                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
+                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"2vw",paddingLeft:"2vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"3.5vw",paddingLeft:"3.5vw"}:{}} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
 
                 </div>
 
