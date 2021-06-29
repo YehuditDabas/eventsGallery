@@ -38,6 +38,7 @@ const editHeader = {
 
 
     setTitleText(state, action) {
+        debugger;
         state.header.eventsPageTitle = action.payload;
         console.log(state.header.eventsPageTitle)
     },

@@ -2,12 +2,12 @@
     --main-color:'#4B1A98'
 }
 .footerEvents{
-    height: 18vh;
+    height: 7vh;
     background: #F0F2FA 0% 0% no-repeat padding-box;
     padding-left: 5%;
     padding-right: 5%;
-    padding-top:3% ;
-    padding-bottom:3% ;
+    /* padding-top:3% ;
+    padding-bottom:3% ; */
 
 }
 .followUs{

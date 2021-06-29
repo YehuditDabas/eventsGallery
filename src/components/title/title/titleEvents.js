@@ -38,7 +38,10 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => ({
     subscribe: (obj) => dispatch(actionsStore.createSubscribe(obj)),
     systemWave: (res) => dispatch(actionsStore.createSystemWave(res)),
-    setMessage: (res) => dispatch(actionsStore.setMessage(res))
+    setMessage: (res) => dispatch(actionsStore.setMessage(res)),
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)) },
+    changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) }
+    // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(props) {
     const { pagesettings, headersettings, subscribesettings,message, subscribe, systemWave,setMessage } = props;
@@ -52,7 +55,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
     const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
-
+   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const img =
@@ -141,7 +144,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         var size;
         myImg.src = img[pagesettings.eventsPageColor];
         myImg.onload = function () {
-            size = myImg.width / myImg.height * 25;
+            size = myImg.width / myImg.height * 11;
             size += "vw";
             console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
             console.log("@@" + size + "@@")
@@ -158,23 +161,31 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
-            {headersettings.displayHeader == true ? <div className="container-fluid" >
+            <div className="container-fluid userEventsTitle" >
 
-                <div className="row" >
-                    <img className="myImg" src={img[pagesettings.eventsPageColor]}></img>
+                <div className="row" style={{height:"75vh"}}>
+                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
-                    <div className="col-5 titleAndDescription">
-                        <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p>
 
-                    </div>
-                    <div className="imgOrVieo">
-                        {checkImg() === true ?
-                            <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo}></img>
-                            : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                        }
+                    <div className="row ">
 
+                        <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5 titleAndDescription">
+                            {/* <input type="text" value={headersettings.eventsPageTitle}
+                                onChange={(e) => props.changeTitleText(e.target.value)}
+                            ></input> */} 
+                            <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
+                        { <p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
+
+                        </div>
+
+                        <div className="col-xs-7 col-sm-7 col-md-7 col-lg-7 imgOrVieo">
+                            {checkImg() === true ?
+                                <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo}></img>
+                                : <ReactPlayer width='100%'
+                                    height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                            }
+
+                        </div>
                     </div>
                     {isAdmin == false ?
                         <div className="row">
@@ -213,10 +224,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                 </div>
 
-            </div> : <div></div>}
+            </div>
             <div className="container-fluid evnetsUnderFilter">
                 <div className="row">
-                    <AllEvents style={{ zIndex: 1 }}></AllEvents>
+                    <AllEvents style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEvents>
                     {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div> */}

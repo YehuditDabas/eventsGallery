@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +14,7 @@ import Switch from '@material-ui/core/Switch';
 
 
 function EditHeader(props) {
+    const {headersettings}= props;
     const [alignment, setAlignment] = useState('left');
 
     function changeAlignment(align) {
@@ -92,15 +92,18 @@ function EditHeader(props) {
                 <div className="row ml-1 mb-3 mr-1">
                     <div className="col">
                         <textarea
-                            className="divWidth configuratorTextarea"
-                            onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-                            onChange={(e) => props.changeTitleText(e.target.value)}
-                            value={props.editHeader.eventsPageTitle}
-                            rows="1"
-                            maxLength="50"
-                            style={{ textAlign: alignment }}
-                            placeholder="Welcome to&#13;&#10;your channel"
-                        />
+                         className="divWidth configuratorTextarea"
+                         onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                         onChange={(e) => props.changeTitleText(e.target.value)}
+                         value={props.headersettings.eventsPageTitle}
+                         rows="1"
+                         maxLength="50"
+                         style={{ textAlign: alignment }}
+                        //  placeholder=""
+                        
+                        >{props.headersettings.eventsPageTitle}</textarea>
+                           
+                        
                     </div>
                     </div>
             </div>
@@ -116,8 +119,8 @@ function EditHeader(props) {
                             className="divWidth configuratorTextarea"
                             onKeyPress={(e) => { e.key == 'Enter' && (e.target.value.match(/\n/g) || []).length == 2 && e.preventDefault() }}
                             onChange={(e) => props.changeBodyText(e.target.value)}
-                            // onChange={(e) => props.onChangeEventsGalleryDescription(e.target.value)}
-                            value={props.editHeader.eventsPageDescription}
+                            onChange={(e) => props.changeBodyText(e.target.value)}
+                            value={props.headersettings.eventsPageDescription}
                             rows="1"
                             maxLength="250"
                             style={{ textAlign: alignment }}
@@ -137,7 +140,8 @@ function EditHeader(props) {
 }
 const mapStateToProps = (state) => {
     return {
-        editHeader: state.editHeader
+        headersettings: state.editHeader.header,
+        // headersettings: state.editHeader.header
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -150,38 +154,3 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EditHeader);
-
-
-
-{/* <div className="marginTop">
-                <div className="row ml-1  mr-1 mt-1 d-flex justify-content-between">
-                    <div>  <Form.Label ><b>Title Color</b></Form.Label></div>
-                     className="textField" 
-                    <div className="d-flex align-items-center">
-                        <img src={dropper} id="img_dropper" alt="dropper"></img> 
-                        <input
-                            type="color"
-                            className="ImgEditHeaderStyle"
-                            onChange={(e) => props.changeTitleColor(e.target.value)}
-                            value={props.editHeader.textColor.title}
-                        />
-                    </div>
-                </div>
-            </div> */}
-
-
-            // <div className="marginTop">
-            //         <div className="row ml-1 mr-1 d-flex justify-content-between">
-            //             <div>  <Form.Label ><b>Body Color</b></Form.Label></div>
-            //             {/* className="textField" */}
-            //             <div className="d-flex align-items-center">
-            //                 {/* <img src={dropper} id="img_dropper" alt="dropper"></img> */}
-            //                 <input
-            //                     type="color"
-            //                     className="ImgEditHeaderStyle"
-            //                     onChange={(e) => props.changeBodyColor(e.target.value)}
-            //                     value={props.editHeader.textColor.body}
-            //                 />
-            //             </div>
-            //         </div>
-            //     </div>
