@@ -1,18 +1,10 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
+import EventPageSetings from '../../../models/eventsPageSettngs'
+
 
 const initialState = {
-    footer: {
-        facebook: "",
-        facebookLink: "",
-        twitter: {},
-        twitterLink: "",
-        instagram: {},
-        instagramLink: "",
-        youtube: {},
-        youtubeLink: "",
-
-    }
+    footer:EventPageSetings
 }
 
 const editFooter = {

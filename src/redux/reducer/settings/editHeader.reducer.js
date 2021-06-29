@@ -1,19 +1,10 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
-
+import EventPageSetings from '../../../models/eventsPageSettngs'
 import logoImage from '../../../assets/Group 21405.svg'
 
 const initialState = {
-    header: {
-        eventsPageAlignment: "",
-        eventsPageImageOrVideo: "",
-        eventsPageLogo: logoImage,
-        eventsPageTitle: "",
-        eventsPageDescription: " ",
-        displayHeader: true
-    },
-    loaderuploadImage: false,
-    loaderuploadLogo: false
+    header:  EventPageSetings
 };
 const editHeader = {
     initialEditHeaderConfiguration(state, action) {
@@ -67,16 +58,17 @@ const editHeader = {
     },
 
     addAllSettings(state, action) {
+        debugger
         state.header.eventsPageTitle = action.payload.settings.eventsPageTitle;
         state.header.eventsPageDescription = action.payload.settings.eventsPageDescription;
         state.header.eventsPageImageOrVideo = action.payload.settings.eventsPageImageOrVideo;
-        console.log("image " + state.header.eventsPageImageOrVideo);
+        // console.log("image "+state.header.eventsPageImageOrVideo );
         state.header.eventsPageLogo = action.payload.settings.eventsPageLogo;
         state.header.eventsPageAlignment = action.payload.settings.eventsPageAlignment;
         state.header.displayHeader = action.payload.settings.displayHeader;
-        console.log("header  " + state.header.eventsPageTitle + "description " + state.header.eventsPageDescription + " alinment " + state.header.eventsPageAlignment)
+// console.log("header  "+ state.header.eventsPageTitle +"description "+ state.header.eventsPageDescription +" alinment "+ state.header.eventsPageAlignment)
 
-        console.log("GET_SETTINGS" + action.payload.settings.eventsPageDescription);
+        console.log("GET_SETTINGS" + state.header);
         ;
     },
 }
