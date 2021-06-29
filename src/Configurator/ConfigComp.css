@@ -82,50 +82,75 @@ label {
 
 .divOnHover {
     position: relative;
-    width: 100%;
-    height: auto;
     margin: 1%;
     top:5px;  
-    background-color:#E8EAEC;
+    /* background-color:#E8EAEC; */
  }
 
 .divOnHover .divUploadImage {
     display: block;
 }
+.divOnHover.divUploadLogo{
+    display: block;
+}
 
-/* .divUploadImage {
-    height: auto;
-    width: 100%;
-    margin-top: 15px;
-} */
-
-.iconDiv {
+.UIiconDiv {
     width: 13vw;
-    margin-top: 9vh;
-    height: 4vh;
-    background:  0% 0% no-repeat padding-box;
+    height: 16vh;
+    background-color: rgba(0,0,0,.6);
     position: absolute;
     bottom: 0;
     top: 0;
     left: 0;
-    /* width: 100%; */
-    color: #cccccc;
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    /* opacity: 0; */
-    padding: 1vw
+     color: #cccccc;
+    padding: 1vw;
+    opacity: 0;
+
+}
+.ULiconDiv {
+    width: 13vw;
+    height: 13vh;
+    background-color: rgba(0,0,0,.6);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+     color: #cccccc;
+    padding: 1vw;
+    opacity: 0;
+
 }
 
-.iconDiv:hover {
+ .ULiconDiv:hover {
+     opacity: 1;
+} 
+.UIiconDiv:hover {
     opacity: 1;
+} 
+.{
+    position: absolute;
 }
-
+.uploadLogoImage{
+    width: 13vw;
+    height: 13vh;
+}
 
 .iconCloudUpload {
     position: absolute;
-    /* bottom: 7px;
-    left: 7px; */
+     bottom: 1vh;
 }
-/* PICKER */
+.UIiconUploadEvent{
+    cursor: pointer;
+    position: absolute;
+    bottom: 5vh;
+    left: 4.5vw;
+}
+.UIp{
+    position: absolute;
+    color: gray;
+    right: 4.5vw;
+    bottom: -2vh;
+}
 
 
 .github-picker{
@@ -262,8 +287,7 @@ height: 14.3312101910828%;
     width: 100% !important;
 }
 .ChannelColorwidth{
-    width: 13vw !important;
-   
+    width: 13vw !important;  
 }
 .MuiFormControlLabel-root {
     /* margin-left: 0px !important; */
@@ -345,7 +369,6 @@ margin-right: 4vw;
     margin-right: 8vw;
 }
 .colorSelected{
-   
     border: 2px solid #FFFFFF;
     opacity: 1;
 }
@@ -379,6 +402,14 @@ margin-top: -4vh !important;
     height: 16vh;
     margin-left: 1.5vw;
 }
+.divUploadLogo{
+    background: #505066 0% 0% no-repeat padding-box;   
+    border-radius: 2px;
+    opacity: 0.46;
+    width: 13vw;
+    height: 13vh;
+    margin-left: 1.5vw;
+}
 
 .showinpageRow{
 font-size: smaller;
@@ -396,10 +427,4 @@ font-size: smaller;
 .editSubscribtionFileds{
     margin-left: 1.5vw !important;
     font-size: 0.9rem !important;
-}
-.iconUploadEvent{
-    cursor: pointer;
-    position: absolute;
-    bottom: 17%;
-    left: 34%;
 }

@@ -69,7 +69,17 @@ function UploadImageFromConfigurator(props) {
                 </div>
                 :
                 currentImage && checkImg()===true?
+                
+                <>
                 <img className="myImg" src={currentImage} style={{ width: "13vw", height: "16vh" }} ></img>
+                <div className="UIiconDiv">
+                    <FontAwesomeIcon
+                        id='angle-right'
+                        className='iconCloudUpload'
+                        icon={['fas', 'cloud-upload-alt']}
+                    ></FontAwesomeIcon>
+                </div> 
+                </>
                 :
                 currentImage?
                <video src={currentImage}></video>
@@ -77,13 +87,12 @@ function UploadImageFromConfigurator(props) {
                 // height="16vh" className="video_or_picture" url={currentImage}  />
                 :
                 <>
-                <img className="iconUploadEvent" alt="image" src={upload} />
-                <p>Upload</p>
+                <img className="UIiconUploadEvent" alt="image" src={upload} />
+                <p className="UIp">Upload</p>
                 </>}
-                        
+
+                 
                 </label>
-             
-            
         </div >
     );
 }

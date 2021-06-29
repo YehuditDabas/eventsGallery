@@ -9,7 +9,6 @@ const initialState = {
         ShowHistoricalEvents: true
     }
     // Watch previous events:"",
-    
 };
 
 const configImage = {

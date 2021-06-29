@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { actionsStore } from '../redux/actions';
@@ -18,6 +18,11 @@ function pageSettings(props) {
 
     let color = ['#AD60FF', '#FF53F7', '#FF62B2', '#FA5252', '#FF803F', '#FAEE3A',
         '#424149', '#9F9CB5', '#4F40D0', '#54B9FF', '#51E7FB', '#63F597']
+
+        // useEffect(()=>{
+
+        // },[])
+
     return (
         <div >
             <div className="ml-1">
