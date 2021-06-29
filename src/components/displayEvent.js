@@ -2,82 +2,116 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import DisplayUrlJoin from './displayUrlJoin';
 import './event.css';
 import SimpleImg from '../assets/simpleImg.png'
+import price from '../assets/price.png'
+import arrow from '../assets/arrow.png'
+import black from '../assets/arrows/black.png'
+import blue from '../assets/arrows/blue.png'
+import gray from '../assets/arrows/gray.png'
+import green from '../assets/arrows/green.png'
+import lightblue from '../assets/arrows/lightblue.png'
+import lightpink from '../assets/arrows/lightpink.png'
+import orange from '../assets/arrows/orange.png'
+import pink from '../assets/arrows/pink.png'
+import purple from '../assets/arrows/purple.png'
+import red from '../assets/arrows/red.png'
+import turkiz from '../assets/arrows/turkiz.png'
+import yellow from '../assets/arrows/yellow.png'
+import { withRouter } from 'react-router-dom'
 
-function mapStateToProps(state) {
-    console.log("userName", state.userName)
-    console.log("state.devJwt", state.devJwt)
+function mapStateToProps(state) { 
+    
     return {
-        userName: state.userName,
-        devJwt: state.devJwt
+        events: state.allEvents.events,   
+        eventsPageColor: state.pageSettings.page.eventsPageColor,
+        userName: state.allEvents.userName,
+        devJwt: state.allEvents.devJwt
     }
 }
 
-export default connect(mapStateToProps)(function DisplayEvent(props) {
-    const { index, events, userName, TokenToString } = props;
+export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) {
+    const { eventsPageColor, userName, TokenToString, history, currentEvent,events } = props;
+    // console.log("event",events)
+    document.documentElement.style.setProperty('--main-color', eventsPageColor);
+
+
+    // const [events, setEvents] = useState([{ title: 'aaa', start: '03-03', place: 'urnu,jrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: 'urnujrn' }, { title: 'aaa', start: '03-03', place: 'u,rnujrn' }, { title: 'aaa', start: '03-03', place: ',urnujrn' }])
     const [url, setUrl] = useState('')
+    const [isShown, setIsShown] = useState(false)
     const classes = useStyles();
-    const join = (url) => {
-        setUrl(url)
+    // document.documentElement.style.setProperty('--main-color','#63F597');
+
+    const images = {
+        '#424149': black,
+        '#4f40d0': blue,
+        '#9f9cb5': gray,
+        '#63f597': green,
+        '#54b9ff': turkiz,
+        '#ff53f7': lightpink,
+        '#ff803f': orange,
+        '#ff62b2': pink,
+        '#ad60ff': purple,
+        '#fa5252': red,
+        '#51e7fb': lightblue,
+        '#faee3a': yellow
+    }
+  
+
+    function details() {
+        console.log('details')
+        var index = events.indexOf(currentEvent);
+        console.log('index ', index);
+        history.push({ pathname: `/${userName}/eventDetails/${index}`, state: { index: index } })
+
+        // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />
     }
     return (
         <>
-            <Card>
-                <img src={SimpleImg} className="eventImg" />
+            <Card className="eventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                <div className="row pRow">
+                    <img src={currentEvent.image == "" ? SimpleImg : currentEvent.image} className="eventImg" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi des bi-share" viewBox="0 0 16 16" style={{ width: "8vw" }}>
+                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi deh bi-heart" viewBox="0 0 16 16" style={{ width: "8vw" }}>
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                    </svg>
+
+                    <div hidden={isShown} className="priceD"><img className="price" src={images[eventsPageColor]}></img></div>
+                    {/* <div hidden={isShown} className="priceD">
+                        <div className="rectangle"></div>
+                        <div className="triangle-left"></div>
+                    </div> */}
+                    <div hidden={isShown} className="priceTextEvent">{currentEvent.price === undefined ? 'Free' : currentEvent.price}</div>
+                </div>
                 <div className="eventDescription">
-                    <span className="eventTitle" >{events[index].title}</span>
-                    <div className="container-fluid">
-                        <div className="row no-gutters mx-0">
-                            <div className="col-xs-1 col-sm-2 col-md-4 padding-0 px-0 ">
-                                <span className="time padding-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
-                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z" />
-                                </svg> {events[index].start.slice(8, 10)}/{events[index].start.slice(5, 7)}</span>
+                    <div className="container eventContainer">
+                        <div className="row leftSite">
+                            <div style={{ marginTop: "5%" }, { width: "75%" }} hidden={isShown} >
+                                <span className="col-sm-12 eeventTitle" >{currentEvent.title}</span>
                             </div>
-                            <div className="col-xs-1 col-sm-3 col-md-3 padding-0">
-                                <span className="time padding-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                                </svg>  {events[index].start.slice(11, 16)}</span>
-                            </div>
-                            <div className="col-xs-1 col-md-3 padding-0 d-md-block">
-                                <span className="time"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                </svg> {events[index].place.split(',')[2]}</span>
+                        </div>
+                        <br hidden={!isShown} />
+                        <br hidden={!isShown} />
+                        <span hidden={!isShown} className="showDetails">View Details</span>
+                        <div className="details" hidden={!isShown}>
+                            <img src={arrow} ></img>
+                        </div>
+                        <div className="row padding-0" hidden={isShown}>
+                            <div className="col-12 padding-0 leftSite">
+                                <span className="timeDetails"> {currentEvent.start.slice(8, 10)}/{currentEvent.start.slice(5, 7)} . {currentEvent.start.slice(11, 16)} . {currentEvent.place.split(',')[2]}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </Card>
-            {/* <Card className={classes.root}>
-                <CardActionArea>
-
-                    <CardContent className="eventDescription">
-                        <Typography gutterBottom variant="h5" component="h2">{events[index].title}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">{events[index].description}</Typography>
-                        {events[index].start.slice(0, 10)!==events[index].end.slice(0, 10)?<><Typography variant="body2" color="textSecondary" component="p">מתאריך:  {events[index].start.slice(0, 10)}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">עד: {events[index].end.slice(0, 10)}</Typography></>:  <Typography variant="body2" color="textSecondary" component="p">תאריך: {events[index].start.slice(0, 10)}</Typography>}
-                        <Typography variant="body2" color="textSecondary" component="p">{events[index].place}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p"> מספר משתתפים מקסימאלי {events[index].maxParticipants}</Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Button size="small" color="primary" onClick={() => join(events[index].registrationURL)}>להצתרפות</Button>
-                </CardActions>
-            </Card> */}
             {url !== '' ? <DisplayUrlJoin url={url}></DisplayUrlJoin> : ''}
         </>
 
     )
-})
+}))
 
 const useStyles = makeStyles({
     root: {

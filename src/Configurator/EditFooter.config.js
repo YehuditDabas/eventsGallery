@@ -47,7 +47,6 @@ function EditFooter(props) {
                         maxLength="50"                     
                         placeholder="Attach Link"
                     />
-
           <div className="iconFooter">
 
             <FormControlLabel className="d-flex justify-content-between"

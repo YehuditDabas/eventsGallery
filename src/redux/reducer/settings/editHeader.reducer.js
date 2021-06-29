@@ -7,15 +7,18 @@ const initialState = {
     header: {
         eventsPageAlignment: "",
         eventsPageImageOrVideo: "",
-        eventsPageLogo: logoImage,
+        eventsPageLogo: "",
         eventsPageTitle: "",
-        eventsPageDescription: " ",
+        eventsPageDescription: "",
         displayHeader: true
+
     }
 };
 const editHeader = {
     initialEditHeaderConfiguration(state, action) {
-
+        // state = { ...action.payload };
+        // state = action.payload;
+        //todo: 
         state.eventsPageAlignment = action.payload.eventsPageAlignment;
         state.eventsPageImageOrVideo = action.payload.eventsPageImageOrVideo;
         state.eventsPageLogo = action.payload.eventsPageLogo;
@@ -52,8 +55,6 @@ const editHeader = {
         console.log(state.header.eventsPageDescription)
     },
     addAllSettings(state, action) {
-        debugger
-
         state.header.eventsPageTitle = action.payload.settings.eventsPageTitle;
         state.header.eventsPageDescription = action.payload.settings.eventsPageDescription;
         state.header.eventsPageImageOrVideo = action.payload.settings.eventsPageImageOrVideo;
