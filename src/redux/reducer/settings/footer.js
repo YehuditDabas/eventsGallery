@@ -5,13 +5,12 @@ const initialState = {
     footer: {
         facebook: "",
         facebookLink: "",
-        twitter: {},
+        twitter:"",
         twitterLink: "",
-        instagram: {},
+        instagram: "",
         instagramLink: "",
-        youtube: {},
+        youtube: "",
         youtubeLink: "",
-
     }
 }
 
@@ -33,7 +32,6 @@ const editFooter = {
         state.footer[action.payload.filedName] = action.payload.value;
     },
     setFacebookLink(state, action) {
-    debugger;
         state.footer.facebookLink = action.payload;
     
     },
@@ -48,7 +46,7 @@ const editFooter = {
         state.footer.youtubeLink = action.payload;
     },
     addAllSettings(state, action) {
-   
+   debugger;
         state.footer.facebook = action.payload.settings.facebook;
         state.footer.facebookLink = action.payload.settings.facebookLink;
         state.footer.twitter = action.payload.settings.twitter;

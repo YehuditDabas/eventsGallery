@@ -12,10 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 function EditFooter(props) {
-
-  const filedFooter = useSelector(state => state.editFooter)
+debugger
+  const filedFooter = useSelector(state => state.editFooter.footer)
   const dispatch = useDispatch()
   const handleChange = (event) => {
+    debugger
     dispatch(actionsStore.footerFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };
@@ -43,7 +44,7 @@ function EditFooter(props) {
             className="inputLinkIcon"
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
             onChange={(e) => props.changeFacebookLink(e.target.value)}
-            value={props.editFooter.facebookLink}
+            value={filedFooter.facebookLink}
             rows="1"
             maxLength="50"
             placeholder="Attach Link"
@@ -60,7 +61,7 @@ function EditFooter(props) {
             className="inputLinkIcon"
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
             onChange={(e) => props.changeTwitterLink(e.target.value)}
-            value={props.editFooter.twitterLink}
+            value={filedFooter.twitterLink}
             rows="1"
             maxLength="50"
             placeholder="Attach Link"
@@ -78,7 +79,7 @@ function EditFooter(props) {
             className="inputLinkIcon"
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
             onChange={(e) => props.changeInstagramLink(e.target.value)}
-            value={props.editFooter.instagramLink}
+            value={filedFooter.instagramLink}
             rows="1"
             maxLength="50"
             placeholder="Attach Link"
@@ -98,7 +99,7 @@ function EditFooter(props) {
             className="inputLinkIcon"
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
             onChange={(e) => props.changeYiutubeLink(e.target.value)}
-            value={props.editFooter.youtubeLink}
+            value={filedFooter.youtubeLink}
             rows="1"
             maxLength="50"
             placeholder="Attach Link"
@@ -109,11 +110,7 @@ function EditFooter(props) {
     </FormControl>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    editFooter: state.editFooter
-  }
-}
+
 const mapDispatchToProps = (dispatch) => {
   debugger
   return {
@@ -125,12 +122,4 @@ const mapDispatchToProps = (dispatch) => {
 
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(EditFooter);
-// facebook: true,
-//         facebookLink: "",
-//         twitter: true,
-//         twitterLink: "",
-//         instagram: false,
-//         instagramLink: "",
-//         youtube: false,
-//         youtubeLink: "",
+export default connect( mapDispatchToProps)(EditFooter);

@@ -14,7 +14,7 @@ export default function EditSubscribtion(props) {
   const fieldSubscription = useSelector(state => state.editSubscription)
   const dispatch = useDispatch()
   const handleChange = (event) => {
-  debugger
+
     dispatch(actionsStore.settingFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };
