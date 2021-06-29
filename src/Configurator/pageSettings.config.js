@@ -78,4 +78,3 @@ const mapDispatchToProps = (dispatch) => ({
     changeButtonStyle: (e) => dispatch(actionsStore.setButtonStyle(e))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(pageSettings);
-

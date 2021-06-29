@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -145,38 +144,3 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EditHeader);
-
-
-
-{/* <div className="marginTop">
-                <div className="row ml-1  mr-1 mt-1 d-flex justify-content-between">
-                    <div>  <Form.Label ><b>Title Color</b></Form.Label></div>
-                     className="textField" 
-                    <div className="d-flex align-items-center">
-                        <img src={dropper} id="img_dropper" alt="dropper"></img> 
-                        <input
-                            type="color"
-                            className="ImgEditHeaderStyle"
-                            onChange={(e) => props.changeTitleColor(e.target.value)}
-                            value={props.editHeader.textColor.title}
-                        />
-                    </div>
-                </div>
-            </div> */}
-
-
-            // <div className="marginTop">
-            //         <div className="row ml-1 mr-1 d-flex justify-content-between">
-            //             <div>  <Form.Label ><b>Body Color</b></Form.Label></div>
-            //             {/* className="textField" */}
-            //             <div className="d-flex align-items-center">
-            //                 {/* <img src={dropper} id="img_dropper" alt="dropper"></img> */}
-            //                 <input
-            //                     type="color"
-            //                     className="ImgEditHeaderStyle"
-            //                     onChange={(e) => props.changeBodyColor(e.target.value)}
-            //                     value={props.editHeader.textColor.body}
-            //                 />
-            //             </div>
-            //         </div>
-            //     </div>
