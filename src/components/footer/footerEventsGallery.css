@@ -1,0 +1,50 @@
+:root{
+    --main-color:'#4B1A98'
+}
+.footerEvents{
+    height: 7vh;
+    background: #F0F2FA 0% 0% no-repeat padding-box;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* padding-top:3% ;
+    padding-bottom:3% ; */
+
+}
+.followUs{
+   text-align: left;
+   font: normal normal normal 4vh/4vw Roboto;
+   letter-spacing: 0px;
+   color: #0A102E;
+   text-transform: capitalize;
+   opacity: 1;
+}
+.logoTwitter{
+    width: 4vw;
+    height: 3.5vh;
+    /* background: #0A102E 0% 0% no-repeat padding-box; */
+}
+.fooerIcons{
+   margin-right: 8%;
+   margin-top: 3%;
+    /* margin-top: 20%; */
+}
+.createdBy{
+    text-align: left;
+    font: normal normal normal 4vh/4vw Roboto;
+    letter-spacing: 0px;
+    color: #0A102E;
+    text-transform: lowercase;
+    position:absolute;
+    right:0%;
+}
+
+.lc{
+    text-align: left;
+    letter-spacing: 0px;
+    color:var(--main-color) !important;
+    text-transform: lowercase;
+}
+.aFooter { color: inherit; } 
+.aFooter:hover{
+    color: var(--main-color) !important;
+}
