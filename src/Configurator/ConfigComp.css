@@ -29,10 +29,7 @@ label {
 
 .configuratorTextarea {
     border: none;
-    /* background-color:#E8EAEC; */
     resize: none !important;
-    
-    /* height: 80px; */
     background: #505066 0% 0% no-repeat padding-box;
     height: 8vh;
     text-align: left;
@@ -208,7 +205,7 @@ height: 14.3312101910828%;
 }
 
 .MuiTypography-root {
-    /* margin-right: 0px !important; */
+    margin-right: 0px !important;
 }
 
 .accordion>.card>.card-header {
@@ -287,6 +284,10 @@ height: 14.3312101910828%;
 Form.Label{
     font:normal;
 }
+.iconSize{
+     width:3vw !important;
+     height: 3vh;
+}
 .inputLinkIcon{
     background: #505066 0% 0% no-repeat padding-box;
 /* border-radius: 2px; */
@@ -295,10 +296,16 @@ display: inline-block;
 background: #505066 0% 0% no-repeat padding-box;
 height: 5vh;
     width: 30vh;
-    /* display: flex; */
     margin: auto;
    color: white;
-
+   margin-bottom: 2vh;
+   margin-top: -1vh;
+   direction: ltr;
+   border: none;
+}
+::placeholder{
+    color: white;
+    font-weight: lighter;
 }
 .iconFooter{
     display:flex;
@@ -306,19 +313,29 @@ height: 5vh;
     
 }
 .icon{
-    margin-top: 1vh;
-    margin-left: 2vw;
+    margin-top: 0vh;
+    margin-left: 1vw;
     float: right;
-    /* width: -webkit-fill-available; */
+    
 }
 /* .iconName{
     margin-right: 0vw;
 } */
 #firstIcon{
-    margin-left: 1.5vw;
-    margin-right: 3vw;
+    /* margin-left: 1.5vw; */
+    margin-right: 3.5vw;
+}
+#secondIcon{
+    margin-right: 4.5vw;
+}
+#thirdIcon{
+margin-right: 3vw;
+}
+#fourthIcon{
+margin-right: 4vw;
 }
 .MuiTypography-body1 {
+    margin-top: -2vh;
     /* position: absolute;
     margin-right: 9vw;
     font-size: 0.8rem !important; */
@@ -380,4 +397,10 @@ font-size: smaller;
 .editSubscribtionFileds{
     margin-left: 1.5vw !important;
     font-size: 0.9rem !important;
+}
+.iconUploadEvent{
+    cursor: pointer;
+    position: absolute;
+    bottom: 17%;
+    left: 34%;
 }

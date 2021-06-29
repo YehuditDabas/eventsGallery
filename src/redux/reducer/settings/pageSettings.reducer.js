@@ -37,7 +37,7 @@ const configImage = {
     //     state.showCounterViews = action.payload;
     // },
     addAllSettings(state, action) {
-        debugger
+      
         state.page.amountEventsInRow = action.payload.settings.amountEventsInRow
         state.page.eventsPageColor = action.payload.settings.eventsPageColor
         state.page.eventsButtonColor = action.payload.settings.eventsButtonColor;

@@ -31,7 +31,8 @@ function ConfiguratorSettings(props) {
       name: props.editSubscription.subscribe.name,
       email: props.editSubscription.subscribe.email,
       phone: props.editSubscription.subscribe.phone,
-      adress: props.editSubscription.subscribe.adress,
+      address: props.editSubscription.subscribe.address,
+
 
       facebook:props. editFooter.footer.facebook,
       facebookLink: props. editFooter.footer.facebookLink,
@@ -88,7 +89,7 @@ function ConfiguratorSettings(props) {
             <button type="submit" className="buttoncreate btn p-2 m-2 ml-2 mr-2"
               onClick={hundalCreate}
             
-            >Create</button></div>
+            >Update</button></div>
         </div>
       </div>
     </div>

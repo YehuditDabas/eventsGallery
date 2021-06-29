@@ -37,6 +37,7 @@ export const getEvents = ({ dispatch, getState }) => next => action => {
 }
 
 export const getSettings = ({ dispatch, getState }) => next => action => {
+  debugger;
   if (action.type === 'GET_SETTINGS') {
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
       ? document.cookie
@@ -95,7 +96,6 @@ export const getSettings = ({ dispatch, getState }) => next => action => {
 }
 
 export const updateOrCreateSettings = ({ dispatch, getState }) => next => action => {
-
   if (action.type === "UPDATE_OR_CREATE_SETTINGS") {
 
     const TokenToString = document.cookie && document.cookie.includes('devJwt')
@@ -126,7 +126,7 @@ export const updateOrCreateSettings = ({ dispatch, getState }) => next => action
       .then(res => res.json())
       .then(res => {
         dispatch(actionsStore.addAllSettings(res))
-      })
+      },console.log("yrs"))
       .catch(err =>
         console.log(err)
       )
