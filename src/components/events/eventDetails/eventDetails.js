@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { actionsStore } from '../../../redux/actions'
 import './eventDetails.css';
 import { withRouter } from 'react-router-dom'
+import {Modal, Button} from 'react-bootstrap'
 import arrow from '../../../assets/Polygon 24@2x.png'
 import SimpleImg from '../../../assets/simpleImg.png'
 import user from '../../../assets/user.svg'
@@ -307,14 +308,32 @@ export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function E
                                 {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title} mainColor={mainColor}></MiniEvent> </div>)}
                             </div>
                         </div>
-                        <FooterEventsGallery style={{ marginTop: "5%" }} />
+                       
                     </div>
-                    
+                     <FooterEventsGallery style={{ marginTop: "5%" }} />
                 </div>
 
 
             </> : ''}
-
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                {/* <Modal.Header closeButton>
+                    <Modal.Title>Modal title</Modal.Title>
+                </Modal.Header> */}
+                <Modal.Body>
+                    {message}
+                </Modal.Body>
+                <Modal.Footer>
+                    {/* <Button >
+                        Close
+                    </Button> */}
+                    <Button variant="secondary" onClick={handleClose} >Close</Button>
+                </Modal.Footer>
+            </Modal>
         </>
 
     )
