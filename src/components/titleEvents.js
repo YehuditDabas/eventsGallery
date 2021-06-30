@@ -151,19 +151,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             return false;
         }
     }
+    
     function setHeightAndWidth() {
-        // var myImg = document.querySelector("#ti")
         var myImg = new Image();
         var size;
-        myImg.src = img[pagesettings.eventsPageColor];
+        myImg.src =headersettings.eventsPageImageOrVideo ;
         myImg.onload = function () {
-            size = myImg.width / myImg.height * 11;
+            size = myImg.width / myImg.height * 25;
             size += "vw";
             console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
             console.log("@@" + size + "@@")
             document.documentElement.style.setProperty('--image-width', size);
-
-
 
         }
     }
@@ -176,24 +174,22 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         <>
             {headersettings.displayHeader == true ? <div className="container-fluid userEventsTitle" >
 
-                <div className="row" style={{height:"75vh"}}>
+                 <div className="row" style={{height:"75vh"}}>
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
 
                     <div className="row ">
 
-                        <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5 titleAndDescription">
-                            {/* <input type="text" value={headersettings.eventsPageTitle}
-                                onChange={(e) => props.changeTitleText(e.target.value)}
-                            ></input> */} 
+                        <div className="col-5 titleAndDescription">
+                           
                             <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
                         { <p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
 
                         </div>
 
-                        <div className="col-xs-7 col-sm-7 col-md-7 col-lg-7 imgOrVieo">
+                        <div className="col-7 imgOrVieo">
                             {checkImg() === true ?
-                                <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo}></img>
+                                <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
                                 : <ReactPlayer width='100%'
                                     height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                             }
@@ -203,17 +199,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     {isAdmin == false ?
                         <div className="row">
                             <div className="col-3 subscribeArea">
-                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
                                 <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
 
-                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
                                 {showing ?
                                     <div>
                                         <img className="arrow_" src={arrow}></img>
                                         <div className="dropDown">
                                             <form className="formSubscribe">
                                                 <br></br>
-                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress"); */}
                                                 {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
                                                 {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
                                                 {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
@@ -235,7 +228,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                         </div> : ''}
 
-                </div>
+                </div> 
+                {/* <div className="row imgTitleDetails">
+                    <img src={img[pagesettings.eventsPageColor]} height="100%" width="100%" style={{ padding: 0, borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}></img>
+                    <div className="col-7 eventDetailsTitle">
+                        <div className="eventTitle" > <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
+
+                            <div className="eventDetails">{<p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 picTitle"> {checkImg() === true ?
+                        <img id="imageInTitle" src={headersettings.eventsPageImageOrVideo} height="100%" width="100%"></img>
+                        : <ReactPlayer width='100%'
+                            height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                    }
+
+                    </div>
+                </div> */}
+
+
 
             </div> : <div></div>}
             <div className="container-fluid evnetsUnderFilter">

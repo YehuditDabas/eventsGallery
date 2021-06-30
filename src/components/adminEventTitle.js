@@ -143,6 +143,25 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
         console.log(obj)
     }
+    function setHeightAndWidth() {
+        var myImg = new Image();
+        var size;
+        myImg.src =headersettings.eventsPageImageOrVideo ;
+        myImg.onload = function () {
+            console.log("@@" + myImg.width / myImg.height + "@@")
+            size = myImg.width / myImg.height<2?myImg.width / myImg.height * 21:myImg.width / myImg.height*12;
+            size += "vw";
+            console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
+            console.log("@@" + size + "@@")
+            document.documentElement.style.setProperty('--image-width', size);
+
+        }
+    }
+    useEffect(() => {
+        if (headersettings) {
+            setHeightAndWidth()
+        }
+    }, [headersettings])
     function checkImg() {
         if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
             return true;
@@ -189,14 +208,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                         <p className="descriptionP"> {headersettings.eventsPageDescription}</p> */}
 
                     </div>
+                    <div className="divdiv">
                     <div className="adminImgOrVieo">
                         {checkImg() === true ?
-                            <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
+                            <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
                             : <ReactPlayer width='100%'
                                 height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                         }
 
-                    </div>
+                    </div></div>
                     <div className="row">
                         <div className="col-3 subscribeArea">
 

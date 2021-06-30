@@ -26,6 +26,9 @@ body {
     align-items: center;
     overflow: hidden;
     padding: 0;
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
     
 }
 .titleImgColor{
@@ -61,19 +64,26 @@ opacity: 1;
 z-index: 4!important;
 font: normal normal bold 11vh/8vw Roboto;
     line-height: 12vh;}
-.imgOrVieo{
+.imgOrVieo{    /* box-shadow: 0px 3px 50px #00000087; */
+    /* width:30vw; */
+
     padding: inherit;
     position: absolute;
-    box-shadow: 0px 3px 50px #00000087;
     opacity: 1;
     z-index: 2!important;
     width: var(--image-width)!important;
-    /* width:30vw; */
-    height: 51vh;
+    /* height: 51vh; */
     margin-left: 60vw!important;
     margin-top: -64vh!important;
     padding-left: 0px !important;
     padding-right: 0px !important;
+
+    /* position: absolute;*/
+    right: 7% !important;
+   /* width:var(--image-width) !important;
+    padding: 0;
+    margin-top:6% !important;
+    height:50vh; */
 }
 .subscribe{
     cursor: pointer;
@@ -91,7 +101,7 @@ font: normal normal bold 11vh/8vw Roboto;
     color: #4B1A98;
     text-transform: uppercase;
     opacity: 1;
-    font: normal normal 1.5vw/2.5vh Roboto;
+    font: normal normal 1.5vw/2.5vh;
 
 }
 
@@ -215,8 +225,11 @@ form .form-control:focus{
 #imageInTitle{
     /* height:50vh !important;
     width:var(--image-width)!important; */
-    float:right;
-}
+    vertical-align: middle;
+        /* float: right; */
+        /* margin-left: auto;
+        margin-right: auto !important; */
+    }
 
 /* @media(min-width:1500px)
 {
