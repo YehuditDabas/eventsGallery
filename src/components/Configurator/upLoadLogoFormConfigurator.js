@@ -8,11 +8,11 @@ import ReactPlayer from 'react-player'
 import Loader from './Loader'
 import upload from '../../assets/upload.png';
 
-function UploadImageFromConfigurator(props) {
+function UpLoadLogoFormConfigurator(props) {
 
-    const changeImage = (e) => {
-     debugger;  
-        props.setLoaderUploadShow(true,'image');
+    const changeLogoImage = (e) => {
+        debugger
+        props.setLoaderUploadShow(true,"logo");
         const TokenToString = document.cookie && document.cookie.includes('devJwt')
             ? document.cookie
                 .split(';')
@@ -23,6 +23,7 @@ function UploadImageFromConfigurator(props) {
         const userName = window.location.pathname.split('/')[1]
         const file = e.target.files[0];
         var myFile = new FormData();
+
         myFile.append("file", file);
 
         $.ajax({
@@ -35,8 +36,8 @@ function UploadImageFromConfigurator(props) {
             contentType: false,
             success: (data) => {
                 // alert("upload success");
-               
-                props.changeImage( data.data.url);
+                debugger     
+                props.changeLogo( data.data.url);
 
             },
             error: function (err) {
@@ -45,36 +46,21 @@ function UploadImageFromConfigurator(props) {
 
         });
     }
-    function checkImg() {  
-        if (props.imgSrc.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
    
-    let currentImage =   props.imgSrc.eventsPageImageOrVideo;
+    let currentImage =   props.imgSrc.eventsPageLogo;
    
     return (
         <div className="d-flex justify-content-center align-items-center divOnHover ml-1 mr-1 mb-3  divUploadImage divOnHover" >
 
-            <label htmlFor='file'>
-
-                <input type="file" name="file" accept="image/*"  id="file"
-                className="inputfile" onChange={changeImage} />
-
+            <label htmlFor={`filelogo`}>
+             
                 {props.loaderupload ? 
                 <div style={{ width: '4vw', height: '30%', position: 'relative', bottom: '0vh', left: '0.5vw'}}>
                     <Loader type={'loaderupload'} />
                 </div>
                 :
-                currentImage && checkImg()===true?
-                <img className="myImg" src={currentImage} style={{ width: "13vw", height: "16vh" }} ></img>
-                :
                 currentImage?
-               <video src={currentImage}></video>
-                // <ReactPlayer width="13vw"
-                // height="16vh" className="video_or_picture" url={currentImage}  />
+                <img className="myImg" src={currentImage} style={{ width: "13vw", height: "16vh" }} ></img>
                 :
                 <>
                 <img className="iconUploadEvent" alt="image" src={upload} />
@@ -82,18 +68,20 @@ function UploadImageFromConfigurator(props) {
                 </>}
                         
                 </label>
-             
+                <input type="file" name="file" accept="image/*"  id="filelogo"
+                className="inputfile" onChange={changeLogoImage} />
             
         </div >
     );
 }
-//
+
+// id={`${props.kind}file`}
 
 
 const mapStateToProps = (state, ownProps) => {
     return {
         imgSrc: state.editHeader.header,
-        loaderupload: state.editHeader.loaderuploadImage
+        loaderupload: state.editHeader.loaderuploadLogo
     }
 }
 
@@ -102,13 +90,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
 
         setLoaderUploadShow: (bool,imageOrLogo )=> dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
-
-        changeImage: ( url) => dispatch(actionsStore.setImage(url))
+        changeLogo: ( url) => dispatch(actionsStore.setLogo(url))
         
     }
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UploadImageFromConfigurator);
+export default connect(mapStateToProps, mapDispatchToProps)(UpLoadLogoFormConfigurator);
 
 //קומפוננטה שעושה העלאת קובץ דרך הוקנפיגורטור
