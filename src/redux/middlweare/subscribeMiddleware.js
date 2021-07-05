@@ -20,13 +20,12 @@ export const subscribe = ({ dispatch, getState }) => next => action => {
   return next(action)
 }
 export const createSystemWave = ({ dispatch, getState }) => next => action => {
-  debugger
   if (action.type === 'CREATE_SYSTEM_WAVE') {
     debugger
     let systemWave = {
       subject: 'new subscribe',
       body: `${action.payload.contact.name} is subscribe to get your new events`,
-      to: ['yehuditlaniado','gila'],
+      to: ['yehuditlaniado','gila',window.location.pathname.split('/')[1]],
       from: '@eventsGallery',
       source: 'EventsGallery',
       files: null

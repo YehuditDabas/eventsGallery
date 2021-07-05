@@ -161,6 +161,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
+         {pagesettings.user !== '' ?
+         <>
             <div className="container-fluid userEventsTitle" >
 
                 <div className="row" style={{height:"75vh"}}>
@@ -253,6 +255,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     <Button variant="secondary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
+        </>
+        :<div></div>}
         </>
     )
 

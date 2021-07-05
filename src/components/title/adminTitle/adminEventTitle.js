@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {actionsStore} from '../../../redux/actions'
+import { actionsStore } from '../../../redux/actions'
 import '../title/title.css'
 import './adminEventTitle.css'
 // import logo from '../assets/logo.jpg'
@@ -31,9 +31,6 @@ function mapStateToProps(state) {
     document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
 
-    // state.settings.settings.eventsButtonColor
-
-    // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
     return {
         pagesettings: state.pageSettings.page,
         headersettings: state.editHeader.header,
@@ -49,7 +46,7 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
-    const { pagesettings, headersettings, subscribesettings, changeTitleText,changeBodyText } = props;
+    const { pagesettings, headersettings, subscribesettings, changeTitleText, changeBodyText } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -153,115 +150,118 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     }
     return (
         <>
-           <div className="container-fluid adminEventTitle" >
+            {pagesettings.user !== '' ?
+                <>
+                    <div className="container-fluid adminEventTitle" >
 
-                <div className="row" style={{height:"75vh"}}>
-                    <img className="myImg titleImgColor"  src={img[pagesettings.eventsPageColor]}></img>
-                    <img className="mylogo" src={headersettings.eventsPageLogo}></img>
-                    <div className="col-3 adminTitleAndDescription">
-                        <textarea
-                            className="adminEventTitletitleH1"
-                            // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-                            onChange={(e) => changeTitleText(e.target.value)}
-                            value={headersettings.eventsPageTitle}
-                            // rows="2"
-                            // cols="16"
-                            maxLength="20"
-                            // style={{ textAlign: 'left' }}
-                            placeholder={headersettings.eventsPageTitle}
-                        >{headersettings.eventsPageTitle}
-                        </textarea>
+                        <div className="row" style={{ height: "75vh" }}>
+                            <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
+                            <img className="mylogo" src={headersettings.eventsPageLogo}></img>
+                            <div className="col-3 adminTitleAndDescription">
+                                <textarea
+                                    className="adminEventTitletitleH1"
+                                    // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                                    onChange={(e) => changeTitleText(e.target.value)}
+                                    value={headersettings.eventsPageTitle}
+                                    rows="3"
+                                    cols="14"
+                                    maxLength="40"
+                                    // style={{ textAlign: 'left' }}
+                                    placeholder={headersettings.eventsPageTitle}
+                                    onFocus={(e)=>e.target.select()}
+                                >{headersettings.eventsPageTitle}
+                                </textarea>
+                                <textarea
+                                    className="adminEventDescription"
+                                    // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                                    onChange={(e) => changeBodyText(e.target.value)}
+                                    value={headersettings.eventsPageDescription}
+                                    rows="5"
+                                    cols="35"
+                                    maxLength="140"
+                                    // style={{ textAlign: 'left' }}
+                                    placeholder={headersettings.eventsPageTitle}
+                                    onFocus={(e)=>e.target.select()}
+                                >{headersettings.eventsPageTitle}
+                                </textarea>
 
-                        <textarea
-                            className="adminEventDescription"
-                            // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-                            onChange={(e) => changeBodyText(e.target.value)}
-                            value={headersettings.eventsPageDescription}
-                            rows="5"
-                            cols="35"
-                            maxLength="140"
-                            // style={{ textAlign: 'left' }}
-                            placeholder={headersettings.eventsPageTitle}
-                        >{headersettings.eventsPageTitle}
-                        </textarea>
 
-
-                        {/* <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
+                                {/* <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
                         <p className="descriptionP"> {headersettings.eventsPageDescription}</p> */}
 
-                    </div>
-                    <div className="adminImgOrVieo">
-                        {checkImg() === true ?
-                            <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
-                            : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                        }
+                            </div>
+                            <div className="adminImgOrVieo">
+                                {checkImg() === true ?
+                                    <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
+                                    : <ReactPlayer width='100%'
+                                        height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                }
 
-                    </div>
-                    <div className="row">
-                        <div className="col-3 subscribeArea">
+                            </div>
+                            <div className="row">
+                                <div className="col-3 subscribeArea">
 
-                            {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                                <button type="button" className="adminSubscribe subscribe" onClick={() =>{debugger; setShowing(!showing)} }>subscribe</button>
+                                    {/* <input type="text" value="subscribe" className="subscribe"></input> */}
+                                    <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
 
-                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ? 
-                                <div>
-                                    <img className="arrow_" src={arrow}></img>
-                                    <div className="dropDown">
-                                        <form className="formSubscribe">
-                                            <br></br>
-                                             {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
-                                            {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                            {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
-                                            {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                            {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                            <span style={{ color: "red" }}>{errorsForm}</span>
-                                            <br></br><br></br>
-                                            <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
-
-
-                                        </form>
-
-                                    </div></div> :
-                                <div></div>
-                            } 
+                                    {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+                                    {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
+                                        <div>
+                                            <img className="arrow_" src={arrow}></img>
+                                            <div className="dropDown">
+                                                <form className="formSubscribe">
+                                                    <br></br>
+                                                    {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
+                                                    {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                                    {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                    {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                                    {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                                    <span style={{ color: "red" }}>{errorsForm}</span>
+                                                    <br></br><br></br>
+                                                    <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
 
 
+                                                </form>
+
+                                            </div></div> :
+                                        <div></div>
+                                    }
+
+
+
+                                </div>
+
+                            </div>
 
                         </div>
-
                     </div>
-
-                </div>
-
-            </div>
-            <div className="container-fluid adminEvnetsUnderFilter">
-                <div className="row">
-                    <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
-                </div>
-                <FooterEventsGallery />
-            </div>
-            <Modal
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                {/* <Modal.Header closeButton>
+                    <div className="container-fluid adminEvnetsUnderFilter">
+                        <div className="row">
+                            <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
+                        </div>
+                        <FooterEventsGallery />
+                    </div>
+                    <Modal
+                        show={show}
+                        onHide={handleClose}
+                        backdrop="static"
+                        keyboard={false}
+                    >
+                        {/* <Modal.Header closeButton>
                     <Modal.Title>Modal title</Modal.Title>
                 </Modal.Header> */}
-                <Modal.Body>
-                    your deatails send success
-                </Modal.Body>
-                <Modal.Footer>
-                    {/* <Button >
+                        <Modal.Body>
+                            your deatails send success
+                        </Modal.Body>
+                        <Modal.Footer>
+                            {/* <Button >
                         Close
                     </Button> */}
-                    <Button variant="secondary" onClick={handleClose} >Close</Button>
-                </Modal.Footer>
-            </Modal>
-
+                            <Button variant="secondary" onClick={handleClose} >Close</Button>
+                        </Modal.Footer>
+                    </Modal>
+                </>
+                : <div></div>}
         </>
     )
 
