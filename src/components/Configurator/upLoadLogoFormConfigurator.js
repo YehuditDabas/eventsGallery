@@ -13,8 +13,7 @@ import './UploadImg.css'
 function UpLoadLogoFormConfigurator(props) {
 
     const changeLogoImage = (e) => {
-
-        props.setLoaderUploadShow(true, "logo");
+        props.setLoaderUploadShow(true,"logo");
         const TokenToString = document.cookie && document.cookie.includes('devJwt')
             ? document.cookie
                 .split(';')
@@ -38,8 +37,8 @@ function UpLoadLogoFormConfigurator(props) {
             contentType: false,
             success: (data) => {
                 // alert("upload success");
-                debugger
-                props.changeLogo(data.data.url);
+                     
+                props.changeLogo( data.data.url);
 
             },
             error: function (err) {
@@ -98,7 +97,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
     return {
 
         setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),

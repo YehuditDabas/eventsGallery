@@ -111,7 +111,6 @@ function EditFooter(props) {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
   return {
 
     changeTwitterLink: (e) => dispatch(actionsStore.setTwitterLink(e)),

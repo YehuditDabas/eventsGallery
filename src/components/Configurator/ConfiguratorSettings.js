@@ -14,7 +14,6 @@ function ConfiguratorSettings(props) {
  const dispatch= useDispatch()
   const hundalCreate = () => {
     // e.preventDefault();
-
     const settings = {
 
       eventsPageAlignment: props.EditHeader.header.eventsPageAlignment,

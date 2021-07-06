@@ -1,3 +1,6 @@
+:root{
+    --title-height:14vh;
+}
 body {
     background-color: rgb(232, 234, 236);
 }
@@ -16,6 +19,61 @@ body {
     z-index: 3;
     
 }
+.UIiconDiv {
+    width: var(--image-width)!important;
+    height: 37vh;
+    /* background-color: rgba(196, 183, 183, 0.6); */
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    padding: 1vw;
+    opacity: 0;
+    margin-left: 72vw;
+    margin-top: 9vh;
+    z-index: 22;
+
+}
+.UIiconDiv:hover{
+opacity:0.6;
+cursor: pointer;
+}
+.adminLogoIconDiv{
+    width: 7vw;
+    height: 5vh;
+    background-color: rgba(196, 183, 183, 0.6);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    padding: 1vw;
+    opacity: 0;
+    /* margin-left: 72vw; */
+    /* margin-top: 9vh; */
+    z-index: 22;
+    padding: 0 !important;
+}
+.adminLogoIconDiv:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+.uploadImg{
+    /* position: absolute; */
+    height: 9vh;
+    width: 9vw !important;
+    vertical-align: middle;
+    margin-top: 23vh;
+    margin-left: 2vw;
+    /* z-index: 22; */
+    width: var(--image-width);
+}
+.adminLogoLabel{
+    height: 4vh;
+    width: 9vw;
+    position:absolute;
+    top: 5.5%;
+    left: 21%;
+}
 .adminEvnetsUnderFilter{
     width:81vw;
     float:right;
@@ -27,7 +85,52 @@ body {
     padding: 0%;
 
 }
+.adminInputfile{
+    width:  40vw;
+    height: 35vh;
+    opacity: 0;
+     overflow: hidden; 
+    position: absolute;
+    z-index: 12;
+    margin-top: 3vh;
+}
+.adminImgLabel{
+    width: 41.6666666667%;
+}
+/* .adminImgOrVieo:hover{
+    background-image: url("C:\Users\User\Desktop\eventsGsllery\eventsGallery\src\assets\upload.png");
+opacity:0.3;
+} */
+/* .adminUpload{
+    position:absolute;
+} */
+.adminMylogo{
+    height: 5vh;
+    width: 4.5vw;
+    /* margin-top: 2vh; */
+    /* margin-left: 3vw; */
+}
+.adminMylogo:hover{
+opacity: 0.6;
+background-color: rgba(196, 183, 183, 0.6);
+
+}
+.uploadLogo{
+    margin-top: 1vh;
+    margin-left: 2vw;}
+.adminInputfileLogo{
+    width: 10vw;
+    height: 3vh;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 12;
+    top: 5.5%;
+    left: 21%;
+    padding:0 !important;
+}
 .adminEventTitletitleH1{
+    /* width:40vw; */
     word-wrap: break-word;
     border: none;
     word-wrap: break-word;
@@ -42,27 +145,35 @@ body {
     background: transparent;
     margin-left: 4vw;
     margin-top: 3vh;
-    height: 14vh;
-    padding-top: 3vh;
+    height:var(--title-height);
+    /* padding-top: 3vh; */
     /* padding-bottom:1vh; */
     word-wrap: break-word;
+    line-height: 9vh !important;
 
 }
-.adminEventTitletitleH1:focus{
-    border: 2px dashed #707070;
+.adminEventTitletitleH1:hover{
+    border: 1px dashed white !important;
 
+}
+.wrapAdminImgOrVieo{
+    margin-top: -70vh!important;
+    z-index: 3;
+    margin-left: 24vw;
 }
 .adminImgOrVieo{
-    padding: inherit;
+    /* padding: inherit; */
     position: absolute;
     box-shadow: 0px 3px 50px #00000087;
     opacity: 1;
     z-index: 2!important;
     width: var(--image-width)!important;
-    height: 45vh;
-    margin-left: 49vw!important;
-    margin-top: 11vh!important;
+    /* height: 45vh; */
+    /* margin-left: 44vw!important; */
+    margin-top: 3vh!important;
     margin-bottom: 2vh;
+/* right: 5%; */
+    
 }
 .adminEventDescription{
     border: none;
@@ -80,8 +191,8 @@ body {
     /* margin-top: 1vh; */
 
 }
-.adminEventDescription:focus{
-    border: 2px dashed yellow !important;
+.adminEventDescription:hover{
+    border: 1px dashed white !important;
 }
 .adminSubscribe{
     z-index: 10;
