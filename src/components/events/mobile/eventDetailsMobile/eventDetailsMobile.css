@@ -1,14 +1,14 @@
 :root{
     --main-color:#9653FF;
     --button-color:#4B2A80;
-    --second-color:#4B2A80
+    --second-color:#7c7407;
 }
 .mobileDetailsEvent{
   background-color: white;
 }
 .mobileEventDetailsHeader{
   height: 54px;
-  background: transparent linear-gradient(276deg, var(--main-color) 0%, #4B2A80 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(276deg, var(--main-color) 0%, var(--second-color) 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
 }
 .mobileEventDetaileName{
