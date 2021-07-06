@@ -1,13 +1,9 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
+import EventPageSetings from '../../../models/eventsPageSettngs'
 
 const initialState = {
-    page: {
-        eventsPageColor: "",
-        eventsButtonColor: "",
-        amountEventsInRow: "",
-        ShowHistoricalEvents: true
-    }
+    page: EventPageSetings
     // Watch previous events:"",
 };
 

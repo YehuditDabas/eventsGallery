@@ -1,0 +1,370 @@
+label {
+    margin-top: 0 !important;
+}
+
+.textField {
+    margin-top: 7px!important;
+    /* margin-right: 3px!important; */
+}
+.ChannelColorIcn{
+     color: #959595;
+     cursor: pointer;
+     font-size: 20px;
+}
+.ShowConfiguratorWith{
+    width: 99% !important;
+}
+
+.cardOne{
+    margin-top: 1vh;
+}
+
+/* .MuiSwitch-root {
+    width: 4.4vw !important;
+    height: 3.6vh !important;
+} */
+
+
+
+
+.configuratorTextarea {
+    border: none;
+    resize: none !important;
+    background: #505066 0% 0% no-repeat padding-box;
+    height: 8vh;
+    text-align: left;
+    width: 13vw;
+    margin-left:1.5vw;
+}
+
+
+/* PICKER */
+/* element.style {
+    width: 200px;
+    background: #0000(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+     box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px; 
+    border-radius: 4px;
+    position: relative;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+
+.inputfile {
+    width:  0.1px;
+    height: 0.1px;
+    opacity: 0;
+     overflow: hidden; 
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile+label {
+    cursor: pointer;
+}
+
+
+
+.github-picker{
+    width: 13vw;
+    background: #0000 !important;
+    border: #0000 !important;
+    box-shadow: #0000 0px 0px 0px !important;
+    border-radius: 4px;
+    position: unset !important;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1vw;
+} 
+.github-picker>span{
+    margin: 3px;
+}
+/* PICKER */
+.GithubPicker{
+    border: 3px solid #fff;
+    padding: 3px;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked+.MuiSwitch-track {
+    background-color: white !important;
+}
+
+.MuiSwitch-thumb {
+    background-color: #4b0083 !important;
+    /* width: 0.8vw !important;
+    height: 1.8vh !important; */
+    /* margin-top: 0.8vh;
+    margin-left: 0.3vw; */
+}
+/* .MuiSwitch-thumb{
+  width: 0.9vw !important;
+height: 1.5vh !important;
+margin-top: 0.4vh;
+margin-left: 0.3vw;  
+} */
+
+
+.MuiTypography-body1 {
+    font-size: 1vw !important;
+}
+
+
+.MuiFormLabel-root {
+    /* font-size: small !important; */
+    /* padding-left: 20px; */
+    color: white !important;
+    font-size: 0.9rem;
+}
+
+.MuiFormGroup-root {
+    direction: rtl;
+    display: grid !important;
+    /* padding-left: 5px; */
+}
+
+.MuiTypography-root {
+    margin-right: 4vw;
+}
+
+.accordion>.card>.card-header {
+
+    background-color: #0A102E;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 1.1vw;
+    /* font: normal normal 1.1vw/5vh Roboto;
+    font-family: -webkit-pictograph; */
+}
+ .accordion>.card>.card-header:hover{
+   
+    background: transparent linear-gradient( 
+        115deg , #FFFFFF -200%, #006C8000 100%) 0% 18% no-repeat padding-box;
+    color: white !important;
+ }
+
+.accordion>.card>.card-header:hover.cardName{
+    opacity: 0; 
+}
+
+
+.MuiFormControl-root {
+    margin: 1rem !important;
+}
+
+
+.github-picker>span{
+    margin:3px;
+    /* width: 10%;
+   height: 10%; */
+}
+        .github-picker>span>div{
+    width: 16px !important;
+    height: 16px !important;
+}
+.SelectChanel{
+    height: 4vh;
+    /* margin-left: 9vw; */
+    margin-left: 1.5vw;
+    width: 3vw;
+    /* background-color: #F0F0F0;  */
+    background: #505066 0% 0% no-repeat padding-box;
+    color:white;
+}
+
+.card {
+    width: 100% !important;
+}
+.ChannelColorwidth{
+    width: 13vw !important;  
+}
+.MuiFormControlLabel-root {
+    /* margin-left: 0px !important; */
+    margin-right: 0px !important;
+}
+.FormControlW{
+    width: 100%;
+    margin-left: 1vw;
+    color:white;
+}
+.marginTop{
+    margin-top: -12px;
+}
+.MuiFormControl-root{
+    margin-left: 0px !important;
+}
+Form.Label{
+    font:normal;
+}
+.iconSize{
+     width:3vw !important;
+     height: 3vh;
+}
+.inputLinkIcon{
+    background: #505066 0% 0% no-repeat padding-box;
+/* border-radius: 2px; */
+opacity: 0.30;
+display: inline-block;
+background: #505066 0% 0% no-repeat padding-box;
+height: 2vw;
+    width: 14vw;
+    margin: auto;
+   color: white;
+   margin-bottom: 2vh;
+   margin-top: -1vh;
+   direction: ltr;
+   border: none;
+}
+::placeholder{
+    color: white;
+    font-weight: lighter;
+}
+.iconFooter{
+    display:flex;
+    /* margin-left: 1vh; */
+    
+}
+.icon{
+    margin-top: 0vh;
+    /* margin-left: 1vw; */
+    float: right;
+    font-size: 1vw;
+}
+/* .iconName{
+    margin-right: 0vw;
+} */
+#firstIcon{
+    /* margin-left: 1.5vw; */
+    margin-right: 4.3vw;
+}
+
+#secondIcon{
+    margin-right: 4.5vw;
+}
+#thirdIcon{
+margin-right: 3vw;
+}
+#fourthIcon{
+margin-right: 4vw;
+}
+.MuiTypography-body1 {
+    margin-top: -2vh;
+    /* position: absolute;
+    margin-right: 9vw;
+    font-size: 0.8rem !important; */
+}
+#firstLabel{
+    z-index: 11;
+    position: absolute;
+    margin-right: 8vw;
+}
+.colorSelected{
+    border: 2px solid #FFFFFF;
+    opacity: 1;
+}
+.iii{
+    margin: auto;
+    width: 90%;
+}
+
+.one{
+    /* display: inline; */
+    margin-left: 2vw;
+}
+
+
+.showinpageRow{
+    font: normal normal 1.1vw/0vh Roboto;
+    margin-top: 2vh !important;
+    font-family: -webkit-pictograph;
+    /* margin-left: 0vw;
+    margin-bottom: 1vh; */
+}
+
+.labelToggle{
+    margin-left: 1.5vw !important;
+    font-size: 0.9rem !important;
+}
+.editSubscribtionFileds{
+    margin-left: 1.5vw !important;
+    font-size: 1vw !important;
+}
+.MuiFormControlLabel-root{
+    width: 14.5vw;
+    height: 6vh;
+}
+#firstIcon{
+    /* margin-left: 1.5vw; */
+    margin-right: 4.3vw;
+}
+
+.MuiSwitch-thumb {
+    background-color: #4b0083 !important;  
+}
+.MuiFormControlLabel-label.Mui-disabled{
+    color:white !important;
+}
+
+@media(min-width:3480px){
+    .MuiSwitch-root{        
+    width: 2.5vw !important;
+    height: 2.1vh !important;
+    }
+    
+.MuiSwitch-thumb { 
+    width: 0.6vw !important;
+    height: 0.7 !important;
+    margin-top: 5px;
+    /* margin-left: 1.6vw; */
+}
+.MuiTypography-root {
+    margin-right: 5.4vw !important;
+}
+}
+
+.MuiSwitch-root{
+    width: 39%;
+    height: 110%;
+}
+
+
+@media(min-width:1920px)and(max-width:1920px){
+    #firstIcon{
+        /* margin-left: 1.5vw; */
+        margin-right: 4.3vw;
+    }
+    .MuiTypography-root {
+        margin-right: 4vw !important;
+    }
+    .MuiSwitch-root{
+        width: 3.2vw !important;
+        height: 3.8vh !important;
+        margin-top: 0.5vh !important;
+    }
+    
+   .MuiSwitch-thumb { 
+    margin-top: 0.1vh !important;
+    }
+}
+@media(min-width:1440px)and (max-width:1440px){
+    .MuiTypography-root {
+        margin-right: 2.7vw !important;
+    }    
+}
+
+@media(min-width:1280px)and(max-width:1280px){
+    /* .MuiSwitch-root {
+        width: 3.2vw !important;
+        height: 3.8vh !important;
+        margin-top: 0.5vh !important;
+    }
+        
+.MuiSwitch-thumb { 
+    margin-top: 0.1vh !important;
+} */
+.MuiTypography-root {
+    margin-right: 2vw !important;
+} 
+}

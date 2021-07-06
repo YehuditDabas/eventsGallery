@@ -1,14 +1,11 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
+import EventPageSetings from '../../../models/eventsPageSettngs'
+
 
 const initialState = {
-    subscribe: {
-        name: "",
-        email: "",
-        phone: "",
-        address: "",
-    }
-
+    subscribe:EventPageSetings
+ 
 };
 
 const editSubscriptionConfigurator = {
@@ -20,12 +17,12 @@ const editSubscriptionConfigurator = {
         state.subscribe.adress = action.payload.address;
     },
     settingFields(state, action) {
-        debugger
+       
         state.subscribe[action.payload.filedName]=action.payload.value;
     },
 
     addAllSettings(state, action) {
-        debugger
+      
         state.subscribe.name = action.payload.settings.name;
         state.subscribe.phone = action.payload.settings.phone;
         state.subscribe.email = action.payload.settings.email;
