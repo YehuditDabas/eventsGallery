@@ -7,12 +7,14 @@ import $ from 'jquery'
 import ReactPlayer from 'react-player'
 import Loader from './Loader'
 import upload from '../../assets/upload.png';
+import './UploadImg.css'
+
 
 function UpLoadLogoFormConfigurator(props) {
 
     const changeLogoImage = (e) => {
-        debugger
-        props.setLoaderUploadShow(true,"logo");
+
+        props.setLoaderUploadShow(true, "logo");
         const TokenToString = document.cookie && document.cookie.includes('devJwt')
             ? document.cookie
                 .split(';')
@@ -36,8 +38,8 @@ function UpLoadLogoFormConfigurator(props) {
             contentType: false,
             success: (data) => {
                 // alert("upload success");
-                debugger     
-                props.changeLogo( data.data.url);
+                debugger
+                props.changeLogo(data.data.url);
 
             },
             error: function (err) {
@@ -46,37 +48,47 @@ function UpLoadLogoFormConfigurator(props) {
 
         });
     }
-   
-    let currentImage =   props.imgSrc.eventsPageLogo;
-   
+
+    let currentImage = props.imgSrc.eventsPageLogo;
+
     return (
-        <div className="d-flex justify-content-center align-items-center divOnHover ml-1 mr-1 mb-3  divUploadImage divOnHover" >
+        <div className="d-flex justify-content-center align-items-center  ml-1 mr-1 mb-3  divUploadLogo divOnHover" >
 
             <label htmlFor={`filelogo`}>
-             
-                {props.loaderupload ? 
-                <div style={{ width: '4vw', height: '30%', position: 'relative', bottom: '0vh', left: '0.5vw'}}>
-                    <Loader type={'loaderupload'} />
+
+                {props.loaderupload ?
+                    <div style={{ width: '4vw', height: '30%', position: 'relative', bottom: '0vh', left: '0.5vw' }}>
+                        <Loader type={'loaderupload'} />
+                    </div>
+                    :
+                    currentImage ?
+                        <img className="myImg" src={currentImage} className="uploadLogoImage"></img>
+                        :
+                        <>
+                            <div className="ULiconDiv">
+                                <FontAwesomeIcon
+                                    id='angle-right'
+                                    className='iconCloudUpload'
+                                    icon={['fas', 'cloud-upload-alt']}
+                                ></FontAwesomeIcon>
+                            </div>
+                        </>}
+
+                <div className="ULiconDiv">
+                    <FontAwesomeIcon
+                        id='angle-right'
+                        className='iconCloudUpload'
+                        icon={['fas', 'cloud-upload-alt']}
+                    ></FontAwesomeIcon>
                 </div>
-                :
-                currentImage?
-                <img className="myImg" src={currentImage} style={{ width: "13vw", height: "16vh" }} ></img>
-                :
-                <>
-                <img className="iconUploadEvent" alt="image" src={upload} />
-                <p>Upload</p>
-                </>}
-                        
-                </label>
-                <input type="file" name="file" accept="image/*"  id="filelogo"
+
+            </label>
+            <input type="file" name="file" accept="image/*" id="filelogo"
                 className="inputfile" onChange={changeLogoImage} />
-            
+
         </div >
     );
 }
-
-// id={`${props.kind}file`}
-
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -86,12 +98,12 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    debugger;
+
     return {
 
-        setLoaderUploadShow: (bool,imageOrLogo )=> dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
-        changeLogo: ( url) => dispatch(actionsStore.setLogo(url))
-        
+        setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
+        changeLogo: (url) => dispatch(actionsStore.setLogo(url))
+
     }
 
 }

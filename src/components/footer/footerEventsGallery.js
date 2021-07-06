@@ -3,20 +3,33 @@ import { connect } from 'react-redux'
 import './footerEventsGallery.css';
 import { Icon, InlineIcon } from '@iconify/react';
 import logoTwitter from '@iconify-icons/ion/logo-twitter';
+import {actionsStore} from '../../redux/actions'
+
+
+const mapDispatchToProps = (dispatch) => ({
+    changeCurrentComponent:(e)=>  {dispatch(actionsStore.setCurrentComponent(e))}
+})
 
 function mapStateToProps(state) {
-
     document.documentElement.style.setProperty('--main-color',state.pageSettings.page.eventsPageColor);
-
     return {
         footer: state.editFooter.footer
     }
 }
 
-export default connect(mapStateToProps)(function FooterEventsGallery(props) {
-    const { footer } = props
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(function FooterEventsGallery(props) {
+
+    const { footer ,changeCurrentComponent} = props
+
+    function changeComponent(){
+    changeCurrentComponent('Edit Footer')
+    }
+    
     return (
-        <footer className="footerEvents">
+
+    <footer className="footerEvents" onClick={changeComponent} >
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-3">
@@ -51,5 +64,7 @@ export default connect(mapStateToProps)(function FooterEventsGallery(props) {
                 </div>
             </div>
         </footer>
-    )
+    
+)
+
 })

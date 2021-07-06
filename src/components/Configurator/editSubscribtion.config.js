@@ -10,41 +10,54 @@ import './ConfigComp.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function EditSubscribtion(props) {
-  debugger
+ 
   const fieldSubscription = useSelector(state => state.editSubscription)
   const dispatch = useDispatch()
   const handleChange = (event) => {
-  debugger
+
     dispatch(actionsStore.settingFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };
-  
+  function changeComponent(){
+    // changeCurrentComponent('Edit Subscription')
+    dispatch(actionsStore.changeCurrentComponent('Edit Subscription'))
+}
 
   return (
-    <FormControl component="fieldset" className="FormControlW">
+    <div className="container-fluid">
+      
+    <FormControl component="fieldset" className="FormControlW" >
+      <div className='row'>
       <FormLabel component="legend"  className="editSubscribtionFileds">Subscription Fields</FormLabel>
-      <div >
+      </div>
+      <div onClick={changeComponent}>
+        
         <FormGroup className="d-flex justify-content-between">
+          <div className='row'>
           <FormControlLabel className="d-flex justify-content-between  editSubscribtionFileds " 
-            control={<Switch checked={fieldSubscription.subscribe.name} onChange={handleChange} name="name"  />}
+            control= {<Switch checked={fieldSubscription.subscribe.name} onChange={handleChange} name="name"  />}
             label="Name"
-          />
-          {/* checked={true} disabled={true} */}
+
+          /></div>
+         <div className='row'>
           <FormControlLabel className="d-flex justify-content-between editSubscribtionFileds" 
             control={<Switch  onChange={handleChange} name="email" checked={true} disabled={true} />}
-            label="Email"
-          />
+            label="Email" 
+          /></div>
+            <div className='row'>
           <FormControlLabel className="switch d-flex justify-content-between editSubscribtionFileds"
             control={<Switch checked={fieldSubscription.subscribe.phone} onChange={handleChange} name="phone" />}
             label="Phone"
-          />
+          /></div>
+            <div className='row'>
           <FormControlLabel
             className="switch d-flex justify-content-between editSubscribtionFileds"
             control={<Switch checked={fieldSubscription.subscribe.address} onChange={handleChange} name="address" />}
             label="Address"
-          />
+          /></div>
         </FormGroup>
       </div>
     </FormControl>
+    </div>
   );
 }

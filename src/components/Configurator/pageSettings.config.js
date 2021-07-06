@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { actionsStore } from '../../redux/actions';
@@ -18,14 +18,19 @@ function pageSettings(props) {
 
     let color = ['#AD60FF', '#FF53F7', '#FF62B2', '#FA5252', '#FF803F', '#FAEE3A',
         '#424149', '#9F9CB5', '#4F40D0', '#54B9FF', '#51E7FB', '#63F597']
+
+        // useEffect(()=>{
+
+        // },[])
+
     return (
         <div >
-            <div className="ml-1">
+            <div className="ml-1 mt-3">
                 <span className="titleSettings"> Main Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker id="color" colors={color} onChange={(e) => props.changeMainColor(e.hex)} className="colorSelected" /></div>
-            <div className="ml-1">
+                <GithubPicker colors={color} onChange={(e) => props.changeMainColor(e.hex)} className="colorSelected" /></div>
+            <div className="ml-1 mt-3">
                 <span className="titleSettings"> Button Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
@@ -33,8 +38,8 @@ function pageSettings(props) {
 
             {/* <br /> */}
 
-            <div className="row m-2">
-                <div className="col-7 showinpageRow">Show In Row</div>
+            <div className="row m-2 mt-3">
+                <div className="col-7   showinpageRow">Show In Row</div>
                 <div className="col-5 " ><select
                     className="textField SelectChanel"
                     name="showInPage"

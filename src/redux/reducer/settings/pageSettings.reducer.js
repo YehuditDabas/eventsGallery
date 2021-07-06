@@ -4,6 +4,7 @@ import EventPageSetings from '../../../models/eventsPageSettngs'
 
 const initialState = {
     page: EventPageSetings
+    // Watch previous events:"",
 };
 
 const configImage = {

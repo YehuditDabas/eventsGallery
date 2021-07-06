@@ -26,14 +26,14 @@ const editHeader = {
     },
 
     setImage(state, action) {
-        debugger
+       
 
         state.header.eventsPageImageOrVideo = action.payload;
         state.loaderuploadImage = false;
         console.log(state.header.eventsPageImageOrVideo)
     },
     setLogo(state, action) {
-        debugger
+       
         state.header.eventsPageLogo = action.payload;
         state.loaderuploadLogo = false;
         console.log(state.header.eventsPageLogo)
@@ -41,7 +41,7 @@ const editHeader = {
 
 
     setTitleText(state, action) {
-        debugger;
+       
         state.header.eventsPageTitle = action.payload;
         console.log(state.header.eventsPageTitle)
     },
@@ -58,7 +58,7 @@ const editHeader = {
     },
 
     addAllSettings(state, action) {
-        debugger
+        
         state.header.eventsPageTitle = action.payload.settings.eventsPageTitle;
         state.header.eventsPageDescription = action.payload.settings.eventsPageDescription;
         state.header.eventsPageImageOrVideo = action.payload.settings.eventsPageImageOrVideo;
