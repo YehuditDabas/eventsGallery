@@ -17,7 +17,7 @@ export default function MiniEventMobile(props) {
                     <img src={img} className="imgMiniEventMobile" />
                 </div>
                 <div className="miniEventDescriptionMobile">
-                    <div className="container">
+                    <div className="container-fluid miniEventMobileCon">
                         <div className="row">
                             <br></br>
                             <div >

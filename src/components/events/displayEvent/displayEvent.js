@@ -55,7 +55,7 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
         '#ad60ff': {img:purple,secondColor:'#4B2A80'},
         '#fa5252': {img:red,secondColor:'#a70e0e'},
         '#51e7fb': {img:lightblue,secondColor:'#185158'},
-        '#faee3a': {img:yellow,secondColor:'#7c7407'},
+        '#faee3a': {img:yellow,secondColor:'#dacb07'},
     }
   
     document.documentElement.style.setProperty('--second-color', images[eventsPageColor].secondColor);

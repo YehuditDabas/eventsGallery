@@ -1,7 +1,7 @@
 :root{
     --main-color:#9653FF;
     --button-color:#4B2A80;
-    --second-color:#7c7407;
+    --second-color:#dacb07;
 }
 .mobileDetailsEvent{
   background-color: white;
@@ -80,7 +80,7 @@ background: var(--button-color) 0% 0% no-repeat padding-box;
 border-radius: 30px;
 font-size: 3vh;
 letter-spacing: 2px;
-color: #6135A6;
+color: var(--main-color);
 text-transform: uppercase;
 opacity: 1;
   border: none !important;
