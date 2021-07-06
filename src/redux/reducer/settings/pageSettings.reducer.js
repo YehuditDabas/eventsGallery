@@ -1,13 +1,9 @@
 import createReducer from '../reducerUtils';
 import produce from 'immer';
+import EventPageSetings from '../../../models/eventsPageSettngs'
 
 const initialState = {
-    page: {
-        eventsPageColor: "",
-        eventsButtonColor: "",
-        amountEventsInRow: "",
-        ShowHistoricalEvents: true
-    }
+    page: EventPageSetings
     // Watch previous events:"",
     
 };
@@ -37,7 +33,7 @@ const configImage = {
     //     state.showCounterViews = action.payload;
     // },
     addAllSettings(state, action) {
-        debugger
+      
         state.page.amountEventsInRow = action.payload.settings.amountEventsInRow
         state.page.eventsPageColor = action.payload.settings.eventsPageColor
         state.page.eventsButtonColor = action.payload.settings.eventsButtonColor;
