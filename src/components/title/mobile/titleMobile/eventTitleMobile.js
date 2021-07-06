@@ -23,6 +23,8 @@ import AllEventsInMobile from '../../../events/mobile/allEventsInMobile/allEvent
 import FooterEventsGallery from '../../../footer/footerEventsGallery';
 import HeaderImg from '../../../../assets/purple1Mobile.png'
 import ConfiguratorSettings from '../../../Configurator/ConfiguratorSettings'
+import { useMediaQuery } from 'react-responsive';
+
 
 
 function mapStateToProps(state) {
@@ -60,6 +62,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function EventTitleM
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const isMobile = useMediaQuery({ query: `(max-width: 380px)` });
+        console.log("isMobile  ", isMobile);
     // const img =
     // {
     //     '#ad60ff': purple1,
@@ -136,7 +140,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function EventTitleM
 
 
     useEffect(() => {
-
+        console.log("^^^^^^^^^^^^^^")
+        
     }, [headersettings])
     return (
         <>
