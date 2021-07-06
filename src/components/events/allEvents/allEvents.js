@@ -12,9 +12,9 @@ function mapStateToProps(state) {
     return {
         
         events: state.allEvents.events.filter(item=>item.start.slice(0,4)==year),
-        mainColor: state.pageSettings.page.eventsPageColor,
-        amountEventsInRow: state.pageSettings.page.amountEventsInRow,
-        WatchPreviousEvents:state.pageSettings.page.WatchPreviousEvents
+        mainColor: state.PageSettings.page.eventsPageColor,
+        amountEventsInRow: state.PageSettings.page.amountEventsInRow,
+        WatchPreviousEvents:state.PageSettings.page.WatchPreviousEvents
     }
 }
 const mapDispatchToProps = (dispatch) => ({

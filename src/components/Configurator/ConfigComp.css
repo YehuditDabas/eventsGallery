@@ -404,3 +404,6 @@ font-size: smaller;
     bottom: 17%;
     left: 34%;
 }
+.sketch-picker {
+    box-shadow: none !important;
+}

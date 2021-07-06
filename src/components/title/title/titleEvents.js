@@ -26,10 +26,10 @@ import FooterEventsGallery from '../../footer/footerEventsGallery';
 function mapStateToProps(state) {
 
     // red #86F3FF
-    document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
+    document.documentElement.style.setProperty('--Button-color', state.PageSettings.page.eventsButtonColor);
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
     return {
-        pagesettings: state.pageSettings.page,
+        PageSettings: state.PageSettings.page,
         headersettings: state.editHeader.header,
         subscribesettings: state.editSubscription.subscribe,
         message: state.allEvents.message,
@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(props) {
-    const { pagesettings, headersettings, subscribesettings,message, subscribe, systemWave,setMessage } = props;
+    const { PageSettings, headersettings, subscribesettings,message, subscribe, systemWave,setMessage } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -142,7 +142,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         // var myImg = document.querySelector("#ti")
         var myImg = new Image();
         var size;
-        myImg.src = img[pagesettings.eventsPageColor];
+        myImg.src = img[PageSettings.eventsPageColor];
         myImg.onload = function () {
             size = myImg.width / myImg.height * 11;
             size += "vw";
@@ -164,7 +164,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             <div className="container-fluid userEventsTitle" >
 
                 <div className="row" style={{height:"75vh"}}>
-                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
+                    <img className="myImg titleImgColor" src={img[PageSettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
 
                     <div className="row ">

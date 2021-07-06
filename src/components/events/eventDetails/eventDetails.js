@@ -29,8 +29,8 @@ function mapStateToProps(state) {
     return {
 
         events: state.allEvents.events,
-        mainColor: state.pageSettings.page.eventsPageColor,
-        eventsButtonColor: state.pageSettings.page.eventsButtonColor,
+        mainColor: state.PageSettings.page.eventsPageColor,
+        eventsButtonColor: state.PageSettings.page.eventsButtonColor,
         subscribesettings: state.editSubscription.subscribe,
         message: state.allEvents.message,
     }
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function EventDetails(props) {
     const { events, mainColor, eventsButtonColor } = props;
-    const { pagesettings, headersettings, subscribesettings,message, subscribe, systemWave,setMessage } = props;
+    const { PageSettings, headersettings, subscribesettings,message, subscribe, systemWave,setMessage } = props;
 
     document.documentElement.style.setProperty('--main-color', mainColor);
     document.documentElement.style.setProperty('--button-color', eventsButtonColor);

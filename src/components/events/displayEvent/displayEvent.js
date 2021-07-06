@@ -24,7 +24,7 @@ function mapStateToProps(state) {
     
     return {
         events: state.allEvents.events,   
-        eventsPageColor: state.pageSettings.page.eventsPageColor,
+        eventsPageColor: state.PageSettings.page.eventsPageColor,
         userName: state.allEvents.userName,
         devJwt: state.allEvents.devJwt
     }

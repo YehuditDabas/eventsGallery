@@ -12,6 +12,7 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(...appMi
 window.store = store;
 store.dispatch({ type: 'GET_DATA' });
 store.dispatch({ type: 'GET_SETTINGS' });
+store.dispatch({ type: 'GET_DATA_G' });
 export default store;
 
 

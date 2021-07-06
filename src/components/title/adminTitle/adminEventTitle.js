@@ -28,14 +28,14 @@ import FooterEventsGallery from '../../footer/footerEventsGallery';
 function mapStateToProps(state) {
 
     // red #86F3FF
-    document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
+    document.documentElement.style.setProperty('--Button-color', state.PageSettings.page.eventsButtonColor);
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
 
     // state.settings.settings.eventsButtonColor
 
     // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
     return {
-        pagesettings: state.pageSettings.page,
+        PageSettings: state.PageSettings.page,
         headersettings: state.editHeader.header,
         subscribesettings: state.editSubscription.subscribe,
         // (לחלק לכמה רדיוסרים)
@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
-    const { pagesettings, headersettings, subscribesettings, changeTitleText,changeBodyText } = props;
+    const { PageSettings, headersettings, subscribesettings, changeTitleText,changeBodyText } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -69,6 +69,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         '#4f40d0': purple2,
         '#ff53f7': pink,
         '#ff62b2': pink2,
+
+        
         '#fa5252': red,
         '#ff803f': orange,
         '#faee3a': yellow,
@@ -156,7 +158,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
            <div className="container-fluid adminEventTitle" >
 
                 <div className="row" style={{height:"75vh"}}>
-                    <img className="myImg titleImgColor"  src={img[pagesettings.eventsPageColor]}></img>
+                    <img className="myImg titleImgColor"  src={img[PageSettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
                     <div className="col-3 adminTitleAndDescription">
                         <textarea
@@ -201,10 +203,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <div className="row">
                         <div className="col-3 subscribeArea">
 
-                            {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                                <button type="button" className="adminSubscribe subscribe" onClick={() =>{debugger; setShowing(!showing)} }>subscribe</button>
+                                {/* <button type="button" className="adminSubscribe subscribe" onClick={() =>{debugger; setShowing(!showing)} }>subscribe</button> */}
+                                <button type="button" className="adminSubscribe subscribe">subscribe</button>
 
-                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+
                             {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ? 
                                 <div>
                                     <img className="arrow_" src={arrow}></img>

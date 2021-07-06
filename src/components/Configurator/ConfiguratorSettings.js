@@ -1,4 +1,4 @@
-import pageSettings from './pageSettings.config'
+import PageSettings from './pageSettings.config'
 import EditHeader from './EditHeader.config'
 import CardComponentConfig from './cardcomponentConfig'
 import { Card, Accordion } from 'react-bootstrap'
@@ -23,10 +23,10 @@ function ConfiguratorSettings(props) {
       eventsPageDescription: props.EditHeader.header.eventsPageDescription,
       displayHeader: props.EditHeader.header.displayHeader,
 
-      eventsPageColor: props.pageSettings.page.eventsPageColor,
-      amountEventsInRow: props.pageSettings.page.amountEventsInRow,
-      eventsButtonColor: props.pageSettings.page.eventsButtonColor,
-      ShowHistoricalEvents: props.pageSettings.page.ShowHistoricalEvents,
+      eventsPageColor: props.PageSettings.page.eventsPageColor,
+      amountEventsInRow: props.PageSettings.page.amountEventsInRow,
+      eventsButtonColor: props.PageSettings.page.eventsButtonColor,
+      ShowHistoricalEvents: props.PageSettings.page.ShowHistoricalEvents,
 
       name: props.editSubscription.subscribe.name,
       email: props.editSubscription.subscribe.email,
@@ -62,7 +62,7 @@ function ConfiguratorSettings(props) {
             <CardComponentConfig
              className="cardName"  
               eventKey={'Page Settings'}
-              component={pageSettings} קומפוננטה אחת
+              component={PageSettings} קומפוננטה אחת
             />
             <CardComponentConfig
              className="cardName"  
@@ -102,7 +102,7 @@ const mapStateToProps = (state) => {
     EditHeader: state.editHeader,
     editSubscription: state.editSubscription,
     editFooter: state.editFooter,
-    pageSettings: state.pageSettings,
+    PageSettings: state.PageSettings,
   }
 }
 // const mapDispatchToProps=(dispatch)=>{
