@@ -6,7 +6,7 @@ import logoTwitter from '@iconify-icons/ion/logo-twitter';
 
 function mapStateToProps(state) {
 
-    document.documentElement.style.setProperty('--main-color',state.PageSettings.page.eventsPageColor);
+    document.documentElement.style.setProperty('--main-color',state.pageSettings.page.eventsPageColor);
 
     return {
         footer: state.editFooter.footer

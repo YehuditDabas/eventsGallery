@@ -52,7 +52,7 @@ function PageSettings(props) {
                 <span className="titleSettings"> Main Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker   colors={color} onChange={(e) => addcss(e.hex)} className="colorSelected" /></div>
+                <GithubPicker id="color" colors={color} onChange={(e) => props.changeMainColor(e.hex)} className="colorSelected" /></div>
             <div className="ml-1">
                 <span className="titleSettings"> Button Color</span>
             </div >
@@ -90,7 +90,7 @@ function PageSettings(props) {
 
 const mapStateToProps = (state) => {
     return {
-        showInPage: state.PageSettings.amountEventsInRow,
+        showInPage: state.pageSettings.amountEventsInRow,
     };
 };
 

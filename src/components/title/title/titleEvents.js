@@ -26,10 +26,10 @@ import FooterEventsGallery from '../../footer/footerEventsGallery';
 function mapStateToProps(state) {
 
     // red #86F3FF
-    document.documentElement.style.setProperty('--Button-color', state.PageSettings.page.eventsButtonColor);
+    document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
     return {
-        PageSettings: state.PageSettings.page,
+        PageSettings: state.pageSettings.page,
         headersettings: state.editHeader.header,
         subscribesettings: state.editSubscription.subscribe,
         message: state.allEvents.message,
@@ -161,6 +161,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
+         {PageSettings.user !== '' ?
+         <>
             <div className="container-fluid userEventsTitle" >
 
                 <div className="row" style={{height:"75vh"}}>
@@ -253,6 +255,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     <Button variant="secondary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
+        </>
+        :<div></div>}
         </>
     )
 

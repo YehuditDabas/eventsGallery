@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Card from '@material-ui/core/Card';
-import './miniEvent.css';
-import SimpleImg from '../../../assets/simpleImg.png'
+import './miniEventMobile.css';
 
-export default function MiniEvent(props) {
+export default function MiniEventMobile(props) {
     const {img,title,mainColor} = props;
     const [isShown, setIsShown] = useState(false)
     console.log("color  ", mainColor );
@@ -13,16 +12,16 @@ export default function MiniEvent(props) {
    
     return (
         <>
-            <Card className="miniEventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}  data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
-                <div className="row divMiniEvent">
-                    <img src={img?img:SimpleImg} className="imgMiniEvent" />
+            <Card className="miniEventCardMobile" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}  data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                <div className="row divMiniEventMobile">
+                    <img src={img} className="imgMiniEventMobile" />
                 </div>
-                <div className="miniEventDescription">
+                <div className="miniEventDescriptionMobile">
                     <div className="container">
                         <div className="row">
                             <br></br>
                             <div >
-                                <span className="col-sm-12 miniEventTitle" >{title}</span>
+                                <span className="col-sm-12 miniEventTitleMobile" >{title}</span>
                             </div>
                         </div>
                     </div>

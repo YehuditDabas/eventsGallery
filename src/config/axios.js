@@ -27,7 +27,6 @@ let Http = axios.create({
     // withCredentials:'true',
 // mode:'no-cors',
 
-
 });
 
 export const HttpSub = axios.create({
