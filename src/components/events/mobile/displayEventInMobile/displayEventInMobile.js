@@ -49,13 +49,13 @@ export default withRouter(connect(mapStateToProps)(function DisplayEventInMobile
         console.log('details')
         var index = events.indexOf(currentEvent);
         console.log('index ', index);
-        history.push({ pathname: `/${userName}/eventDetails/${index}`, state: { index: index } })
+        history.push({ pathname: `/${window.location.pathname.split('/')[1]}/eventDetails/${index}`, state: { index: index} })
 
         // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />
     }
     return (
         <>
-            <Card className="displayEventCardMobile" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+            <Card className="displayEventCardMobile" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
                 <div className="col-5 pRowMobile">
                     <img src={currentEvent.image} className="displayEventImgMobile" />
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi desMobile bi-share" viewBox="0 0 16 16" style={{ width: "8vw" }}>

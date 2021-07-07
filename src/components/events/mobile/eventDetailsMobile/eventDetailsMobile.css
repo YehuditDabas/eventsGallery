@@ -7,6 +7,7 @@
   background-color: white;
 }
 .mobileEventDetailsHeader{
+  
   height: 54px;
   background: transparent linear-gradient(276deg, var(--main-color) 0%, var(--second-color) 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -72,7 +73,8 @@ font-size: 2vh
 }
 .mobileButtonTickets{
   z-index: 6;
-  top: 93vh;
+  bottom: 2%;
+  /* top: 93vh; */
   left: 6%;
   width: 87vw;
   height: 5.5vh;
@@ -90,7 +92,7 @@ opacity: 1;
 .mobileMoreEventsTitle{
   font-size: 2.5vh;
   letter-spacing: 0.24px;
-color: var(--main-color);
+/* color: var(--main-color); */
 text-transform: capitalize;
 opacity: 1;
 }

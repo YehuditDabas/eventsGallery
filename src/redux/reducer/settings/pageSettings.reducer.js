@@ -32,7 +32,6 @@ const configImage = {
     //     state.showCounterViews = action.payload;
     // },
     setNoSettings(state, action) {
-        debugger
         state.page.user = action.payload;
     },
     addAllSettings(state, action) {

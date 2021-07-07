@@ -3,10 +3,8 @@ import { actionsStore } from '../actions'
 
 export const getSettings = ({ dispatch, getState }) => next => action => {
   if (action.type === 'GET_SETTINGS') {
-    debugger
     Http.get("/getEventsPageSettings")
       .then(res => {
-        debugger
         if (res.data === 'no settings')
           dispatch(actionsStore.setNoSettings(res.data))
         else
