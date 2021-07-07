@@ -73,13 +73,8 @@ font-size: 2vh
 }
 .mobileButtonTickets{
   z-index: 6;
-<<<<<<< HEAD
-  /* top: 93vh; */
-  bottom: 2%;
-=======
   bottom: 2%;
   /* top: 93vh; */
->>>>>>> 2f36e7d048862c332f2996a32fccf6dee2b30cf9
   left: 6%;
   width: 87vw;
   height: 5.5vh;

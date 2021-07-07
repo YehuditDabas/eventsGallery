@@ -49,11 +49,7 @@ export default withRouter(connect(mapStateToProps)(function DisplayEventInMobile
         console.log('details')
         var index = events.indexOf(currentEvent);
         console.log('index ', index);
-<<<<<<< HEAD
-        history.push({ pathname: `/${window.location.pathname.split('/')[1]}/eventDetails/${index}`, state: { index: index } })
-=======
         history.push({ pathname: `/${window.location.pathname.split('/')[1]}/eventDetails/${index}`, state: { index: index} })
->>>>>>> 2f36e7d048862c332f2996a32fccf6dee2b30cf9
 
         // <Redirect to={{pathname: "/eventDetails",state: { index: index }}} />
     }
