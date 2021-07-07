@@ -16,7 +16,7 @@
     padding: 0px !important;
 }
 .horizontal-scrollable > .row {
-    background-color:white;
+    background-color: white;
     overflow-x: auto;
     white-space: nowrap;
     display: inline-block;

@@ -144,12 +144,10 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
         return city
     }
     function setMoreFirst(moreEvents) {
-        debugger
         console.log(moreEvents)
         setMoreEvents(moreEvents);
     }
     async function addMoreEvents() {
-        debugger
         let mon = month().slice(3, 10);
         let numMonth = months.indexOf(mon) < 10 ? "0" + (months.indexOf(mon) * 1 + 1) : (months.indexOf(mon) * 1) + 1;
         console.log("moreE " + numMonth)

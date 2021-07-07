@@ -10,7 +10,6 @@ const intioanalState = {
 }
 const events = {
     addAllEvents(state, action) {
-        debugger;
         state.events = action.payload;
         console.log("allevents" + state.events);
     },
