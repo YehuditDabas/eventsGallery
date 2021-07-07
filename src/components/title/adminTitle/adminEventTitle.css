@@ -19,7 +19,7 @@ body {
     z-index: 3;
     
 }
-.UIiconDiv {
+.UIiconDivAdmin {
     width: var(--image-width)!important;
     height: 37vh;
     /* background-color: rgba(196, 183, 183, 0.6); */
@@ -34,14 +34,14 @@ body {
     z-index: 22;
 
 }
-.UIiconDiv:hover{
+.UIiconDivAdmin:hover{
 opacity:0.6;
 cursor: pointer;
 }
 .adminLogoIconDiv{
     width: 7vw;
     height: 5vh;
-    background-color: rgba(196, 183, 183, 0.6);
+    /* background-color: rgba(196, 183, 183, 0.6); */
     position: absolute;
     bottom: 0;
     top: 0;
@@ -57,7 +57,7 @@ cursor: pointer;
     opacity: 0.6;
     cursor: pointer;
 }
-.uploadImg{
+.uploadImgAdmin{
     /* position: absolute; */
     height: 9vh;
     width: 9vw !important;
@@ -95,7 +95,7 @@ cursor: pointer;
     margin-top: 3vh;
 }
 .adminImgLabel{
-    width: 41.6666666667%;
+width:var(--image-width);
 }
 /* .adminImgOrVieo:hover{
     background-image: url("C:\Users\User\Desktop\eventsGsllery\eventsGallery\src\assets\upload.png");

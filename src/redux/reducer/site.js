@@ -26,8 +26,10 @@ const site = {
     setThumbtack(state, action) {
         state.thumbtack = action.payload
     },
-    setCurrentComponent(state, action) {
-   
+    setCurrentComponent(state, action) 
+    
+    {
+        debugger
         state.currentComponent = action.payload;
     },
     setUserEmail(state, action) {

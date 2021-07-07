@@ -182,6 +182,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
+        {pagesettings.user !== '' ?
+
             <div className="container-fluid userEventsTitle" >
 
                 <div className="row" style={{ height: "75vh" }}>
@@ -201,7 +203,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                                 {checkImg() === true ?
                                     <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
                                     : <ReactPlayer width='100%'
-                                        height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                    height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                                 }
 
                             </div></div>
@@ -260,7 +262,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
 
 
-            </div>
+            </div>:''}
+
             <div className="container-fluid evnetsUnderFilter">
                 <div className="row">
                     <AllEvents style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEvents>

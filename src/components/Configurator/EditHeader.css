@@ -265,21 +265,7 @@ Form.Label{
      width:3vw !important;
      height: 3vh;
 }
-.inputLinkIcon{
-    background: #505066 0% 0% no-repeat padding-box;
-/* border-radius: 2px; */
-opacity: 0.30;
-display: inline-block;
-background: #505066 0% 0% no-repeat padding-box;
-height: 5vh;
-    width: 30vh;
-    margin: auto;
-   color: white;
-   margin-bottom: 2vh;
-   margin-top: -1vh;
-   direction: ltr;
-   border: none;
-}
+
 ::placeholder{
     color: white;
     font-weight: lighter;
@@ -288,28 +274,6 @@ height: 5vh;
     display:flex;
     /* margin-left: 1vh; */
     
-}
-.icon{
-    margin-top: 0vh;
-    margin-left: 1vw;
-    float: right;
-    
-}
-/* .iconName{
-    margin-right: 0vw;
-} */
-#firstIcon{
-    /* margin-left: 1.5vw; */
-    margin-right: 3.5vw;
-}
-#secondIcon{
-    margin-right: 4.5vw;
-}
-#thirdIcon{
-margin-right: 3vw;
-}
-#fourthIcon{
-margin-right: 4vw;
 }
 .MuiTypography-body1 {
     margin-top: -2vh;

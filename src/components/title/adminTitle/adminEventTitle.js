@@ -162,15 +162,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         var myImg = new Image();
         var size;
         myImg.src = headersettings.eventsPageImageOrVideo;
-        myImg.onload = function () {
-            console.log("@@" + myImg.width / myImg.height + "@@")
-            size = myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height * 12;
-            size += "vw";
-            console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
-            console.log("@@" + size + "@@")
-            document.documentElement.style.setProperty('--image-width', size);
 
-        }
+        console.log("@@" + myImg.width / myImg.height + "@@")
+        size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
+        size += "vw";
+        console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
+        console.log("@@" + size + "@@")
+        if (size == "NaNvw") { size = "30vw" }
+
+        document.documentElement.style.setProperty('--image-width', size);
+
+
     }
     const changeImage = (e) => {
         props.setLoaderUploadShow(true, 'image');
@@ -231,7 +233,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             contentType: false,
             success: (data) => {
                 // alert("upload success");
-                
+
                 props.changeLogo(data.data.url);
 
             },
@@ -254,9 +256,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         }
     }
     function changeToHeaderComponent() {
+        debugger
         changeCurrentComponent('Edit Header')
     }
     function changeToPageSettingsComponent() {
+
         changeCurrentComponent('Page Settings')
     }
 
@@ -272,12 +276,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <label htmlFor='file' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
                         <div className="adminLogoIconDiv" onClick={changeToHeaderComponent}>
-                                <FontAwesomeIcon
-                                    id='angle-right'
-                                    className='iconCloudUpload uploadLogo'
-                                    icon={['fas', 'cloud-upload-alt']}
-                                ></FontAwesomeIcon>
-                            </div>
+                            <FontAwesomeIcon
+                                id='angle-right'
+                                className='iconCloudUpload uploadLogo'
+                                icon={['fas', 'cloud-upload-alt']}
+                            ></FontAwesomeIcon>
+                        </div>
                     </label>
                     <input type="file" name="file" accept="image/*" id="filelogo"
                         className="adminInputfileLogo" onChange={changeLogoImage} />
@@ -286,19 +290,21 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             className="adminEventTitletitleH1"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeTitleText(e.target.value)}
+                            onClick={changeToHeaderComponent}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
                             cols="14"
                             maxLength="40"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
-                            onFocus={(e)=>e.target.select()}
+                            onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
                         <textarea
                             className="adminEventDescription"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeBodyText(e.target.value)}
+                            onClick={changeToHeaderComponent}
                             value={headersettings.eventsPageDescription}
                             rows="5"
                             cols="35"
@@ -310,26 +316,29 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                         </textarea>
                     </div>
                     <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
-                        <label htmlFor='file' width="41.6666666667%" className="adminImgLabel">
-                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent} >
+                        <label htmlFor='file' className="adminImgLabel">
+                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}>
                                 {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
 
                                 {checkImg() === true ?
-                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
+                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%" ></img>
                                     : <ReactPlayer width='100%'
-                                        height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                        height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                                 }
-                            </div>
 
-                            <div className="UIiconDiv">
-                                <FontAwesomeIcon
-                                    id='angle-right'
-                                    className='iconCloudUpload uploadImg'
-                                    icon={['fas', 'cloud-upload-alt']}
-                                ></FontAwesomeIcon>
-                            </div></label>
+                                <div className="UIiconDivAdmin">
+                                    <FontAwesomeIcon
+                                        id='angle-right'
+                                        className='iconCloudUpload uploadImgAdmin'
+                                        icon={['fas', 'cloud-upload-alt']}
+                                    ></FontAwesomeIcon>
+                                </div>
+                            </div>
+                        </label>
                         <input type="file" name="file" accept="image/*" id="file"
-                            className="adminInputfile" onChange={changeImage} />
+                            className="adminInputfile" onChange={changeImage}
+                            onClick={changeToHeaderComponent}
+                        />
                     </div>
                     <div className="row">
                         <div className="col-3 subscribeArea">

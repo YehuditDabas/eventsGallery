@@ -72,7 +72,8 @@ font-size: 2vh
 }
 .mobileButtonTickets{
   z-index: 6;
-  top: 93vh;
+  /* top: 93vh; */
+  bottom: 2%;
   left: 6%;
   width: 87vw;
   height: 5.5vh;
@@ -90,7 +91,7 @@ opacity: 1;
 .mobileMoreEventsTitle{
   font-size: 2.5vh;
   letter-spacing: 0.24px;
-color: var(--main-color);
+/* color: var(--main-color); */
 text-transform: capitalize;
 opacity: 1;
 }

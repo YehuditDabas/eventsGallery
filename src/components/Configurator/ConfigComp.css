@@ -24,9 +24,6 @@ label {
     height: 3.6vh !important;
 } */
 
-
-
-
 .configuratorTextarea {
     border: none;
     resize: none !important;
@@ -50,10 +47,7 @@ label {
     display: flex;
     flex-wrap: wrap;
 } */
-
-
 .inputfile {
-
     width:  0.1px;
     height: 0.1px;
     opacity: 0;
@@ -65,9 +59,6 @@ label {
 .inputfile+label {
     cursor: pointer;
 }
-
-
-
 .github-picker{
     width: 13vw;
     background: #0000 !important;
@@ -127,7 +118,7 @@ margin-left: 0.3vw;
 }
 
 .MuiTypography-root {
-    margin-right: 4vw;
+    margin-right: 4vw !important;
 }
 
 .accordion>.card>.card-header {
@@ -203,20 +194,22 @@ Form.Label{
      width:3vw !important;
      height: 3vh;
 }
+
 .inputLinkIcon{
     background: #505066 0% 0% no-repeat padding-box;
-/* border-radius: 2px; */
-opacity: 0.30;
-display: inline-block;
-background: #505066 0% 0% no-repeat padding-box;
-height: 2vw;
-    width: 14vw;
+    /* border-radius: 2px; */
+    opacity: 0.30;
+    display: inline-block;
+    background: #505066 0% 0% no-repeat padding-box;
+    height: 2vw;
+    width: 13.5vw;
     margin: auto;
-   color: white;
-   margin-bottom: 2vh;
-   margin-top: -1vh;
-   direction: ltr;
-   border: none;
+    color: white;
+    margin-bottom: 2vh;
+    margin-top: -1vh;
+    direction: ltr;
+    border: none;
+    margin-right: 0.5vw;
 }
 ::placeholder{
     color: white;
@@ -228,7 +221,7 @@ height: 2vw;
     
 }
 .icon{
-    margin-top: 0vh;
+    margin-top: -1vh;
     /* margin-left: 1vw; */
     float: right;
     font-size: 1vw;
@@ -298,7 +291,7 @@ margin-right: 4vw;
 }
 #firstIcon{
     /* margin-left: 1.5vw; */
-    margin-right: 4.3vw;
+    margin-right: 0.34vw;
 }
 
 .MuiSwitch-thumb {
@@ -308,54 +301,7 @@ margin-right: 4vw;
     color:white !important;
 }
 
-@media(min-width:3480px){
-    .MuiSwitch-root{        
-    width: 2.5vw !important;
-    height: 2.1vh !important;
-    }
-    
-.MuiSwitch-thumb { 
-    width: 0.6vw !important;
-    height: 0.7 !important;
-    margin-top: 5px;
-    /* margin-left: 1.6vw; */
-}
-.MuiTypography-root {
-    margin-right: 5.4vw !important;
-}
-}
-
-.MuiSwitch-root{
-    width: 39%;
-    height: 110%;
-}
-
-
-@media(min-width:1920px)and(max-width:1920px){
-    #firstIcon{
-        /* margin-left: 1.5vw; */
-        margin-right: 4.3vw;
-    }
-    .MuiTypography-root {
-        margin-right: 4vw !important;
-    }
-    .MuiSwitch-root{
-        width: 3.2vw !important;
-        height: 3.8vh !important;
-        margin-top: 0.5vh !important;
-    }
-    
-   .MuiSwitch-thumb { 
-    margin-top: 0.1vh !important;
-    }
-}
-@media(min-width:1440px)and (max-width:1440px){
-    .MuiTypography-root {
-        margin-right: 2.7vw !important;
-    }    
-}
-
-@media(min-width:1280px)and(max-width:1280px){
+@media only screen and(max-width:1280px){
     /* .MuiSwitch-root {
         width: 3.2vw !important;
         height: 3.8vh !important;
@@ -368,4 +314,109 @@ margin-right: 4vw;
 .MuiTypography-root {
     margin-right: 2vw !important;
 } 
+#firstIcon { 
+    margin-right: 0.83vw !important;
+}
+#secondIcon {
+    margin-right: 1.5vw !important;
+}
+#thirdIcon {
+    margin-right: 0.2vw !important;
+}
+#fourthIcon {
+    margin-right: 1vw !important;
+}
+}
+
+/* and (max-width:1440px) */
+@media only screen and(min-width:1440px){
+    .MuiTypography-root {
+        margin-right: 2.7vw !important;
+    }    
+
+    #firstIcon {
+        margin-right: 0.64vw !important;
+    }
+    #secondIcon {
+        margin-right: 1.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: 0vw !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
+    
+}
+@media only screen and (min-width:1920px)  {
+
+    #firstIcon {
+        margin-right: 0.16vw !important;
+    }
+    #secondIcon {
+        margin-right: -0.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: -0.5vw  !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
+    .MuiTypography-root {
+        margin-right: 4vw !important;
+    }
+    .MuiSwitch-root{
+        width: 3.2vw !important;
+        height: 3.8vh !important;
+        margin-top: 0.5vh !important;
+    }
+   .MuiSwitch-thumb { 
+    margin-top: 0.1vh !important;
+    }
+    .inputLinkIcon{
+        height: 1.6vw;
+    }
+}
+@media only screen and (min-width:3480px){
+    .MuiSwitch-root{        
+    margin-right: 0.5vw;
+    width: 58px !important;
+    height: 38px !important;
+    }
+    
+/* .MuiSwitch-thumb { 
+    width: 0.6vw !important;
+    height: 0.7 !important;
+    margin-top: 5px;
+} */
+.MuiTypography-root {
+    margin-right: 5.4vw !important;
+}
+/* .iconSize {
+    width: 2vw !important;
+    height: 2vh !important;
+} */
+#firstIcon {
+    margin-right: -0.2vw !important;
+}
+
+#thirdIcon {
+    margin-right: -0.9vw !important;
+}
+.icon{
+    margin-top: 0vh;
+}
+#fourthIcon {
+    margin-right: -6.1vw !important;
+}
+.inputLinkIcon {
+    height: 1.5vw;
+    font-size: 0.8vw;
+}
+.AlignmentSpan{
+    margin-left: -1vw;
+}
+.warpDivalignment {
+    margin-left: 8.2vw;
+}
 }
