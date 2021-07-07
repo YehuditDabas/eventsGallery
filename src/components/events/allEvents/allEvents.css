@@ -19,7 +19,7 @@ body {
     text-align: left;
     font: normal normal normal 45px/54px; 
     letter-spacing: 0px;
-    color: var(--main-color);
+    /* color: var(--main-color); */
     text-transform: capitalize;
     opacity: 1;
     font-size: 6vh;
@@ -40,7 +40,7 @@ body {
     text-align: left;
     font: normal normal normal 24px/29px;
     letter-spacing: 0px;
-    color:var(--main-color);
+    color:grey;
     text-transform: capitalize;
     opacity: 1;
     font-size: 3.8vh;
@@ -59,9 +59,7 @@ body {
     background-color: transparent;
     cursor: pointer;
 }
-.allEventsBtns:hover{
-    color:grey;
-}
+
 .f_bt{
     font-size: 3.8vh;
     color:var(--main-color);

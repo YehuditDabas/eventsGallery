@@ -95,7 +95,7 @@ cursor: pointer;
     margin-top: 3vh;
 }
 .adminImgLabel{
-    width: 41.6666666667%;
+    width: var(--image-width);
 }
 /* .adminImgOrVieo:hover{
     background-image: url("C:\Users\User\Desktop\eventsGsllery\eventsGallery\src\assets\upload.png");

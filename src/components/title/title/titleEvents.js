@@ -177,7 +177,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                                 {checkImg() === true ?
                                     <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
                                     : <ReactPlayer width='100%'
-                                        height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                         className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                                 }
 
                             </div></div>

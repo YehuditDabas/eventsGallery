@@ -162,15 +162,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         var myImg = new Image();
         var size;
         myImg.src = headersettings.eventsPageImageOrVideo;
-        myImg.onload = function () {
-            console.log("@@" + myImg.width / myImg.height + "@@")
-            size = myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height * 12;
-            size += "vw";
-            console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
-            console.log("@@" + size + "@@")
-            document.documentElement.style.setProperty('--image-width', size);
+        console.log("@@" + myImg.width / myImg.height + "@@")
+        size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
+        size += "vw";
+        console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
+        console.log("@@" + size + "@@")
+         document.documentElement.style.setProperty('--image-width', size);
 
-        }
+
     }
     const changeImage = (e) => {
         props.setLoaderUploadShow(true, 'image');
@@ -231,7 +230,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             contentType: false,
             success: (data) => {
                 // alert("upload success");
-                
+
                 props.changeLogo(data.data.url);
 
             },
@@ -242,6 +241,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         });
     }
     useEffect(() => {
+        debugger;
         if (headersettings) {
             setHeightAndWidth()
         }
@@ -265,12 +265,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <label htmlFor='file' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo}></img>
                         <div className="adminLogoIconDiv">
-                                <FontAwesomeIcon
-                                    id='angle-right'
-                                    className='iconCloudUpload uploadLogo'
-                                    icon={['fas', 'cloud-upload-alt']}
-                                ></FontAwesomeIcon>
-                            </div>
+                            <FontAwesomeIcon
+                                id='angle-right'
+                                className='iconCloudUpload uploadLogo'
+                                icon={['fas', 'cloud-upload-alt']}
+                            ></FontAwesomeIcon>
+                        </div>
                     </label>
                     <input type="file" name="file" accept="image/*" id="filelogo"
                         className="adminInputfileLogo" onChange={changeLogoImage} />
@@ -314,7 +314,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                                 {checkImg() === true ?
                                     <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
                                     : <ReactPlayer width='100%'
-                                        height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                         className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                                 }
                             </div>
 

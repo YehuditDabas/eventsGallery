@@ -44,7 +44,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEventsIn
     console.log("year  ", year);
     var arrow = ["<", ">"];
     var eventsHeight =eventsByMonth.length==0&&isAdmin==false?30: eventsByMonth.length < amountEventsInRow ? 90 : Math.ceil((eventsByMonth.length+1) / amountEventsInRow) * 75;
-    document.documentElement.style.setProperty('--events-height', eventsHeight + "vh"); console.log("height ", eventsHeight)
+    document.documentElement.style.setProperty('--events-height', eventsHeight + "vh"); console.log("height 111 ", eventsHeight)
     var thisMonth=new Date();
     const [prevMonth, setPrevMonth] = useState(0);
     function setFirstMonth(){
