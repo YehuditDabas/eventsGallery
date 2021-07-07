@@ -31,7 +31,7 @@ function mapStateToProps(state) {
     console.log("event", state.allEvents.events)
     return {
         events: state.allEvents.events,
-        eventsPageColor: state.settings.settings.eventsPageColor
+        eventsPageColor: state.pageSettings.page.eventsPageColor
 
     }
 }

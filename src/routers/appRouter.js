@@ -13,6 +13,8 @@ import EventTitleMobile from '../components/title/mobile/titleMobile/eventTitleM
 import { useMediaQuery } from 'react-responsive';
 
 
+import EventDetailsMobile from '../components/events/mobile/eventDetailsMobile/eventDetailsMobile'
+
 export default function AppRouter() {
   const [show, setShow] = useState(false);
   const isMobile = useMediaQuery({ query: `(max-width: 620px)` });
@@ -41,7 +43,8 @@ export default function AppRouter() {
 
       </Route>
       <Route path="/:userName/eventDetails/:index">
-        <EventDetails />
+        {isMobile == true ?
+          <EventDetailsMobile /> :<EventDetails />}
 
       </Route>
     </Router>

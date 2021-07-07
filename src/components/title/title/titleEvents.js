@@ -46,6 +46,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(props) {
     const { pagesettings, headersettings, subscribesettings, message, subscribe, systemWave, setMessage } = props;
     const [errorsForm, setErrorsForm] = useState('')
+    const [errorsEmail, setErrorsEmail] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
@@ -56,7 +57,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false)
+        setMessage('')
+    };
     const handleShow = () => setShow(true);
     const img =
     {
@@ -79,6 +83,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     const [showing, setShowing] = useState(false);
     async function beforeSubscribe() {
         setErrorsForm('')
+        debugger
         const obj = {
             email: email,
             name: name,
@@ -113,13 +118,20 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             setErrorsForm(...errorsForm, 'adress')
 
         }
+
         if (valid === false) {
             setErrorsForm('Fill in all the details')
         }
         else {
-            let resSub = await props.subscribe(obj)
-            handleShow()
-            setShowing(false)
+            if (errorsEmail !== '') {
+                valid = false
+            }
+            else {
+                let resSub = await props.subscribe(obj)
+                handleShow()
+                setShowing(false)
+            }
+
 
         }
         setPlaceHolderEmail("email");
@@ -129,6 +141,18 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
 
         console.log(obj)
+    }
+    function checkEmailValid(e) {
+        debugger
+        setEmail(e.target.value)
+        if (e.keyCode == 13) {
+            if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/.test(email)) {
+                setErrorsEmail('')
+            }
+            else {
+                setErrorsEmail('email not valid')
+            }
+        }
     }
     function checkImg() {
         if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
@@ -194,7 +218,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                                             <form className="formSubscribe">
                                                 <br></br>
                                                 {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail}onKeyDown={(e) => checkEmailValid(e)} onChange={(e) => checkEmailValid(e)}/> : <></>}
+                                                <span style={{ color: "red" }}>{errorsEmail}</span>
                                                 {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
                                                 {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
                                                 <span style={{ color: "red" }}>{errorsForm}</span>

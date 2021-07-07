@@ -14,7 +14,7 @@ function getJwtFromCookie() {
 }
 const userName = window.location.pathname.split('/')[1]
 let Http = axios.create({
-    baseURL: `${API_URL}/${window.location.pathname.split('/')[1]}`,
+    baseURL: `${API_URL}/${userName}`,
     headers: {
         'content-type': 'application/json',
         'Authorization': getJwtFromCookie()

@@ -14,7 +14,7 @@ export default function MiniEvent(props) {
     return (
         <>
             <Card className="miniEventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}  data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
-                <div className="row pRow">
+                <div className="row divMiniEvent">
                     <img src={img?img:SimpleImg} className="imgMiniEvent" />
                 </div>
                 <div className="miniEventDescription">

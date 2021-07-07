@@ -37,9 +37,9 @@ function mapStateToProps(state) {
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
 
     // state.settings.settings.eventsButtonColor
-
     // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
     return {
+        site: state.site,
         pagesettings: state.pageSettings.page,
         headersettings: state.editHeader.header,
         subscribesettings: state.editSubscription.subscribe,
@@ -51,7 +51,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => ({
     changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); var height, len = e.length; height = Math.ceil(len / 15) * 11; height += "vh"; console.log("-- ", height, " --"); document.documentElement.style.setProperty('--title-height', height); },
     changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) },
-
+    changeCurrentComponent: (e) => { dispatch(actionsStore.setCurrentComponent(e)) },
     setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
 
     changeImage: (url) => dispatch(actionsStore.setImage(url)),
@@ -61,7 +61,7 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
-    const { pagesettings, headersettings, subscribesettings, changeTitleText, changeBodyText } = props;
+    const { pagesettings, headersettings, subscribesettings, changeTitleText, changeBodyText, changeCurrentComponent } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -253,6 +253,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             return false;
         }
     }
+    function changeToHeaderComponent() {
+        changeCurrentComponent('Edit Header')
+    }
+    function changeToPageSettingsComponent() {
+        changeCurrentComponent('Page Settings')
+    }
+
     function setUpload() {
         setUploadImg(!uploadImg)
     }
@@ -261,16 +268,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             <div className="container-fluid adminEventTitle" >
 
                 <div className="row" style={{ height: "75vh" }}>
-                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
+                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
                     <label htmlFor='file' className="adminLogoLabel">
-                        <img className="adminMylogo" src={headersettings.eventsPageLogo}></img>
-                        <div className="adminLogoIconDiv">
-                            <FontAwesomeIcon
-                                id='angle-right'
-                                className='iconCloudUpload uploadLogo'
-                                icon={['fas', 'cloud-upload-alt']}
-                            ></FontAwesomeIcon>
-                        </div>
+                        <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
+                        <div className="adminLogoIconDiv" onClick={changeToHeaderComponent}>
+                                <FontAwesomeIcon
+                                    id='angle-right'
+                                    className='iconCloudUpload uploadLogo'
+                                    icon={['fas', 'cloud-upload-alt']}
+                                ></FontAwesomeIcon>
+                            </div>
                     </label>
                     <input type="file" name="file" accept="image/*" id="filelogo"
                         className="adminInputfileLogo" onChange={changeLogoImage} />
@@ -285,9 +292,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             maxLength="40"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
+                            onFocus={(e)=>e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-
                         <textarea
                             className="adminEventDescription"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
@@ -298,17 +305,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             maxLength="140"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
+                            onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-
-
-                        {/* <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p> */}
-
                     </div>
                     <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
                         <label htmlFor='file' width="41.6666666667%" className="adminImgLabel">
-                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" >
+                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent} >
                                 {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
 
                                 {checkImg() === true ?
@@ -364,7 +367,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     </div>
 
                 </div>
-
             </div>
             <div className="container-fluid adminEvnetsUnderFilter">
                 <div className="row">
@@ -391,8 +393,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <Button variant="secondary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
-
         </>
+
+
     )
 
 })

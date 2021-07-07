@@ -4,6 +4,7 @@ import CardComponentConfig from './cardcomponentConfig'
 import { Card, Accordion } from 'react-bootstrap'
 import EditSubscription from './editSubscribtion.config'
 import EditFooter from './EditFooter.config'
+import CreateNewEvent from './CreateNewEvent.config'
 import {actionsStore} from '../../redux/actions'
 import './cardComponentConfig.css';
 import { connect } from 'react-redux'
@@ -32,7 +33,6 @@ function ConfiguratorSettings(props) {
       phone: props.editSubscription.subscribe.phone,
       address: props.editSubscription.subscribe.address,
 
-
       facebook:props. editFooter.footer.facebook,
       facebookLink: props. editFooter.footer.facebookLink,
       twitter: props. editFooter.footer.twitter,
@@ -59,7 +59,7 @@ function ConfiguratorSettings(props) {
             className="accordion_warps"
           >
             <CardComponentConfig
-             className="cardName"  
+             className="cardOne"  
               eventKey={'Page Settings'}
               component={pageSettings} קומפוננטה אחת
             />
@@ -78,6 +78,11 @@ function ConfiguratorSettings(props) {
              className="cardName"      
               eventKey={'Edit Footer'}
               component={EditFooter} קומפוננטה רביעית
+            />
+            <CardComponentConfig
+             className="cardName"      
+              eventKey={'Create Event'}
+              component={CreateNewEvent}קומפוננטה חמישית
             />
 
             {/* <CardComponentConfig eventKey={1} component={ChannelDetails} nameComponent={'ChannelDetails'} />
@@ -98,6 +103,7 @@ function ConfiguratorSettings(props) {
 const mapStateToProps = (state) => {
 
   return {
+    currentComponent:state.site.currentComponent,
     EditHeader: state.editHeader,
     editSubscription: state.editSubscription,
     editFooter: state.editFooter,

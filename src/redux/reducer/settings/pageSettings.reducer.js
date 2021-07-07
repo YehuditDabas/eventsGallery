@@ -5,7 +5,6 @@ import EventPageSetings from '../../../models/eventsPageSettngs'
 const initialState = {
     page: EventPageSetings
     // Watch previous events:"",
-    
 };
 
 const configImage = {
@@ -32,14 +31,18 @@ const configImage = {
     // setShowCounterViews(state, action) {
     //     state.showCounterViews = action.payload;
     // },
+    setNoSettings(state, action) {
+        state.page.user = action.payload;
+    },
     addAllSettings(state, action) {
-      
+
         state.page.amountEventsInRow = action.payload.settings.amountEventsInRow
         state.page.eventsPageColor = action.payload.settings.eventsPageColor
         state.page.eventsButtonColor = action.payload.settings.eventsButtonColor;
         state.page.ShowHistoricalEvents = action.payload.settings.ShowHistoricalEvents;
+        state.page.user = action.payload.settings.user;
 
-        console.log(" page settings  "+ state.page.amountEventsInRow)
+        console.log(" page settings  " + state.page.amountEventsInRow)
     }
 };
 

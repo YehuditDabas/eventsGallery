@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 import { actionsStore } from '../../../redux/actions'
 import './eventDetails.css';
 import { withRouter } from 'react-router-dom'
+import { Modal, Button } from 'react-bootstrap'
 import arrow from '../../../assets/Polygon 24@2x.png'
 import SimpleImg from '../../../assets/simpleImg.png'
 import user from '../../../assets/user.svg'
 import title from '../../../assets/title.png';
 import MiniEvent from '../miniEvents/miniEvent';
+import ReactPlayer from 'react-player'
 import red from '../../../assets/red.png'
 import yellow from '../../../assets/yellow.png'
 import pink from '../../../assets/pink.png'
@@ -22,6 +24,7 @@ import purple2 from '../../../assets/purple2.png'
 import turquoise from '../../../assets/turquoise.png'
 import reactImageSize from 'react-image-size';
 import FooterEventsGallery from '../../footer/footerEventsGallery'
+import Carousel from "react-multi-carousel";
 
 function mapStateToProps(state) {
     var year = new Date();
@@ -32,18 +35,18 @@ function mapStateToProps(state) {
         mainColor: state.pageSettings.page.eventsPageColor,
         eventsButtonColor: state.pageSettings.page.eventsButtonColor,
         subscribesettings: state.editSubscription.subscribe,
-        message: state.allEvents.message,
+        message: state.allEvents.message
     }
 }
 const mapDispatchToProps = (dispatch) => ({
     subscribe: (obj) => dispatch(actionsStore.createSubscribe(obj)),
     systemWave: (res) => dispatch(actionsStore.createSystemWave(res)),
-    setMessage: (res) => dispatch(actionsStore.setMessage(res)),
+    setMessage: (res) => dispatch(actionsStore.setMessage(res))
 })
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function EventDetails(props) {
-    const { events, mainColor, eventsButtonColor } = props;
-    const { pagesettings, headersettings, subscribesettings,message, subscribe, systemWave,setMessage } = props;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function EventDetails(props) {
+    const { events, mainColor, eventsButtonColor, } = props;
+    const { pagesettings, headersettings, subscribesettings, message, subscribe, systemWave, setMessage } = props;
 
     document.documentElement.style.setProperty('--main-color', mainColor);
     document.documentElement.style.setProperty('--button-color', eventsButtonColor);
@@ -53,8 +56,8 @@ export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function E
     // var mon = index < 10 ? events[index].start.slice(6, 7) : events[index].start.slice(5, 7);
     // console.log("inddddddd  ", mon);
     // var ev = events.filter(item => item.start.slice(6, 7) == mon && item != events[index]&&item.start.slice(0,4) ==year);
-    const [moreEvents, setMoreEvents] = useState();
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const [moreEvents, setMoreEvents] = useState([]);
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Septemb', 'October', 'November', 'December'];
     let e1 = [];
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
@@ -91,7 +94,25 @@ export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function E
         const { widthP, heightP } = reactImageSize(events[0].image)
         return widthP;
     }
-
+    const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 4
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 4
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 4
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 3
+        }
+    };
 
     // console.log("tickets ", events[index].registrationURL)
     function day() {
@@ -122,16 +143,28 @@ export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function E
         console.log("city " + city);
         return city
     }
-    function setMore(e1) {
-        setMoreEvents(e1);
-
+    function setMoreFirst(moreEvents) {
+        console.log(moreEvents)
+        setMoreEvents(moreEvents);
     }
     async function addMoreEvents() {
-        let mon = await month().slice(3, 10);
-        let numMonth = await months.indexOf(mon) < 10 ? "0" + (months.indexOf(mon) * 1 + 1) : (months.indexOf(mon) * 1) + 1;
+        let mon = month().slice(3, 10);
+        let numMonth = months.indexOf(mon) < 10 ? "0" + (months.indexOf(mon) * 1 + 1) : (months.indexOf(mon) * 1) + 1;
         console.log("moreE " + numMonth)
-        e1 = await events.filter((item, indexM) => item.start.indexOf(numMonth) == 5 && indexM != index);
-        setMore(e1);
+       e1 = events.filter((item, indexM) => item.start.slice(0, 10).split('-')[1]>=numMonth&& indexM != index&&item.start.slice(0, 10).split('-')[0]>=new Date().getFullYear());
+        // e1=events.slice((parseInt(index)+1));
+        await setMoreFirst(e1)
+
+         
+       
+         // while (parseInt(numMonth) < 10) {
+         //     console.log("numMo", moreEvents)
+         //     numMonth = numMonth.slice(0, 1) === "0" ? "0" + (parseInt(numMonth.slice(1, 2)) + 1) : (numMonth++).toString()
+         //     e1 = events.filter((item, indexM) => item.start.indexOf(numMonth) == 5 && indexM != index);
+         //     if (e1.length !== 0)
+         //         await setMoreEvents(e1);
+         // }
+         // setMore(e1);
         console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
     function setHeightAndWidth() {
@@ -250,8 +283,6 @@ export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function E
                                                 <span style={{ color: "red" }}>{errorsForm}</span>
                                                 <br></br><br></br>
                                                 <input type="button" class="form-control" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
-
-
                                             </form>
 
                                         </div></div> :
@@ -262,7 +293,7 @@ export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function E
 
                             </div>
 
-                        </div> 
+                        </div>
                         <div className="row">
                             <div className="at col-7">
                                 <div className="eventDetailsAboutTitle">About The Event
@@ -300,20 +331,62 @@ export default withRouter(connect(mapStateToProps,mapDispatchToProps)(function E
 
                             </div>
                         </div>
+                        <br></br>
+                        <br></br>
                         <div class="moreEvents">
                             <h1 className="more">more events on {month().slice(3, 15)}</h1>
                             <div className="row">
-                                {moreEvents && moreEvents.map(item => <div class="col-3" ><MiniEvent img={item.image} title={item.title} mainColor={mainColor}></MiniEvent> </div>)}
+                                {moreEvents ?
+                                    <Carousel responsive={responsive} itemClass="carousel-item-padding-40-px">
+                                        {
+                                            moreEvents && moreEvents.map((item, index) => {
+
+                                                return (
+                                                    <div className="col-11 video" key={index}  >
+                                                        <MiniEvent img={item.image} title={item.title} mainColor={mainColor}></MiniEvent>
+
+                                                        {/* <ReactPlayer width='100%' height='100%' className="reactPlayer" url='https://youtu.be/goCN79SruQU' config={{
+                                                        youtube: {
+                                                            playerVars: { modestbranding: 1 }
+                                                        }
+                                                    }} controls={false} />
+                                                    <span className="col-3 videoText"><br /><br />title event . {item.start.slice(8, 10)}/{item.start.slice(5, 7)}</span> */}
+
+                                                    </div>
+                                                )
+                                            }
+                                            )
+                                        }
+                                    </Carousel>
+                                    : ""}
                             </div>
                         </div>
-                        <FooterEventsGallery style={{ marginTop: "5%" }} />
+
                     </div>
-                    
+                    <FooterEventsGallery style={{ marginTop: "5%" }} />
                 </div>
 
 
             </> : ''}
-
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                {/* <Modal.Header closeButton>
+                    <Modal.Title>Modal title</Modal.Title>
+                </Modal.Header> */}
+                <Modal.Body>
+                    {message}
+                </Modal.Body>
+                <Modal.Footer>
+                    {/* <Button >
+                        Close
+                    </Button> */}
+                    <Button variant="secondary" onClick={handleClose} >Close</Button>
+                </Modal.Footer>
+            </Modal>
         </>
 
     )

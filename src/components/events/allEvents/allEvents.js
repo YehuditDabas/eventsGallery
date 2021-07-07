@@ -4,7 +4,7 @@ import './allEvents.css'
 import DisplayEvent from '../displayEvent/displayEvent';
 import PreviousEvents from '../previousEvents/previousEvents';
 import CreateEvent from '../../events/createEvent/createEvent';
-
+import {actionsStore} from '../../../redux/actions'
 
 function mapStateToProps(state) {
     var year=new Date();
@@ -18,10 +18,10 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = (dispatch) => ({
-    // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
+    addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    const { events, mainColor, amountEventsInRow ,WatchPreviousEvents,sentBy} = props;
+    const { events, mainColor, amountEventsInRow ,WatchPreviousEvents,addAllEvents,sentBy} = props;
     console.log("sentBy  ",sentBy)
     console.log("amountEventsInRow  ", amountEventsInRow);
     document.documentElement.style.setProperty('--main-color', mainColor);
@@ -105,6 +105,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
 
         if (!eventsByMonth) { console.log("אין אירועים"); }
         if (m >= 0 || m <= 12) { setPrevMonth(m); }
+        addAllEvents(eventsByMonth)
     }
 
 
@@ -128,7 +129,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     </div>:''}
                     
 
-                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"2vw",paddingLeft:"2vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"3.5vw",paddingLeft:"3.5vw"}:{}} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
+                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"2vw",paddingLeft:"2vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"3.5vw",paddingLeft:"3.5vw"}:{}} ><DisplayEvent index={index} currentEvent={item} eventsByMonth={eventsByMonth}></DisplayEvent> </div>) : ''}
 
                 </div>
 
