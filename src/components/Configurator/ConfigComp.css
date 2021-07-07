@@ -14,18 +14,15 @@ label {
 .ShowConfiguratorWith{
     width: 99% !important;
 }
-.ImgEditHeaderStyle{
-    width: 35px; height: 25px; border: 0px ;
+
+.cardOne{
+    margin-top: 1vh;
 }
-.EditHeaderAlingment{
-    /* background-color: #F0F0F0; */
-    display: inline;
-    border-radius: 2px;
-    /* opacity: 0.2; */
-    margin: 0.1vw;
-    color: white !important;
-    background: #505066 0% 0% no-repeat padding-box;
-}
+
+/* .MuiSwitch-root {
+    width: 4.4vw !important;
+    height: 3.6vh !important;
+} */
 
 .configuratorTextarea {
     border: none;
@@ -36,22 +33,7 @@ label {
     width: 13vw;
     margin-left:1.5vw;
 }
-.LogoChnnel{
-    margin-top: 10px;
-}
 
-.inputFileInUploadDiv {
-    size: 300px;
-}
-
-.inputfilelogin {
-    width: 1px;
-    height:  1px;
-    opacity: 1;
-     overflow:hidden;
-    position: absolute;
-    z-index: -1;
-}
 
 /* PICKER */
 /* element.style {
@@ -65,8 +47,6 @@ label {
     display: flex;
     flex-wrap: wrap;
 } */
-
-
 .inputfile {
     width:  0.1px;
     height: 0.1px;
@@ -79,55 +59,6 @@ label {
 .inputfile+label {
     cursor: pointer;
 }
-
-.divOnHover {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin: 1%;
-    top:5px;  
-    background-color:#E8EAEC;
- }
-
-.divOnHover .divUploadImage {
-    display: block;
-}
-
-/* .divUploadImage {
-    height: auto;
-    width: 100%;
-    margin-top: 15px;
-} */
-
-.iconDiv {
-    width: 13vw;
-    margin-top: 9vh;
-    height: 4vh;
-    background:  0% 0% no-repeat padding-box;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    /* width: 100%; */
-    color: #cccccc;
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    /* opacity: 0; */
-    padding: 1vw
-}
-
-.iconDiv:hover {
-    opacity: 1;
-}
-
-
-.iconCloudUpload {
-    position: absolute;
-    /* bottom: 7px;
-    left: 7px; */
-}
-/* PICKER */
-
-
 .github-picker{
     width: 13vw;
     background: #0000 !important;
@@ -149,45 +80,27 @@ label {
     padding: 3px;
 }
 
-/* .circle{
-    background-color:#959595;
-    border-radius: 50%;
-     
-}
-.square{
-    background-color:#959595 ;
-     width: 7.961783439490446%;
-    height: 7.961783439490446%;
-    padding: 3.184713375796178%;
- }
-input[type="color" i]{
-border:solid 1px 1px black !important;
-width: 14.3312101910828%;
-height: 14.3312101910828%;
-}
-.buttonStyle{
-    background-color: #F0F0F0 ;
-    opacity: 1;
-    width: 14.3312101910828%;
-    height: 14.3312101910828%;
-    max-width: 45px;
-    max-height: 45px;
- 
-} */
 .MuiSwitch-colorSecondary.Mui-checked+.MuiSwitch-track {
-    background-color: #e1caf3 !important;
+    background-color: white !important;
 }
 
 .MuiSwitch-thumb {
     background-color: #4b0083 !important;
-    width: 10px !important;
-    height: 10px !important;
-    margin-top: 5px;
-    margin-left: 5px;
+    /* width: 0.8vw !important;
+    height: 1.8vh !important; */
+    /* margin-top: 0.8vh;
+    margin-left: 0.3vw; */
 }
+/* .MuiSwitch-thumb{
+  width: 0.9vw !important;
+height: 1.5vh !important;
+margin-top: 0.4vh;
+margin-left: 0.3vw;  
+} */
+
 
 .MuiTypography-body1 {
-    font-size: 0.8rem !important;
+    font-size: 1vw !important;
 }
 
 
@@ -205,7 +118,7 @@ height: 14.3312101910828%;
 }
 
 .MuiTypography-root {
-    margin-right: 0px !important;
+    margin-right: 4vw !important;
 }
 
 .accordion>.card>.card-header {
@@ -213,7 +126,9 @@ height: 14.3312101910828%;
     background-color: #0A102E;
     color: #FFFFFF;
     text-align: left;
-/* font: normal normal bold 18px/24px Nunito Sans; */  
+    font-size: 1.1vw;
+    /* font: normal normal 1.1vw/5vh Roboto;
+    font-family: -webkit-pictograph; */
 }
  .accordion>.card>.card-header:hover{
    
@@ -231,19 +146,13 @@ height: 14.3312101910828%;
     margin: 1rem !important;
 }
 
-.IconColor{
-    color: white;
-}
 
-.BoldIconColor{
-   color: #9653FF;
-}
 .github-picker>span{
     margin:3px;
     /* width: 10%;
    height: 10%; */
 }
-.github-picker>span>div{
+        .github-picker>span>div{
     width: 16px !important;
     height: 16px !important;
 }
@@ -256,15 +165,12 @@ height: 14.3312101910828%;
     background: #505066 0% 0% no-repeat padding-box;
     color:white;
 }
-.ChnnelSettingsColor{
-    background-color: #F0F0F0;
-}
+
 .card {
     width: 100% !important;
 }
 .ChannelColorwidth{
-    width: 13vw !important;
-   
+    width: 13vw !important;  
 }
 .MuiFormControlLabel-root {
     /* margin-left: 0px !important; */
@@ -288,20 +194,22 @@ Form.Label{
      width:3vw !important;
      height: 3vh;
 }
+
 .inputLinkIcon{
     background: #505066 0% 0% no-repeat padding-box;
-/* border-radius: 2px; */
-opacity: 0.30;
-display: inline-block;
-background: #505066 0% 0% no-repeat padding-box;
-height: 5vh;
-    width: 30vh;
+    /* border-radius: 2px; */
+    opacity: 0.30;
+    display: inline-block;
+    background: #505066 0% 0% no-repeat padding-box;
+    height: 2vw;
+    width: 13.5vw;
     margin: auto;
-   color: white;
-   margin-bottom: 2vh;
-   margin-top: -1vh;
-   direction: ltr;
-   border: none;
+    color: white;
+    margin-bottom: 2vh;
+    margin-top: -1vh;
+    direction: ltr;
+    border: none;
+    margin-right: 0.5vw;
 }
 ::placeholder{
     color: white;
@@ -313,18 +221,19 @@ height: 5vh;
     
 }
 .icon{
-    margin-top: 0vh;
-    margin-left: 1vw;
+    margin-top: -1vh;
+    /* margin-left: 1vw; */
     float: right;
-    
+    font-size: 1vw;
 }
 /* .iconName{
     margin-right: 0vw;
 } */
 #firstIcon{
     /* margin-left: 1.5vw; */
-    margin-right: 3.5vw;
+    margin-right: 4.3vw;
 }
+
 #secondIcon{
     margin-right: 4.5vw;
 }
@@ -346,7 +255,6 @@ margin-right: 4vw;
     margin-right: 8vw;
 }
 .colorSelected{
-   
     border: 2px solid #FFFFFF;
     opacity: 1;
 }
@@ -354,56 +262,161 @@ margin-right: 4vw;
     margin: auto;
     width: 90%;
 }
-.warpDivalignment{
-display: flex;
-margin-left: 7vw;
-margin-top: -4vh !important;
-}
+
 .one{
     /* display: inline; */
     margin-left: 2vw;
 }
-.AlignmentSpan{
-    font-size: 85%;
-    margin-left: -65%;
-}
 
-.SpanSettings{
-    font-size: 85%;
-    margin-left: 1.5vw;
-}
-.divUploadImage{
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border-radius: 2px;
-    opacity: 0.46;
-    width: 13vw;
-    height: 16vh;
-    margin-left: 1.5vw;
-}
 
 .showinpageRow{
-font-size: smaller;
-    margin-left: 0vw;
-    margin-bottom: 1vh;
+    font: normal normal 1.1vw/0vh Roboto;
+    margin-top: 2vh !important;
+    font-family: -webkit-pictograph;
+    /* margin-left: 0vw;
+    margin-bottom: 1vh; */
 }
-.titleSettings{
-    margin-left: 1.5vw;
-    font-size: 0.9rem;
-}
+
 .labelToggle{
     margin-left: 1.5vw !important;
     font-size: 0.9rem !important;
 }
 .editSubscribtionFileds{
     margin-left: 1.5vw !important;
-    font-size: 0.9rem !important;
+    font-size: 1vw !important;
 }
-.iconUploadEvent{
-    cursor: pointer;
-    position: absolute;
-    bottom: 17%;
-    left: 34%;
+.MuiFormControlLabel-root{
+    width: 14.5vw;
+    height: 6vh;
 }
-.sketch-picker {
-    box-shadow: none !important;
+#firstIcon{
+    /* margin-left: 1.5vw; */
+    margin-right: 0.34vw;
+}
+
+.MuiSwitch-thumb {
+    background-color: #4b0083 !important;  
+}
+.MuiFormControlLabel-label.Mui-disabled{
+    color:white !important;
+}
+
+@media only screen and(max-width:1280px){
+    /* .MuiSwitch-root {
+        width: 3.2vw !important;
+        height: 3.8vh !important;
+        margin-top: 0.5vh !important;
+    }
+        
+.MuiSwitch-thumb { 
+    margin-top: 0.1vh !important;
+} */
+.MuiTypography-root {
+    margin-right: 2vw !important;
+} 
+#firstIcon { 
+    margin-right: 0.83vw !important;
+}
+#secondIcon {
+    margin-right: 1.5vw !important;
+}
+#thirdIcon {
+    margin-right: 0.2vw !important;
+}
+#fourthIcon {
+    margin-right: 1vw !important;
+}
+}
+
+/* and (max-width:1440px) */
+@media only screen and(min-width:1440px){
+    .MuiTypography-root {
+        margin-right: 2.7vw !important;
+    }    
+
+    #firstIcon {
+        margin-right: 0.64vw !important;
+    }
+    #secondIcon {
+        margin-right: 1.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: 0vw !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
+    
+}
+@media only screen and (min-width:1920px)  {
+
+    #firstIcon {
+        margin-right: 0.16vw !important;
+    }
+    #secondIcon {
+        margin-right: -0.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: -0.5vw  !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
+    .MuiTypography-root {
+        margin-right: 4vw !important;
+    }
+    .MuiSwitch-root{
+        width: 3.2vw !important;
+        height: 3.8vh !important;
+        margin-top: 0.5vh !important;
+    }
+   .MuiSwitch-thumb { 
+    margin-top: 0.1vh !important;
+    }
+    .inputLinkIcon{
+        height: 1.6vw;
+    }
+}
+@media only screen and (min-width:3480px){
+    .MuiSwitch-root{        
+    margin-right: 0.5vw;
+    width: 58px !important;
+    height: 38px !important;
+    }
+    
+/* .MuiSwitch-thumb { 
+    width: 0.6vw !important;
+    height: 0.7 !important;
+    margin-top: 5px;
+} */
+.MuiTypography-root {
+    margin-right: 5.4vw !important;
+}
+/* .iconSize {
+    width: 2vw !important;
+    height: 2vh !important;
+} */
+#firstIcon {
+    margin-right: -0.2vw !important;
+}
+
+#thirdIcon {
+    margin-right: -0.9vw !important;
+}
+.icon{
+    margin-top: 0vh;
+}
+#fourthIcon {
+    margin-right: -6.1vw !important;
+}
+.inputLinkIcon {
+    height: 1.5vw;
+    font-size: 0.8vw;
+}
+.AlignmentSpan{
+    margin-left: -1vw;
+}
+.warpDivalignment {
+    margin-left: 8.2vw;
+}
 }

@@ -1,9 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { connect } from 'react-redux'
-import './allEvents.css'
-import DisplayEvent from '../displayEvent/displayEvent';
-import PreviousEvents from '../previousEvents/previousEvents';
-import CreateEvent from '../../events/createEvent/createEvent';
+import '../../allEvents/allEvents.css'
+import './allEventsInMobile.css'
+import DisplayEventInMobile from '../displayEventInMobile/displayEventInMobile';
+// import PreviousEvents from '../previousEvents/previousEvents';
+// import CreateEvent from '../../events/createEvent/createEvent';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
+import HorizontalScroll from 'react-scroll-horizontal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function mapStateToProps(state) {
@@ -20,7 +27,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
-export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
+export default connect(mapStateToProps, mapDispatchToProps)(function AllEventsInMobile(props) {
     const { events, mainColor, amountEventsInRow ,WatchPreviousEvents,sentBy} = props;
     console.log("sentBy  ",sentBy)
     console.log("amountEventsInRow  ", amountEventsInRow);
@@ -43,7 +50,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     function setFirstMonth(){
        
         thisMonth=thisMonth.getUTCMonth()+1;
-        document.getElementById(thisMonth).setAttribute('class', 'f_bt');
+        var monthBtn=document.getElementById(thisMonth);
+        monthBtn.style.activeKey="on"
+        document.getElementById(thisMonth).setAttribute('class', 'f_btMobile');
         thisMonth=thisMonth<10?"0"+thisMonth:thisMonth;
         setEventsByMonth(events.filter(item=>item.start.slice(5,7)==thisMonth)) 
         console.log(thisMonth," mmmm ")
@@ -59,32 +68,32 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
 
     function filterByMonth(e) {
         thisMonth=thisMonth.getUTCMonth()+1;
-        document.getElementById(thisMonth).setAttribute('class', 'allEventsBtns');
+        document.getElementById(thisMonth).setAttribute('class', 'allEventsBtnsInMobile');
         console.log("m " + e.target.value);
         var d, m, y;
         e1 = [];
         m = e.target.value;
-        document.getElementById(prevMonth).setAttribute('class', 'allEventsBtns');
+        document.getElementById(prevMonth).setAttribute('class', 'allEventsBtnsInMobile');
         if (m == "next" && prevMonth < 12) {
             console.log("pm" + prevMonth)
             m = prevMonth * 1 + 1;
             console.log("next " + document.getElementById(m).innerHTML);
-            document.getElementById(m).setAttribute('class', 'f_bt');
-            document.getElementById(m - 1).setAttribute('class', 'allEventsBtns');
+            document.getElementById(m).setAttribute('class', 'f_btMobile');
+            document.getElementById(m - 1).setAttribute('class', 'allEventsBtnsInMobile');
         }
         else if (m == "prev" && prevMonth > 0) {
             m = prevMonth - 1;
             console.log("prev" + document.getElementById(m).innerHTML);
             // document.querySelector('#'+m).classList.toggle('f_bt');
-            document.getElementById(m).setAttribute('class', 'f_bt');
-            document.getElementById(m + 1).setAttribute('class', 'allEventsBtns');
+            document.getElementById(m).setAttribute('class', 'f_btMobile');
+            document.getElementById(m + 1).setAttribute('class', 'allEventsBtnsInMobile');
 
-            console.log("the  " + document.getElementsByClassName('f_bt').innerHTML);
+            console.log("the  " + document.getElementsByClassName('f_btMobile').innerHTML);
 
         }
         else if ((m == "next" || m == "prev") && (prevMonth == 12 || prevMonth == 0)) {
             m = prevMonth;
-            document.getElementById(m).setAttribute('class', 'allEventsBtns');
+            document.getElementById(m).setAttribute('class', 'allEventsBtnsInMobile');
 
         }
 
@@ -118,17 +127,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
         <>
 
             <div class="container-fluid">
-                <div class="row AllEventTitle" ><p>our upcoming events</p></div>
-                <div ><button class="allEventsBtns" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
-                    {month.map((item, index) => <button value={index} id={index} class="allEventsBtns" onClick={filterByMonth}>{item}</button>)}
-                    <button class="allEventsBtns" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
-                <div class="row AEevents">
+                <div className="container horizontal-scrollable">
+                <div className="row theBtnsInMobile">
+                    {month.map((item, index) => <button value={index} id={index} class="allEventsBtnsInMobile" onClick={filterByMonth}>{item}</button>)}
+                   </div></div>
+                <div class="AEeventsMobile">
                     {/* {isAdmin==true?<div className={numCols} id="createEventArea">
                         <CreateEvent color={mainColor}></CreateEvent>
                     </div>:''} */}
-                    
+                    {/* <p>ddddddd</p> */}
 
-                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"2vw",paddingLeft:"2vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"3.5vw",paddingLeft:"3.5vw"}:{}} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
+                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div className="col-12 cardsInMobile"><DisplayEventInMobile index={index} currentEvent={item}></DisplayEventInMobile> </div>) : ''}
 
                 </div>
 

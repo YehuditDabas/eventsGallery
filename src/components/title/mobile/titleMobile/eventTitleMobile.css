@@ -1,0 +1,120 @@
+#root{
+    /* background-color: white; */
+}
+body{
+    background-color: white;
+}
+.myHeaderImgMobile{
+    opacity: 0.6;
+}
+.titleImgColorMobile{
+    padding: 0;
+}
+.titleAndDescriptionMobile{
+    position: absolute;
+    z-index: 2 !important;
+}
+.descriptionPMobile{
+    word-wrap: break-word;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    /* opacity: 1; */
+    /* font: normal normal 5vw/4vh Roboto; */
+    line-height: 3vh;
+    padding-left: 5vh;
+    padding-right: 5vw;
+    font-size: 5vw;
+}
+.titleH1Mobile{
+    word-wrap: break-word;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top:7vh;
+    /* font: normal normal bold 12vw/6vh Roboto; */
+    font-size: 12vw;
+    font-weight: 700;
+}
+.mylogoMobile{
+    height:4vh;
+    width:26vw;
+    z-index: 3!important;
+    position: absolute;
+    margin-top: 2vh;
+}
+.subscribeAreaMobile{
+    vertical-align:middle;
+    position: absolute;
+    margin-top: -3vh;
+    width:65vw;
+}
+.subscribeMobile{
+    border-radius: 35px;
+    width: 60vw;
+    height: 7vh;
+    background-color: var(--Button-color);
+    border:none;
+    /* font: normal normal 10vw/4vh Roboto; */
+    padding-bottom: 1vh;
+    padding-top: 0vh;
+    font-size: 10vw;
+    padding-bottom: 2vh;
+    font-weight: 600;
+}
+.dropDownMobile{
+    width: 78vw;
+    margin-left: -12vw;
+    /* margin-top: 61vh; */
+    /* background-color: #F0F2FA; */
+    /* padding: 2px; */
+    /* height: 23vh; */
+    float: left;
+}
+.formSubscribeMobile{
+    position: absolute;
+    z-index: 10;
+    /* margin-top: 33vh; */
+    width: 100vw;
+    float: left;
+    margin-left: -9vw;
+    background-color: white;
+    /* top: 38vh; */
+    bottom: -64vh;
+    box-shadow: 0px 3px 20px #00000033;
+    
+    
+    
+}
+.mobileInput {
+    width: 85vw !important;
+    height: 5vh;
+    border-radius: 35px;
+    margin-bottom: 1vh;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 6vw;
+    background: #f1f3f7  0% 0% no-repeat padding-box;
+border-radius: 30px;
+/* opacity: 0.13; */
+}
+#subscribeInsideMobile{
+    background-color: var(--Button-color);
+    /* margin-top: -4vh; */
+    height: 7vh;
+    width: 85vw !important;
+    border-radius: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    /* font: normal normal 9vw/4vh Roboto; */
+    padding-bottom: 1vh;
+    font-size: 9vw;
+    font-weight: 400;
+    line-height: 0vh;
+}
+.configuratorSettingsInMobile{
+    z-index: 15;
+    height:50vh;
+}

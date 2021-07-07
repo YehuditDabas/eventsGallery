@@ -7,11 +7,11 @@ import $ from 'jquery'
 import ReactPlayer from 'react-player'
 import Loader from './Loader'
 import upload from '../../assets/upload.png';
+import './UploadImg.css'
 
 function UploadImageFromConfigurator(props) {
 
     const changeImage = (e) => {
-     debugger;  
         props.setLoaderUploadShow(true,'image');
         const TokenToString = document.cookie && document.cookie.includes('devJwt')
             ? document.cookie
@@ -60,8 +60,8 @@ function UploadImageFromConfigurator(props) {
 
             <label htmlFor='file'>
 
-                <input type="file" name="file" accept="image/*"  id="file"
-                className="inputfile" onChange={changeImage} />
+                <input type="file" name="file" accept="image/*" id="file"
+                className="inputfile" onChange={changeImage}/>
 
                 {props.loaderupload ? 
                 <div style={{ width: '4vw', height: '30%', position: 'relative', bottom: '0vh', left: '0.5vw'}}>
@@ -69,21 +69,30 @@ function UploadImageFromConfigurator(props) {
                 </div>
                 :
                 currentImage && checkImg()===true?
-                <img className="myImg" src={currentImage} style={{ width: "13vw", height: "16vh" }} ></img>
+                
+                <>
+                <img className="UploadImg" src={currentImage} ></img>
+                <div className="UIiconDiv">
+                    <FontAwesomeIcon
+                        id='angle-right'
+                        className='iconCloudUpload'
+                        icon={['fas', 'cloud-upload-alt']}
+                    ></FontAwesomeIcon>
+                </div> 
+                </>
                 :
                 currentImage?
                <video src={currentImage}></video>
                 // <ReactPlayer width="13vw"
                 // height="16vh" className="video_or_picture" url={currentImage}  />
                 :
-                <>
-                <img className="iconUploadEvent" alt="image" src={upload} />
-                <p>Upload</p>
-                </>}
-                        
+                <div className="warpDivIconUpload">
+                <img className="UIiconUploadEvent" alt="image" src={upload} />
+                <p className="UIp">Upload</p>
+                </div>}
+
+                 
                 </label>
-             
-            
         </div >
     );
 }
@@ -98,7 +107,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    debugger;
     return {
 
         setLoaderUploadShow: (bool,imageOrLogo )=> dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),

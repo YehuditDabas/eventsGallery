@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { actionsStore } from '../../../redux/actions'
 import '../title/title.css'
 import './adminEventTitle.css'
+import $ from 'jquery'
 // import logo from '../assets/logo.jpg'
 import arrow from '../../../assets/Polygon 24@2x.png'
 import ReactPlayer from 'react-player'
@@ -23,6 +24,10 @@ import turquoise from '../../../assets/turquoise.png'
 import { subscribe } from '../../../redux/middlweare/crud'
 import AllEvents from '../../events/allEvents/allEvents'
 import FooterEventsGallery from '../../footer/footerEventsGallery';
+import UploadImageFromConfigurator from '../../Configurator/uploadImageFromConfigurator';
+import uploadIcon from '../../../assets/upload.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 function mapStateToProps(state) {
@@ -31,8 +36,11 @@ function mapStateToProps(state) {
     document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
 
+    // state.settings.settings.eventsButtonColor
+    // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
     return {
-        pageSettings: state.pageSettings.page,
+        site: state.site,
+        pagesettings: state.pageSettings.page,
         headersettings: state.editHeader.header,
         subscribesettings: state.editSubscription.subscribe,
         // (לחלק לכמה רדיוסרים)
@@ -41,12 +49,19 @@ function mapStateToProps(state) {
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)) },
-    changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) }
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); var height, len = e.length; height = Math.ceil(len / 15) * 11; height += "vh"; console.log("-- ", height, " --"); document.documentElement.style.setProperty('--title-height', height); },
+    changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) },
+    changeCurrentComponent: (e) => { dispatch(actionsStore.setCurrentComponent(e)) },
+    setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
+
+    changeImage: (url) => dispatch(actionsStore.setImage(url)),
+    setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
+    changeLogo: (url) => dispatch(actionsStore.setLogo(url))
+
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
-    const { pageSettings, headersettings, subscribesettings, changeTitleText, changeBodyText } = props;
+    const { pagesettings, headersettings, subscribesettings, changeTitleText, changeBodyText, changeCurrentComponent } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -57,6 +72,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
     const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
+    const [hoverImg, setHoverImg] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -82,6 +98,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     // const display = true;//ימלא נתונים בפרופס מהרידאקס אם מעונין שיציג כותרת
     // const [settings, setSettings] = useState({ eventsPageTitle: 'welcome to leader event', picteventsPageImageure: '', eventsPageDescription: 'Don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy Mission This Time. Seve…', amountEventsInRow: '3' });//ימלא נתונים מהפרופס מהרידאקס את ההגדרות..
     const [showing, setShowing] = useState(false);
+    const [uploadImg, setUploadImg] = useState(false);
     function beforeSubscribe() {
         const obj = {
             objEmail: email,
@@ -143,6 +160,96 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
         console.log(obj)
     }
+    function setHeightAndWidth() {
+        var myImg = new Image();
+        var size;
+        myImg.src = headersettings.eventsPageImageOrVideo;
+
+        console.log("@@" + myImg.width / myImg.height + "@@")
+        size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
+        size += "vw";
+        console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
+        console.log("@@" + size + "@@")
+        if (size == "NaNvw") { size = "30vw" }
+
+        document.documentElement.style.setProperty('--image-width', size);
+
+
+    }
+    const changeImage = (e) => {
+        props.setLoaderUploadShow(true, 'image');
+        const TokenToString = document.cookie && document.cookie.includes('devJwt')
+            ? document.cookie
+                .split(';')
+                .filter(s => s.includes('devJwt'))[0]
+                .split('=')
+                .pop()
+            : null
+        const userName = window.location.pathname.split('/')[1]
+        const file = e.target.files[0];
+        var myFile = new FormData();
+        myFile.append("file", file);
+
+        $.ajax({
+
+            type: "POST",
+            url: "https://files.codes/api/" + userName + "/upload",
+            headers: { Authorization: TokenToString },
+            data: myFile,
+            processData: false,
+            contentType: false,
+            success: (data) => {
+                // alert("upload success");
+
+                props.changeImage(data.data.url);
+
+            },
+            error: function (err) {
+                alert('please try again later');
+            },
+
+        });
+    }
+    const changeLogoImage = (e) => {
+        props.setLoaderUploadShow(true, "logo");
+        const TokenToString = document.cookie && document.cookie.includes('devJwt')
+            ? document.cookie
+                .split(';')
+                .filter(s => s.includes('devJwt'))[0]
+                .split('=')
+                .pop()
+            : null
+        const userName = window.location.pathname.split('/')[1]
+        const file = e.target.files[0];
+        var myFile = new FormData();
+
+        myFile.append("file", file);
+
+        $.ajax({
+
+            type: "POST",
+            url: "https://files.codes/api/" + userName + "/upload",
+            headers: { Authorization: TokenToString },
+            data: myFile,
+            processData: false,
+            contentType: false,
+            success: (data) => {
+                // alert("upload success");
+
+                props.changeLogo(data.data.url);
+
+            },
+            error: function (err) {
+                alert('please try again later');
+            },
+
+        });
+    }
+    useEffect(() => {
+        if (headersettings) {
+            setHeightAndWidth()
+        }
+    }, [headersettings])
     function checkImg() {
         if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
             return true;
@@ -150,121 +257,156 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             return false;
         }
     }
+    function changeToHeaderComponent() {
+        debugger
+        changeCurrentComponent('Edit Header')
+    }
+    function changeToPageSettingsComponent() {
+
+        changeCurrentComponent('Page Settings')
+    }
+
+    function setUpload() {
+        setUploadImg(!uploadImg)
+    }
     return (
         <>
-            {pageSettings.user !== '' ?
-                <>
-                    <div className="container-fluid adminEventTitle" >
+            <div className="container-fluid adminEventTitle" >
 
-                        <div className="row" style={{ height: "75vh" }}>
-                            <img className="myImg titleImgColor" src={img[pageSettings.eventsPageColor]}></img>
-                            <img className="mylogo" src={headersettings.eventsPageLogo}></img>
-                            <div className="col-3 adminTitleAndDescription">
-                                <textarea
-                                    className="adminEventTitletitleH1"
-                                    // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-                                    onChange={(e) => changeTitleText(e.target.value)}
-                                    value={headersettings.eventsPageTitle}
-                                    rows="3"
-                                    cols="14"
-                                    maxLength="40"
-                                    // style={{ textAlign: 'left' }}
-                                    placeholder={headersettings.eventsPageTitle}
-                                    onFocus={(e)=>e.target.select()}
-                                >{headersettings.eventsPageTitle}
-                                </textarea>
-                                <textarea
-                                    className="adminEventDescription"
-                                    // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-                                    onChange={(e) => changeBodyText(e.target.value)}
-                                    value={headersettings.eventsPageDescription}
-                                    rows="5"
-                                    cols="35"
-                                    maxLength="140"
-                                    // style={{ textAlign: 'left' }}
-                                    placeholder={headersettings.eventsPageTitle}
-                                    onFocus={(e)=>e.target.select()}
-                                >{headersettings.eventsPageTitle}
-                                </textarea>
+                <div className="row" style={{ height: "75vh" }}>
+                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
+                    <label htmlFor='file' className="adminLogoLabel">
+                        <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
+                        <div className="adminLogoIconDiv" onClick={changeToHeaderComponent}>
+                            <FontAwesomeIcon
+                                id='angle-right'
+                                className='iconCloudUpload uploadLogo'
+                                icon={['fas', 'cloud-upload-alt']}
+                            ></FontAwesomeIcon>
+                        </div>
+                    </label>
+                    <input type="file" name="file" accept="image/*" id="filelogo"
+                        className="adminInputfileLogo" onChange={changeLogoImage} />
+                    <div className="col-3 adminTitleAndDescription">
+                        <textarea
+                            className="adminEventTitletitleH1"
+                            // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                            onChange={(e) => changeTitleText(e.target.value)}
+                            onClick={changeToHeaderComponent}
+                            value={headersettings.eventsPageTitle}
+                            // rows="2"
+                            cols="14"
+                            maxLength="40"
+                            // style={{ textAlign: 'left' }}
+                            placeholder={headersettings.eventsPageTitle}
+                            onFocus={(e) => e.target.select()}
+                        >{headersettings.eventsPageTitle}
+                        </textarea>
+                        <textarea
+                            className="adminEventDescription"
+                            // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
+                            onChange={(e) => changeBodyText(e.target.value)}
+                            onClick={changeToHeaderComponent}
+                            value={headersettings.eventsPageDescription}
+                            rows="5"
+                            cols="35"
+                            maxLength="140"
+                            // style={{ textAlign: 'left' }}
+                            placeholder={headersettings.eventsPageTitle}
+                            onFocus={(e) => e.target.select()}
+                        >{headersettings.eventsPageTitle}
+                        </textarea>
+                    </div>
+                    <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
+                        <label htmlFor='file' className="adminImgLabel">
+                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}>
+                                {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
 
-
-                                {/* <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p> */}
-
-                            </div>
-                            <div className="adminImgOrVieo">
                                 {checkImg() === true ?
-                                    <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
+                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%" ></img>
                                     : <ReactPlayer width='100%'
-                                        height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                        height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                                 }
 
-                            </div>
-                            <div className="row">
-                                <div className="col-3 subscribeArea">
-
-                                    {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                                    <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
-
-                                    {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                                    {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
-                                        <div>
-                                            <img className="arrow_" src={arrow}></img>
-                                            <div className="dropDown">
-                                                <form className="formSubscribe">
-                                                    <br></br>
-                                                    {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
-                                                    {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                                    {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
-                                                    {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                                    {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                                    <span style={{ color: "red" }}>{errorsForm}</span>
-                                                    <br></br><br></br>
-                                                    <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
-
-
-                                                </form>
-
-                                            </div></div> :
-                                        <div></div>
-                                    }
-
-
-
+                                <div className="UIiconDivAdmin">
+                                    <FontAwesomeIcon
+                                        id='angle-right'
+                                        className='iconCloudUpload uploadImgAdmin'
+                                        icon={['fas', 'cloud-upload-alt']}
+                                    ></FontAwesomeIcon>
                                 </div>
-
                             </div>
+                        </label>
+                        <input type="file" name="file" accept="image/*" id="file"
+                            className="adminInputfile" onChange={changeImage}
+                            onClick={changeToHeaderComponent}
+                        />
+                    </div>
+                    <div className="row">
+                        <div className="col-3 subscribeArea">
+
+                            {/* <input type="text" value="subscribe" className="subscribe"></input> */}
+                            <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
+
+                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
+                                <div>
+                                    <img className="arrow_" src={arrow}></img>
+                                    <div className="dropDown">
+                                        <form className="formSubscribe">
+                                            <br></br>
+                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
+                                            {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                            {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                            {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                            {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                            <span style={{ color: "red" }}>{errorsForm}</span>
+                                            <br></br><br></br>
+                                            <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
+
+
+                                        </form>
+
+                                    </div></div> :
+                                <div></div>
+                            }
+
+
 
                         </div>
+
                     </div>
-                    <div className="container-fluid adminEvnetsUnderFilter">
-                        <div className="row">
-                            <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
-                        </div>
-                        <FooterEventsGallery />
-                    </div>
-                    <Modal
-                        show={show}
-                        onHide={handleClose}
-                        backdrop="static"
-                        keyboard={false}
-                    >
-                        {/* <Modal.Header closeButton>
+
+                </div>
+            </div>
+            <div className="container-fluid adminEvnetsUnderFilter">
+                <div className="row">
+                    <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
+                </div>
+                <FooterEventsGallery />
+            </div>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                {/* <Modal.Header closeButton>
                     <Modal.Title>Modal title</Modal.Title>
                 </Modal.Header> */}
-                        <Modal.Body>
-                            your deatails send success
-                        </Modal.Body>
-                        <Modal.Footer>
-                            {/* <Button >
+                <Modal.Body>
+                    your deatails send success
+                </Modal.Body>
+                <Modal.Footer>
+                    {/* <Button >
                         Close
                     </Button> */}
-                            <Button variant="secondary" onClick={handleClose} >Close</Button>
-                        </Modal.Footer>
-                    </Modal>
-                </>
-                : <div></div>}
+                    <Button variant="secondary" onClick={handleClose} >Close</Button>
+                </Modal.Footer>
+            </Modal>
         </>
+
+
     )
 
 })

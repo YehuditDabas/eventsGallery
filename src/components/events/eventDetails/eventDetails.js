@@ -189,7 +189,6 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
     const [showing, setShowing] = useState(false);
     async function beforeSubscribe() {
         setErrorsForm('')
-        debugger
         const obj = {
             email: email,
             name: name,

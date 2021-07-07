@@ -8,24 +8,11 @@ const initialState = {
 }
 
 const editFooter = {
-    initialEditSubscribtionConfiguration(state, action) {
-        //todo: 
-        // state.footer.facebook = action.payload.facebook;
-        // state.footer.facebookLink = action.payload.facebookLink;
-        // state.footer.footer.twitter = action.payload.twitter;
-        // state.footer.twitterLink = action.payload.twitterLink;
-        // state.footer.instagram = action.payload.instagram;
-        // state.footer.instagramLink = action.payload.instagramLink;
-        // state.footer.youtube = action.payload.youtube;
-        // state.footer.youtubeLink = action.payload.youtubeLink;
-
-    },
+   
     footerFields(state, action) {
-        debugger;
         state.footer[action.payload.filedName] = action.payload.value;
     },
     setFacebookLink(state, action) {
-    debugger;
         state.footer.facebookLink = action.payload;
     
     },
@@ -40,7 +27,7 @@ const editFooter = {
         state.footer.youtubeLink = action.payload;
     },
     addAllSettings(state, action) {
-   
+  
         state.footer.facebook = action.payload.settings.facebook;
         state.footer.facebookLink = action.payload.settings.facebookLink;
         state.footer.twitter = action.payload.settings.twitter;

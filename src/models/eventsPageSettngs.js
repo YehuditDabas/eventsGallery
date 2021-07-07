@@ -1,4 +1,5 @@
 import purple1 from './../assets/purple1.png';
+
 const EventsPageSettings={
     eventsPageColor:"#ad60ff",
     eventsButtonColor:"#51e7fb",

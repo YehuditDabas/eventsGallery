@@ -7,7 +7,7 @@ import { Card, Accordion } from 'react-bootstrap';
 import ConfiguratorSettings from './components/Configurator/ConfiguratorSettings'
 import showSettings from './assets/show.png';
 
-import HeaderLeader from '@leadercodes/header'
+// import HeaderLeader from '@leadercodes/header'
 
 
 import {

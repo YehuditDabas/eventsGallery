@@ -44,8 +44,9 @@ const mapDispatchToProps = (dispatch) => ({
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(props) {
-    const { PageSettings, headersettings, subscribesettings,message, subscribe, systemWave,setMessage } = props;
+    const { pagesettings, headersettings, subscribesettings, message, subscribe, systemWave, setMessage } = props;
     const [errorsForm, setErrorsForm] = useState('')
+    const [errorsEmail, setErrorsEmail] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
@@ -55,8 +56,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
     const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
-   
-    const handleClose = () => setShow(false);
+
+    const handleClose = () => {
+        setShow(false)
+        setMessage('')
+    };
     const handleShow = () => setShow(true);
     const img =
     {
@@ -114,13 +118,20 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             setErrorsForm(...errorsForm, 'adress')
 
         }
+
         if (valid === false) {
             setErrorsForm('Fill in all the details')
         }
         else {
-            let resSub = await props.subscribe(obj)
-            handleShow()
-            setShowing(false)
+            if (errorsEmail !== '') {
+                valid = false
+            }
+            else {
+                let resSub = await props.subscribe(obj)
+                handleShow()
+                setShowing(false)
+            }
+
 
         }
         setPlaceHolderEmail("email");
@@ -131,6 +142,18 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
         console.log(obj)
     }
+    function checkEmailValid(e) {
+        debugger
+        setEmail(e.target.value)
+        if (e.keyCode == 13) {
+            if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/.test(email)) {
+                setErrorsEmail('')
+            }
+            else {
+                setErrorsEmail('email not valid')
+            }
+        }
+    }
     function checkImg() {
         if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
             return true;
@@ -138,19 +161,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             return false;
         }
     }
+
     function setHeightAndWidth() {
-        // var myImg = document.querySelector("#ti")
         var myImg = new Image();
         var size;
-        myImg.src = img[PageSettings.eventsPageColor];
+        myImg.src = headersettings.eventsPageImageOrVideo;
         myImg.onload = function () {
-            size = myImg.width / myImg.height * 11;
+            size = myImg.width / myImg.height * 25;
             size += "vw";
             console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
             console.log("@@" + size + "@@")
             document.documentElement.style.setProperty('--image-width', size);
-
-
 
         }
     }
@@ -161,50 +182,46 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
-         {PageSettings.user !== '' ?
-         <>
+        {pagesettings.user !== '' ?
+
             <div className="container-fluid userEventsTitle" >
 
-                <div className="row" style={{height:"75vh"}}>
-                    <img className="myImg titleImgColor" src={img[PageSettings.eventsPageColor]}></img>
+                <div className="row" style={{ height: "75vh" }}>
+                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}></img>
 
                     <div className="row ">
 
-                        <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5 titleAndDescription">
-                            {/* <input type="text" value={headersettings.eventsPageTitle}
-                                onChange={(e) => props.changeTitleText(e.target.value)}
-                            ></input> */} 
+                        <div className="col-5 titleAndDescription">
+
                             <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        { <p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
+                            {<p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
 
                         </div>
+                        <div className="wrapImgOrVieo col-6 d-flex justify-content-center">
+                            <div className="imgOrVieo">
+                                {checkImg() === true ?
+                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
+                                    : <ReactPlayer width='100%'
+                                    height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                }
 
-                        <div className="col-xs-7 col-sm-7 col-md-7 col-lg-7 imgOrVieo">
-                            {checkImg() === true ?
-                                <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo}></img>
-                                : <ReactPlayer width='100%'
-                                    height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                            }
-
-                        </div>
+                            </div></div>
                     </div>
                     {isAdmin == false ?
                         <div className="row">
                             <div className="col-3 subscribeArea">
-                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
                                 <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
 
-                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                                {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
+                                {showing ?
                                     <div>
                                         <img className="arrow_" src={arrow}></img>
                                         <div className="dropDown">
                                             <form className="formSubscribe">
                                                 <br></br>
-                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress"); */}
                                                 {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail}onKeyDown={(e) => checkEmailValid(e)} onChange={(e) => checkEmailValid(e)}/> : <></>}
+                                                <span style={{ color: "red" }}>{errorsEmail}</span>
                                                 {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
                                                 {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
                                                 <span style={{ color: "red" }}>{errorsForm}</span>
@@ -225,8 +242,28 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                         </div> : ''}
 
                 </div>
+                {/* <div className="row imgTitleDetails">
+                    <img src={img[pagesettings.eventsPageColor]} height="100%" width="100%" style={{ padding: 0, borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}></img>
+                    <div className="col-7 eventDetailsTitle">
+                        <div className="eventTitle" > <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
 
-            </div>
+                            <div className="eventDetails">{<p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 picTitle"> {checkImg() === true ?
+                        <img id="imageInTitle" src={headersettings.eventsPageImageOrVideo} height="100%" width="100%"></img>
+                        : <ReactPlayer width='100%'
+                            height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                    }
+
+                    </div>
+                </div> */}
+
+
+
+            </div>:''}
+
             <div className="container-fluid evnetsUnderFilter">
                 <div className="row">
                     <AllEvents style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEvents>
@@ -255,8 +292,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                     <Button variant="secondary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
-        </>
-        :<div></div>}
         </>
     )
 

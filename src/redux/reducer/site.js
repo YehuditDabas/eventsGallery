@@ -4,6 +4,7 @@ import createReducer from './reducerUtils'
 // import localizations from "../../../localization/en.js";
 
 const initialState = {
+    
     isOpenConfigurator: true,
     thumbtack: false,
     currentComponent: '',
@@ -15,7 +16,7 @@ const initialState = {
      },
     // translations: new LocalizedStrings(localizations),
     lang: 'en',
-    channelName: 'MyChannelName'
+    // channelName: 'MyChannelName'
 }
 
 const site = {
@@ -25,7 +26,10 @@ const site = {
     setThumbtack(state, action) {
         state.thumbtack = action.payload
     },
-    setCurrentComponent(state, action) {
+    setCurrentComponent(state, action) 
+    
+    {
+        debugger
         state.currentComponent = action.payload;
     },
     setUserEmail(state, action) {

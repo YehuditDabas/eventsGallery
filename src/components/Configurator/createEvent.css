@@ -1,0 +1,48 @@
+
+.createNewFormLabel{ 
+  font-size: 1vw !important;
+}  
+.inputEvent{
+    background: #505066 0% 0% no-repeat padding-box;
+    opacity: 0.30;
+    display: inline-block;
+    /* height: 5vh; */
+         width: 13vw; 
+        margin: auto;
+       color: white;
+       margin-bottom: 2vh;
+       margin-top: -1vh;
+       direction: ltr;
+       border: none;
+       margin-top: 1vh;
+}
+@media (min-width:1440px) {
+    .inputEvent{
+          width: 14vw; 
+    }
+  
+}
+
+@media (min-width:3480px) {
+    .inputEvent{
+          height: 2vh; 
+    }
+  
+}
+@media (min-width:1920px) and(max-width:3480px){
+    .inputEvent{
+         height: 3vh;
+    }
+  
+}
+
+
+
+.divrow1{
+   
+    margin-left: -1.5vw;
+}
+.divrow2{
+   
+    margin-left: -0.5vw;
+}

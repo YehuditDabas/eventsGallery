@@ -8,11 +8,7 @@ import { connect } from 'react-redux';
 import UploadImageFromConfigurator from './uploadImageFromConfigurator';
 import UploadLogoFromConfigurator from './upLoadLogoFormConfigurator'
 import './ConfigComp.css';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-
-
+import './EditHeader.css'
 
 function EditHeader(props) {
     const {headersettings}= props;
@@ -25,25 +21,17 @@ function EditHeader(props) {
 
     return (
         <div >
-
             <div>
-                <FormGroup className="d-flex justify-content-between">
-                    <FormControlLabel className="d-flex justify-content-between labelToggle"
-                        control={<Switch name="name" />}
-                        label="Header"
-                    // style={{ marginLeft: "1.5vw", fontSize:"0.9rem !importnat" }}
-                    />
-
-                </FormGroup>
+                
                 <div className="mt-2 container-fluid ">
-                    <div className="row  mt-1 mb-3">
+                    <div className="row  mt-4 mb-4 mt-2">
                         {/* titlesettings */}
                         <div className="col-5 one ">
                             {/* <Form.Label className="textField"><b>Alignment</b></Form.Label> */}
                             <span className="AlignmentSpan">Alignment</span>
                         </div>
 
-                        <div className=" col-7 warpDivalignment ">
+                      <div className=" col-7 warpDivalignment  ">
 
                             <div className=" d-flex justify-content-start align-items-center  p-1  EditHeaderAlingment">
                                 <FontAwesomeIcon
@@ -72,23 +60,23 @@ function EditHeader(props) {
                         </div>
                     </div>
                 </div>
-
-                <div >
+              
+ <div >
                     <div className="row ml-1 ">
                         <span className="SpanSettings mb-1">Upload Video/Image </span>
-                    </div>
-                    <UploadImageFromConfigurator />
+                    </div>             
+                    <UploadImageFromConfigurator  />
                 </div>
 
                 <div>
                     <div className="row ml-1">
                         <span className="SpanSettings  mb-1">Logo </span>
-
+                        
                     </div>
-                    <UploadLogoFromConfigurator />
+                     <UploadLogoFromConfigurator />      
                 </div>
-
-
+  
+               
 
                 <div className="row ml-1">
                     <span className="SpanSettings">Title Text </span>
@@ -103,10 +91,10 @@ function EditHeader(props) {
                             rows="1"
                             maxLength="50"
                             style={{ textAlign: alignment }}
-                            placeholder="Welcome to&#13;&#10;your Events Gallary page"
+                            placeholder={props.editHeader.eventsPageTitle}
                         />
                     </div>
-                </div>
+                    </div>
             </div>
 
             <div >
@@ -115,25 +103,22 @@ function EditHeader(props) {
                         <span className="SpanSettings">Body Text </span>
                     </div>
                     <div className="row ml-1 mb-3 mr-1">
-                        <div className="col">
-                            <textarea
-                                className="divWidth configuratorTextarea"
-                                onKeyPress={(e) => { e.key == 'Enter' && (e.target.value.match(/\n/g) || []).length == 2 && e.preventDefault() }}
-                                onChange={(e) => props.changeBodyText(e.target.value)}
-                                // onChange={(e) => props.onChangeEventsGalleryDescription(e.target.value)}
-                                value={props.editHeader.eventsPageDescription}
-                                rows="1"
-                                maxLength="250"
-                                style={{ textAlign: alignment }}
-                                placeholder="don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy&#13;&#10;Mission This Time. Seve…"
+                    <div className="col">
+                        <textarea
+                            className="divWidth configuratorTextarea"
+                            onKeyPress={(e) => { e.key == 'Enter' && (e.target.value.match(/\n/g) || []).length == 2 && e.preventDefault() }}
+                            onChange={(e) => props.changeBodyText(e.target.value)}
+                            // onChange={(e) => props.onChangeEventsGalleryDescription(e.target.value)}
+                            value={props.editHeader.eventsPageDescription}
+                            rows="1"
+                            maxLength="250"
+                            style={{ textAlign: alignment }}
+                            placeholder={props.editHeader.eventsPageDescription}
 
-                            />
-                        </div>
+                        />
                     </div>
+                  </div>
                 </div>
-
-
-
 
             </div>
         </div>
@@ -142,7 +127,7 @@ function EditHeader(props) {
 const mapStateToProps = (state) => {
 
     return {
-        editHeader: state.editHeader
+        editHeader: state.editHeader.header,
 
     }
 }

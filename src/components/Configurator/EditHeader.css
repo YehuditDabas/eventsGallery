@@ -1,0 +1,353 @@
+.ImgEditHeaderStyle{
+    width: 35px; height: 25px; border: 0px ;
+}
+.EditHeaderAlingment{
+    display: inline;
+    border-radius: 2px;
+    margin: 0.1vw;
+    color: white !important;
+    width: 1.7vw;
+    height: 4vh ;
+    background: #505066 0% 0% no-repeat padding-box;
+}
+
+
+.configuratorTextarea {
+    border: none;
+    resize: none !important;
+    background: #505066 0% 0% no-repeat padding-box;
+    height: 8vh;
+    text-align: left;
+    width: 13vw;
+    margin-left:1.5vw;
+}
+
+    
+.warpDivalignment{
+    display: flex;
+    margin-left: 7vw;
+    margin-top: -2.5vh !important;
+    }
+    .IconColor{
+        color: white;
+        width: 4vh !important;
+        height: 1vw ;
+    }
+    
+    .BoldIconColor{
+       color: #9653FF;
+       width: 4vh !important;
+        height: 1vw ;
+}
+
+
+.AlignmentSpan{
+    margin-left: -2vw; 
+  /* font: normal normal 1.2vw/0vh Roboto;  */
+  font-size:1vw;
+}
+
+.SpanSettings{
+    font-size:1vw;
+    margin-left: 1.5vw;
+}
+.titleSettings{
+    margin-left: 1.5vw;
+    font: normal normal 1.2vw/0vh Roboto;
+    font-family: -webkit-pictograph;
+}
+
+/* --------------------------------------------------------------- */
+
+
+label {
+    margin-top: 0 !important;
+}
+
+.textField {
+    margin-top: 7px!important;
+    /* margin-right: 3px!important; */
+}
+.ChannelColorIcn{
+     color: #959595;
+     cursor: pointer;
+     font-size: 20px;
+}
+.ShowConfiguratorWith{
+    width: 99% !important;
+}
+
+
+.configuratorTextarea {
+    border: none;
+    resize: none !important;
+    background: #505066 0% 0% no-repeat padding-box;
+    height: 8vh;
+    text-align: left;
+    width: 13vw;
+    margin-left:1.5vw;
+}
+.LogoChnnel{
+    margin-top: 10px;
+}
+
+.inputFileInUploadDiv {
+    size: 300px;
+}
+
+.inputfilelogin {
+    width: 1px;
+    height:  1px;
+    opacity: 1;
+     overflow:hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/* PICKER */
+/* element.style {
+    width: 200px;
+    background: #0000(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+     box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px; 
+    border-radius: 4px;
+    position: relative;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+
+.inputfile {
+
+    width:  0.1px;
+    height: 0.1px;
+    opacity: 0;
+     overflow: hidden; 
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile+label {
+    cursor: pointer;
+}
+
+.divOnHover .divUploadImage {
+    display: block;
+}
+
+/* .divUploadImage {
+    height: auto;
+    width: 100%;
+    margin-top: 15px;
+} */
+
+.iconDiv {
+    width: 13vw;
+    margin-top: 9vh;
+    height: 4vh;
+    background:  0% 0% no-repeat padding-box;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    color: #cccccc;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    /* opacity: 0; */
+    padding: 1vw
+}
+
+.iconDiv:hover {
+    opacity: 1;
+}
+
+
+.iconCloudUpload {
+    position: absolute;
+    /* bottom: 7px;
+    left: 7px; */
+}
+/* PICKER */
+
+
+
+.MuiSwitch-colorSecondary.Mui-checked+.MuiSwitch-track {
+    background-color: #e1caf3 !important;
+}
+
+
+
+.MuiFormLabel-root {
+    /* font-size: small !important; */
+    /* padding-left: 20px; */
+    color: white !important;
+    font-size: 0.9rem;
+}
+
+.MuiFormGroup-root {
+    direction: rtl;
+    display: grid !important;
+    /* padding-left: 5px; */
+}
+
+.accordion>.card>.card-header {
+
+    background-color: #0A102E;
+    color: #FFFFFF;
+    text-align: left;
+/* font: normal normal bold 18px/24px Nunito Sans; */  
+}
+ .accordion>.card>.card-header:hover{
+   
+    background: transparent linear-gradient( 
+        115deg , #FFFFFF -200%, #006C8000 100%) 0% 18% no-repeat padding-box;
+    color: white !important;
+ }
+
+.accordion>.card>.card-header:hover.cardName{
+    opacity: 0; 
+}
+
+
+.MuiFormControl-root {
+    margin: 1rem !important;
+}
+
+
+.github-picker>span{
+    margin:3px;
+    /* width: 10%;
+   height: 10%; */
+}
+.github-picker>span>div{
+    width: 16px !important;
+    height: 16px !important;
+}
+.SelectChanel{
+    height: 4vh;
+    /* margin-left: 9vw; */
+    margin-left: 1.5vw;
+    width: 3vw;
+    /* background-color: #F0F0F0;  */
+    background: #505066 0% 0% no-repeat padding-box;
+    color:white;
+}
+.ChnnelSettingsColor{
+    background-color: #F0F0F0;
+}
+.card {
+    width: 100% !important;
+}
+.ChannelColorwidth{
+    width: 13vw !important;
+   
+}
+.MuiFormControlLabel-root {
+    /* margin-left: 0px !important; */
+    margin-right: 0px !important;
+}
+.FormControlW{
+    width: 100%;
+    margin-left: 1vw;
+    color:white;
+}
+.marginTop{
+    margin-top: -12px;
+}
+.MuiFormControl-root{
+    margin-left: 0px !important;
+}
+Form.Label{
+    font:normal;
+}
+.iconSize{
+     width:3vw !important;
+     height: 3vh;
+}
+
+::placeholder{
+    color: white;
+    font-weight: lighter;
+}
+.iconFooter{
+    display:flex;
+    /* margin-left: 1vh; */
+    
+}
+.MuiTypography-body1 {
+    margin-top: -2vh;
+    /* position: absolute;
+    margin-right: 9vw;
+    font-size: 0.8rem !important; */
+}
+#firstLabel{
+    z-index: 11;
+    position: absolute;
+    margin-right: 8vw;
+}
+.colorSelected{
+   
+    border: 2px solid #FFFFFF;
+    opacity: 1;
+}
+.iii{
+    margin: auto;
+    width: 90%;
+}
+
+
+.one{
+    /* display: inline; */
+    margin-left: 2vw;
+}
+
+
+
+.divUploadImage{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 0.46;
+    width: 13vw;
+    height: 16vh;
+    margin-left: 1.5vw;
+}
+
+.showinpageRow{
+font-size: smaller;
+    margin-left: 0vw;
+    margin-bottom: 1vh;
+}
+
+.labelToggle{
+    margin-left: 1.5vw !important;
+    font-size: 0.9rem !important;
+}
+
+.iconUploadEvent{
+    cursor: pointer;
+    position: absolute;
+    bottom: 17%;
+    left: 34%;
+}
+/* -------------------------------------------------------------------- */
+
+@media(min-width:1440px){
+    .EditHeaderAlingment{
+          height:3vh;
+     }
+   .divUploadImage{
+     height: 13vh !important;
+     }  
+ }
+ 
+@media(max-width:1920px){
+    .warpDivalignment{
+       margin-top: -2.5vh !important;
+   }
+}
+@media (min-width:1280px)and (max-width:1280px){
+   .EditHeaderAlingment{
+       height:3vh;
+  }
+}

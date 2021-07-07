@@ -1,0 +1,121 @@
+@media(min-width:1336px)and (max-width:1336px)
+{
+    .UploadImg{
+        width: 13vw;
+        height: 16vh;
+        }
+}
+.UploadImg{
+    width: 13vw;
+    height: 13vh;
+    }
+
+.inputfile {
+        width:  0.1px;
+        height: 0.1px;
+        opacity: 0;
+         overflow: hidden; 
+        position: absolute;
+        z-index: -1;
+    }
+
+.inputfile+label {
+        cursor: pointer;
+}
+
+
+.divOnHover {
+    position: relative;
+    margin: 1%;
+    top:5px;  
+    /* background-color:#E8EAEC; */
+ }
+
+.divOnHover .divUploadImage {
+    display: block;
+}
+.divOnHover.divUploadLogo{
+    display: block;
+}
+
+.UIiconDiv {
+    width: 13vw;
+    height: 13vh;
+    background-color: rgba(196, 183, 183, 0.6);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+     /* color: #cccccc; */
+    padding: 1vw;
+    opacity: 0;
+
+}
+.ULiconDiv {
+    width: 13vw;
+    height: 9vh;
+    background-color: rgba(196, 183, 183, 0.6);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+   
+    padding: 1vw;
+    opacity: 0;
+
+}
+
+ .ULiconDiv:hover {
+     opacity: 1;
+} 
+.UIiconDiv:hover {
+    opacity: 1;
+} 
+
+.uploadLogoImage{
+    width: 13vw;
+    height: 7vh;
+}
+
+.iconCloudUpload {
+    position: absolute;
+     bottom: 1vh;
+}
+.UIiconUploadEvent{
+    cursor: pointer;
+    position: absolute;   
+     margin-left: -2vw;
+     margin-top: -5vh;
+     width: 4vw;
+ 
+}
+.warpDivIconUpload{
+    
+    display: flex;
+    /* flex-direction:column-reverse; */
+    justify-content:space-between;
+}
+.UIp{
+    margin-left: -2.4vw;
+    position: absolute;
+    color: gray;
+    margin-top: 2vh;
+    font-size: 2.5vh;
+}
+
+.divUploadImage{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 0.46;
+    width: 13vw;
+    height: 13vh;
+    margin-left: 1.5vw;
+}
+.divUploadLogo{
+    background: #505066 0% 0% no-repeat padding-box;   
+    border-radius: 2px;
+    opacity: 0.46;
+    width: 13vw;
+    height: 9vh;
+    margin-left: 1.5vw;
+}

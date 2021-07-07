@@ -9,12 +9,16 @@ import AdminEventTitle from '../components/title/adminTitle/adminEventTitle';
 import ConfiguratorSettings from '../components/Configurator/ConfiguratorSettings'
 import TitleEvents from '../components/title/title/titleEvents';
 import showSettings from '../assets/show.png';
+import EventTitleMobile from '../components/title/mobile/titleMobile/eventTitleMobile'
+import { useMediaQuery } from 'react-responsive';
+
 
 import EventDetailsMobile from '../components/events/mobile/eventDetailsMobile/eventDetailsMobile'
 
 export default function AppRouter() {
   const [show, setShow] = useState(false);
-
+  const isMobile = useMediaQuery({ query: `(max-width: 620px)` });
+  console.log("isMobile  ", isMobile);
   function showConfig() {
     show ? document.documentElement.style.setProperty('--float-button', '0%') : document.documentElement.style.setProperty('--float-button', '16.8%')
   }
@@ -27,18 +31,21 @@ export default function AppRouter() {
         <ConfiguratorSettings />
         <AdminEventTitle style={{ zIndex: 3 }}></AdminEventTitle>
       </Route> */}
-      <Route exact path="/:userName">
-        <button onClick={() => { setShow(!show); showConfig() }} className="showSettingsBtn"><img src={showSettings} height="20vh" width="30vw"></img></button>
-        {show == true ? < ConfiguratorSettings /> : ''}
-        {show == true ?
-          <AdminEventTitle style={{ zIndex: 3 }}></AdminEventTitle> : ''}
-        {show == false ? <TitleEvents style={{ zIndex: 3 }}></TitleEvents> : ''}
 
-        {/* <FooterEventsGallery /> */}
+      <Route exact path="/:userName">
+        {isMobile == true ?
+          <EventTitleMobile />
+          : <><button onClick={() => { setShow(!show); showConfig() }} className="showSettingsBtn"><img src={showSettings} height="20vh" width="30vw"></img></button>
+            {show == true ? < ConfiguratorSettings /> : ''}
+            {show == true ?
+              <AdminEventTitle style={{ zIndex: 3 }}></AdminEventTitle> : ''}
+            {show == false ? <TitleEvents style={{ zIndex: 3 }}></TitleEvents> : ''}</>}
+
       </Route>
       <Route path="/:userName/eventDetails/:index">
-        <EventDetailsMobile />
-        {/* <EventDetails /> */}
+        {isMobile == true ?
+          <EventDetailsMobile /> :<EventDetails />}
+
       </Route>
     </Router>
   )
