@@ -16,7 +16,11 @@
     padding: 0px !important;
 }
 .horizontal-scrollable > .row {
+<<<<<<< HEAD
     background-color:white;
+=======
+    background-color: white;
+>>>>>>> 2f36e7d048862c332f2996a32fccf6dee2b30cf9
     overflow-x: auto;
     white-space: nowrap;
     display: inline-block;
