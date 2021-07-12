@@ -1,20 +1,18 @@
 import axios from 'axios'
-
-const API_URL = 'https://events.calendar.dev.leader.codes/api'
+import keys from './env/keys';
 
 function getJwtFromCookie() {
-    return document.cookie && document.cookie.includes('devJwt')
+    return document.cookie && document.cookie.includes( keys.JWT)
         ? document.cookie
             .split(';')
-            .filter(s => s.includes('devJwt'))[0]
+            .filter(s => s.includes(keys.JWT))[0]
             .split('=')
             .pop()
         : null
-
 }
 const userName = window.location.pathname.split('/')[1]
 let Http = axios.create({
-    baseURL: `${API_URL}/${userName}`,
+    baseURL: `${keys.API_URL}/${userName}`,
     credentials: 'include',
 
     headers: {

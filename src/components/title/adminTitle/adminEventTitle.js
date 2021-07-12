@@ -49,7 +49,7 @@ function mapStateToProps(state) {
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); var height, len = e.length; height = Math.ceil(len / 15) * 11; height += "vh"; console.log("-- ", height, " --"); document.documentElement.style.setProperty('--title-height', height); },
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); },
     changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) },
     changeCurrentComponent: (e) => { dispatch(actionsStore.setCurrentComponent(e)) },
     setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
@@ -246,6 +246,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     useEffect(() => {
         if (headersettings) {
             setHeightAndWidth()
+            setFontsize()
         }
     }, [headersettings])
     function checkImg() {
@@ -266,6 +267,29 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
     function setUpload() {
         setUploadImg(!uploadImg)
+    }
+    function setFontsize() {
+        debugger
+        var height, len = headersettings.eventsPageTitle.length;
+        height = Math.ceil(len / 15) * 7;
+        if (height < 25) {
+            height += "vh";
+            console.log("-- ", height, " --");
+            document.documentElement.style.setProperty('--title-height', height);
+        }
+        let textLength = headersettings.eventsPageTitle.length
+        let textSize = 5
+        const baseSize = 8
+        if (Math.ceil(len / 15) >= 2) {
+            textSize = textSize - 1;
+            if (Math.ceil(len / 15) >= 3) {
+                textSize = textSize - 1
+                if (Math.ceil(len / 15) >= 4) {
+                    textSize = textSize - 1
+                }
+            }
+        }
+        document.documentElement.style.setProperty('--font-size-title-admin', `${textSize}vw`);
     }
     return (
         <>
@@ -293,8 +317,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             onClick={changeToHeaderComponent}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
-                            cols="14"
-                            maxLength="40"
+                            // size="14"
+
+                            maxLength="90"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
                             onFocus={(e) => e.target.select()}

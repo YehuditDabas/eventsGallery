@@ -82,7 +82,7 @@ background: var(--button-color) 0% 0% no-repeat padding-box;
 border-radius: 30px;
 font-size: 3vh;
 letter-spacing: 2px;
-color: var(--main-color);
+/* color: var(--main-color); */
 text-transform: uppercase;
 opacity: 1;
   border: none !important;
@@ -117,4 +117,20 @@ opacity: 1;
   color: white;
   text-align: center;
   font-size: 3vh;
+}
+.shareDMobile{
+  position: absolute;
+  width: 10vw;
+  z-index: 9;
+  color: white;
+  top: 8%;
+  right: 2%;
+}
+.heardDMobile{
+  position: absolute;
+  width: 10vw;
+  z-index: 9;
+  color: white;
+  top: 8%;
+  right: 9%;
 }

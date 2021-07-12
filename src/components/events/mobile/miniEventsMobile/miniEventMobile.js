@@ -17,11 +17,11 @@ export default function MiniEventMobile(props) {
                     <img src={img} className="imgMiniEvent" />
                 </div>
                 <div className="miniEventDescription">
-                    <div className="container">
+                    <div className="container mm">
                         <div className="row">
                             <br></br>
                             <div >
-                                <span className="col-sm-12 miniEventTitle" >{title}</span>
+                                <span className="col-sm-12 miniEventTitleMobile" >{title}</span>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 :root{
     --title-height:14vh;
+    --font-size-title-admin:8vh;
 }
 body {
     background-color: rgb(232, 234, 236);
@@ -130,12 +131,13 @@ background-color: rgba(196, 183, 183, 0.6);
     padding:0 !important;
 }
 .adminEventTitletitleH1{
-    /* width:40vw; */
+    min-height: 12vh;
+    width:36vw;
     word-wrap: break-word;
     border: none;
     word-wrap: break-word;
     text-align: var(--align-text);
-    font: normal normal bold 5vw/7vh Roboto;
+    font-size: var(--font-size-title-admin);
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
@@ -149,7 +151,7 @@ background-color: rgba(196, 183, 183, 0.6);
     /* padding-top: 3vh; */
     /* padding-bottom:1vh; */
     word-wrap: break-word;
-    line-height: 9vh !important;
+    line-height: 7vh !important;
 
 }
 .adminEventTitletitleH1:hover{
