@@ -1,5 +1,5 @@
 
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import { Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { actionsStore } from '../../redux/actions';
@@ -24,7 +24,6 @@ function PageSettings(props) {
         
 
     function addcss(myColor) {
-        debugger;
       setCurrentColor(myColor)
      const index= color.indexOf(myColor)
      $(color).addClass('bg');

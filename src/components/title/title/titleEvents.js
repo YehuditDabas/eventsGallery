@@ -29,7 +29,7 @@ function mapStateToProps(state) {
     document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
     return {
-        PageSettings: state.pageSettings.page,
+        pagesettings: state.pageSettings.page,
         headersettings: state.editHeader.header,
         subscribesettings: state.editSubscription.subscribe,
         message: state.allEvents.message,
@@ -83,7 +83,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     const [showing, setShowing] = useState(false);
     async function beforeSubscribe() {
         setErrorsForm('')
-        debugger
+        
         const obj = {
             email: email,
             name: name,
@@ -143,7 +143,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         console.log(obj)
     }
     function checkEmailValid(e) {
-        debugger
+        
         setEmail(e.target.value)
         if (e.keyCode == 13) {
             if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/.test(email)) {
@@ -155,7 +155,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         }
     }
     function checkImg() {
-        if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
+        let  x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+
+        if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
             return true;
         } else {
             return false;

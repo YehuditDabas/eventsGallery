@@ -251,14 +251,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         }
     }, [headersettings])
     function checkImg() {
-        if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
+       let  x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+       
+
+        if ( x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
             return true;
         } else {
             return false;
         }
     }
     function changeToHeaderComponent() {
-        debugger
         changeCurrentComponent('Edit Header')
     }
     function changeToPageSettingsComponent() {
@@ -346,7 +348,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                         <div className="col-3 subscribeArea">
 
                             {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                            <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
+                            <button type="button" className="adminSubscribe subscribe" onClick={() => {  setShowing(!showing) }}>subscribe</button>
 
                             {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
                             {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?

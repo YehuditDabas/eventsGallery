@@ -29,7 +29,7 @@ const site = {
     setCurrentComponent(state, action) 
     
     {
-        debugger
+        
         state.currentComponent = action.payload;
     },
     setUserEmail(state, action) {
