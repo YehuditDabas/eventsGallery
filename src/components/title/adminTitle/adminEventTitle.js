@@ -317,7 +317,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             cols="35"
                             maxLength="140"
                             // style={{ textAlign: 'left' }}
-                            placeholder={headersettings.eventsPageTitle}
+                            placeholder={headersettings.eventsPageDescription}
                             onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
