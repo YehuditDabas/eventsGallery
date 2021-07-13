@@ -4,7 +4,7 @@ import './allEvents.css'
 import DisplayEvent from '../displayEvent/displayEvent';
 import PreviousEvents from '../previousEvents/previousEvents';
 import CreateEvent from '../../events/createEvent/createEvent';
-import {actionsStore} from '../../../redux/actions'
+
 
 function mapStateToProps(state) {
     var year=new Date();
@@ -18,10 +18,10 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = (dispatch) => ({
-    addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
+    // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(props) {
-    const { events, mainColor, amountEventsInRow ,WatchPreviousEvents,addAllEvents,sentBy} = props;
+    const { events, mainColor, amountEventsInRow ,WatchPreviousEvents,sentBy} = props;
     console.log("sentBy  ",sentBy)
     console.log("amountEventsInRow  ", amountEventsInRow);
     document.documentElement.style.setProperty('--main-color', mainColor);
@@ -105,7 +105,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
 
         if (!eventsByMonth) { console.log("אין אירועים"); }
         if (m >= 0 || m <= 12) { setPrevMonth(m); }
-        addAllEvents(eventsByMonth)
     }
 
 
@@ -118,18 +117,18 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     return (
         <>
 
-            <div class="container-fluid">
+            <div class="container-fluid allTheEvents">
                 <div class="row AllEventTitle" ><p>our upcoming events</p></div>
-                <div ><button class="allEventsBtns" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
+                <div class="row" style={{width:" 100%",marginLeft: "auto"}}><button class="allEventsBtns prevBtn" value="prev"  onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="allEventsBtns" onClick={filterByMonth}>{item}</button>)}
                     <button class="allEventsBtns" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row AEevents">
-                    {isAdmin==true?<div className={numCols} id="createEventArea">
+                    {/* {isAdmin==true?<div className={numCols} id="createEventArea">
                         <CreateEvent color={mainColor}></CreateEvent>
-                    </div>:''}
+                    </div>:''} */}
                     
 
-                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"2vw",paddingLeft:"2vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"3.5vw",paddingLeft:"3.5vw"}:{}} ><DisplayEvent index={index} currentEvent={item} eventsByMonth={eventsByMonth}></DisplayEvent> </div>) : ''}
+                    {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"1vw",paddingLeft:"1vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"1.3vw",paddingLeft:"1.3vw"}:{}} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
 
                 </div>
 

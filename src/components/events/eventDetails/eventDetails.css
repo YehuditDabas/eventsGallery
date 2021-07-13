@@ -19,29 +19,33 @@ body{
     height:60vh;
   padding:0;
   position: absolute;
+  margin-top: 10vh;
+    margin-left: 9vw;
 }
 .eventTitle{
-position:absolute;
-/* top:12%; */
-margin-top:8%;
-left:1%;
-font-size:15vh;
-font-size: 6vw;
-width:70%;
-height:10vh;
-text-align: left;
-letter-spacing: 0px;
-color: #FFFFFF;
-opacity: 1;
-margin-left:10%;
+    /* position: absolute; */ 
+    /* top: 12%; */
+    /* margin-top: 8%; */
+    font-weight: 600;
+    left: 1%;
+    font-size: 15vh;
+    font-size: 6vw;
+    width: 70%;
+    /* height: 25vh; */
+    text-align: left;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    /* margin-left: 10%;*/
 
 }
 .eventDetails{
-font-size: 3vw;
+font-size: 2.5vw;
 /* font-size: 5vh; */
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
+font-weight: 300;
 }
 .eventDetailsDescription{
     top: 909px;
@@ -67,7 +71,7 @@ font: var(--unnamed-font-style-normal) normal normal 45px/54px var(--unnamed-fon
 letter-spacing: var(--unnamed-character-spacing-0);
 color: var(--unnamed-color-0a102e);
 text-align: left;
-font: normal normal normal  Roboto;
+/* font: normal normal normal  Roboto; */
 /* font-size: 4vh; */
 font-size: 4vw;
 letter-spacing: 0px;
@@ -96,21 +100,24 @@ text-align: left;
 }
 .time{
     text-align: left;
-    font: normal normal 300 2vw Roboto;
+    /* font: normal normal 300 2vw Roboto; */
     letter-spacing: 0px;
     color: #0A102E;
     text-transform: uppercase;
     opacity: 1;
+    font-size:1.6vw;
 }
 .timeText{
-    font:normal normal 300 2vw Roboto;
+    /* font:normal normal 300 2vw Roboto; */
+    font-size: 1.6vw;
 }
 .priceText{
     text-align: left;
-    font: normal normal 300 2vw Roboto;
+    /* font: normal normal 300 2vw Roboto; */
     letter-spacing: 0px;
     color: var(--main-color);
     opacity: 1;
+    font-size: 2vw;
 }
 .ticketsButton{
     width: 40%;
@@ -162,4 +169,8 @@ width:4vw;
     width:var(--image-width);
     padding: 0;
     margin-top:6%;
+}
+.subscribeInEventPage{
+    position: relative;
+    margin-top: 3vh;
 }

@@ -83,7 +83,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     const [showing, setShowing] = useState(false);
     async function beforeSubscribe() {
         setErrorsForm('')
-        debugger
         const obj = {
             email: email,
             name: name,
@@ -143,7 +142,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         console.log(obj)
     }
     function checkEmailValid(e) {
-        debugger
+        
         setEmail(e.target.value)
         if (e.keyCode == 13) {
             if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/.test(email)) {
@@ -182,6 +181,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
+        {pagesettings.user !== '' ?
+
             <div className="container-fluid userEventsTitle" >
 
                 <div className="row" style={{ height: "75vh" }}>
@@ -194,20 +195,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                             <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
                             {<p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
-
-                        </div>
-                        <div className="wrapImgOrVieo col-6 d-flex justify-content-center">
-                            <div className="imgOrVieo">
-                                {checkImg() === true ?
-                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
-                                    : <ReactPlayer width='100%'
-                                         className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                                }
-
-                            </div></div>
-                    </div>
-                    {isAdmin == false ?
-                        <div className="row">
+                            <div className="row">
                             <div className="col-3 subscribeArea">
                                 <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
 
@@ -237,7 +225,21 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                             </div>
 
-                        </div> : ''}
+                        </div> 
+
+                        </div>
+                        <div className="wrapImgOrVieo col-6 d-flex justify-content-center">
+                            <div className="imgOrVieo">
+                                {checkImg() === true ?
+                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
+                                    : <ReactPlayer width='100%'
+                                    height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                }
+
+                            </div></div>
+                    </div>
+                 
+                        
 
                 </div>
                 {/* <div className="row imgTitleDetails">
@@ -260,9 +262,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
 
 
-            </div>
+            </div>:''}
+
             <div className="container-fluid evnetsUnderFilter">
-                <div className="row">
+                <div className="row" style={{width: "90%" ,marginLeft:"6vw"}}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEvents>
                     {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
