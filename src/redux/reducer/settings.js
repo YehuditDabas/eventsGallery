@@ -1,12 +1,12 @@
 import produce from 'immer'
 import createReducer from './reducerUtils'
+import logowhite from './../../assets/logowhite.png'
 
 const intioanalState = {
-    settings:
+    header:
     {
-        eventsPagelogo:"",
+        eventsPagelogo:logowhite,
         eventsGalleryTitle:"",
-       
         eventsGalleryDescription:"",
         // ShowHistoricalEvents:true,
         amountEventsInRow:"",

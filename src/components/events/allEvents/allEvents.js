@@ -97,16 +97,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     }
 
 
-
-
-
-
-
-
     return (
         <>
 
-            <div class="container-fluid">
+            <div class="container-fluid " id='showTheEvents'>
                 <div class="row AllEventTitle" ><p>our upcoming events</p></div>
                 <div ><button class="allEventsBtns" value="prev" width="2%" onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="allEventsBtns" onClick={filterByMonth}>{item}</button>)}

@@ -68,7 +68,7 @@ export default withRouter(connect(mapStateToProps)(function DisplayEvent(props) 
     }
     return (
         <>
-            <Card className="displayEventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onDoubleClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+            <Card className="displayEventCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onClick={() => details()} data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
                 <div className="row pRow">
                     <img src={currentEvent.image == "" ? SimpleImg : currentEvent.image} className="displayEventImg" />
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi des bi-share" viewBox="0 0 16 16" style={{ width: "8vw" }}>

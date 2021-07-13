@@ -47,20 +47,28 @@
     padding: 0;
     background: #0A102E 0% 0% no-repeat;
     position: fixed;
-    top: 0;
-    height: 100vh;
     overflow: scroll;
     color: white;
-    padding-bottom: 7vh;
-    /* margin-bottom: 5rem; */
-    /* margin-bottom: 5vh; */
+    top: 0;
+    height: 100vh ;
+
+  }
+  .allconfigurator{
+    background: #0A102E 0% 0% no-repeat;
+    position: fixed;
+    top: 0;
+    height: 100vh;
   }
   /* .accordion{
     overflow-y: unset !important;
   } */
   .accordion_warps{
     background: #0A102E 0% 0% no-repeat padding-box;
-    
+    top: 5vh;
+    height: 85vh;
+    margin-top: 9vh;
+    margin-bottom: 20vh;
+    overflow: scroll;
   }
   ::-webkit-scrollbar{
     width: 0;

@@ -167,11 +167,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         <>
            <div className="container-fluid adminEventTitle"     >
           
-                <div className="row" style={{height:"75vh"}} >
-                    <img className="myImg titleImgColor"  src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent} ></img>
+                <div className="row" style={{height:"75vh"}} id='showHeader'>
+                    <img className="myImg titleImgColor"  src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}id='scrolpagecolor' ></img>
                     <img className="mylogo" src={headersettings.eventsPageLogo}onClick={changeToHeaderComponent}></img>
                     <div className="col-3 adminTitleAndDescription" onClick={changeToHeaderComponent}>
-                        <textarea
+                        <textarea 
                             className="adminEventTitletitleH1"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeTitleText(e.target.value)}
@@ -249,7 +249,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 <div className="row">
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
-                <FooterEventsGallery />
+                <div >
+                <FooterEventsGallery /></div>
             </div>
             <Modal
                 show={show}

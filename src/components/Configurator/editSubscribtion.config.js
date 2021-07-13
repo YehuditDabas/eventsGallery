@@ -18,6 +18,10 @@ export default function EditSubscribtion(props) {
     dispatch(actionsStore.settingFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };
+  function ScrollGeneric (value,color)  {
+   
+    document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+}
   function changeComponent(){
     // changeCurrentComponent('Edit Subscription')
     dispatch(actionsStore.changeCurrentComponent('Edit Subscription'))
@@ -35,23 +39,27 @@ export default function EditSubscribtion(props) {
         <FormGroup className="d-flex justify-content-between">
           <div className='row'>
           <FormControlLabel className="d-flex justify-content-between  editSubscribtionFileds " 
+            onClick={()=>ScrollGeneric('showHeader')}
             control= {<Switch checked={fieldSubscription.subscribe.name} onChange={handleChange} name="name"  />}
             label="Name"
 
           /></div>
          <div className='row'>
           <FormControlLabel className="d-flex justify-content-between editSubscribtionFileds" 
+          onClick={()=>ScrollGeneric('showHeader')}
             control={<Switch  onChange={handleChange} name="email" checked={true} disabled={true} />}
             label="Email" 
           /></div>
             <div className='row'>
           <FormControlLabel className="switch d-flex justify-content-between editSubscribtionFileds"
+          onClick={()=>ScrollGeneric('showHeader')}
             control={<Switch checked={fieldSubscription.subscribe.phone} onChange={handleChange} name="phone" />}
             label="Phone"
           /></div>
             <div className='row'>
           <FormControlLabel
             className="switch d-flex justify-content-between editSubscribtionFileds"
+            onClick={()=>ScrollGeneric('showHeader')}
             control={<Switch checked={fieldSubscription.subscribe.address} onChange={handleChange} name="address" />}
             label="Address"
           /></div>

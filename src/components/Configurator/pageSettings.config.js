@@ -19,6 +19,13 @@ function pageSettings(props) {
     let color = ['#AD60FF', '#FF53F7', '#FF62B2', '#FA5252', '#FF803F', '#FAEE3A',
         '#424149', '#9F9CB5', '#4F40D0', '#54B9FF', '#51E7FB', '#63F597']
 
+        function ScrollGeneric (value,color)  {
+            console.log('fffffffffff')
+         debugger
+         props.changeMainColor(color)
+            document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+        }
+        
         // useEffect(()=>{
 
         // },[])
@@ -29,12 +36,15 @@ function pageSettings(props) {
                 <span className="titleSettings"> Main Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker colors={color} onChange={(e) => props.changeMainColor(e.hex)} className="colorSelected" /></div>
+                <CirclePicker colors={color}
+                 onChange={(e)=>ScrollGeneric("scrolpagecolor",e.hex)}
+                // onChange={(e) => props.changeMainColor(e.hex)}            
+                  className="colorSelected" /></div>
             <div className="ml-1 mt-3">
                 <span className="titleSettings"> Button Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker icker colors={color} onChange={(e) => props.changeButtonStyle(e.hex)} /></div>
+                <CirclePicker icker colors={color} onChange={(e) => props.changeButtonStyle(e.hex)} /></div>
 
             {/* <br /> */}
 
@@ -43,8 +53,10 @@ function pageSettings(props) {
                 <div className="col-5 " ><select
                     className="textField SelectChanel"
                     name="showInPage"
-                    id="showInPage"                
+                    id="showInPage"    
+                    onClick={()=>ScrollGeneric('showTheEvents')}           
                     onChange={(e) => props.changeShowInPage(e.target.value)}
+                   
                     value={props.showInPage}
                 >
                     <option value="3">3</option>
@@ -52,13 +64,15 @@ function pageSettings(props) {
 
                 </select></div>
             </div>
-            <div>
+            <div className='whtchPrviesEventLabel'>
                 <FormGroup className="d-flex justify-content-between">
-                    <FormControlLabel className="d-flex justify-content-between "
-                        control={<Switch onChange={(e) => { props.changeShowHistoricalEvents(e.target.checked) }} name="name" />}
+                    {/* <FormControlLabel className="d-flex justify-content-between  switchPageSettings"
+                        control={<Switch onChange={(e) => { props.changeShowHistoricalEvents(e.target.checked) }} className="" />}
                         label="Watch previous events"
-                        style={{ marginLeft: "1.5vw" }}
-                    />
+                        style={{ marginLeft: "1.5vw",marginRight:"2vw !important" }}
+                    /> */}
+                <span  className='whatcPrevousEventLabel'  >Watch previous events</span>
+                <Switch onChange={(e) => { props.changeShowHistoricalEvents(e.target.checked) }} className="" />
                 </FormGroup>
             </div>
         </div>
