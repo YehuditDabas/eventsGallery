@@ -142,7 +142,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         console.log(obj)
     }
     function checkEmailValid(e) {
-        
+
         setEmail(e.target.value)
         if (e.keyCode == 13) {
             if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/.test(email)) {
@@ -153,14 +153,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             }
         }
     }
+
     function checkImg() {
-        if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
+        let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+        if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
             return true;
         } else {
             return false;
         }
     }
-
     function setHeightAndWidth() {
         var myImg = new Image();
         var size;
@@ -181,68 +182,68 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }, [headersettings])
     return (
         <>
-        {pagesettings.user !== '' ?
+            {pagesettings.user !== '' ?
 
-            <div className="container-fluid userEventsTitle" >
+                <div className="container-fluid userEventsTitle" >
 
-                <div className="row" style={{ height: "75vh" }}>
-                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
-                    <img className="mylogo" src={headersettings.eventsPageLogo}></img>
+                    <div className="row" style={{ height: "75vh" }}>
+                        <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
+                        <img className="mylogo" src={headersettings.eventsPageLogo}></img>
 
-                    <div className="row ">
+                        <div className="row ">
 
-                        <div className="col-5 titleAndDescription">
+                            <div className="col-5 titleAndDescription">
 
-                            <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                            {<p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
-                            <div className="row">
-                            <div className="col-3 subscribeArea">
-                                <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
+                                <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
+                                {<p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
+                                <div className="row">
+                                    <div className="col-3 subscribeArea">
+                                        <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
 
-                                {showing ?
-                                    <div>
-                                        <img className="arrow_" src={arrow}></img>
-                                        <div className="dropDown">
-                                            <form className="formSubscribe">
-                                                <br></br>
-                                                {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail}onKeyDown={(e) => checkEmailValid(e)} onChange={(e) => checkEmailValid(e)}/> : <></>}
-                                                <span style={{ color: "red" }}>{errorsEmail}</span>
-                                                {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                                {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                                <span style={{ color: "red" }}>{errorsForm}</span>
-                                                <br></br><br></br>
-                                                <input type="button" class="form-control" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
-
-
-                                            </form>
-
-                                        </div></div> :
-                                    <div></div>
-                                }
+                                        {showing ?
+                                            <div>
+                                                <img className="arrow_" src={arrow}></img>
+                                                <div className="dropDown">
+                                                    <form className="formSubscribe">
+                                                        <br></br>
+                                                        {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                                        {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onKeyDown={(e) => checkEmailValid(e)} onChange={(e) => checkEmailValid(e)} /> : <></>}
+                                                        <span style={{ color: "red" }}>{errorsEmail}</span>
+                                                        {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                                        {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                                        <span style={{ color: "red" }}>{errorsForm}</span>
+                                                        <br></br><br></br>
+                                                        <input type="button" class="form-control" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
 
 
+                                                    </form>
+
+                                                </div></div> :
+                                            <div></div>
+                                        }
+
+
+
+                                    </div>
+
+                                </div>
 
                             </div>
+                            <div className="wrapImgOrVieo col-6 d-flex justify-content-center">
+                                <div className="imgOrVieo">
+                                    {checkImg() === true ?
+                                        <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
+                                        : <ReactPlayer width='100%'
+                                            height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                    }
 
-                        </div> 
-
+                                </div></div>
                         </div>
-                        <div className="wrapImgOrVieo col-6 d-flex justify-content-center">
-                            <div className="imgOrVieo">
-                                {checkImg() === true ?
-                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%"></img>
-                                    : <ReactPlayer width='100%'
-                                    height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                                }
 
-                            </div></div>
+
+
                     </div>
-                 
-                        
-
-                </div>
-                {/* <div className="row imgTitleDetails">
+                    {/* <div className="row imgTitleDetails">
                     <img src={img[pagesettings.eventsPageColor]} height="100%" width="100%" style={{ padding: 0, borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}></img>
                     <div className="col-7 eventDetailsTitle">
                         <div className="eventTitle" > <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
@@ -262,10 +263,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
 
 
-            </div>:''}
+                </div> : ''}
 
             <div className="container-fluid evnetsUnderFilter">
-                <div className="row" style={{width: "90%" ,marginLeft:"6vw"}}>
+                <div className="row" style={{ width: "90%", marginLeft: "6vw" }}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEvents>
                     {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>

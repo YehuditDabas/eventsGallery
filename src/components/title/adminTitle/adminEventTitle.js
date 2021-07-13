@@ -253,15 +253,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             setHeightAndWidth()
         }
     }, [headersettings])
-    function checkImg() {
-
-        if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
-            return true;
-        }
-
-        else {
-            return false;
-        }
+    
+function checkImg() {
+    let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+    if ( x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
+    return true;
+    } else {
+    return false;
+    }
     }
     function changeToHeaderComponent() {
         changeCurrentComponent('Edit Header')
