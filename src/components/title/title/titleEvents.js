@@ -61,13 +61,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
     }
     
     function checkImg() {
-        if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
+        let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+        if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
             return true;
         } else {
             return false;
         }
     }
-
     function setHeightAndWidth() {
         var myImg = new Image();
         var size;
@@ -122,7 +122,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                                 <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
                                 {<p className="descriptionP"> {headersettings.eventsPageDescription}</p>}
-
                             </div>
                             <div className="wrapImgOrVieo col-6 d-flex justify-content-center">
                                 <div className="imgOrVieo">

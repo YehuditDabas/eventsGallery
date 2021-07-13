@@ -20,6 +20,8 @@ body{
     height:60vh;
   padding:0;
   position: absolute;
+  margin-top: 10vh;
+    margin-left: 9vw;
 }
 .eventTitle{
 position:absolute;
@@ -38,11 +40,12 @@ margin-left:10%;
 
 }
 .eventDetails{
-font-size: 3vw;
+font-size: 2.5vw;
 /* font-size: 5vh; */
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
+font-weight: 300;
 }
 .eventDetailsDescription{
     top: 909px;
@@ -95,6 +98,7 @@ text-align: left;
     color: #0A102E;
     text-transform: uppercase;
     opacity: 1;
+    font-size:1.6vw;
 }
 .timeText{
     font-size: 2.5vh;

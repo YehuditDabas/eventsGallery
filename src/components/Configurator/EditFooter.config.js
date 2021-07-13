@@ -29,7 +29,7 @@ function EditFooter(props) {
 
           {/* facebook */}
           <div className="iconFooter">
-            <FormControlLabel className=" iconName"
+            <FormControlLabel className=" iconName iconInMobile"
               control={<Switch checked={filedFooter.facebook} onChange={handleChange} name="facebook" id="firstLabel" />}
               label={
                 <span className="icon" id="firstIcon"  >

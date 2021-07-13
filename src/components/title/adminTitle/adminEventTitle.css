@@ -1,6 +1,7 @@
 :root{
     --title-height:14vh;
     --font-size-title-admin:8vh;
+    --input-height:35vh;
 }
 body {
     background-color: rgb(232, 234, 236);
@@ -16,8 +17,9 @@ body {
     border-top-right-radius: 12px !important;
 }
 .adminTitleAndDescription{
-    margin-top: -70vh!important;
+    margin-top: -67vh!important;
     z-index: 3;
+    margin-left: 5vw;
     
 }
 .UIiconDivAdmin {
@@ -30,9 +32,11 @@ body {
     left: 0;
     padding: 1vw;
     opacity: 0;
-    margin-left: 72vw;
-    margin-top: 9vh;
+    /* margin-left: 72vw; */
+    /* margin-top: 9vh; */
     z-index: 22;
+    /* height:var(--input-height); */
+    align-items:center;
 
 }
 .UIiconDivAdmin:hover{
@@ -40,9 +44,9 @@ opacity:0.6;
 cursor: pointer;
 }
 .adminLogoIconDiv{
-    width: 7vw;
+    width: 12vw;
     height: 5vh;
-    /* background-color: rgba(196, 183, 183, 0.6); */
+    background-color: rgba(196, 183, 183, 0.6);
     position: absolute;
     bottom: 0;
     top: 0;
@@ -59,14 +63,17 @@ cursor: pointer;
     cursor: pointer;
 }
 .uploadImgAdmin{
-    /* position: absolute; */
+    position: absolute;
     height: 9vh;
     width: 9vw !important;
     vertical-align: middle;
-    margin-top: 23vh;
-    margin-left: 2vw;
-    /* z-index: 22; */
+    /* margin-top: 23vh; */
+    /* margin-left: 2vw; */
+    z-index: 25;
     width: var(--image-width);
+    top: 50%;
+    transform: translateY(-50%);
+    align-items:center
 }
 .adminLogoLabel{
     height: 4vh;
@@ -87,8 +94,8 @@ cursor: pointer;
 
 }
 .adminInputfile{
-    width:  40vw;
-    height: 35vh;
+    width:  var(--image-width);
+    height: var(--input-height);
     opacity: 0;
      overflow: hidden; 
     position: absolute;
@@ -107,7 +114,7 @@ opacity:0.3;
 } */
 .adminMylogo{
     height: 5vh;
-    width: 4.5vw;
+    width: 10vw;
     /* margin-top: 2vh; */
     /* margin-left: 3vw; */
 }
@@ -116,9 +123,12 @@ opacity: 0.6;
 background-color: rgba(196, 183, 183, 0.6);
 
 }
+.adminSubscribe{
+    margin-left: 5vw;
+}
 .uploadLogo{
     margin-top: 1vh;
-    margin-left: 2vw;}
+    margin-left: 5vw;}
 .adminInputfileLogo{
     width: 10vw;
     height: 3vh;
@@ -145,14 +155,13 @@ background-color: rgba(196, 183, 183, 0.6);
     /* margin-top: 10vh; */
     line-height: 7vh;
     background: transparent;
-    margin-left: 4vw;
+    /* margin-left: 4vw; */
     margin-top: 12vh;
     height:var(--title-height);
     /* padding-top: 3vh; */
     /* padding-bottom:1vh; */
     word-wrap: break-word;
     line-height: 7vh !important;
-
 }
 .adminEventTitletitleH1:hover{
     border: 1px dashed white !important;
@@ -161,8 +170,10 @@ background-color: rgba(196, 183, 183, 0.6);
 .wrapAdminImgOrVieo{
     margin-top: -62vh!important;
     z-index: 3;
-    margin-left: 24vw;
+    margin-left: 21vw;
+    height:var(--input-height);
 }
+
 .adminImgOrVieo{
     /* padding: inherit; */
     position: absolute;
@@ -178,6 +189,7 @@ background-color: rgba(196, 183, 183, 0.6);
     
 }
 .adminEventDescription{
+    /* font-size: 1.5vw; */
     border: none;
     word-wrap: break-word;
     text-align: var(--align-text);
@@ -189,10 +201,10 @@ background-color: rgba(196, 183, 183, 0.6);
     /* margin-top: 10vh; */
     /* line-height: 12vh; */
     background: transparent;
-    margin-left: 4vw;
+    /* margin-left: 4vw; */
     /* margin-top: 1vh; */
-
 }
+
 .adminEventDescription:hover{
     border: 1px dashed white !important;
 }
@@ -201,4 +213,7 @@ background-color: rgba(196, 183, 183, 0.6);
 }
 .subscribeArea{
     z-index: 5;
+}
+.adminSubscribe{
+    margin-left: 0 !important;
 }

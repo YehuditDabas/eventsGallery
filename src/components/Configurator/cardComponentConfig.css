@@ -76,3 +76,16 @@
     width: 14vw; 
     height: 7vh;
   }
+  /* -------------------------------------------------------------------- */
+@media(max-width:620px){
+  .configurator{
+    height:50vh;
+    align-items:baseline;
+    position: relative;
+    z-index: 30;
+  }
+  .buttoncreate{
+    position: relative;
+  }
+  
+}

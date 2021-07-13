@@ -1,30 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import ReactPlayer from 'react-player'
 import { Modal, Button } from 'react-bootstrap'
 import { actionsStore } from '../../../../redux/actions'
 import './eventTitleMobile.css'
-// import arrow from '../../../assets/Polygon 24@2x.png'
-// import CreateEvent from './events/createEvent/createEvent's
 import { connect } from 'react-redux'
-// import red from '../../../assets/red.png'
-// import yellow from '../../../assets/yellow.png'
-// import pink from '../../../assets/pink.png'
-// import black from '../../../assets/black.png'
-// import gray from '../../../assets/gray.png'
-// import lightBlue from '../../../assets/lightBlue.png'
-// import lightBlue2 from '../../../assets/lightBlue2.png'
-// import orange from '../../../assets/orange.png'
-// import pink2 from '../../../assets/pink2.png'
-// import purple1 from '../../../assets/purple1.png'
-// import purple2 from '../../../assets/purple2.png'
-// import turquoise from '../../../assets/turquoise.png'
-// import { subscribe } from '../../../redux/middlweare/crud'
+import black from '../../../../assets/titleImgMobile/black.png'
+import blue from '../../../../assets/titleImgMobile/blue.png'
+import gray from '../../../../assets/titleImgMobile/gray.png'
+import lightBlue from '../../../../assets/titleImgMobile/lightBlue.png'
+import lightBlue2 from '../../../../assets/titleImgMobile/lightBlue2.png'
+import orange from '../../../../assets/titleImgMobile/orange.png'
+import pink from '../../../../assets/titleImgMobile/pink.png'
+import pink2 from '../../../../assets/titleImgMobile/pink2.png'
+import purple from '../../../../assets/titleImgMobile/purple.png'
+import red from '../../../../assets/titleImgMobile/red.png'
+import turquoise from '../../../../assets/titleImgMobile/turquoise.png'
+import yellow from '../../../../assets/titleImgMobile/yellow.png'
+
 import AllEventsInMobile from '../../../events/mobile/allEventsInMobile/allEventsInMobile';
 import FooterEventsGallery from '../../../footer/footerEventsGallery';
 import HeaderImg from '../../../../assets/purple1Mobile.png'
 import ConfiguratorSettings from '../../../Configurator/ConfiguratorSettings'
 import { useMediaQuery } from 'react-responsive';
-
+import showSettings from '../../../../assets/show.png';
+import $ from 'jquery';
 
 
 function mapStateToProps(state) {
@@ -32,6 +31,8 @@ function mapStateToProps(state) {
     // red #86F3FF
     document.documentElement.style.setProperty('--Button-color', state.pageSettings.page.eventsButtonColor);
     document.documentElement.style.setProperty('--align-text', state.editHeader.header.eventsPageAlignment);
+    // document.documentElement.style.setProperty('--display-configurator', 'none');
+
     return {
         pagesettings: state.pageSettings.page,
         headersettings: state.editHeader.header,
@@ -59,26 +60,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(function EventTitleM
     const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
     const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
-
+    const showConf = useRef(null);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const isMobile = useMediaQuery({ query: `(max-width: 380px)` });
-        console.log("isMobile  ", isMobile);
-    // const img =
-    // {
-    //     '#ad60ff': purple1,
-    //     '#4f40d0': purple2,
-    //     '#ff53f7': pink,
-    //     '#ff62b2': pink2,
-    //     '#fa5252': red,
-    //     '#ff803f': orange,
-    //     '#faee3a': yellow,
-    //     '#424149': black,
-    //     '#9f9cb5': gray,
-    //     '#63f597': turquoise,
-    //     '#54b9ff': lightBlue,
-    //     '#51e7fb': lightBlue2
-    // }
+    console.log("isMobile  ", isMobile);
+    const img =
+    {
+        '#ad60ff': purple,
+        '#4f40d0': blue,
+        '#ff53f7': pink,
+        '#ff62b2': pink2,
+        '#fa5252': red,
+        '#ff803f': orange,
+        '#faee3a': yellow,
+        '#424149': black,
+        '#9f9cb5': gray,
+        '#63f597': turquoise,
+        '#54b9ff': lightBlue,
+        '#51e7fb': lightBlue2
+    }
     const isAdmin = false;
     // const display = true;//ימלא נתונים בפרופס מהרידאקס אם מעונין שיציג כותרת
     // const [settings, setSettings] = useState({ eventsPageTitle: 'welcome to leader event', picteventsPageImageure: '', eventsPageDescription: 'Don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy Mission This Time. Seve…', amountEventsInRow: '3' });//ימלא נתונים מהפרופס מהרידאקס את ההגדרות..
@@ -136,65 +137,111 @@ export default connect(mapStateToProps, mapDispatchToProps)(function EventTitleM
 
         console.log(obj)
     }
+    var csim = $(".configuratorSettingsInMobile");
+    var btn = $(".showConfigurator");
+    var thePage = $(".userEventsTitleMobile")
+    function drag(csim) {
+        csim = $(".configuratorSettingsInMobile");
+        btn = $(".showConfigurator");
+        thePage = $(".userEventsTitleMobile")
+        var r = parseInt(csim.css('bottom'));
 
+        if (r < 0) {
+            csim.addClass('active');
+        } else {
+            csim.removeClass('active');
+        }
+        thePage.on("click", function (e) {
+            e.preventDefault();
+            csim.removeClass('active');
+        });
+    };
+    thePage.on("click", function (e) {
+        e.preventDefault();
+        csim.removeClass('active');
+    });
+    btn.on("click", function (e) {
+        // debugger;
+        e.preventDefault();
+        drag(csim);
+    });
 
+    // var dragging = false;
 
+    // $('#dragger').mousedown(function(e){
+    //     debugger;
+    //   e.preventDefault();
+    //   dragging = true;
+    //   var side = $('.configuratorSettingsInMobile');
+    //   $(document).mousemove(function(ex){
+    //     side.css("height", ex.pageY +2);
+    //   });
+    // });
+
+    // $(document).mouseup(function(e){
+    //   if (dragging) 
+    //   {
+    //     $(document).unbind('mousemove');
+    //     dragging = false;
+    //   }
+    // });
     useEffect(() => {
         console.log("^^^^^^^^^^^^^^")
-        
+
     }, [headersettings])
     return (
         <>
             <div className="container-fluid userEventsTitleMobile" >
+                <div className="thePage">
+                    <div className="row" style={{ height: "30vh" }}>
+                        <img className="myHeaderImgMobile titleImgColorMobile" src={img[pagesettings.eventsPageColor]} height="100%" width="100%"></img>
+                        <img className="mylogoMobile" src={headersettings.eventsPageLogo}></img>
 
-                <div className="row" style={{ height: "30vh" }}>
-                    <img className="myHeaderImgMobile titleImgColorMobile" src={HeaderImg} height="100%" width="100%"></img>
-                    <img className="mylogoMobile" src={headersettings.eventsPageLogo}></img>
-
-                    <div className="row titleAndDescriptionMobile">
-
-
-
-                        <h1 className="titleH1Mobile"> {headersettings.eventsPageTitle}</h1>
-                        {<p className="descriptionPMobile"> {headersettings.eventsPageDescription}</p>}
+                        <div className="row titleAndDescriptionMobile">
 
 
 
-                    </div>
-                </div>
-                {isAdmin == false ?
-                    <div className="row d-flex justify-content-center">
-                        <div className="col-3 subscribeAreaMobile">
-                            <button type="button" className="subscribeMobile" onClick={() => setShowing(!showing)}>subscribe</button>
-
-                            {showing ?
-                                <div>
-                                    {/* <img className="arrow_" src={arrow}></img> */}
-                                    <div className="dropDownMobile">
-                                        <form className="formSubscribeMobile">
-                                            <br></br>
-                                            {subscribesettings.name === true ? <input class="mobileInput form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                            {subscribesettings.email === true ? <input class="mobileInput form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
-                                            {subscribesettings.phone === true ? <input class="mobileInput form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                            {subscribesettings.address === true ? <input class="mobileInput form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                            <span style={{ color: "red" }}>{errorsForm}</span>
-                                            <input type="button" class="form-control" id="subscribeInsideMobile" value="subscribe" onClick={beforeSubscribe}></input>
-
-
-                                        </form>
-
-                                    </div></div> :
-                                <div></div>
-                            }
+                            <h1 className="titleH1Mobile"> {headersettings.eventsPageTitle}</h1>
+                            {<p className="descriptionPMobile"> {headersettings.eventsPageDescription}</p>}
 
 
 
                         </div>
+                    </div>
+                    <div id="shortTitle">{headersettings.eventsPageTitle}</div>
+                    {isAdmin == false ?
+                        <div className="row d-flex justify-content-center">
+                            <div className="col-3 subscribeAreaMobile">
+                                <button type="button" className="subscribeMobile" onClick={() => setShowing(!showing)}>subscribe</button>
 
-                    </div> : ''}
+                                {showing ?
+                                    <div>
+                                        {/* <img className="arrow_" src={arrow}></img> */}
+                                        <div className="dropDownMobile">
+                                            <form className="formSubscribeMobile">
+                                                <br></br>
+                                                {subscribesettings.name === true ? <input class="mobileInput form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                                {subscribesettings.email === true ? <input class="mobileInput form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                {subscribesettings.phone === true ? <input class="mobileInput form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                                {subscribesettings.address === true ? <input class="mobileInput form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                                <span style={{ color: "red" }}>{errorsForm}</span>
+                                                <input type="button" class="form-control" id="subscribeInsideMobile" value="subscribe" onClick={beforeSubscribe}></input>
 
 
-                {/* <div className="row imgTitleDetails">
+                                            </form>
+
+                                        </div></div> :
+                                    <div></div>
+                                }
+
+
+
+                            </div>
+
+                        </div> : ''}
+
+
+                    {/* <div className="row imgTitleDetails">
                     <img src={img[pagesettings.eventsPageColor]} height="100%" width="100%" style={{ padding: 0, borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}></img>
                     <div className="col-7 eventDetailsTitle">
                         <div className="eventTitle" > <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
@@ -214,17 +261,20 @@ export default connect(mapStateToProps, mapDispatchToProps)(function EventTitleM
 
 
 
-            </div>
-            <div className="container-fluid evnetsUnderFilter">
-                <div className="row">
-                    <AllEventsInMobile style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEventsInMobile>
-                    {/* <div className="col-3 createEventArea">
+                </div>
+                <div className="container-fluid evnetsUnderFilter">
+                    <div className="row">
+                        <AllEventsInMobile style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEventsInMobile>
+                        {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div> */}
+                    </div>
+                    {/* <FooterEventsGallery /> */}
                 </div>
-                {/* <FooterEventsGallery /> */}
             </div>
-            {/* <div className="configuratorSettingsInMobile" style={{position:'absolute', zIndex: 100 }}><ConfiguratorSettings/></div> */}
+            <button className="showConfigurator" onClick={drag}><img src={showSettings}></img></button>
+            <div id="dragger"></div>
+            <div className="configuratorSettingsInMobile" id="mobileConfig" style={{ zIndex: 100 }}><ConfiguratorSettings /></div>
             <Modal
                 show={show}
                 onHide={handleClose}

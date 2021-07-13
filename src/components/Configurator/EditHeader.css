@@ -290,6 +290,7 @@ Form.Label{
    
     border: 2px solid #FFFFFF;
     opacity: 1;
+
 }
 .iii{
     margin: auto;
@@ -331,17 +332,154 @@ font-size: smaller;
     left: 34%;
 }
 /* -------------------------------------------------------------------- */
-
+@media(max-width:620px){
+    .AlignmentSpan{
+        margin-left: -2vw; 
+      /* font: normal normal 1.2vw/0vh Roboto;  */
+      font-size:7vw;
+    }
+    .SpanSettings {
+        font-size: 7vw;
+        margin-left: 5.5vw;
+    }
+    .titleSettings{
+        margin-left: 1.5vw;
+        font-size: 6vw;
+        /* font-family: -webkit-pictograph; */
+    }
+    .MuiFormLabel-root {
+        /* font-size: small !important; */
+        /* padding-left: 20px; */
+        color: white !important;
+        font-size: 4rem;
+    }
+    .labelToggle{
+        margin-left: 1.5vw !important;
+        font-size: 4rem !important;
+    }
+    .showinpageRow{
+        font-size: 6vw;
+            margin-left: 0vw;
+            margin-bottom: 1vh;
+    }
+    .SelectChanel{
+        width:11vw;
+    }
+    .ChannelColorwidth {
+        width: 100%!important;
+    }
+    .colorSelected{
+        width:80% !important;
+    }
+ 
+    .MuiTypography-root {
+        font-size: 5vw !important;
+        width: 57vw !important;font-size: 5vw !important;
+        width: 57vw !important;
+    }
+    .MuiFormControlLabel-root{
+        width:90vw;
+    }
+    .BoldIconColor{
+        width: 4vh !important;
+    height: 6vw;
+    }
+    .IconColor{
+        height: 6vw; 
+    }
+    .EditHeaderAlingment{
+        width:8vw;
+    }
+    .warpDivalignment {
+        margin-top: 0px !important;
+        width:30vw;
+    }
+    .divUploadImage {
+        width: 90%;
+        margin-left: 6.5vw;
+    } 
+    .UIiconUploadEvent {
+        width:20vw;
+    }
+    .UIp {
+        margin-left: -8.4vw;
+    }
+    .UploadImg {
+        width: 84vw;
+        height: 15vh;
+    }
+    .UIiconDiv {
+        width: 100%;
+        height: 16vh;
+    }
+    .UIiconUploadEvent {
+        margin-left: -11vw;
+    }
+    .iconCloudUpload {
+        position: absolute;
+        height: 6vh;
+        width: 28vw !important;
+        /* justify-content: center; */
+        margin-left: 28vw;
+        margin-bottom: 4vh;
+    }
+    .uploadLogoImage {
+        width: 84vw;
+        height: 7vh;
+    }
+    .divUploadLogo {
+        height: 9vh;
+        width: 90%;
+        margin-left: 6.5vw !important;
+    }
+    .ULiconDiv {
+        width: 100%;
+    }
+    .iconCloudUploadLogo{
+        margin-bottom:1vh ;
+    }
+    .configuratorTextarea{
+        width: 85vw;
+    margin-left: 6.5vw;
+    font-size: 6vw;
+    }
+    .iconSize{
+        height: 4vh;
+    width: 13vw !important;
+    }
+    .inputLinkIcon {
+        /* border-radius: 2px; */
+        width: 85vw;
+        margin-bottom: 2vh;
+        margin-right: 4.5vw;
+        font-size: 5vw;
+    }
+    .MuiFormControlLabel-root {
+        display: initial !important;
+    }
+    .createNewFormLabel {
+        font-size: 6vw !important;
+    }
+    .inputEvent{
+        width:85vw;
+    } 
+    .buttoncreate{
+        width:42vw !important;
+        height: 7vh;
+    font-size: 7vw;
+    }
+}
 @media(min-width:1440px){
     .EditHeaderAlingment{
           height:3vh;
      }
    .divUploadImage{
      height: 13vh !important;
-     }  
+     } 
+    
  }
  
-@media(max-width:1920px){
+@media(min-width:620px)and(max-width:1920px){
     .warpDivalignment{
        margin-top: -2.5vh !important;
    }

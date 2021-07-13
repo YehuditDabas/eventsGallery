@@ -35,7 +35,8 @@ function mapStateToProps(state) {
         mainColor: state.pageSettings.page.eventsPageColor,
         eventsButtonColor: state.pageSettings.page.eventsButtonColor,
         subscribesettings: state.editSubscription.subscribe,
-        message: state.allEvents.message
+        message: state.allEvents.message,
+        logoImg:state.editHeader.header.eventsPageLogo
     }
 }
 const mapDispatchToProps = (dispatch) => ({
@@ -45,7 +46,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function EventDetails(props) {
-    const { events, mainColor, eventsButtonColor, } = props;
+    const { events, mainColor, eventsButtonColor,logoImg } = props;
     const { pagesettings, headersettings, subscribesettings, message, subscribe, systemWave, setMessage } = props;
 
     document.documentElement.style.setProperty('--main-color', mainColor);
@@ -294,20 +295,17 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
                     <div className="container-fluid">
                         <div className="row imgTitleDetails">
                             <img src={img[mainColor]} height="100%" width="100%" style={{ padding: 0, borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}></img>
+                            <img className="mylogo" src={logoImg}></img>
+
                             <div className="col-7 eventDetailsTitle">
                                 <div className="eventTitle" >{events[index].title}
                                     <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
                                         {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-5 picTitle"><img src={events[index].image} id="ti" height="100%" width="100%"></img>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-3 subscribeArea">
+                                <div className="col-3 subscribeArea">
                                 {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                                <button type="button" className="subscribe" onClick={() => setShowing(!showing)}>subscribe</button>
+                                <button type="button" className="subscribe subscribeInEventPage" onClick={() => setShowing(!showing)}>subscribe</button>
 
                                 {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
                                 {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
@@ -334,6 +332,12 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
 
 
                             </div>
+                            </div>
+                            <div class="col-5 picTitle"><img src={events[index].image} id="ti" height="100%" width="100%"></img>
+                            </div>
+                        </div>
+                        <div className="row">
+                           
 
                         </div>
                         <div className="row">

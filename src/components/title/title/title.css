@@ -96,14 +96,13 @@ body {
 }
 .subscribe{
     cursor: pointer;
-    margin-top: 5vh;
+    /* margin-top: 5vh; */
     height: 6vh;
-   *width: 14vw; 
     background-color: var(--Button-color);
     opacity: 100%;
     /* font-size: 3vh; */
     /* font-size: 3vh,6vw; */
-    margin-right: 65vw!important;
+    /* margin-right: 65vw!important; */
     /* text-align: left; */
     /* font: normal normal medium 22px/27px Roboto; */
     /* letter-spacing: 4.4px; */
@@ -111,6 +110,9 @@ body {
     text-transform: uppercase;
     opacity: 1;
     font: normal normal 1.5vw/2.5vh;
+    width: 15vw;
+    border: none;
+    font-weight: 600;
 
 }
 
@@ -120,16 +122,18 @@ body {
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
-    font: normal normal 2vw/3vh Roboto;
+    /* font: normal normal 2vw/3vh Roboto; */
+    font-size:1.5vw;
     line-height: 5vh;
+    margin-bottom: 4vh !important;
 
 }
 .mylogo{
-    width: 6% !important;
-    height: 3%;
+    width: 12vw !important;
+    height: 8vh;
     z-index: 2!important;
     position: absolute;
-    margin-left: 4vw!important;
+    margin-left: 2vw!important;
     margin-top: 3vh !important;
     /* background: #FFFFFF 0% 0% no-repeat padding-box; */
     opacity: 1
@@ -166,10 +170,10 @@ body {
 
 
 .subscribeArea{
-    position: absolute;
-    margin-right:75vw!important;
-    margin-left: 4vw!important;
-    margin-top: -28vh!important; 
+    position: relative;
+    /* margin-right:75vw!important;
+    margin-left: 6vw!important;
+    margin-top: -28vh!important;  */
 
 
 }
