@@ -6,7 +6,6 @@ export const subscribe = ({ dispatch, getState }) => next => action => {
   if (action.type === "CREATE_SUBSCRIBE") {
     HttpSub.post('/subscribeNewEventsNotification', action.payload)
       .then(res => {
-        debugger
         if (res.data.contact !== undefined) {
           dispatch(actionsStore.createSystemWave(res.data))
         }
@@ -20,14 +19,13 @@ export const subscribe = ({ dispatch, getState }) => next => action => {
   return next(action)
 }
 export const createSystemWave = ({ dispatch, getState }) => next => action => {
-
   if (action.type === 'CREATE_SYSTEM_WAVE') {
-
     let systemWave = {
-      subject: 'new subscribe',
+      subject: 'new subscribe!!',
       body: `${action.payload.contact.name} is subscribe to get your new events`,
-      to: ['yehuditlaniado','gila'],
+      to: ['yehuditlaniado','gila',window.location.pathname.split('/')[1]],
       from: '@eventsGallery',
+    
       source: 'EventsGallery',
       files: null
     }

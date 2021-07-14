@@ -34,7 +34,6 @@ function ConfiguratorSettings(props) {
  const dispatch= useDispatch()
   const hundalCreate = () => {
     // e.preventDefault();
-
     const settings = {
 
       eventsPageAlignment: props.EditHeader.header.eventsPageAlignment,
@@ -81,7 +80,7 @@ function onbtnClick(){
       <div className='row'>
 
         <div className='col-md-2 configurator'>
-        <button onClick={onbtnClick}>create new event</button>
+        <button onClick={onbtnClick} className=' p-2 m-2 ml-2 mr-2 btnCreateEvent'>+Create Event</button>
           <Accordion
             activeKey={props.currentComponent}
             className="accordion_warps "

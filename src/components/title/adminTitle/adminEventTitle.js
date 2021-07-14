@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {actionsStore} from '../../../redux/actions'
+import { actionsStore } from '../../../redux/actions'
 import '../title/title.css'
 import './adminEventTitle.css'
+import $ from 'jquery'
 // import logo from '../assets/logo.jpg'
 import arrow from '../../../assets/Polygon 24@2x.png'
 import ReactPlayer from 'react-player'
@@ -23,6 +24,10 @@ import turquoise from '../../../assets/turquoise.png'
 import { subscribe } from '../../../redux/middlweare/crud'
 import AllEvents from '../../events/allEvents/allEvents'
 import FooterEventsGallery from '../../footer/footerEventsGallery';
+import UploadImageFromConfigurator from '../../Configurator/uploadImageFromConfigurator';
+import uploadIcon from '../../../assets/upload.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 function mapStateToProps(state) {
@@ -34,7 +39,7 @@ function mapStateToProps(state) {
     // state.settings.settings.eventsButtonColor
     // document.documentElement.style.setProperty('--Page-color',state.settings.eventsPageColor);
     return {
-        site:state.site,
+        site: state.site,
         pagesettings: state.pageSettings.page,
         headersettings: state.editHeader.header,
         subscribesettings: state.editSubscription.subscribe,
@@ -44,16 +49,19 @@ function mapStateToProps(state) {
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)) },
-
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); var height, len = e.length; height = Math.ceil(len / 15) * 11; height += "vh"; console.log("-- ", height, " --"); document.documentElement.style.setProperty('--title-height', height); },
     changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) },
+    changeCurrentComponent: (e) => { dispatch(actionsStore.setCurrentComponent(e)) },
+    setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
 
-    changeCurrentComponent:(e)=>  {dispatch(actionsStore.setCurrentComponent(e))}
+    changeImage: (url) => dispatch(actionsStore.setImage(url)),
+    setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
+    changeLogo: (url) => dispatch(actionsStore.setLogo(url))
 
     // addAllEvents: (events) => dispatch(actionsStore.addAllEvents(events)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
-    const { pagesettings, headersettings, subscribesettings, changeTitleText,changeBodyText,changeCurrentComponent } = props;
+    const { pagesettings, headersettings, subscribesettings, changeTitleText, changeBodyText, changeCurrentComponent } = props;
     const [errorsForm, setErrorsForm] = useState('')
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -64,6 +72,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
     const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
+    const [hoverImg, setHoverImg] = useState(false);
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const img =
@@ -72,6 +82,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         '#4f40d0': purple2,
         '#ff53f7': pink,
         '#ff62b2': pink2,
+
+        
         '#fa5252': red,
         '#ff803f': orange,
         '#faee3a': yellow,
@@ -86,6 +98,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     // const display = true;//ימלא נתונים בפרופס מהרידאקס אם מעונין שיציג כותרת
     // const [settings, setSettings] = useState({ eventsPageTitle: 'welcome to leader event', picteventsPageImageure: '', eventsPageDescription: 'Don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy Mission This Time. Seve…', amountEventsInRow: '3' });//ימלא נתונים מהפרופס מהרידאקס את ההגדרות..
     const [showing, setShowing] = useState(false);
+    const [uploadImg, setUploadImg] = useState(false);
     function beforeSubscribe() {
         const obj = {
             objEmail: email,
@@ -147,22 +160,117 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
         console.log(obj)
     }
+    function setHeightAndWidth() {
+        var myImg = new Image();
+        var size;
+        myImg.src = headersettings.eventsPageImageOrVideo;
+
+        console.log("@@" + myImg.width / myImg.height + "@@")
+        size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
+        size += "vw";
+        console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
+        console.log("@@" + size + "@@")
+        if (size == "NaNvw") { size = "30vw" }
+
+        document.documentElement.style.setProperty('--image-width', size);
+
+
+    }
+    const changeImage = (e) => {
+        props.setLoaderUploadShow(true, 'image');
+        const TokenToString = document.cookie && document.cookie.includes('devJwt')
+            ? document.cookie
+                .split(';')
+                .filter(s => s.includes('devJwt'))[0]
+                .split('=')
+                .pop()
+            : null
+        const userName = window.location.pathname.split('/')[1]
+        const file = e.target.files[0];
+        var myFile = new FormData();
+        myFile.append("file", file);
+
+        $.ajax({
+
+            type: "POST",
+            url: "https://files.codes/api/" + userName + "/upload",
+            headers: { Authorization: TokenToString },
+            data: myFile,
+            processData: false,
+            contentType: false,
+            success: (data) => {
+                // alert("upload success");
+
+                props.changeImage(data.data.url);
+
+            },
+            error: function (err) {
+                alert('please try again later');
+            },
+
+        });
+    }
+    const changeLogoImage = (e) => {
+        props.setLoaderUploadShow(true, "logo");
+        const TokenToString = document.cookie && document.cookie.includes('devJwt')
+            ? document.cookie
+                .split(';')
+                .filter(s => s.includes('devJwt'))[0]
+                .split('=')
+                .pop()
+            : null
+        const userName = window.location.pathname.split('/')[1]
+        const file = e.target.files[0];
+        var myFile = new FormData();
+
+        myFile.append("file", file);
+
+        $.ajax({
+
+            type: "POST",
+            url: "https://files.codes/api/" + userName + "/upload",
+            headers: { Authorization: TokenToString },
+            data: myFile,
+            processData: false,
+            contentType: false,
+            success: (data) => {
+                // alert("upload success");
+
+                props.changeLogo(data.data.url);
+
+            },
+            error: function (err) {
+                alert('please try again later');
+            },
+
+        });
+    }
+    useEffect(() => {
+        if (headersettings) {
+            setHeightAndWidth()
+        }
+    }, [headersettings])
     function checkImg() {
-        if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
+       let  x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+       
+
+        if ( x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
             return true;
         } else {
             return false;
         }
     }
-
-    function changeToHeaderComponent(){
+    function changeToHeaderComponent() {
         changeCurrentComponent('Edit Header')
     }
-    function changeToPageSettingsComponent(){
+    function changeToPageSettingsComponent() {
+
         changeCurrentComponent('Page Settings')
     }
-    
 
+    function setUpload() {
+        setUploadImg(!uploadImg)
+    }
     return (
         <>
            <div className="container-fluid adminEventTitle"     >
@@ -175,55 +283,70 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             className="adminEventTitletitleH1"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeTitleText(e.target.value)}
+                            onClick={changeToHeaderComponent}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
-                            // cols="16"
-                            maxLength="20"
+                            cols="14"
+                            maxLength="40"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
+                            onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-
                         <textarea
                             className="adminEventDescription"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeBodyText(e.target.value)}
+                            onClick={changeToHeaderComponent}
                             value={headersettings.eventsPageDescription}
                             rows="5"
                             cols="35"
                             maxLength="140"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
+                            onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-
-
-                        {/* <h1 className="titleH1"> {headersettings.eventsPageTitle}</h1>
-                        <p className="descriptionP"> {headersettings.eventsPageDescription}</p> */}
-
                     </div>
-                    <div className="adminImgOrVieo" onClick={changeToHeaderComponent}>
-                        {checkImg() === true ?
-                            <img className="myImg" src={headersettings.eventsPageImageOrVideo} id="imageInTitle"></img>
-                            : <ReactPlayer width='100%'
-                                height='100%' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                        }
+                    <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
+                        <label htmlFor='file' className="adminImgLabel">
+                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}>
+                                {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
 
+                                {checkImg() === true ?
+                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%" ></img>
+                                    : <ReactPlayer width='100%'
+                                        height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                }
+
+                                <div className="UIiconDivAdmin">
+                                    <FontAwesomeIcon
+                                        id='angle-right'
+                                        className='iconCloudUpload uploadImgAdmin'
+                                        icon={['fas', 'cloud-upload-alt']}
+                                    ></FontAwesomeIcon>
+                                </div>
+                            </div>
+                        </label>
+                        <input type="file" name="file" accept="image/*" id="file"
+                            className="adminInputfile" onChange={changeImage}
+                            onClick={changeToHeaderComponent}
+                        />
                     </div>
                     <div className="row">
                         <div className="col-3 subscribeArea">
 
                             {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                                <button type="button" className="adminSubscribe subscribe" onClick={() =>{debugger; setShowing(!showing)} }>subscribe</button>
+                            <button type="button" className="adminSubscribe subscribe" onClick={() => {  setShowing(!showing) }}>subscribe</button>
 
                             {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ? 
+                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
                                 <div>
                                     <img className="arrow_" src={arrow}></img>
                                     <div className="dropDown">
                                         <form className="formSubscribe">
                                             <br></br>
-                                             {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
+                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
                                             {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
                                             {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
                                             {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
@@ -237,13 +360,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
                                     </div></div> :
                                 <div></div>
-                            } 
+                            }
+
+
+
                         </div>
 
                     </div>
 
                 </div>
-
             </div>
             <div className="container-fluid adminEvnetsUnderFilter">
                 <div className="row">
@@ -271,8 +396,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <Button variant="secondary" onClick={handleClose} >Close</Button>
                 </Modal.Footer>
             </Modal>
-
         </>
+
+
     )
 
 })

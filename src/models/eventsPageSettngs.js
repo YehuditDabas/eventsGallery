@@ -3,7 +3,7 @@ import purple1 from './../assets/purple1.png';
 const EventsPageSettings={
     eventsPageColor:"#ad60ff",
     eventsButtonColor:"#51e7fb",
-    amountEventsInRow: 0,
+    amountEventsInRow: 4,
     watchPreviousEvents: "",
     PreviousEvents:[],
     eventsPageAlignment: "left",

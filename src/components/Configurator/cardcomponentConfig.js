@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
  import footerEventGallary from '../footer/footerEventsGallery'
 import scrollToComponent from 'react-scroll-to-component';
 
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)  
-
 function CardComponentConfig(props) {
 
 

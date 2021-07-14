@@ -17,12 +17,10 @@ const editSubscriptionConfigurator = {
         state.subscribe.adress = action.payload.address;
     },
     settingFields(state, action) {
-       
         state.subscribe[action.payload.filedName]=action.payload.value;
     },
 
     addAllSettings(state, action) {
-      
         state.subscribe.name = action.payload.settings.name;
         state.subscribe.phone = action.payload.settings.phone;
         state.subscribe.email = action.payload.settings.email;

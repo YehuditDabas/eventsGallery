@@ -10,11 +10,9 @@ import './ConfigComp.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function EditSubscribtion(props) {
- 
   const fieldSubscription = useSelector(state => state.editSubscription)
   const dispatch = useDispatch()
   const handleChange = (event) => {
-
     dispatch(actionsStore.settingFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };

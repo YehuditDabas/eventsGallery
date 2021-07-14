@@ -28,7 +28,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     var year = new Date();
     year = year.getUTCFullYear();
     const [eventsByMonth, setEventsByMonth] = useState(events.sort( (a, b) => new Date(a.start) -new Date( b.start)));
-    const [pastEvents, setPastEvents] = useState(true);
     const month = ["all", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     var classCols = amountEventsInRow == 4 ? 3 : 4;
     const numCols = "col-" + classCols;
@@ -39,16 +38,28 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     var arrow = ["<", ">"];
     var eventsHeight =eventsByMonth.length==0&&isAdmin==false?30: eventsByMonth.length < amountEventsInRow ? 90 : Math.ceil((eventsByMonth.length+1) / amountEventsInRow) * 75;
     document.documentElement.style.setProperty('--events-height', eventsHeight + "vh"); console.log("height ", eventsHeight)
-
+    var thisMonth=new Date();
     const [prevMonth, setPrevMonth] = useState(0);
+    function setFirstMonth(){
+       
+        thisMonth=thisMonth.getUTCMonth()+1;
+        document.getElementById(thisMonth).setAttribute('class', 'f_bt');
+        thisMonth=thisMonth<10?"0"+thisMonth:thisMonth;
+        setEventsByMonth(events.filter(item=>item.start.slice(5,7)==thisMonth)) 
+        console.log(thisMonth," mmmm ")
+
+    }
     useEffect(() => {
-        setEventsByMonth(events)
+        setFirstMonth()
+        // setEventsByMonth(events)
     }, [events])
 
     var e1 = [];
 
 
     function filterByMonth(e) {
+        thisMonth=thisMonth.getUTCMonth()+1;
+        document.getElementById(thisMonth).setAttribute('class', 'allEventsBtns');
         console.log("m " + e.target.value);
         var d, m, y;
         e1 = [];
@@ -106,9 +117,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     {month.map((item, index) => <button value={index} id={index} class="allEventsBtns" onClick={filterByMonth}>{item}</button>)}
                     <button class="allEventsBtns" value="next" onClick={filterByMonth}>{arrow[1]}</button></div>
                 <div class="row AEevents">
-                    {isAdmin==true?<div className={numCols} id="createEventArea">
+                    {/* {isAdmin==true?<div className={numCols} id="createEventArea">
                         <CreateEvent color={mainColor}></CreateEvent>
-                    </div>:''}
+                    </div>:''} */}
                     
 
                     {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"2vw",paddingLeft:"2vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"3.5vw",paddingLeft:"3.5vw"}:{}} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}

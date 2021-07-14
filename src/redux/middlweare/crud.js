@@ -5,7 +5,7 @@
 // const API_URL = 'https://events.calendar.dev.leader.codes/api/'
 
 // function getJwtFormCookie() {
-//   debugger
+//   
 //   return document.cookie && document.cookie.includes('devJwt')
 //     ? document.cookie
 //       .split(';')
@@ -27,7 +27,7 @@
 // export const getEvents = ({ dispatch, getState }) => next => action => {
 //   if (action.type === 'GET_DATA') {
 //     dispatch(actionsStore.addUserName(userName))
-//     debugger
+//     
 //     Http.interceptors.request.use((config) => { console.log(config); return config })
 //     Http.get('/getCalendarEventsCategory')
 //       .then(res => res.json())
@@ -41,7 +41,7 @@
 // export const getEvents1 = ({ dispatch, getState }) => next => action => {
 //   if (action.type === 'GET_DATA') {
 //     dispatch(actionsStore.addUserName(userName))
-//     debugger
+//     
 //     var myHeaders = new Headers();
 //     myHeaders.append("Content-Type", "application/json");
 //     myHeaders.append("authorization", getJwtFormCookie())//cookies;
@@ -153,7 +153,7 @@
 // //    })
 // export const subscribe = ({ dispatch, getState }) => next => action => {
 //   if (action.type === "CREATE_SUBSCRIBE") {
-//     debugger
+//     
 //     var myHeaders = new Headers();
 //     myHeaders.append("Content-Type", "application/json");
 //     myHeaders.append("authorization", getJwtFormCookie())//cookies;
@@ -167,7 +167,7 @@
 //       .then(res =>
 //         res.json())
 //       .then(resData => {
-//         debugger
+//         
 //         if (resData.contact !== undefined) {
 //           dispatch(actionsStore.createSystemWave(resData))
 //           return resData
@@ -183,7 +183,7 @@
 // }
 
 // export const createSystemWave = ({ dispatch, getState }) => next => action => {
-//   debugger
+//   
 //   if (action.type === 'CREATE_SYSTEM_WAVE') {
 //     let systemWave = {
 //       subject: 'new subscribe',

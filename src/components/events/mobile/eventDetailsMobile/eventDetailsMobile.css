@@ -1,0 +1,120 @@
+:root{
+    --main-color:#9653FF;
+    --button-color:#4B2A80;
+    --second-color:#dacb07;
+}
+.mobileDetailsEvent{
+  background-color: white;
+}
+.mobileEventDetailsHeader{
+  
+  height: 54px;
+  background: transparent linear-gradient(276deg, var(--main-color) 0%, var(--second-color) 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.mobileEventDetaileName{
+  text-align: center;
+  font-size: 3vh;
+  letter-spacing: 0.22px;
+  color: #FFFFFF;
+  text-transform: capitalize;
+}
+.mobileEventImageDiv{
+  height: 208px;
+}
+.mobileEventImage{
+  padding: 0%;
+  height: 100%;
+  width: 100%;
+}
+.mobilebi-chevron-left{
+  color: white;
+  position: absolute;
+  right: 43%;
+  top: 1%;
+}
+.mobileEventTitle{
+   font-size: 5vh;
+}
+.mobileBi-clock{
+  color:var(--main-color);
+  width: 9vw;
+  height: 5vh
+}
+.mobileBi-geo-alt{
+  color:var(--main-color);
+  width: 9vw;
+  height: 5vh
+}
+.mobileBi-person{
+  color:var(--main-color);
+  width: 9vw;
+  height: 5vh
+}
+.mobileBi-chevron-right{
+  color:var(--main-color);
+  width: 3.5vw;
+  height: 3vh;
+}
+.mobileEventTime{
+  font-size:3vh
+}
+.rowTimeMobile{
+  margin-top: 4%;
+}
+.mobileAboutHeader{
+font-size: 3vh;
+}
+.mobileAboutText{
+font-size: 2vh
+}
+.rowAboutEventMobile{
+  margin-top:6%
+}
+.mobileButtonTickets{
+  z-index: 6;
+  bottom: 2%;
+  /* top: 93vh; */
+  left: 6%;
+  width: 87vw;
+  height: 5.5vh;
+background: var(--button-color) 0% 0% no-repeat padding-box;
+border-radius: 30px;
+font-size: 3vh;
+letter-spacing: 2px;
+color: var(--main-color);
+text-transform: uppercase;
+opacity: 1;
+  border: none !important;
+ position: fixed
+}
+
+.mobileMoreEventsTitle{
+  font-size: 2.5vh;
+  letter-spacing: 0.24px;
+/* color: var(--main-color); */
+text-transform: capitalize;
+opacity: 1;
+}
+.mobileMoreEvents{
+  padding-bottom: 15%;
+}
+.react-multiple-carousel__arrow::before{
+  font-size: 16px;
+}
+.react-multiple-carousel__arrow{
+  min-width: 33px;
+  min-height: 33px;
+}
+.mobileEventPriceArea{
+   width:20vw;
+   height: 5vh;
+   background-color: var(--main-color);
+   border-radius:10px;
+   margin-left: 3%;
+}
+.mobileEventPrice{
+  color: white;
+  text-align: center;
+  font-size: 3vh;
+}

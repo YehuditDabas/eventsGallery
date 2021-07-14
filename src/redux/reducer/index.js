@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux'
 import allEvents from './allEvents'
-
-import settings from './settings'
 import site from './site'
 import pageSettings from './settings/pageSettings.reducer'
 import editHeader from './settings/editHeader.reducer'
@@ -9,4 +7,4 @@ import editSubscription from './settings/editSubscription.reducer'
 import editFooter from './settings/footer'
 import createEvent from './createEvent.reducer'
 
-export default combineReducers({ allEvents, settings, site, pageSettings, editHeader,editSubscription ,editFooter,createEvent})
+export default combineReducers({ allEvents, site, pageSettings, editHeader,editSubscription ,editFooter,createEvent})

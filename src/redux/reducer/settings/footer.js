@@ -10,7 +10,6 @@ const initialState = {
 const editFooter = {
    
     footerFields(state, action) {
-
         state.footer[action.payload.filedName] = action.payload.value;
     },
     setFacebookLink(state, action) {

@@ -99,7 +99,7 @@ function EditHeader(props) {
                             rows="1"
                             maxLength="50"
                             style={{ textAlign: alignment }}
-                            placeholder="Welcome to&#13;&#10;your Events Gallary page"
+                            placeholder={props.editHeader.eventsPageTitle}
                         />
                     </div>
                     </div>
@@ -122,7 +122,7 @@ function EditHeader(props) {
                             rows="1"
                             maxLength="250"
                             style={{ textAlign: alignment }}
-                            placeholder="don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy&#13;&#10;Mission This Time. Seve…"
+                            placeholder={props.editHeader.eventsPageDescription}
 
                         />
                     </div>
@@ -136,7 +136,7 @@ function EditHeader(props) {
 const mapStateToProps = (state) => {
 
     return {
-        editHeader: state.editHeader
+        editHeader: state.editHeader.header,
 
     }
 }
