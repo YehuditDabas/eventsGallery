@@ -301,6 +301,59 @@ margin-right: 4vw;
     color:white !important;
 }
 
+/* mobile */
+@media only screen and (max-width:620px){
+    .inputLinkIcon {
+        height: 1.5vw;
+        font-size: 4vw;
+    }
+    .MuiTypography-body1 {
+        font-size: 7vw !important;
+    }
+    .MuiFormLabel-root {
+        /* font-size: small !important; */
+        /* padding-left: 20px; */
+        color: white !important;
+        font-size: 0.9rem;
+    }
+   .accordion>.card>.card-header {
+    
+        background-color: #0A102E;
+        color: #FFFFFF;
+        text-align: left;
+        font-size: 7vw;
+    font-weight: 600;
+        /* font: normal normal 1.1vw/5vh Roboto;
+        font-family: -webkit-pictograph; */
+    }  
+    .icon{
+        margin-top: -1vh;
+        /* margin-left: 1vw; */
+        float: left;
+        font-size: 7vw;
+    }
+    .showinpageRow{
+        font: normal normal 8vw/0vh Roboto;
+        margin-top: 2vh !important;
+        font-family: -webkit-pictograph;
+        /* margin-left: 0vw;
+        margin-bottom: 1vh; */
+    } 
+    .labelToggle{
+        margin-left: 8vw !important;
+        font-size: 0.9rem !important;
+    }
+    .editSubscribtionFileds{
+        margin-left: 0vw !important;
+        font-size: 7vw !important;
+    }
+    .inputLinkIcon {
+        height: 8vw;
+        font-size: 0.8vw;
+    }
+    
+}
+
 @media only screen and(max-width:1280px){
     /* .MuiSwitch-root {
         width: 3.2vw !important;

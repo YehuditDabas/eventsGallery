@@ -49,12 +49,12 @@ function mapStateToProps(state) {
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); var height, len = e.length; height = Math.ceil(len / 15) * 11; height += "vh"; console.log("-- ", height, " --"); document.documentElement.style.setProperty('--title-height', height); },
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); },
     changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) },
     changeCurrentComponent: (e) => { dispatch(actionsStore.setCurrentComponent(e)) },
     setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
 
-    changeImage: (url) => dispatch(actionsStore.setImage(url)),
+    changeImage: (url) => { dispatch(actionsStore.setImage(url)) },
     setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
     changeLogo: (url) => dispatch(actionsStore.setLogo(url))
 
@@ -160,19 +160,24 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
         console.log(obj)
     }
+    var myImg = new Image();
     function setHeightAndWidth() {
-        var myImg = new Image();
+
         var size;
         myImg.src = headersettings.eventsPageImageOrVideo;
 
         console.log("@@" + myImg.width / myImg.height + "@@")
         size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
         size += "vw";
+        var inputHeight=myImg.width / myImg.height < 1.5 ?  24 : myImg.width / myImg.height < 2 ?  20 :  16;
+        inputHeight+="vh";
         console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
         console.log("@@" + size + "@@")
         if (size == "NaNvw") { size = "30vw" }
 
         document.documentElement.style.setProperty('--image-width', size);
+        document.documentElement.style.setProperty('--input-height',inputHeight );
+
 
 
     }
@@ -248,17 +253,19 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     useEffect(() => {
         if (headersettings) {
             setHeightAndWidth()
+            setFontsize()
         }
     }, [headersettings])
-    function checkImg() {
-        if (headersettings.eventsPageImageOrVideo.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi)) {
-            return true;
-        } else {
-            return false;
-        }
+    
+function checkImg() {
+    let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+    if ( x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
+    return true;
+    } else {
+    return false;
+    }
     }
     function changeToHeaderComponent() {
-        debugger
         changeCurrentComponent('Edit Header')
     }
     function changeToPageSettingsComponent() {
@@ -269,13 +276,36 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     function setUpload() {
         setUploadImg(!uploadImg)
     }
+    function setFontsize() {
+        debugger
+        var height, len = headersettings.eventsPageTitle.length;
+        height = Math.ceil(len / 15) * 7;
+        if (height < 25) {
+            height += "vh";
+            console.log("-- ", height, " --");
+            document.documentElement.style.setProperty('--title-height', height);
+        }
+        let textLength = headersettings.eventsPageTitle.length
+        let textSize = 5
+        const baseSize = 8
+        if (Math.ceil(len / 15) >= 2) {
+            textSize = textSize - 1;
+            if (Math.ceil(len / 15) >= 3) {
+                textSize = textSize - 1
+                if (Math.ceil(len / 15) >= 4) {
+                    textSize = textSize - 1
+                }
+            }
+        }
+        document.documentElement.style.setProperty('--font-size-title-admin', `${textSize}vw`);
+    }
     return (
         <>
             <div className="container-fluid adminEventTitle" >
 
                 <div className="row" style={{ height: "75vh" }}>
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
-                    <label htmlFor='file' className="adminLogoLabel">
+                    <label htmlFor='filelogo' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
                         <div className="adminLogoIconDiv" onClick={changeToHeaderComponent}>
                             <FontAwesomeIcon
@@ -295,8 +325,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             onClick={changeToHeaderComponent}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
-                            cols="14"
-                            maxLength="40"
+                            // size="14"
+
+                            maxLength="90"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
                             onFocus={(e) => e.target.select()}
@@ -312,38 +343,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             cols="35"
                             maxLength="140"
                             // style={{ textAlign: 'left' }}
-                            placeholder={headersettings.eventsPageTitle}
+                            placeholder={headersettings.eventsPageDescription}
                             onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-                    </div>
-                    <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
-                        <label htmlFor='file' className="adminImgLabel">
-                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}>
-                                {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
-
-                                {checkImg() === true ?
-                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%" ></img>
-                                    : <ReactPlayer width='100%'
-                                        height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                                }
-
-                                <div className="UIiconDivAdmin">
-                                    <FontAwesomeIcon
-                                        id='angle-right'
-                                        className='iconCloudUpload uploadImgAdmin'
-                                        icon={['fas', 'cloud-upload-alt']}
-                                    ></FontAwesomeIcon>
-                                </div>
-                            </div>
-                        </label>
-                        <input type="file" name="file" accept="image/*" id="file"
-                            className="adminInputfile" onChange={changeImage}
-                            onClick={changeToHeaderComponent}
-                        />
-                    </div>
-                    <div className="row">
-                        <div className="col-3 subscribeArea">
+                        <div className="row">
+                        <div className="col-3 subscribeArea adminSubscribeArea">
 
                             {/* <input type="text" value="subscribe" className="subscribe"></input> */}
                             <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
@@ -376,11 +381,38 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                         </div>
 
                     </div>
+                    </div>
+                    <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
+                        <label htmlFor='file' className="adminImgLabel">
+                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}>
+                                {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
+
+                                {checkImg() === true ?
+                                    <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%" ></img>
+                                    : <ReactPlayer width='100%'
+                                        height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
+                                }
+
+                                <div className="UIiconDivAdmin d-flex justify-content-center">
+                                    <FontAwesomeIcon
+                                        id='angle-right'
+                                        className='iconCloudUpload uploadImgAdmin'
+                                        icon={['fas', 'cloud-upload-alt']}
+                                    ></FontAwesomeIcon>
+                                </div>
+                            </div>
+                        </label>
+                        <input type="file" name="file" accept="image/*" id="file"
+                            className="adminInputfile" onChange={changeImage}
+                            onClick={changeToHeaderComponent}
+                        />
+                    </div>
+                   
 
                 </div>
             </div>
             <div className="container-fluid adminEvnetsUnderFilter">
-                <div className="row">
+                <div className="row" style={{ width: "75vw", marginLeft: "4.5vw", marginRight: "2vw" }}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <FooterEventsGallery />

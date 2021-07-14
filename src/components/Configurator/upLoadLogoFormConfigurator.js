@@ -76,7 +76,7 @@ function UpLoadLogoFormConfigurator(props) {
                 <div className="ULiconDiv">
                     <FontAwesomeIcon
                         id='angle-right'
-                        className='iconCloudUpload'
+                        className='iconCloudUpload iconCloudUploadLogo'
                         icon={['fas', 'cloud-upload-alt']}
                     ></FontAwesomeIcon>
                 </div>

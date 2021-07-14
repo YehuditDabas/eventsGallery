@@ -62,7 +62,7 @@ function PageSettings(props) {
                 <span className="titleSettings"> Button Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker icker colors={color} onChange={(e) => props.changeButtonStyle(e.hex)} /></div>
+                <GithubPicker icker colors={color} onChange={(e) => props.changeButtonStyle(e.hex)} className="colorSelected" /></div>
 
             {/* <br /> */}
 
