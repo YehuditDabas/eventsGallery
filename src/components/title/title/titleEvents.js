@@ -112,7 +112,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                 <div className="container-fluid userEventsTitle" >
 
-                    <div className="row titleDiv">
+                    <div className="row titleRow">
                         <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]}></img>
                         <img className="mylogo" src={headersettings.eventsPageLogo}></img>
 
