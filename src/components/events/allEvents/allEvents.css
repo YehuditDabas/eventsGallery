@@ -78,6 +78,14 @@ width: 4vw !important;
     width: 2vw !important;
     padding-left: 0px !important;
 }
+@media(max-width:500px)
+{
+   body {
+       background-color: transparent !important;
+   }
+
+
+}
 /* #ifPast{
     height:6vh;
     width:10%;

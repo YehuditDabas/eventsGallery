@@ -38,7 +38,7 @@ function pageSettings(props) {
 
             {/* <br /> */}
 
-            <div className="row m-2 mt-3">
+            <div className="row m-2 mt-3" id="showInRow">
                 <div className="col-7   showinpageRow">Show In Row</div>
                 <div className="col-5 " ><select
                     className="textField SelectChanel"

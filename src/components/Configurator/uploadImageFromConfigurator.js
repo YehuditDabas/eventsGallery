@@ -24,6 +24,7 @@ function UploadImageFromConfigurator(props) {
         const file = e.target.files[0];
         var myFile = new FormData();
         myFile.append("file", file);
+        console.log("myFile  ",myFile,"  file  ",file)
 
         $.ajax({
 

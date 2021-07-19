@@ -253,13 +253,15 @@ form .form-control:focus{
 
 
 } */
-/* @media(max-width:500px)
+ @media(max-width:500px)
 {
-    .
+   body {
+       background-color: transparent !important;
+   }
 
 
 }
-@media(min-width:500px)and (max-width: 1000px)
+/*@media(min-width:500px)and (max-width: 1000px)
 {
 
 

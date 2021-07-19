@@ -11,7 +11,7 @@ import TitleEvents from '../components/title/title/titleEvents';
 import showSettings from '../assets/show.png';
 import EventTitleMobile from '../components/title/mobile/titleMobile/eventTitleMobile'
 import { useMediaQuery } from 'react-responsive';
-
+import CreateEventInMobile from '../components/events/mobile/createEventInMobile/createEventInMobile'
 
 import EventDetailsMobile from '../components/events/mobile/eventDetailsMobile/eventDetailsMobile'
 
@@ -34,7 +34,8 @@ export default function AppRouter() {
 
       <Route exact path="/:userName">
         {isMobile == true ?
-          <EventTitleMobile />
+          // <EventTitleMobile />
+          <CreateEventInMobile/>
           : <><button onClick={() => { setShow(!show); showConfig() }} className="showSettingsBtn"><img src={showSettings} height="20vh" width="30vw"></img></button>
             {show == true ? < ConfiguratorSettings /> : ''}
             {show == true ?

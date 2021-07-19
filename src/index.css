@@ -15,3 +15,11 @@ code {
     monospace;
 }
 /* , "Helvetica", "Arial", sans-serif */
+@media(max-width:500px)
+{
+   body {
+       background-color: transparent !important;
+   }
+
+
+}

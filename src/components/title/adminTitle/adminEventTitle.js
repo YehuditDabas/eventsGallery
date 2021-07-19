@@ -167,14 +167,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         console.log("@@" + myImg.width / myImg.height + "@@")
         size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
         size += "vw";
-        var inputHeight=myImg.width / myImg.height < 1.5 ?  24 : myImg.width / myImg.height < 2 ?  20 :  16;
-        inputHeight+="vh";
+        var inputHeight = myImg.width / myImg.height < 1.5 ? 24 : myImg.width / myImg.height < 2 ? 20 : 16;
+        inputHeight += "vh";
         console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
         console.log("@@" + size + "@@")
         if (size == "NaNvw") { size = "30vw" }
 
         document.documentElement.style.setProperty('--image-width', size);
-        document.documentElement.style.setProperty('--input-height',inputHeight );
+        document.documentElement.style.setProperty('--input-height', inputHeight);
 
 
 
@@ -253,14 +253,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             setHeightAndWidth()
         }
     }, [headersettings])
-    
-function checkImg() {
-    let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
-    if ( x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
-    return true;
-    } else {
-    return false;
-    }
+
+    function checkImg() {
+        let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+        if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp|JPG)$/)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     function changeToHeaderComponent() {
         changeCurrentComponent('Edit Header')
@@ -321,39 +321,39 @@ function checkImg() {
                         >{headersettings.eventsPageTitle}
                         </textarea>
                         <div className="row">
-                        <div className="col-3 subscribeArea adminSubscribeArea">
+                            <div className="col-3 subscribeArea adminSubscribeArea">
 
-                            {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                            <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
+                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
+                                <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
 
-                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
-                                <div>
-                                    <img className="arrow_" src={arrow}></img>
-                                    <div className="dropDown">
-                                        <form className="formSubscribe">
-                                            <br></br>
-                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
-                                            {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                            {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
-                                            {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                            {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                            <span style={{ color: "red" }}>{errorsForm}</span>
-                                            <br></br><br></br>
-                                            <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
-
-
-                                        </form>
-
-                                    </div></div> :
-                                <div></div>
-                            }
+                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+                                {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
+                                    <div>
+                                        <img className="arrow_" src={arrow}></img>
+                                        <div className="dropDown">
+                                            <form className="formSubscribe">
+                                                <br></br>
+                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
+                                                {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                                {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                                <span style={{ color: "red" }}>{errorsForm}</span>
+                                                <br></br><br></br>
+                                                <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
 
 
+                                            </form>
+
+                                        </div></div> :
+                                    <div></div>
+                                }
+
+
+
+                            </div>
 
                         </div>
-
-                    </div>
                     </div>
                     <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
                         <label htmlFor='file' className="adminImgLabel">
@@ -380,7 +380,7 @@ function checkImg() {
                             onClick={changeToHeaderComponent}
                         />
                     </div>
-                   
+
 
                 </div>
             </div>
