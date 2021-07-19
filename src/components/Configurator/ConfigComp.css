@@ -300,6 +300,9 @@ margin-right: 4vw;
 .MuiFormControlLabel-label.Mui-disabled{
     color:white !important;
 }
+ .saveSettings{
+     display:none !important;
+ }
 
 /* mobile */
 @media only screen and (max-width:620px){
@@ -351,7 +354,32 @@ margin-right: 4vw;
         height: 8vw;
         font-size: 0.8vw;
     }
+    #showInRow{
+        display:none;
+    }
+    .buttoncreate{
+        display:none !important
+    }
     
+    .wrapSaveSettings{
+        display:block !important;
+    }
+
+    .saveSettings{
+        display: block !important;
+    width: 25vw !important;
+    height: 5vh;
+    float: right;
+    background-color: transparent;
+    position: fixed;
+    right: 10vw;
+    /* top: 53vh; */
+    font-size: 7vw;
+    line-height: 2.5vh;
+    border-radius: 10px;
+    z-index: 90;
+    margin-top:-6vh;
+    }
 }
 
 @media only screen and(max-width:1280px){

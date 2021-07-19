@@ -13,6 +13,7 @@ import {useDispatch}from 'react-redux'
 function ConfiguratorSettings(props) {
  const dispatch= useDispatch()
   const hundalCreate = () => {
+    
     // e.preventDefault();
     const settings = {
 
@@ -52,6 +53,7 @@ function ConfiguratorSettings(props) {
   return (
 
     <div className="container-fluid ">
+      <button type="submit" className="saveSettings" onClick={hundalCreate}>save</button>
       <div className='row'>
         <div className='col-md-2 configurator'>
           <Accordion
@@ -89,7 +91,7 @@ function ConfiguratorSettings(props) {
                 <CardComponentConfig eventKey={2} component={AudioDetails} nameComponent={'AudioDetails'} />  */}
           </Accordion>
 
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center updateConfigurator">
             <button type="submit" className="buttoncreate btn p-2 m-2 ml-2 mr-2"
               onClick={hundalCreate}
             
