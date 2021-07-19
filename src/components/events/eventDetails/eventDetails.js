@@ -25,7 +25,7 @@ import turquoise from '../../../assets/turquoise.png'
 import reactImageSize from 'react-image-size';
 import FooterEventsGallery from '../../footer/footerEventsGallery'
 import Carousel from "react-multi-carousel";
-
+import RegistrationForm from '../registrationForm/registrationForm'
 function mapStateToProps(state) {
     var year = new Date();
     year = year.getUTCFullYear();
@@ -419,6 +419,11 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
                         </div>
 
                     </div>
+                    <div>
+                    < RegistrationForm/>
+
+                    </div>
+
                     <FooterEventsGallery style={{ marginTop: "5%" }} />
                 </div>
 

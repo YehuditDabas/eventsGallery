@@ -19,6 +19,8 @@ import FooterEventsGallery from './components/footer/footerEventsGallery';
 // import TitleEvents from './components/titleEvents';
 import AdminEventTitle from './components/title/adminTitle/adminEventTitle';
 import AppRouter from './routers/appRouter'
+import RegistrationForm from './components/events/registrationForm/registrationForm'
+
 function App() {
   const [show, setShow] = useState(false);
 
@@ -26,6 +28,7 @@ function App() {
     show ? document.documentElement.style.setProperty('--float-button', '0%') : document.documentElement.style.setProperty('--float-button', '16.8%')
   }
   return (
+    // <RegistrationForm/>
     <AppRouter/>
   )
 }
