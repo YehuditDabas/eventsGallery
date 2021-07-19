@@ -402,30 +402,30 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
                         </div>
                     </div>
-                    <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
+                    <div className=" col-5 d-flex justify-content-center">
                         <label htmlFor='file' className="adminImgLabel">
-                            <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}>
+                            {/* <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}> */}
                                 {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
 
-                                {checkImg() === true ?
+                                {/* {checkImg() === true ?
                                     <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%" ></img>
                                     : <ReactPlayer width='100%'
                                         height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
-                                }
+                                } */}
 
-                                <div className="UIiconDivAdmin d-flex justify-content-center">
+                                {/* <div className="UIiconDivAdmin d-flex justify-content-center">
                                     <FontAwesomeIcon
                                         id='angle-right'
                                         className='iconCloudUpload uploadImgAdmin'
                                         icon={['fas', 'cloud-upload-alt']}
                                     ></FontAwesomeIcon>
-                                </div>
-                            </div>
+                                </div> */}
+                            {/* </div> */}
                         </label>
-                        <input type="file" name="file" accept="image/*" id="file"
+                        {/* <input type="file" name="file" accept="image/*" id="file"
                             className="adminInputfile" onChange={changeImage}
                             onClick={changeToHeaderComponent}
-                        />
+                        /> */}
                     </div>
 
 
