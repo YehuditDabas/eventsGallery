@@ -125,8 +125,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         $.ajax({
 
             type: "POST",
-            // url: keys.API_FILE + userName + "/upload",
-            url: "https://files.codes/api/" + userName + "/upload",
+            url: keys.API_FILE + userName + "/upload",
+            // url: "https://files.codes/api/" + userName + "/upload",
             headers: { Authorization: TokenToString },
             data: myFile,
             processData: false,
@@ -161,8 +161,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         $.ajax({
 
             type: "POST",
-            // url: keys.API_FILE + userName + "/upload",
-            url: "https://files.codes/api/" + userName + "/upload",
+            url: keys.API_FILE + userName + "/upload",
             headers: { Authorization: TokenToString },
             data: myFile,
             processData: false,
