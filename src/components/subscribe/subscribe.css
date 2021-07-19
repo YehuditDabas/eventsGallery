@@ -1,0 +1,25 @@
+.subscribeDiv{
+    width: 86vw;
+    /* margin-left: 0vw; */
+    margin-top: 21vh;
+    background-color: #F0F2FA;
+    /* padding: 2px; */
+    height: 8vh;
+    position: absolute;
+    top: 39%;
+    left: 7%;
+}
+.subscribeButton:hover{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: inline;
+}
+#subscribeInside:hover{
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+#subscribeInside{
+    background-color: var(--Button-color);  
+    margin-top: -4vh;
+    height: 6vh;
+}

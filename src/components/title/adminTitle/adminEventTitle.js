@@ -49,12 +49,12 @@ function mapStateToProps(state) {
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); var height, len = e.length; height = Math.ceil(len / 15) * 11; height += "vh"; console.log("-- ", height, " --"); document.documentElement.style.setProperty('--title-height', height); },
+    changeTitleText: (e) => { dispatch(actionsStore.setTitleText(e)); },
     changeBodyText: (e) => { dispatch(actionsStore.setBodyText(e)) },
     changeCurrentComponent: (e) => { dispatch(actionsStore.setCurrentComponent(e)) },
     setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
 
-    changeImage: (url) => dispatch(actionsStore.setImage(url)),
+    changeImage: (url) => { dispatch(actionsStore.setImage(url)) },
     setLoaderUploadShow: (bool, imageOrLogo) => dispatch(actionsStore.setLoaderUploadShow({ bool: bool, imageOrLogo: imageOrLogo })),
     changeLogo: (url) => dispatch(actionsStore.setLogo(url))
 
@@ -83,7 +83,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         '#ff53f7': pink,
         '#ff62b2': pink2,
 
-        
+
         '#fa5252': red,
         '#ff803f': orange,
         '#faee3a': yellow,
@@ -160,19 +160,24 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
         console.log(obj)
     }
+    var myImg = new Image();
     function setHeightAndWidth() {
-        var myImg = new Image();
+
         var size;
         myImg.src = headersettings.eventsPageImageOrVideo;
 
         console.log("@@" + myImg.width / myImg.height + "@@")
         size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
         size += "vw";
+        var inputHeight = myImg.width / myImg.height < 1.5 ? 24 : myImg.width / myImg.height < 2 ? 20 : 16;
+        inputHeight += "vh";
         console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
         console.log("@@" + size + "@@")
         if (size == "NaNvw") { size = "30vw" }
 
         document.documentElement.style.setProperty('--image-width', size);
+        document.documentElement.style.setProperty('--input-height', inputHeight);
+
 
 
     }
@@ -248,20 +253,39 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     useEffect(() => {
         if (headersettings) {
             setHeightAndWidth()
+            setFontsize()
         }
     }, [headersettings])
-    function checkImg() {
-       let  x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
-       
 
-        if ( x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
+    function checkImg() {
+        let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+        if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
             return true;
         } else {
             return false;
         }
     }
+
+    function ScrollGeneric(value) {
+        debugger
+        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+       let element= document.getElementById(value);
+       element.classList.add("addBorder");
+     
+    }
+
     function changeToHeaderComponent() {
+        
         changeCurrentComponent('Edit Header')
+        // if (value.currentTarget.className === 'adminTitleAndDescription')
+        //     ScrollGeneric('idTitleText')
+    }
+
+    function changeToHeader(value) {
+        debugger
+        changeCurrentComponent('Edit Header')
+        if (value === 'adminEventTitletitleH1')
+            ScrollGeneric('idTitleText')
     }
     function changeToPageSettingsComponent() {
 
@@ -271,23 +295,59 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     function setUpload() {
         setUploadImg(!uploadImg)
     }
+    function setFontsize() {
+        debugger
+        var height, len = headersettings.eventsPageTitle.length;
+        height = Math.ceil(len / 15) * 7;
+        if (height < 25) {
+            height += "vh";
+            console.log("-- ", height, " --");
+            document.documentElement.style.setProperty('--title-height', height);
+        }
+        let textLength = headersettings.eventsPageTitle.length
+        let textSize = 5
+        const baseSize = 8
+        if (Math.ceil(len / 15) >= 2) {
+            textSize = textSize - 1;
+            if (Math.ceil(len / 15) >= 3) {
+                textSize = textSize - 1
+                if (Math.ceil(len / 15) >= 4) {
+                    textSize = textSize - 1
+                }
+            }
+        }
+        document.documentElement.style.setProperty('--font-size-title-admin', `${textSize}vw`);
+
+    }
     return (
         <>
-           <div className="container-fluid adminEventTitle"     >
-          
-                <div className="row" style={{height:"75vh"}} id='showHeader'>
-                    <img className="myImg titleImgColor"  src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}id='scrolpagecolor' ></img>
-                    <img className="mylogo" src={headersettings.eventsPageLogo}onClick={changeToHeaderComponent}></img>
-                    <div className="col-3 adminTitleAndDescription" onClick={changeToHeaderComponent}>
-                        <textarea 
+            <div className="container-fluid adminEventTitle" >
+
+                <div className="row" style={{ height: "75vh" }} id="showHeader">
+                    <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
+                    <label htmlFor='filelogo' className="adminLogoLabel">
+                        <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
+                        <div className="adminLogoIconDiv" onClick={changeToHeaderComponent}>
+                            <FontAwesomeIcon
+                                id='angle-right'
+                                className='iconCloudUpload uploadLogo'
+                                icon={['fas', 'cloud-upload-alt']}
+                            ></FontAwesomeIcon>
+                        </div>
+                    </label>
+                    <input type="file" name="file" accept="image/*" id="filelogo"
+                        className="adminInputfileLogo" onChange={changeLogoImage} />
+                    <div className="col-3 adminTitleAndDescription">
+                        <textarea
                             className="adminEventTitletitleH1"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeTitleText(e.target.value)}
-                            onClick={changeToHeaderComponent}
+                            onClick={() => changeToHeader('adminEventTitletitleH1')}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
-                            cols="14"
-                            maxLength="40"
+                            // size="14"
+
+                            maxLength="90"
                             // style={{ textAlign: 'left' }}
                             placeholder={headersettings.eventsPageTitle}
                             onFocus={(e) => e.target.select()}
@@ -303,10 +363,44 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             cols="35"
                             maxLength="140"
                             // style={{ textAlign: 'left' }}
-                            placeholder={headersettings.eventsPageTitle}
+                            placeholder={headersettings.eventsPageDescription}
                             onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
+                        <div className="row" id='showButtonSubscribe'>
+                            <div className="col-3 subscribeArea adminSubscribeArea"  >
+
+                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
+                                <button type="button" className="adminSubscribe subscribe" onClick={() => { setShowing(!showing) }}>subscribe</button>
+
+                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+                                {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
+                                    <div>
+                                        <img className="arrow_" src={arrow}></img>
+                                        <div className="dropDown">
+                                            <form className="formSubscribe">
+                                                <br></br>
+                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
+                                                {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                                {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                                <span style={{ color: "red" }}>{errorsForm}</span>
+                                                <br></br><br></br>
+                                                <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
+
+
+                                            </form>
+
+                                        </div></div> :
+                                    <div></div>
+                                }
+
+
+
+                            </div>
+
+                        </div>
                     </div>
                     <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
                         <label htmlFor='file' className="adminImgLabel">
@@ -319,7 +413,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                                         height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                                 }
 
-                                <div className="UIiconDivAdmin">
+                                <div className="UIiconDivAdmin d-flex justify-content-center">
                                     <FontAwesomeIcon
                                         id='angle-right'
                                         className='iconCloudUpload uploadImgAdmin'
@@ -333,49 +427,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             onClick={changeToHeaderComponent}
                         />
                     </div>
-                    <div className="row">
-                        <div className="col-3 subscribeArea">
 
-                            {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                            <button type="button" className="adminSubscribe subscribe" onClick={() => {  setShowing(!showing) }}>subscribe</button>
-
-                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
-                                <div>
-                                    <img className="arrow_" src={arrow}></img>
-                                    <div className="dropDown">
-                                        <form className="formSubscribe">
-                                            <br></br>
-                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
-                                            {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                            {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
-                                            {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                            {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                            <span style={{ color: "red" }}>{errorsForm}</span>
-                                            <br></br><br></br>
-                                            <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
-
-
-                                        </form>
-
-                                    </div></div> :
-                                <div></div>
-                            }
-
-
-
-                        </div>
-
-                    </div>
 
                 </div>
             </div>
             <div className="container-fluid adminEvnetsUnderFilter">
-                <div className="row">
+                <div className="row" style={{ width: "75vw", marginLeft: "4.5vw", marginRight: "2vw" }}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <div >
-                <FooterEventsGallery /></div>
+                    <FooterEventsGallery /></div>
             </div>
             <Modal
                 show={show}

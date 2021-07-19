@@ -185,7 +185,6 @@ label {
     position: absolute;
     margin-right: 8vw;
 }
-
 .iii{
     margin: auto;
     width: 90%;
@@ -208,6 +207,9 @@ label {
     bottom: 17%;
     left: 34%;
 }
+.addBorder{
+    outline: -webkit-focus-ring-color auto 1px;
+}
 /* -------------------------------------------------------------------- */
 @media (min-width:1280px)and (max-width:1280px){
     .EditHeaderAlingment{
@@ -221,10 +223,11 @@ label {
      }
    .divUploadImage{
      height: 13vh !important;
-     }  
+     } 
+    
  }
  
-@media(max-width:1920px){
+@media(min-width:620px)and(max-width:1920px){
     .warpDivalignment{
        margin-top: -2.5vh !important;
    }
