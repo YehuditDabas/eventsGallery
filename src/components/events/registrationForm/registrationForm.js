@@ -79,9 +79,11 @@ export default connect(mapStateToProps)(function RegistrationForm(props) {
 
                                     </div>
                                     <div className="row">
-                                        <br></br>
-                                        
-                                        <button type="button" class="btn btn-info">payment</button>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">enter Phone</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
