@@ -7,6 +7,8 @@ import { Card, Accordion } from 'react-bootstrap';
 import ConfiguratorSettings from './components/Configurator/ConfiguratorSettings'
 import showSettings from './assets/show.png';
 
+// import HeaderLeader from '@leadercodes/header'
+
 
 import {
   BrowserRouter as Router,
@@ -29,7 +31,10 @@ function App() {
   }
   return (
     // <RegistrationForm/>
+    <>
+    {/* <HeaderLeader  appName='eventsGallery' userName='gila'/>  */}
     <AppRouter/>
+    </>
   )
 }
       export default App;

@@ -108,16 +108,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
     }
 
 
-
-
-
-
-
-
     return (
         <>
 
-            <div class="container-fluid allTheEvents">
+            <div class="container-fluid allTheEvents" id='showTheEvents'>
+            
                 <div class="row AllEventTitle" ><p>our upcoming events</p></div>
                 <div class="row" style={{width:" 100%",marginLeft: "auto"}}><button class="allEventsBtns prevBtn" value="prev"  onClick={filterByMonth}>{arrow[0]}</button>
                     {month.map((item, index) => <button value={index} id={index} class="allEventsBtns" onClick={filterByMonth}>{item}</button>)}
@@ -126,8 +121,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     {/* {isAdmin==true?<div className={numCols} id="createEventArea">
                         <CreateEvent color={mainColor}></CreateEvent>
                     </div>:''} */}
-                    
-
                     {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"1vw",paddingLeft:"1vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"1.3vw",paddingLeft:"1.3vw"}:{}} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
 
                 </div>
@@ -135,7 +128,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             </div>
 
         </>
-
 
     )
 

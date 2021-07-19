@@ -82,6 +82,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         '#4f40d0': purple2,
         '#ff53f7': pink,
         '#ff62b2': pink2,
+
+
         '#fa5252': red,
         '#ff803f': orange,
         '#faee3a': yellow,
@@ -263,8 +265,27 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             return false;
         }
     }
+
+    function ScrollGeneric(value) {
+        debugger
+        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+       let element= document.getElementById(value);
+       element.classList.add("addBorder");
+     
+    }
+
     function changeToHeaderComponent() {
+        
         changeCurrentComponent('Edit Header')
+        // if (value.currentTarget.className === 'adminTitleAndDescription')
+        //     ScrollGeneric('idTitleText')
+    }
+
+    function changeToHeader(value) {
+        debugger
+        changeCurrentComponent('Edit Header')
+        if (value === 'adminEventTitletitleH1')
+            ScrollGeneric('idTitleText')
     }
     function changeToPageSettingsComponent() {
 
@@ -296,12 +317,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             }
         }
         document.documentElement.style.setProperty('--font-size-title-admin', `${textSize}vw`);
+
     }
     return (
         <>
             <div className="container-fluid adminEventTitle" >
 
-                <div className="row" style={{ height: "75vh" }}>
+                <div className="row" style={{ height: "75vh" }} id="showHeader">
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
                     <label htmlFor='filelogo' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
@@ -320,7 +342,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             className="adminEventTitletitleH1"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeTitleText(e.target.value)}
-                            onClick={changeToHeaderComponent}
+                            onClick={() => changeToHeader('adminEventTitletitleH1')}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
                             // size="14"
@@ -345,11 +367,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-                        <div className="row">
-                            <div className="col-3 subscribeArea adminSubscribeArea">
+                        <div className="row" id='showButtonSubscribe'>
+                            <div className="col-3 subscribeArea adminSubscribeArea"  >
 
                                 {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                                <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
+                                <button type="button" className="adminSubscribe subscribe" onClick={() => { setShowing(!showing) }}>subscribe</button>
 
                                 {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
                                 {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
@@ -413,7 +435,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 <div className="row" style={{ width: "75vw", marginLeft: "4.5vw", marginRight: "2vw" }}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
-                <FooterEventsGallery />
+                <div >
+                    <FooterEventsGallery /></div>
             </div>
             <Modal
                 show={show}

@@ -12,6 +12,7 @@ import './UploadImg.css'
 function UploadImageFromConfigurator(props) {
 
     const changeImage = (e) => {
+        debugger
         props.setLoaderUploadShow(true,'image');
         const TokenToString = document.cookie && document.cookie.includes('devJwt')
             ? document.cookie
@@ -53,7 +54,11 @@ function UploadImageFromConfigurator(props) {
             return false;
         }
     }
+    function ScrollGeneric (value)  {
    
+        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+    }
+
     let currentImage =   props.imgSrc.eventsPageImageOrVideo;
    
     return (
@@ -62,15 +67,14 @@ function UploadImageFromConfigurator(props) {
             <label htmlFor='file'>
 
                 <input type="file" name="file" accept="image/*" id="file"
-                className="inputfile" onChange={changeImage}/>
-
+                className="inputfile" onChange={changeImage} onClick={()=>ScrollGeneric('showHeader')}/>
+ 
                 {props.loaderupload ? 
                 <div style={{ width: '4vw', height: '30%', position: 'relative', bottom: '0vh', left: '0.5vw'}}>
                     <Loader type={'loaderupload'} />
                 </div>
                 :
-                currentImage && checkImg()===true?
-                
+                currentImage && checkImg()===true?              
                 <>
                 <img className="UploadImg" src={currentImage} ></img>
                 <div className="UIiconDiv">

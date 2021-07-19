@@ -47,7 +47,10 @@ function UpLoadLogoFormConfigurator(props) {
 
         });
     }
-
+    function ScrollGeneric (value,color)  {
+   
+        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+    }
     let currentImage = props.imgSrc.eventsPageLogo;
 
     return (
@@ -83,7 +86,7 @@ function UpLoadLogoFormConfigurator(props) {
 
             </label>
             <input type="file" name="file" accept="image/*" id="filelogo"
-                className="inputfile" onChange={changeLogoImage} />
+                className="inputfile" onChange={changeLogoImage} onClick={()=>ScrollGeneric('showHeader')} />
 
         </div >
     );

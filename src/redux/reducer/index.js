@@ -5,6 +5,6 @@ import pageSettings from './settings/pageSettings.reducer'
 import editHeader from './settings/editHeader.reducer'
 import editSubscription from './settings/editSubscription.reducer'
 import editFooter from './settings/footer'
-import createEvent from './settings/createEvent.reducer'
+import createEvent from './createEvent.reducer'
 
 export default combineReducers({ allEvents, site, pageSettings, editHeader,editSubscription ,editFooter,createEvent})

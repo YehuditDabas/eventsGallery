@@ -168,10 +168,11 @@ background-color: rgba(196, 183, 183, 0.6);
 
 }
 .wrapAdminImgOrVieo{
-    margin-top: -62vh!important;
+    margin-top: 6vh!important;
     z-index: 3;
     margin-left: 21vw;
     height:var(--input-height);
+    border-style: dashed;
 }
 
 .adminImgOrVieo{

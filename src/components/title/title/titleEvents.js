@@ -68,6 +68,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             return false;
         }
     }
+    
     function setHeightAndWidth() {
         var myImg = new Image();
         var size;

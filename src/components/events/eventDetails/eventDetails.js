@@ -29,6 +29,7 @@ import RegistrationForm from '../registrationForm/registrationForm'
 function mapStateToProps(state) {
     var year = new Date();
     year = year.getUTCFullYear();
+   
     return {
 
         events: state.allEvents.events,
