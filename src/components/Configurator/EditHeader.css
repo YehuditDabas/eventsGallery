@@ -10,8 +10,6 @@
     height: 4vh ;
     background: #505066 0% 0% no-repeat padding-box;
 }
-
-
 .configuratorTextarea {
     border: none;
     resize: none !important;
@@ -21,7 +19,9 @@
     width: 13vw;
     margin-left:1.5vw;
 }
-
+.borderWhite{
+    border: white 1px solid !important;
+}
     
 .warpDivalignment{
     display: flex;
