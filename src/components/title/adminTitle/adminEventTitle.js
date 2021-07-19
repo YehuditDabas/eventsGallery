@@ -27,6 +27,7 @@ import FooterEventsGallery from '../../footer/footerEventsGallery';
 import UploadImageFromConfigurator from '../../Configurator/uploadImageFromConfigurator';
 import uploadIcon from '../../../assets/upload.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Subscribe from '../../subscribe/subscribe'
 
 
 
@@ -62,20 +63,6 @@ const mapDispatchToProps = (dispatch) => ({
 })
 export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventTitle(props) {
     const { pagesettings, headersettings, subscribesettings, changeTitleText, changeBodyText, changeCurrentComponent } = props;
-    const [errorsForm, setErrorsForm] = useState('')
-    const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [adress, setAdress] = useState("");
-    const [placeHolderEmail, setPlaceHolderEmail] = useState("email");
-    const [placeHolderName, setPlaceHolderName] = useState("name");
-    const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
-    const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
-    const [show, setShow] = useState(false);
-    const [hoverImg, setHoverImg] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const img =
     {
         '#ad60ff': purple1,
@@ -97,67 +84,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     // const [settings, setSettings] = useState({ eventsPageTitle: 'welcome to leader event', picteventsPageImageure: '', eventsPageDescription: 'Don’t Act So Surprised, Your Highness. You Weren’t On Any Mercy Mission This Time. Seve…', amountEventsInRow: '3' });//ימלא נתונים מהפרופס מהרידאקס את ההגדרות..
     const [showing, setShowing] = useState(false);
     const [uploadImg, setUploadImg] = useState(false);
-    function beforeSubscribe() {
-        const obj = {
-            objEmail: email,
-            objName: name,
-            objPhone: phone,
-            objAdress: adress
-        };
-        let valid = true
-        // subscribe();
-        if (subscribesettings.name && name === '') {
-            valid = false;
-            // formIsValid = false;
-            // setErrorsForm("name","Cannot be empty")
-            // setErrorsForm({...errorsForm, name: 'name',error:"Cannot be empty"})
-            setErrorsForm(...errorsForm, 'name')
-
-            console.log(errorsForm)
-        }
-        if (subscribesettings.email && email === '') {
-            valid = false;
-            // formIsValid = false;
-            // setErrorsForm("name","Cannot be empty")
-            // setErrorsForm({...errorsForm, name: 'email',error:"Cannot be empty"})
-            console.log(errorsForm)
-            setErrorsForm(...errorsForm, 'email')
-        }
-        if (subscribesettings.phone && phone === '') {
-            valid = false;
-            // formIsValid = false;
-            // setErrorsForm("name","Cannot be empty")
-            // setErrorsForm({...errorsForm, name: 'email',error:"Cannot be empty"})
-            console.log(errorsForm)
-            setErrorsForm(...errorsForm, 'phone')
-
-            // errorsForm["email"] = "email Cannot be empty";
-        }
-        if (subscribesettings.adress && adress === '') {
-            valid = false;
-            // formIsValid = false;
-            // setErrorsForm("name","Cannot be empty")
-            // setErrorsForm({...errorsForm, name: 'email',error:"Cannot be empty"})
-            console.log(errorsForm)
-            setErrorsForm(...errorsForm, 'adress')
-
-        }
-        if (valid === false) {
-            setErrorsForm(...errorsForm, 'Fill in all the details')
-        }
-        else {
-            subscribe(obj)
-            setShowing(false)
-            handleShow()
-        }
-        setPlaceHolderEmail("email");
-        setPlaceHolderName("name");
-        setPlaceHolderPhone("phone");
-        setPlaceHolderAdress("adress");
-
-
-        console.log(obj)
-    }
     var myImg = new Image();
     function setHeightAndWidth() {
 
@@ -167,14 +93,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         console.log("@@" + myImg.width / myImg.height + "@@")
         size = myImg.width / myImg.height < 1.5 ? myImg.width / myImg.height * 21 : myImg.width / myImg.height < 2 ? myImg.width / myImg.height * 17 : myImg.width / myImg.height * 12;
         size += "vw";
-        var inputHeight=myImg.width / myImg.height < 1.5 ?  24 : myImg.width / myImg.height < 2 ?  20 :  16;
-        inputHeight+="vh";
+        var inputHeight = myImg.width / myImg.height < 1.5 ? 24 : myImg.width / myImg.height < 2 ? 20 : 16;
+        inputHeight += "vh";
         console.log("myImg.width  ", myImg.width, "  myImg.height  ", myImg.height)
         console.log("@@" + size + "@@")
         if (size == "NaNvw") { size = "30vw" }
 
         document.documentElement.style.setProperty('--image-width', size);
-        document.documentElement.style.setProperty('--input-height',inputHeight );
+        document.documentElement.style.setProperty('--input-height', inputHeight);
 
 
 
@@ -254,14 +180,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             setFontsize()
         }
     }, [headersettings])
-    
-function checkImg() {
-    let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
-    if ( x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
-    return true;
-    } else {
-    return false;
-    }
+
+    function checkImg() {
+        let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
+        if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     function changeToHeaderComponent() {
         changeCurrentComponent('Edit Header')
@@ -301,7 +227,7 @@ function checkImg() {
         <>
             <div className="container-fluid adminEventTitle" >
 
-                <div className="row" style={{ height: "75vh" }}>
+                <div className="row adminTitleDiv" >
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
                     <label htmlFor='filelogo' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
@@ -345,40 +271,9 @@ function checkImg() {
                             onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-                        <div className="row">
-                        <div className="col-3 subscribeArea adminSubscribeArea">
-
-                            {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                            <button type="button" className="adminSubscribe subscribe" onClick={() => { debugger; setShowing(!showing) }}>subscribe</button>
-
-                            {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                            {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
-                                <div>
-                                    <img className="arrow_" src={arrow}></img>
-                                    <div className="dropDown">
-                                        <form className="formSubscribe">
-                                            <br></br>
-                                            {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
-                                            {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                            {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
-                                            {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                            {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                            <span style={{ color: "red" }}>{errorsForm}</span>
-                                            <br></br><br></br>
-                                            <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
-
-
-                                        </form>
-
-                                    </div></div> :
-                                <div></div>
-                            }
-
-
-
+                        <div className="subscribeDivfromAdminTitle">
+                            <Subscribe />
                         </div>
-
-                    </div>
                     </div>
                     <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
                         <label htmlFor='file' className="adminImgLabel">
@@ -405,35 +300,16 @@ function checkImg() {
                             onClick={changeToHeaderComponent}
                         />
                     </div>
-                   
+
 
                 </div>
             </div>
             <div className="container-fluid adminEvnetsUnderFilter">
-                <div className="row" style={{ width: "75vw", marginLeft: "4.5vw", marginRight: "2vw" }}>
+                <div className="row" >
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <FooterEventsGallery />
             </div>
-            <Modal
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                {/* <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
-                </Modal.Header> */}
-                <Modal.Body>
-                    your deatails send success
-                </Modal.Body>
-                <Modal.Footer>
-                    {/* <Button >
-                        Close
-                    </Button> */}
-                    <Button variant="secondary" onClick={handleClose} >Close</Button>
-                </Modal.Footer>
-            </Modal>
         </>
 
 

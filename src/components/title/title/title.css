@@ -23,7 +23,7 @@ body {
         /* width: 100vW!important; */
     /* height: 75vh!important; */
     z-index: 0;
-    height: 80%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,9 +69,10 @@ body {
     line-height: 7vh
 }
 .wrapImgOrVieo{
-    margin-top: -66vh!important;
     z-index: 3;
-    margin-left: 49vw;
+    right: -9%;
+    position: absolute;
+    top: 8%;
 }
 .imgOrVieo{    /* box-shadow: 0px 3px 50px #00000087; */
     /* width:30vw; */
@@ -83,7 +84,7 @@ body {
     width: var(--image-width)!important;
     /* height: 51vh; */
     /* margin-left: 60vw!important; */
-    margin-top: 8vh!important;
+    /* margin-top: 8vh!important; */
     padding-left: 0px !important;
     padding-right: 0px !important;
 
@@ -153,11 +154,7 @@ body {
     background:#00000024
 
 }
-.form-control{
-    width: 22.4vw!important;
-    display: inline-block;
-    
-}
+
  .btn-primary 
 {
     margin-left: -31vw
@@ -211,7 +208,7 @@ form .form-control:focus{
     border-bottom-right-radius:12px;
 }
 .titleRow{
-    height: 75vh;
+    height:57vh;
 }
 .arrow_{
  
@@ -233,6 +230,17 @@ form .form-control:focus{
     /* margin-left: 2%; */
     /* margin-right: 1.5%; */
 
+}
+.subscribeDivFromTitle{
+    width: 86vw;
+    /* margin-left: 0vw; */
+    margin-top: 17vh;
+    background-color: #F0F2FA;
+    /* padding: 2px; */
+    height: 8vh;
+    position: absolute;
+    top: 39%;
+    margin-left: 4%;
 }
 #imageInTitle{
     /* height:50vh !important;

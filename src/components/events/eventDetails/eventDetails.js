@@ -26,6 +26,7 @@ import reactImageSize from 'react-image-size';
 import FooterEventsGallery from '../../footer/footerEventsGallery'
 import Carousel from "react-multi-carousel";
 
+
 function mapStateToProps(state) {
     var year = new Date();
     year = year.getUTCFullYear();
@@ -36,7 +37,7 @@ function mapStateToProps(state) {
         eventsButtonColor: state.pageSettings.page.eventsButtonColor,
         subscribesettings: state.editSubscription.subscribe,
         message: state.allEvents.message,
-        logoImg:state.editHeader.header.eventsPageLogo
+        logoImg: state.editHeader.header.eventsPageLogo
     }
 }
 const mapDispatchToProps = (dispatch) => ({
@@ -46,7 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function EventDetails(props) {
-    const { events, mainColor, eventsButtonColor,logoImg } = props;
+    const { events, mainColor, eventsButtonColor, logoImg } = props;
     const { pagesettings, headersettings, subscribesettings, message, subscribe, systemWave, setMessage } = props;
 
     document.documentElement.style.setProperty('--main-color', mainColor);
@@ -60,23 +61,9 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
     const [moreEvents, setMoreEvents] = useState([]);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Septemb', 'October', 'November', 'December'];
     let e1 = [];
-    const [errorsForm, setErrorsForm] = useState('')
-    const [errorsEmail, setErrorsEmail] = useState('')
-    const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [adress, setAdress] = useState("");
-    const [placeHolderEmail, setPlaceHolderEmail] = useState("email");
-    const [placeHolderName, setPlaceHolderName] = useState("name");
-    const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
-    const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
 
-    const handleClose = () => {
-        setShow(false)
-        setMessage('')
-    };
-    const handleShow = () => setShow(true);
+  
     const img =
     {
         '#ad60ff': purple1,
@@ -172,79 +159,10 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
         // setMore(e1);
         console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
-    async function beforeSubscribe() {
-        setErrorsForm('')
-        const obj = {
-            email: email,
-            name: name,
-            phone: phone,
-            address: adress
-        };
-        let valid = true
-        // subscribe();
-        if (subscribesettings.name && name === '') {
-            valid = false;
-            setErrorsForm(...errorsForm, 'name')
-
-            console.log(errorsForm)
-        }
-        if (subscribesettings.email && email === '') {
-            valid = false;
-            console.log(errorsForm)
-            setErrorsForm(...errorsForm, 'email')
-        }
-        if (subscribesettings.phone && phone === '') {
-            valid = false;
-            console.log(errorsForm)
-            setErrorsForm(...errorsForm, 'phone')
-
-        }
-        if (subscribesettings.adress && adress === '') {
-            valid = false;
-            // formIsValid = false;
-            // setErrorsForm("name","Cannot be empty")
-            // setErrorsForm({...errorsForm, name: 'email',error:"Cannot be empty"})
-            console.log(errorsForm)
-            setErrorsForm(...errorsForm, 'adress')
-
-        }
-
-        if (valid === false) {
-            setErrorsForm('Fill in all the details')
-        }
-        else {
-            if (errorsEmail !== '') {
-                valid = false
-            }
-            else {
-                let resSub = await props.subscribe(obj)
-                handleShow()
-                setShowing(false)
-            }
-
-
-        }
-        setPlaceHolderEmail("email");
-        setPlaceHolderName("name");
-        setPlaceHolderPhone("phone");
-        setPlaceHolderAdress("adress");
-
-
-        console.log(obj)
-    }
-    function checkEmailValid(e) {
-        setEmail(e.target.value)
-        if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/.test(email)) {
-            setErrorsEmail('')
-        }
-        else {
-            setErrorsEmail('email not valid')
-        }
-
-    }
+    
     function setFontsize() {
         let textLength = events[index].title.length
-        let textSize=6
+        let textSize = 6
         const baseSize = 6
         if (textLength >= 15) {
             textSize = baseSize - 0.5
@@ -278,8 +196,6 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
 
     }
 
-    const [showing, setShowing] = useState(false);
-
     useEffect(() => {
         if (events && events.length != 0) {
             addMoreEvents();
@@ -303,41 +219,12 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
                                         {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
                                     </div>
                                 </div>
-                                <div className="col-3 subscribeArea">
-                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
-                                <button type="button" className="subscribe subscribeInEventPage" onClick={() => setShowing(!showing)}>subscribe</button>
-
-                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
-                                {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
-                                    <div>
-                                        <img className="arrow_" src={arrow}></img>
-                                        <div className="dropDown">
-                                            <form className="formSubscribe">
-                                                <br></br>
-                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress"); */}
-                                                {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onKeyDown={(e) => checkEmailValid(e)} onChange={(e) => checkEmailValid(e)} /> : <></>}
-                                                <span style={{ color: "red" }}>{errorsEmail}</span>
-                                                {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                                                {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                                                <span style={{ color: "red" }}>{errorsForm}</span>
-                                                <br></br><br></br>
-                                                <input type="button" class="form-control" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
-                                            </form>
-
-                                        </div></div> :
-                                    <div></div>
-                                }
-
-
-
-                            </div>
                             </div>
                             <div class="col-5 picTitle"><img src={events[index].image} id="ti" height="100%" width="100%"></img>
                             </div>
                         </div>
                         <div className="row">
-                           
+
 
                         </div>
                         <div className="row">
@@ -424,25 +311,7 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
 
 
             </> : ''}
-            <Modal
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                {/* <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
-                </Modal.Header> */}
-                <Modal.Body>
-                    {message}
-                </Modal.Body>
-                <Modal.Footer>
-                    {/* <Button >
-                        Close
-                    </Button> */}
-                    <Button variant="secondary" onClick={handleClose} >Close</Button>
-                </Modal.Footer>
-            </Modal>
+            
         </>
 
     )

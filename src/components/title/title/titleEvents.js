@@ -59,7 +59,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         '#54b9ff': lightBlue,
         '#51e7fb': lightBlue2
     }
-    
+
     function checkImg() {
         let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
         if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
@@ -134,7 +134,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
                                 </div></div>
                         </div>
                     </div>
-                    <Subscribe/>
+                    <div className="subscribeDivFromTitle">
+                        <Subscribe />
+                    </div>
                     {/* <div className="row imgTitleDetails">
                     <img src={img[pagesettings.eventsPageColor]} height="100%" width="100%" style={{ padding: 0, borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}></img>
                     <div className="col-7 eventDetailsTitle">

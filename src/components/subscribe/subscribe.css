@@ -1,3 +1,9 @@
+:root{
+    --filed-width:30%;
+    --filed-width-Max:40%;
+    --filed-width-Min:10%;
+    --border-color:#ACAFBB;
+}
 .subscribeDiv{
     width: 86vw;
     /* margin-left: 0vw; */
@@ -20,6 +26,60 @@
 }
 #subscribeInside{
     background-color: var(--Button-color);  
-    margin-top: -4vh;
     height: 6vh;
+    text-transform: uppercase;
 }
+.form-controlSub{
+    width: var(--filed-width) !important;
+    display: inline-block;   
+    margin: 1%;
+}
+#emailField:focus{
+    border: 1px solid var(--border-color);
+}
+#nameField:focus{
+    border: 1px solid var(--border-color);
+}
+#PhoneField:focus{
+    border: 1px solid var(--border-color);
+}
+#addressField:focus{
+    border: 1px solid var(--border-color);
+}
+.errorBorder{
+    border: 1px solid red;
+
+}
+.emailDiv{
+    display: inline-block; 
+    width: var(--filed-width) !important;
+    margin: 1%;
+}
+/* #nameField:focus{
+    width: var(--filed-width-Max) !important;
+    border: 1px solid #ACAFBB;
+}
+#nameField:focus ~ .form-controlSub{
+    width: var(--filed-width-Min)!important;
+}
+#emailField:focus{
+    width: var(--filed-width-Max)!important;
+    border: 1px solid #ACAFBB;
+}
+#emailField:focus ~ .form-controlSub{
+    width: var(--filed-width-Min)!important;
+}
+#PhoneField:focus{
+    width: var(--filed-width-Max)!important;
+    border: 1px solid #ACAFBB;
+}
+#PhoneField:focus ~ .form-controlSub{
+    width: var(--filed-width-Min)!important;
+}
+#addressField:focus{
+    width: var(--filed-width-Max)!important;
+    border: 1px solid #ACAFBB;
+}
+#addressField:focus ~ .form-controlSub{
+    width: var(--filed-width-Min)!important;
+} */

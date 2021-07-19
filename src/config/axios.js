@@ -22,7 +22,7 @@ let Http = axios.create({
 });
 
 export const HttpSub = axios.create({
-    baseURL: `https://calendar.dev.leader.codes/api/${userName}`,
+    baseURL: `https://events.calendar.dev.leader.codes/api/${userName}`,
     headers: {
         'content-type': 'application/json',
         'Authorization': getJwtFromCookie()

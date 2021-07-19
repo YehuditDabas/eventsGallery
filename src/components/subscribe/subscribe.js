@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Button } from 'react-bootstrap'
 import { actionsStore } from '../../redux/actions'
@@ -37,7 +37,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function Subscribe(p
     const [placeHolderPhone, setPlaceHolderPhone] = useState("phone");
     const [placeHolderAdress, setPlaceHolderAdress] = useState("adress");
     const [show, setShow] = useState(false);
-
+    const [numFileds, setNumFileds] = useState(1)
+    const [widthFiled, setWidthFiled] = useState()
     const handleClose = () => {
         setShow(false)
         setMessage('')
@@ -57,22 +58,27 @@ export default connect(mapStateToProps, mapDispatchToProps)(function Subscribe(p
         if (subscribesettings.name && name === '') {
             valid = false;
             setErrorsForm(...errorsForm, 'name')
-
+            let emptyField = document.getElementById('nameField')
+            emptyField.classList.add('errorBorder')
             console.log(errorsForm)
         }
         if (subscribesettings.email && email === '') {
             valid = false;
-            console.log(errorsForm)
+            let emptyField = document.getElementById('emailField')
+            emptyField.classList.add('errorBorder')
             setErrorsForm(...errorsForm, 'email')
         }
         if (subscribesettings.phone && phone === '') {
             valid = false;
-            console.log(errorsForm)
+            let emptyField = document.getElementById('PhoneField')
+            emptyField.classList.add('errorBorder')
             setErrorsForm(...errorsForm, 'phone')
 
         }
-        if (subscribesettings.adress && adress === '') {
+        if (subscribesettings.address && adress === '') {
             valid = false;
+            let emptyField = document.getElementById('addressField')
+            emptyField.classList.add('errorBorder')
             // formIsValid = false;
             // setErrorsForm("name","Cannot be empty")
             // setErrorsForm({...errorsForm, name: 'email',error:"Cannot be empty"})
@@ -87,52 +93,95 @@ export default connect(mapStateToProps, mapDispatchToProps)(function Subscribe(p
         else {
             if (errorsEmail !== '') {
                 valid = false
+                // document.documentElement.style.setProperty('--border-color', 'red');
             }
             else {
+
                 let resSub = await props.subscribe(obj)
                 handleShow()
                 setShowing(false)
+                document.getElementById("formSub").reset();
+                
             }
 
 
         }
-        setPlaceHolderEmail("email");
-        setPlaceHolderName("name");
-        setPlaceHolderPhone("phone");
-        setPlaceHolderAdress("adress");
+
 
 
         console.log(obj)
     }
     function checkEmailValid(e) {
+        debugger
         setEmail(e.target.value)
         if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/.test(email)) {
             setErrorsEmail('')
+            // document.documentElement.style.setProperty('--border-color', '#ACAFBB');
+            e.target.classList.remove("errorBorder");
+
         }
         else {
             setErrorsEmail('email not valid')
+            // document.documentElement.style.setProperty('--border-color', 'red'); 
+            e.target.classList.add("errorBorder");
         }
 
     }
+    function changeWidth(e) {
+        let num = numFileds
+        num = 90 / num - 2
+        document.documentElement.style.setProperty('--filed-width-Min', `${num}%`);
+        num = 100 / num - 2 + 10
+        document.documentElement.style.setProperty('--filed-width-Max', `${num}%`);
+    }
+    function changeName(e) {
+        setName(e.target.value)
+        e.target.classList.remove('errorBorder')
+    }
+    function changePhone(e) {
+        setPhone(e.target.value)
+        e.target.classList.remove('errorBorder')
+    }
+    function changeAddress(e) {
+        setAdress(e.target.value)
+        e.target.classList.remove('errorBorder')
+    }
+    useEffect(() => {
+        if (pagesettings.user !== '') {
+            debugger
+            let num = 1
+            if (subscribesettings.name === true) {
+                num++
+                console.log("kkkk", numFileds)
+            }
+            if (subscribesettings.email) {
+                num++
+            }
+            if (subscribesettings.phone) {
+                num++
+            }
+            if (subscribesettings.address) {
+                num++
+            }
+            let width = (100 / num) - 2
+            document.documentElement.style.setProperty('--filed-width', `${width}%`);
+            setNumFileds(num)
+            setWidthFiled(width)
+
+        }
+    }, [subscribesettings])
     return (
         <>
             <div className="row">
-                <div>
-                    <div className="subscribeDiv">
-                        <form>
-                            {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
-                            {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onKeyDown={(e) => checkEmailValid(e)} onChange={(e) => checkEmailValid(e)} /> : <></>}
-                            <span style={{ color: "red" }}>{errorsEmail}</span>
-                            {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
-                            {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
-                            {/* <input type="button" class="form-control subscribeButton" id="subscribeInside" value="subscribe" onClick={()=>beforeSubscribe}></input> */}
-                            {/* <button className="btn subscribeButton" id="subscribeInside" onClick={beforeSubscribe}>subscribe</button> */}
-                            <input type="button" class="form-control" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
-
-                            <span style={{ color: "red" }}>{errorsForm}</span>
-                        </form>
-                    </div>
-                </div>
+                <form id="formSub">
+                    {subscribesettings.name === true ? <input className="form-control form-control-sm form-controlSub" id="nameField" type="text" placeholder={placeHolderName} onChange={(e) => changeName(e)} onFocus={(e) => changeWidth(e)} /> : <></>}
+                    {subscribesettings.email === true ? <input className="form-control form-control-sm form-controlSub" id="emailField" type="text" placeholder={placeHolderEmail} onKeyDown={(e) => checkEmailValid(e)} onChange={(e) => checkEmailValid(e)} onFocus={changeWidth} /> : <></>}
+                    {/* <span style={{ color: "red" }}>{errorsEmail}</span> */}
+                    {subscribesettings.phone === true ? <input className="form-control form-control-sm form-controlSub" id="PhoneField" type="text" placeholder={placeHolderPhone} onChange={(e) => changePhone(e)} onFocus={changeWidth} /> : <></>}
+                    {subscribesettings.address === true ? <input className="form-control form-control-sm form-controlSub" id="addressField" type="text" placeholder={placeHolderAdress} onChange={(e) => changeAddress(e)} onFocus={changeWidth} /> : <></>}
+                    <input type="button" className="form-control form-controlSub" id="subscribeInside" value="subscribe" onClick={beforeSubscribe}></input>
+                    {/* <span style={{ color: "red" }}>{errorsForm}</span> */}
+                </form>
             </div>
             <Modal
                 show={show}
