@@ -1,4 +1,5 @@
 import {HttpSub} from '../../config/axios'
+import keys from '../../config/env/keys'
 import { actionsStore } from '../actions'
 import $ from 'jquery'
 
@@ -21,16 +22,17 @@ export const subscribe = ({ dispatch, getState }) => next => action => {
 export const createSystemWave = ({ dispatch, getState }) => next => action => {
   if (action.type === 'CREATE_SYSTEM_WAVE') {
     let systemWave = {
-      subject: 'new subscribe',
+      subject: 'new subscribe!!',
       body: `${action.payload.contact.name} is subscribe to get your new events`,
       to: ['yehuditlaniado','gila',window.location.pathname.split('/')[1]],
       from: '@eventsGallery',
+    
       source: 'EventsGallery',
       files: null
     }
     console.log("createSystemWave", JSON.stringify(systemWave))
     $.ajax({
-      url: "https://box.dev.leader.codes/api/createSystemWave",
+      url: `${keys.API_BOX}/createSystemWave`,
       type: 'POST',
       data: systemWave,
       success: function (data) {

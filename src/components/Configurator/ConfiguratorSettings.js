@@ -1,3 +1,5 @@
+import React from 'react'
+
 import pageSettings from './pageSettings.config'
 import EditHeader from './EditHeader.config'
 import CardComponentConfig from './cardcomponentConfig'
@@ -9,6 +11,24 @@ import {actionsStore} from '../../redux/actions'
 import './cardComponentConfig.css';
 import { connect } from 'react-redux'
 import {useDispatch}from 'react-redux'
+import displayEvent from '../events/displayEvent/displayEvent'
+import { withRouter } from 'react-router-dom'
+
+const mapStateToProps = (state) => {
+
+  return {
+    currentComponent:state.site.currentComponent,
+    EditHeader: state.editHeader,
+    editSubscription: state.editSubscription,
+    editFooter: state.editFooter,
+    pageSettings: state.pageSettings,
+    events: state.allEvents.events,   
+    eventsPageColor: state.pageSettings.page.eventsPageColor,
+    userName: state.allEvents.userName,
+    devJwt: state.allEvents.devJwt
+  }
+}
+
 
 function ConfiguratorSettings(props) {
  const dispatch= useDispatch()
@@ -48,15 +68,22 @@ function ConfiguratorSettings(props) {
     console.log("from handlecreate  "+ settings.eventsPageAlignment)
   }
 
+function onbtnClick(){
+  debugger
+  props.history.push({ pathname: `/${window.location.pathname.split('/')[1]}/newEventDetails/`})
+}
+
 
   return (
 
     <div className="container-fluid ">
       <div className='row'>
+
         <div className='col-md-2 configurator'>
+        <button onClick={onbtnClick} className=' p-2 m-2 ml-2 mr-2 btnCreateEvent'>+Create Event</button>
           <Accordion
             activeKey={props.currentComponent}
-            className="accordion_warps"
+            className="accordion_warps "
           >
             <CardComponentConfig
              className="cardOne"  
@@ -79,11 +106,11 @@ function ConfiguratorSettings(props) {
               eventKey={'Edit Footer'}
               component={EditFooter} קומפוננטה רביעית
             />
-            <CardComponentConfig
+            {/* <CardComponentConfig
              className="cardName"      
               eventKey={'Create Event'}
               component={CreateNewEvent}קומפוננטה חמישית
-            />
+            /> */}
 
             {/* <CardComponentConfig eventKey={1} component={ChannelDetails} nameComponent={'ChannelDetails'} />
                 <CardComponentConfig eventKey={2} component={AudioDetails} nameComponent={'AudioDetails'} />  */}
@@ -93,28 +120,22 @@ function ConfiguratorSettings(props) {
             <button type="submit" className="buttoncreate btn p-2 m-2 ml-2 mr-2"
               onClick={hundalCreate}
             
-            >Update</button></div>
+            >Update</button>
+            </div> 
+           
         </div>
       </div>
     </div>
 
   )
 }
-const mapStateToProps = (state) => {
 
-  return {
-    currentComponent:state.site.currentComponent,
-    EditHeader: state.editHeader,
-    editSubscription: state.editSubscription,
-    editFooter: state.editFooter,
-    pageSettings: state.pageSettings,
-  }
-}
+
 // const mapDispatchToProps=(dispatch)=>{
 //   return{
 //     OnSubmitupdateOrCreateSettings: (settingsObject) => dispatch(actionsStore.updateOrCreateSettings(settingsObject)),
 // }
 // }
 
-export default connect(mapStateToProps)(ConfiguratorSettings);
+export default withRouter (connect(mapStateToProps)(ConfiguratorSettings));
 

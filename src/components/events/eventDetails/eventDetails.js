@@ -33,8 +33,8 @@ function mapStateToProps(state) {
     return {
 
         events: state.allEvents.events,
-        mainColor: state.pageSettings.page.eventsPageColor,
-        eventsButtonColor: state.pageSettings.page.eventsButtonColor,
+        mainColor: state.PageSettings.page.eventsPageColor,
+        eventsButtonColor: state.PageSettings.page.eventsButtonColor,
         subscribesettings: state.editSubscription.subscribe,
         message: state.allEvents.message,
         logoImg: state.editHeader.header.eventsPageLogo

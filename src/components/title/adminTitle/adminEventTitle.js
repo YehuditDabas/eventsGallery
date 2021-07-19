@@ -3,6 +3,7 @@ import { actionsStore } from '../../../redux/actions'
 import '../title/title.css'
 import './adminEventTitle.css'
 import $ from 'jquery'
+import keys from '../../../config/env/keys'
 // import logo from '../assets/logo.jpg'
 import arrow from '../../../assets/Polygon 24@2x.png'
 import ReactPlayer from 'react-player'
@@ -69,6 +70,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         '#4f40d0': purple2,
         '#ff53f7': pink,
         '#ff62b2': pink2,
+
+        
         '#fa5252': red,
         '#ff803f': orange,
         '#faee3a': yellow,
@@ -122,6 +125,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         $.ajax({
 
             type: "POST",
+            // url: keys.API_FILE + userName + "/upload",
             url: "https://files.codes/api/" + userName + "/upload",
             headers: { Authorization: TokenToString },
             data: myFile,
@@ -157,6 +161,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         $.ajax({
 
             type: "POST",
+            // url: keys.API_FILE + userName + "/upload",
             url: "https://files.codes/api/" + userName + "/upload",
             headers: { Authorization: TokenToString },
             data: myFile,
@@ -227,7 +232,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         <>
             <div className="container-fluid adminEventTitle" >
 
-                <div className="row adminTitleDiv" >
+                <div className="row adminTitleDiv" id='showHeader'>
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
                     <label htmlFor='filelogo' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
@@ -308,7 +313,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 <div className="row" >
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
-                <FooterEventsGallery />
+                <div >
+                <FooterEventsGallery /></div>
             </div>
         </>
 

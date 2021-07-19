@@ -29,7 +29,7 @@ export default connect(mapStateToProps,mapDispatchToProps)(function FooterEvents
     
     return (
 
-    <footer className="footerEvents" onClick={changeComponent} >
+    <footer className="footerEvents" onClick={changeComponent} id='showFooter' >
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-3">

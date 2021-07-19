@@ -11,22 +11,26 @@ function getJwtFromCookie() {
         : null
 }
 const userName = window.location.pathname.split('/')[1]
+
 let Http = axios.create({
     baseURL: `${keys.API_URL}/${userName}`,
     credentials: 'include',
-
     headers: {
         'content-type': 'application/json',
-        'Authorization': getJwtFromCookie()
-    }
+        'Authorization': getJwtFromCookie()    
+    },
+
+    // withCredentials:'true',
+// mode:'no-cors',
+
 });
 
 export const HttpSub = axios.create({
-    baseURL: `https://events.calendar.dev.leader.codes/api/${userName}`,
+    baseURL: `${keys.API_URL}/${userName}`,
     headers: {
         'content-type': 'application/json',
         'Authorization': getJwtFromCookie()
-    }
+    },
 });
 
 export default Http
