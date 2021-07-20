@@ -21,8 +21,8 @@ function CardComponentConfig(props) {
         else {
             props.changeCurrentComponent(props.eventKey)
             if (props.eventKey === 'Edit Footer')
-                document.getElementById('showFooter').scrollIntoView({ block: "end", behavior: 'smooth' })
-            else document.getElementById('showHeader').scrollIntoView({ block: "end", behavior: 'smooth' })
+                document.getElementById('showFooter').scrollToComponent({ block: "end", behavior: 'smooth' })
+            else document.getElementById('showHeader').scrollToComponent({ block: "end", behavior: 'smooth' })
         }
     }
     return (
