@@ -34,8 +34,8 @@ export default function AppRouter() {
 
       <Route exact path="/:userName">
         {isMobile == true ?
-          // <EventTitleMobile />
-          <CreateEventInMobile/>
+          <EventTitleMobile />
+          // <CreateEventInMobile/>
           : <><button onClick={() => { setShow(!show); showConfig() }} className="showSettingsBtn"><img src={showSettings} height="20vh" width="30vw"></img></button>
             {show == true ? < ConfiguratorSettings /> : ''}
             {show == true ?
