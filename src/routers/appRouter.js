@@ -42,9 +42,6 @@ export default function AppRouter() {
 
         {/* <FooterEventsGallery /> */}
       </Route>
-      <Route path="/:userName/eventDetails/:index">
-        <EventDetails />
-      </Route>
 
       <Route path="/:userName/newEventDetails/">
         <NewEventDetails />

@@ -120,8 +120,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
                     {/* {isAdmin==true?<div className={numCols} id="createEventArea">
                         <CreateEvent color={mainColor}></CreateEvent>
                     </div>:''} */}
-                    
-
                     {eventsByMonth && eventsByMonth.length ? eventsByMonth.map((item, index) => <div class={numCols} style={amountEventsInRow==3?{paddingRight:"1vw",paddingLeft:"1vw"}:{},sentBy=="titleEvent"&&amountEventsInRow=='3'?{paddingRight:"1.3vw",paddingLeft:"1.3vw"}:{}} ><DisplayEvent index={index} currentEvent={item}></DisplayEvent> </div>) : ''}
 
                 </div>
@@ -129,7 +127,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AllEvents(p
             </div>
 
         </>
-
 
     )
 

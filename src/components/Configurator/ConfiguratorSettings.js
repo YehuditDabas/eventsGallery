@@ -68,9 +68,10 @@ function ConfiguratorSettings(props) {
     // props.OnSubmitupdateOrCreateSettings(settings)
     console.log("from handlecreate  "+ settings.eventsPageAlignment)
   }
-
+ 
 function onbtnClick(){
   debugger
+
   props.history.push({ pathname: `/${window.location.pathname.split('/')[1]}/newEventDetails/`})
 }
 

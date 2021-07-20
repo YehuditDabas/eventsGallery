@@ -71,7 +71,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         '#ff53f7': pink,
         '#ff62b2': pink2,
 
-        
+
         '#fa5252': red,
         '#ff803f': orange,
         '#faee3a': yellow,
@@ -192,8 +192,27 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             return false;
         }
     }
+
+    function ScrollGeneric(value) {
+        debugger
+        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+       let element= document.getElementById(value);
+       element.classList.add("addBorder");
+     
+    }
+
     function changeToHeaderComponent() {
+        
         changeCurrentComponent('Edit Header')
+        // if (value.currentTarget.className === 'adminTitleAndDescription')
+        //     ScrollGeneric('idTitleText')
+    }
+
+    function changeToHeader(value) {
+        debugger
+        changeCurrentComponent('Edit Header')
+        if (value === 'adminEventTitletitleH1')
+            ScrollGeneric('idTitleText')
     }
     function changeToPageSettingsComponent() {
 
@@ -225,6 +244,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             }
         }
         document.documentElement.style.setProperty('--font-size-title-admin', `${textSize}vw`);
+
     }
     return (
         <>
@@ -249,7 +269,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             className="adminEventTitletitleH1"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeTitleText(e.target.value)}
-                            onClick={changeToHeaderComponent}
+                            onClick={() => changeToHeader('adminEventTitletitleH1')}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
                             // size="14"
@@ -312,7 +332,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <div >
-                <FooterEventsGallery /></div>
+                    <FooterEventsGallery /></div>
             </div>
         </>
 
