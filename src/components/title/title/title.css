@@ -66,7 +66,9 @@ body {
    z-index: 4!important;
 /* font: normal normal bold 11vh/8vw Roboto; */
      font-size:var(--font-size-titleSettings);
-    line-height: 7vh
+    line-height: 7vh;
+    margin-top: 4vh;
+
 }
 .wrapImgOrVieo{
     margin-top: -66vh!important;
@@ -117,6 +119,7 @@ body {
 }
 
 .descriptionP{
+    margin-top: 6vh;
     word-wrap: break-word;
     text-align: var(--align-text);
     letter-spacing: 0px;
@@ -235,12 +238,13 @@ form .form-control:focus{
 
 }
 #imageInTitle{
-    /* height:50vh !important;
-    width:var(--image-width)!important; */
+    margin-top: -5vh;
+    height:50vh !important;
+    width:var(--image-width)!important;
     vertical-align: middle;
-        /* float: right; */
-        /* margin-left: auto;
-        margin-right: auto !important; */
+        float: right;
+         margin-left: auto;
+        margin-right: auto !important; 
     }
 
 /* @media(min-width:1500px)

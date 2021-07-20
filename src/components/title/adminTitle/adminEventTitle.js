@@ -27,6 +27,8 @@ import FooterEventsGallery from '../../footer/footerEventsGallery';
 import UploadImageFromConfigurator from '../../Configurator/uploadImageFromConfigurator';
 import uploadIcon from '../../../assets/upload.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Subscribe from '../../subscribe/subscribe'
+
 
 
 
@@ -269,13 +271,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     function ScrollGeneric(value) {
         debugger
         document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
-       let element= document.getElementById(value);
-       element.classList.add("addBorder");
-     
+        let element = document.getElementById(value);
+        element.classList.add("addBorder");
+
     }
 
     function changeToHeaderComponent() {
-        
+
         changeCurrentComponent('Edit Header')
         // if (value.currentTarget.className === 'adminTitleAndDescription')
         //     ScrollGeneric('idTitleText')
@@ -367,20 +369,18 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
-                        <div className="row" id='showButtonSubscribe'>
+                        <div  className="adminTitleSubscribe">  <Subscribe></Subscribe> </div>
+                        {/* <div className="row" id='showButtonSubscribe'>
                             <div className="col-3 subscribeArea adminSubscribeArea"  >
 
-                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
                                 <button type="button" className="adminSubscribe subscribe" onClick={() => { setShowing(!showing) }}>subscribe</button>
 
-                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
                                 {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
                                     <div>
                                         <img className="arrow_" src={arrow}></img>
                                         <div className="dropDown">
                                             <form className="formSubscribe">
                                                 <br></br>
-                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
                                                 {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
                                                 {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
                                                 {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
@@ -400,20 +400,20 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
 
                             </div>
 
-                        </div>
+                        </div> */}
                     </div>
                     <div className=" col-5 d-flex justify-content-center">
                         <label htmlFor='file' className="adminImgLabel">
                             {/* <div className="adminImgOrVieo d-flex justify-content-center" align="center" onClick={changeToHeaderComponent}> */}
-                                {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
+                            {/* <img src={uploadIcon} height="100%" width="100%" class="adminUpload"></img>    */}
 
-                                {/* {checkImg() === true ?
+                            {/* {checkImg() === true ?
                                     <img className="myImg" id="imageInTitle" src={headersettings.eventsPageImageOrVideo} heigt="100%" width="100%" ></img>
                                     : <ReactPlayer width='100%'
                                         height='45vh' className="video_or_picture" url={headersettings.eventsPageImageOrVideo} controls={true} />
                                 } */}
 
-                                {/* <div className="UIiconDivAdmin d-flex justify-content-center">
+                            {/* <div className="UIiconDivAdmin d-flex justify-content-center">
                                     <FontAwesomeIcon
                                         id='angle-right'
                                         className='iconCloudUpload uploadImgAdmin'
