@@ -5,6 +5,6 @@ module.exports = {
     /*
      * API URL FOR ALL AJAX CALL
     // */
-    API_URL: 'https://events.calendar.dev.leader.codes/api',
+    API_URL: 'https://events.calendar.leader.codes/api',
     JWT: isDev ? 'devJwt' : 'jwt'
 }
