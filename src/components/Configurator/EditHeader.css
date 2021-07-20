@@ -227,11 +227,80 @@ label {
     
  }
  
-@media(min-width:620px)and(max-width:1920px){
+/* @media(min-width:620px)and(max-width:1920px){
     .warpDivalignment{
        margin-top: -2.5vh !important;
    }
-}
+} */
+
+
+
 @media(min-width:3480px){
     
 }
+
+
+@media(max-width:620px){
+    .AlignmentSpan{
+        margin-left: -2vw; 
+      /* font: normal normal 1.2vw/0vh Roboto;  */
+      font-size:7vw;
+    }
+    .SpanSettings {
+        font-size: 7vw;
+        margin-left: 5.5vw;
+    }
+    .titleSettings{
+        margin-left: 1.5vw;
+        font-size: 6vw;
+        /* font-family: -webkit-pictograph; */
+    }
+    .MuiFormLabel-root {
+        /* font-size: small !important; */
+        /* padding-left: 20px; */
+        color: white !important;
+        font-size: 4rem;
+    }
+    .labelToggle{
+        margin-left: 1.5vw !important;
+        font-size: 4rem !important;
+    }
+    .showinpageRow{
+        font-size: 6vw;
+            margin-left: 0vw;
+         
+            margin-bottom: 1vh;
+    }
+    .SelectChanel{
+        width:11vw;
+    }
+    .ChannelColorwidth {
+        width: 100%!important;
+    }
+    .colorSelected{
+        width:80% !important;
+    }
+ 
+    .MuiTypography-root {
+        font-size: 5vw !important;
+        width: 57vw !important;font-size: 5vw !important;
+        width: 57vw !important;
+    }
+    .MuiFormControlLabel-root{
+        width:90vw;
+    }
+    .BoldIconColor{
+        width: 4vh !important;
+    height: 6vw;
+    }
+    .divUploadImage {
+        width: 90%;
+        margin-left: 6.5vw;
+    } 
+   
+}
+
+
+
+
+
