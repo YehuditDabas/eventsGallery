@@ -7,6 +7,7 @@ body {
     --Button-color:#86F3FF;
     --align-text:left;
     --image-width:32%;
+    --font-size-titleSettings:5vw
 }
 .userEventsTitle{
     background-color: white;
@@ -52,26 +53,27 @@ body {
 .titleAndDescription{
     z-index: 2!important;
     position: absolute;
-    margin-left:6vw!important;
-    margin-top: -64vh !important;
+    margin-left:4vw!important;
+    top: 12%;
 }
 
 .titleH1{
     word-wrap: break-word;
-
     text-align: var(--align-text);
-letter-spacing: 0px;
-color: #FFFFFF;
-opacity: 1;
-z-index: 4!important;
+   letter-spacing: 0px;
+   color: #FFFFFF;
+   opacity: 1;
+   z-index: 4!important;
 /* font: normal normal bold 11vh/8vw Roboto; */
-font-size: 4.7vw;
-    line-height: 12vh;}
-    .wrapImgOrVieo{
-        margin-top: -70vh!important;
+     font-size:var(--font-size-titleSettings);
+    line-height: 7vh
+}
+.wrapImgOrVieo{
     z-index: 3;
-    margin-left: 49vw;
-    }
+    right: -9%;
+    position: absolute;
+    top: 8%;
+}
 .imgOrVieo{    /* box-shadow: 0px 3px 50px #00000087; */
     /* width:30vw; */
 
@@ -82,7 +84,7 @@ font-size: 4.7vw;
     width: var(--image-width)!important;
     /* height: 51vh; */
     /* margin-left: 60vw!important; */
-    margin-top: 8vh!important;
+    /* margin-top: 8vh!important; */
     padding-left: 0px !important;
     padding-right: 0px !important;
 
@@ -152,10 +154,7 @@ font-size: 4.7vw;
     background:#00000024
 
 }
-.form-control{
-width: 13.4vw!important;
-    
-}
+
  .btn-primary 
 {
     margin-left: -31vw
@@ -198,17 +197,19 @@ form .form-control:focus{
     border-color: #ced4da;
     box-shadow: none;
   }
-    .evnetsUnderFilter{
-        padding: 0%;
-        /* height: 100vh !important; */
-        z-index: 1;
-        cursor: pointer;
-        background-color:white;
-        width:97vw !important;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius:12px;
-    }
-
+.evnetsUnderFilter{
+    padding: 0%;
+    /* height: 100vh !important; */
+    z-index: 1;
+    cursor: pointer;
+    background-color:white;
+    width:97vw !important;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius:12px;
+}
+.titleRow{
+    height:57vh;
+}
 .arrow_{
  
     margin-left: 8vw;
@@ -216,11 +217,6 @@ form .form-control:focus{
     width: 2vw;
     height: 2vh;
     z-index: 0;
-}
-#subscribeInside{
-    background-color: var(--Button-color);  
-    margin-top: -4vh;
-    height: 6vh;
 }
 #createEventArea:hover{
     opacity: 1 
@@ -234,6 +230,17 @@ form .form-control:focus{
     /* margin-left: 2%; */
     /* margin-right: 1.5%; */
 
+}
+.subscribeDivFromTitle{
+    width: 86vw;
+    /* margin-left: 0vw; */
+    margin-top: 17vh;
+    background-color: #F0F2FA;
+    /* padding: 2px; */
+    height: 8vh;
+    position: absolute;
+    top: 39%;
+    margin-left: 4%;
 }
 #imageInTitle{
     /* height:50vh !important;

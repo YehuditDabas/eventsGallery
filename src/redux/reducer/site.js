@@ -6,7 +6,6 @@ import createReducer from './reducerUtils'
 const initialState = {
     
     isOpenConfigurator: true,
-    thumbtack: false,
     currentComponent: '',
     podcastName: '',
     brandColor: '',
@@ -14,6 +13,7 @@ const initialState = {
         name: '',
         email: '',
      },
+     currentComponentPlatform:[],
     // translations: new LocalizedStrings(localizations),
     lang: 'en',
     // channelName: 'MyChannelName'
@@ -29,6 +29,7 @@ const site = {
     setCurrentComponent(state, action) 
     
     {
+        
         state.currentComponent = action.payload;
     },
     setUserEmail(state, action) {

@@ -8,6 +8,7 @@ import ReactPlayer from 'react-player'
 import Loader from './Loader'
 import upload from '../../assets/upload.png';
 import './UploadImg.css'
+import keys from '../../config/env/keys';
 
 
 function UpLoadLogoFormConfigurator(props) {
@@ -30,7 +31,8 @@ function UpLoadLogoFormConfigurator(props) {
         $.ajax({
 
             type: "POST",
-            url: "https://files.codes/api/" + userName + "/upload",
+            url: `${keys.API_FILE}/${userName}/upload`,
+            // url: "https://files.codes/api/" + userName + "/upload",
             headers: { Authorization: TokenToString },
             data: myFile,
             processData: false,
@@ -47,7 +49,10 @@ function UpLoadLogoFormConfigurator(props) {
 
         });
     }
-
+    function ScrollGeneric (value,color)  {
+   
+        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+    }
     let currentImage = props.imgSrc.eventsPageLogo;
 
     return (
@@ -83,7 +88,7 @@ function UpLoadLogoFormConfigurator(props) {
 
             </label>
             <input type="file" name="file" accept="image/*" id="filelogo"
-                className="inputfile" onChange={changeLogoImage} />
+                className="inputfile" onChange={changeLogoImage} onClick={()=>ScrollGeneric('showHeader')} />
 
         </div >
     );
