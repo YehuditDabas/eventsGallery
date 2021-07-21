@@ -5,7 +5,6 @@ import { actionsStore } from '../../redux/actions';
 import { connect } from 'react-redux';
 //import logo from './../../../assets/logo.svg';
 //import dropper from '../../../assets/dropper.svg';
-import logowhite from './../../assets/logowhite.png'
 import UploadImageFromConfigurator from './uploadImageFromConfigurator';
 import UploadLogoFromConfigurator from './upLoadLogoFormConfigurator'
 import './ConfigComp.css';
@@ -15,14 +14,8 @@ function EditHeader(props) {
     const {headersettings}= props;
     const [alignment, setAlignment] = useState('left');
 
-    
-    function ScrollGeneric (value)  {
-   debugger
-        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
-    }
     function changeAlignment(align) {
         props.changeAlignment(align)
-        ScrollGeneric('showHeader');
         setAlignment(align)
     }
 
@@ -92,7 +85,6 @@ function EditHeader(props) {
                     <div className="col">
                         <textarea
                             className="divWidth configuratorTextarea"
-                            onClick={()=>ScrollGeneric('showHeader')}
                             onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => props.changeTitleText(e.target.value)}
                             value={props.editHeader.eventsPageTitle}
@@ -100,7 +92,6 @@ function EditHeader(props) {
                             maxLength="50"
                             style={{ textAlign: alignment }}
                             placeholder={props.editHeader.eventsPageTitle}
-                            id='idTitleText'
                         />
                     </div>
                     </div>
@@ -116,7 +107,6 @@ function EditHeader(props) {
                         <textarea
                             className="divWidth configuratorTextarea"
                             onKeyPress={(e) => { e.key == 'Enter' && (e.target.value.match(/\n/g) || []).length == 2 && e.preventDefault() }}
-                            onClick={()=>ScrollGeneric('showHeader')}
                             onChange={(e) => props.changeBodyText(e.target.value)}
                             // onChange={(e) => props.onChangeEventsGalleryDescription(e.target.value)}
                             value={props.editHeader.eventsPageDescription}

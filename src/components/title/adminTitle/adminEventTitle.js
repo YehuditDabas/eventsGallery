@@ -328,7 +328,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 </div>
             </div>
             <div className="container-fluid adminEvnetsUnderFilter">
-            <div className="row" style={{ width: "75vw", marginLeft: "4.5vw", marginRight: "2vw" }}>
+            <div className="row" style={{ width: "75vw", marginLeft: "4.5vw", marginRight: "2vw",marginTop:"12vh" }}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <div >
