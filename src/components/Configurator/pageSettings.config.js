@@ -34,8 +34,11 @@ function pageSettings(props) {
                 <span className="titleSettings"> Button Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker icker colors={color} onChange={(e) => props.changeButtonStyle(e.hex)} className="colorSelected" /></div>
-
+                <CirclePicker  colors={color} 
+                //onClick={(e)=>ScrollGeneric('showButtonSubscribe')}   
+                // onChange={(e) =>  props.changeButtonStyle(e.hex)} 
+                onChange={(e)=>ScrollGenericColor("showButtonSubscribe",e.hex)}
+            /></div>
             {/* <br /> */}
 
             <div className="row m-2 mt-3" id="showInRow">

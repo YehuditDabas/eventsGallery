@@ -59,6 +59,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         '#54b9ff': lightBlue,
         '#51e7fb': lightBlue2
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 1b958c4e5d02ec428df6b62d2786341b2225a4be
     function checkImg() {
         let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
         if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
