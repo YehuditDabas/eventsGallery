@@ -71,7 +71,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
         '#ff53f7': pink,
         '#ff62b2': pink2,
 
-        
+
         '#fa5252': red,
         '#ff803f': orange,
         '#faee3a': yellow,
@@ -192,8 +192,27 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             return false;
         }
     }
+
+    function ScrollGeneric(value) {
+        debugger
+        document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+       let element= document.getElementById(value);
+       element.classList.add("addBorder");
+     
+    }
+
     function changeToHeaderComponent() {
+        
         changeCurrentComponent('Edit Header')
+        // if (value.currentTarget.className === 'adminTitleAndDescription')
+        //     ScrollGeneric('idTitleText')
+    }
+
+    function changeToHeader(value) {
+        debugger
+        changeCurrentComponent('Edit Header')
+        if (value === 'adminEventTitletitleH1')
+            ScrollGeneric('idTitleText')
     }
     function changeToPageSettingsComponent() {
 
@@ -225,12 +244,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             }
         }
         document.documentElement.style.setProperty('--font-size-title-admin', `${textSize}vw`);
+
     }
     return (
         <>
             <div className="container-fluid adminEventTitle" >
 
+<<<<<<< HEAD
                 <div className="row adminTitleDiv" id='showHeader'>
+=======
+                <div className="row" style={{ height: "75vh" }} id="showHeader">
+>>>>>>> CB_new
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
                     <label htmlFor='filelogo' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>
@@ -249,7 +273,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             className="adminEventTitletitleH1"
                             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
                             onChange={(e) => changeTitleText(e.target.value)}
-                            onClick={changeToHeaderComponent}
+                            onClick={() => changeToHeader('adminEventTitletitleH1')}
                             value={headersettings.eventsPageTitle}
                             // rows="2"
                             // size="14"
@@ -274,8 +298,44 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                             onFocus={(e) => e.target.select()}
                         >{headersettings.eventsPageTitle}
                         </textarea>
+<<<<<<< HEAD
                         <div className="subscribeDivfromAdminTitle">
                             <Subscribe />
+=======
+                        <div className="row" id='showButtonSubscribe'>
+                            <div className="col-3 subscribeArea adminSubscribeArea"  >
+
+                                {/* <input type="text" value="subscribe" className="subscribe"></input> */}
+                                <button type="button" className="adminSubscribe subscribe" onClick={() => { setShowing(!showing) }}>subscribe</button>
+
+                                {/* <button className="btn btn-primary subscribe" value="subscribe" ></button> */}
+                                {showing && (subscribesettings.name === true || subscribesettings.email === true || subscribesettings.phone === true || subscribesettings.address === true) ?
+                                    <div>
+                                        <img className="arrow_" src={arrow}></img>
+                                        <div className="dropDown">
+                                            <form className="formSubscribe">
+                                                <br></br>
+                                                {/* const[placeHolderAdress,setPlaceHolderAdress]=useState("adress");  */}
+                                                {subscribesettings.name === true ? <input class="form-control form-control-sm " id="name" type="text" placeholder={placeHolderName} onChange={(e) => setName(e.target.value)} /> : <></>}
+                                                {subscribesettings.email === true ? <input class="form-control form-control-sm " id="emailField" type="text" placeholder={placeHolderEmail} onChange={(e) => setEmail(e.target.value)} /> : <></>}
+                                                {subscribesettings.phone === true ? <input class="form-control form-control-sm " id="PhoneField!" type="text" placeholder={placeHolderPhone} onChange={(e) => setPhone(e.target.value)} /> : <></>}
+                                                {subscribesettings.address === true ? <input class="form-control form-control-sm " id="emailField!" type="text" placeholder={placeHolderAdress} onChange={(e) => setAdress(e.target.value)} /> : <></>}
+                                                <span style={{ color: "red" }}>{errorsForm}</span>
+                                                <br></br><br></br>
+                                                <input type="button" class="form-control" id="subscribeInside" value="subscribe" ></input>
+
+
+                                            </form>
+
+                                        </div></div> :
+                                    <div></div>
+                                }
+
+
+
+                            </div>
+
+>>>>>>> CB_new
                         </div>
                     </div>
                     <div className="wrapAdminImgOrVieo col-5 d-flex justify-content-center">
@@ -312,7 +372,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <div >
-                <FooterEventsGallery /></div>
+                    <FooterEventsGallery /></div>
             </div>
         </>
 

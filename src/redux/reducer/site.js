@@ -27,9 +27,11 @@ const site = {
         state.thumbtack = action.payload
     },
     setCurrentComponent(state, action) 
-    
     {
+<<<<<<< HEAD
         
+=======
+>>>>>>> CB_new
         state.currentComponent = action.payload;
     },
     setUserEmail(state, action) {

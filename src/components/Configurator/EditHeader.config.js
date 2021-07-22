@@ -16,8 +16,8 @@ function EditHeader(props) {
     const [alignment, setAlignment] = useState('left');
 
     
-    function ScrollGeneric (value,color)  {
-   
+    function ScrollGeneric (value)  {
+   debugger
         document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
     }
     function changeAlignment(align) {
@@ -100,6 +100,7 @@ function EditHeader(props) {
                             maxLength="50"
                             style={{ textAlign: alignment }}
                             placeholder={props.editHeader.eventsPageTitle}
+                            id='idTitleText'
                         />
                     </div>
                     </div>

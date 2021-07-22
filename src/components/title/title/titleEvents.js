@@ -59,7 +59,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         '#54b9ff': lightBlue,
         '#51e7fb': lightBlue2
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> CB_new
     function checkImg() {
         let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
         if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
@@ -68,6 +72,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             return false;
         }
     }
+    
     function setHeightAndWidth() {
         var myImg = new Image();
         var size;
