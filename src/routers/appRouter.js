@@ -12,8 +12,6 @@ import showSettings from '../assets/show.png';
 import NewEventDetails from '../components/events/eventDetails/newEventDetails'
 import EventTitleMobile from '../components/title/mobile/titleMobile/eventTitleMobile'
 import { useMediaQuery } from 'react-responsive';
-
-
 import EventDetailsMobile from '../components/events/mobile/eventDetailsMobile/eventDetailsMobile'
 
 export default function AppRouter() {
@@ -42,20 +40,9 @@ export default function AppRouter() {
 
         {/* <FooterEventsGallery /> */}
       </Route>
-      <Route path="/:userName/eventDetails/:index">
-        <EventDetails />
-      </Route>
 
       <Route path="/:userName/newEventDetails/">
         <NewEventDetails />
-        {isMobile == true ?
-          <EventTitleMobile />
-          : <><button onClick={() => { setShow(!show); showConfig() }} className="showSettingsBtn"><img src={showSettings} height="20vh" width="30vw"></img></button>
-            {show == true ? < ConfiguratorSettings /> : ''}
-            {show == true ?
-              <AdminEventTitle style={{ zIndex: 3 }}></AdminEventTitle> : ''}
-            {show == false ? <TitleEvents style={{ zIndex: 3 }}></TitleEvents> : ''}</>}
-
       </Route>
       <Route path="/:userName/eventDetails/:index">
         {isMobile == true ?

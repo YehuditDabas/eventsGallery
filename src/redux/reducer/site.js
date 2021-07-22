@@ -27,7 +27,6 @@ const site = {
         state.thumbtack = action.payload
     },
     setCurrentComponent(state, action) 
-    
     {
         
         state.currentComponent = action.payload;

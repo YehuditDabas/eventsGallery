@@ -1,0 +1,98 @@
+.neweventDetailsTitle{
+    height:30vh;
+    padding:0;
+    margin-top: 5vh;
+      margin-left: 6vw;
+
+}
+.rowImage{
+    
+    padding: 0;
+   border-top-left-radius: "12px";
+   border-top-right-radius: "12px";
+   height: 60vh;
+} 
+.newEventTitle {
+    /* top: 12%; */
+    margin-top: 8%;
+    left: 1%;
+    font-size: 2vw;
+    font-size: var(--font-size-title);
+    width: 64%;
+    height: 10vh;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: 10%;
+}
+.picEventTitle {
+    width: 39vw;
+    height: 43vh;
+    top: 17vh;
+    background-color: white;
+    position: relative;
+}
+.iconUploadNewEvent{
+    width: 7vw;
+    margin-top: 9vh;
+    
+    height: 12vh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.InputEventImage {
+    /* width: var(--image-width);
+    height: var(--input-height); */
+    opacity: 0;
+    /* overflow: hidden;
+    position: absolute;
+    z-index: 12;
+    margin-top: 3vh; */
+}
+.pUploadImageToEvent{
+    font-size: 2vw;
+    text-align: left;
+
+     letter-spacing: 0.07px;
+     color: #32324D;
+     text-transform: capitalize;
+     opacity: 0.9;
+}
+.warpDivUploadImageNewEvent{
+    width: 36vw;
+    height: 43vh;
+    justify-content: flex-start;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+.newEventTextErea{
+    min-height: 20vh;
+    width:36vw;
+    word-wrap: break-word !important;
+    text-align: var(--align-text);
+    font-size: var(--font-size-title-admin);
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    z-index: 4!important;
+    background: transparent;
+    margin-top: 12vh;
+    height:var(--title-height);
+    line-height: 7vh !important;
+    font-weight: 600;
+}
+.newEventTextErea:hover{
+    border: 1px dashed white !important;
+
+}
+.btnTickets{
+    top: 492px;
+left: 192px;
+width: 253px;
+height: 57px;
+background: transparent  0% 0% no-repeat padding-box;
+opacity: 1;
+}

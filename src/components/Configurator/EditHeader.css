@@ -207,6 +207,9 @@ label {
     bottom: 17%;
     left: 34%;
 }
+.addBorder{
+    outline: -webkit-focus-ring-color auto 1px;
+}
 /* -------------------------------------------------------------------- */
 @media (min-width:1280px)and (max-width:1280px){
     .EditHeaderAlingment{

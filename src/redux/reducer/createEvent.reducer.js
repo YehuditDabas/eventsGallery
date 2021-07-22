@@ -14,6 +14,7 @@ const createEvent={
         state.newEvent.title = action.payload;    
         
     },
+    
 
 }
 
