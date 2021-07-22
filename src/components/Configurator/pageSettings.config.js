@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import dropper from '../../assets/dropper.svg';
 import { GithubPicker, CirclePicker } from 'react-color';
 // import StopIcon from '@material-ui/icons/Stop';
-
+import ScrollGenericColor from 'scroll-into-view'
 import './ConfigComp.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -34,8 +34,13 @@ function pageSettings(props) {
                 <span className="titleSettings"> Button Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
-                <GithubPicker icker colors={color} onChange={(e) => props.changeButtonStyle(e.hex)} className="colorSelected" /></div>
+                <CirclePicker  colors={color} 
+                // onChange={(e)=>ScrollGenericColor('showHeader',e.hex)}   /></div>
 
+                // //onClick={(e)=>ScrollGeneric('showButtonSubscribe')}   
+                // // onChange={(e) =>  props.changeButtonStyle(e.hex)} 
+                onChange={(e)=>ScrollGenericColor("showButtonSubscribe",e.hex)}
+            /></div>
             {/* <br /> */}
 
             <div className="row m-2 mt-3" id="showInRow">

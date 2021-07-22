@@ -89,4 +89,17 @@
     position: relative;
   }
   
+
+  
+/* .btnCreateEvent{
+  position:fixed;
+  opacity: 1;
+  color: white;
+  width: 14vw; 
+  height: 7vh;
+  background: #0A102E 0% 0% no-repeat padding-box;
+  border: 3px solid rgb(194, 125, 194);
+ border-radius: 10px;
+font-size: 1vw; */
+
 }

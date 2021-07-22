@@ -28,6 +28,7 @@ const site = {
     },
     setCurrentComponent(state, action) 
     {
+        
         state.currentComponent = action.payload;
     },
     setUserEmail(state, action) {
