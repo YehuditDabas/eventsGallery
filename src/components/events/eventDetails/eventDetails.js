@@ -30,11 +30,12 @@ import Carousel from "react-multi-carousel";
 function mapStateToProps(state) {
     var year = new Date();
     year = year.getUTCFullYear();
+   
     return {
 
         events: state.allEvents.events,
-        mainColor: state.PageSettings.page.eventsPageColor,
-        eventsButtonColor: state.PageSettings.page.eventsButtonColor,
+        mainColor: state.pageSettings.page.eventsPageColor,
+        eventsButtonColor: state.pageSettings.page.eventsButtonColor,
         subscribesettings: state.editSubscription.subscribe,
         message: state.allEvents.message,
         logoImg: state.editHeader.header.eventsPageLogo

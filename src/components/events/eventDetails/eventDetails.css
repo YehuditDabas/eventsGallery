@@ -164,7 +164,13 @@ width:4vw;
     right: 7%;
     width:var(--image-width);
     padding: 0;
-    margin-top:6%;
+    margin-top:10%;
+}
+ .picEventTitle{
+width:13vw;
+height: 13vh;
+background-color: white;
+position: relative;
 }
 
 @media only screen and (min-width:900px) and (max-width:1000px){
@@ -191,4 +197,10 @@ width:4vw;
     .eventTitle{
         font-size:calc(var(--font-size-title)-1vh) !important;
     }
+}
+.warpDivUploadImageEvent{
+    display: flex;
+    /* flex-direction:column-reverse; */
+    justify-content:space-between;
+
 }

@@ -79,13 +79,14 @@
     bottom: 0vh;
     /* font-family: "Roboto", "Helvetica", "Arial", sans-serif; */
     background: rgb(194, 125, 194) 0% 0% no-repeat padding-box;
-   
     opacity: 1;
     color: white;
     width: 14vw; 
     height: 7vh;
     font-size: 1vw;
   }
+
+  
 .btnCreateEvent{
   position:fixed;
   opacity: 1;
@@ -94,7 +95,7 @@
   height: 7vh;
   background: #0A102E 0% 0% no-repeat padding-box;
   border: 3px solid rgb(194, 125, 194);
-border-radius: 10px;
+ border-radius: 10px;
 font-size: 1vw;
 
 }

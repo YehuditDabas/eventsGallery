@@ -30,14 +30,11 @@ function PageSettings(props) {
         
         function ScrollGenericColor (value,color)  {
          debugger
-         props.changeMainColor(color)
-         props.changeButtonStyle(color)
+         if(value==='showButtonSubscribe')
+          props.changeButtonStyle(color)
+          else props.changeMainColor(color) 
             document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
         }
-        
-        // useEffect(()=>{
-
-        // },[])
 
     // },[])
     return (
@@ -47,17 +44,19 @@ function PageSettings(props) {
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
                 <CirclePicker colors={color} 
-                // onChange={(e)=>ScrollGeneric("scrolpagecolor",e.hex)}
+                onChange={(e)=>ScrollGenericColor("showHeader",e.hex)}
                 //  onChange={(e) => props.changeMainColor(e.hex)}     
-                 onChange={(e)=>ScrollGenericColor('showHeader',e.hex)}       
+                //  onClick={(e)=>ScrollGenericColor('showHeader')}       
                   className="colorSelected" /></div>
             <div className="ml-1 mt-3">
                 <span className="titleSettings"> Button Color</span>
             </div >
             <div className="d-flex justify-content-center ChannelColorwidth" >
                 <CirclePicker  colors={color} 
-                onChange={(e)=>ScrollGenericColor('showHeader',e.hex)}   /></div>
-
+                //onClick={(e)=>ScrollGeneric('showButtonSubscribe')}   
+                // onChange={(e) =>  props.changeButtonStyle(e.hex)} 
+                onChange={(e)=>ScrollGenericColor("showButtonSubscribe",e.hex)}
+            /></div>
             {/* <br /> */}
 
             <div className="row m-2 mt-3">
