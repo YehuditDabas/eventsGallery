@@ -58,6 +58,8 @@ body {
 }
 
 .titleH1{
+    margin-top: 4vh;
+
     word-wrap: break-word;
     text-align: var(--align-text);
    letter-spacing: 0px;
@@ -118,6 +120,7 @@ body {
 }
 
 .descriptionP{
+    margin-top: 5vh;
     word-wrap: break-word;
     text-align: var(--align-text);
     letter-spacing: 0px;
@@ -242,13 +245,25 @@ form .form-control:focus{
     top: 39%;
     margin-left: 4%;
 }
-#imageInTitle{
+.pageSettings{
     /* height:50vh !important;
     width:var(--image-width)!important; */
     vertical-align: middle;
         /* float: right; */
         /* margin-left: auto;
         margin-right: auto !important; */
+    }
+
+#imageInTitle{
+    /* margin-top: 10vh; */
+    margin-top: -4vh;
+
+    height:50vh !important;
+    width:var(--image-width)!important;
+    vertical-align: middle;
+        float: right; 
+        margin-left: auto;
+        margin-right: auto !important;
     }
 
 /* @media(min-width:1500px)
@@ -260,13 +275,15 @@ form .form-control:focus{
 
 
 } */
-/* @media(max-width:500px)
+ @media(max-width:500px)
 {
-    .
+   body {
+       background-color: transparent !important;
+   }
 
 
 }
-@media(min-width:500px)and (max-width: 1000px)
+/*@media(min-width:500px)and (max-width: 1000px)
 {
 
 

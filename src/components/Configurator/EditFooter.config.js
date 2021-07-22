@@ -9,46 +9,38 @@ import Switch from '@material-ui/core/Switch';
 import FormControl from '@material-ui/core/FormControl';
 import { useDispatch, useSelector } from "react-redux";
 
+
 function EditFooter(props) {
 
   const filedFooter = useSelector(state => state.editFooter.footer)
   const dispatch = useDispatch()
-
   const handleChange = (event) => {
    
     dispatch(actionsStore.footerFields({ "filedName": [event.target.name], "value": event.target.checked }));
 
   };
-  function ScrollGeneric (value,color)  {
-   
-    document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
-}
 
   return (
-
     <FormControl component="fieldset" className="FormControlW">
-      <div className=''>
+
+      <div >
 
         <FormGroup >
-        
+
           {/* facebook */}
-          
           <div className="iconFooter">
-           
-            <FormControlLabel className=" iconName "
-              onClick={()=>ScrollGeneric('showFooter')}
+            <FormControlLabel className=" iconName iconInMobile"
               control={<Switch checked={filedFooter.facebook} onChange={handleChange} name="facebook" id="firstLabel" />}
               label={
                 <span className="icon" id="firstIcon"  >
                   facebook<FontAwesomeIcon icon={['fab', 'facebook-square']} className="iconSize"
                   ></FontAwesomeIcon> </span>
+
               } />
           </div>
-
           {/* <Form.Control size="sm" type="text" placeholder="Attach Link" className="inputLinkIcon" /> */}
           <textarea
             className="inputLinkIcon"
-            onClick={()=>ScrollGeneric('showFooter')}
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
             onChange={(e) => props.changeFacebookLink(e.target.value)}
             value={filedFooter.facebookLink}
@@ -56,11 +48,9 @@ function EditFooter(props) {
             maxLength="50"
             placeholder="Attach Link"
           />
-
-          {/* twitter */}
+{/* twitter */}
           <div className="iconFooter">
-            <FormControlLabel className="iconName"
-              onClick={()=>ScrollGeneric('showFooter')}
+            <FormControlLabel className="d-flex justify-content-between"
               control={<Switch checked={filedFooter.twitter} onChange={handleChange} name="twitter" />}
               label={<span className="icon" id="secondIcon">
                 twitter  <FontAwesomeIcon icon={['fab', 'twitter']} className="iconSize" ></FontAwesomeIcon></span>} />
@@ -69,7 +59,6 @@ function EditFooter(props) {
           <textarea
             className="inputLinkIcon"
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-            onClick={()=>ScrollGeneric('showFooter')}
             onChange={(e) => props.changeTwitterLink(e.target.value)}
             value={filedFooter.twitterLink}
             rows="1"
@@ -78,8 +67,7 @@ function EditFooter(props) {
           />
 {/* instagram */}
           <div className="iconFooter">
-            <FormControlLabel className="iconName"
-              onClick={()=>ScrollGeneric('showFooter')}
+            <FormControlLabel className=""
               control={<Switch checked={filedFooter.instagram} onChange={handleChange} name="instagram" />}
               label={<span className="icon" id="thirdIcon">
                 instagram  <FontAwesomeIcon icon={['fab', 'instagram']} className="iconSize" ></FontAwesomeIcon></span>} />
@@ -89,7 +77,6 @@ function EditFooter(props) {
           <textarea
             className="inputLinkIcon"
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-            onClick={()=>ScrollGeneric('showFooter')}
             onChange={(e) => props.changeInstagramLink(e.target.value)}
             value={filedFooter.instagramLink}
             rows="1"
@@ -100,8 +87,7 @@ function EditFooter(props) {
 {/* youtube */}
           <div className="iconFooter">
             <FormControlLabel
-              className="iconName"
-              onClick={()=>ScrollGeneric('showFooter')}
+              className="switch d-flex justify-content-between"
               control={<Switch checked={filedFooter.youtube} onChange={handleChange} name="youtube" />}
               label={<span className="icon" id="fourthIcon">
                 youtube <FontAwesomeIcon icon={['fab', 'youtube']} className="iconSize" ></FontAwesomeIcon></span>} />
@@ -111,7 +97,6 @@ function EditFooter(props) {
           <textarea
             className="inputLinkIcon"
             // onKeyPress={(e) => e.key == 'Enter' && e.target.value.includes('\n') && e.preventDefault()}
-            onClick={()=>ScrollGeneric('showFooter')}
             onChange={(e) => props.changeYiutubeLink(e.target.value)}
             value={filedFooter.youtubeLink}
             rows="1"

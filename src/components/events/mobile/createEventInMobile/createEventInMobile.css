@@ -1,0 +1,127 @@
+.wrapImgNewEvent{
+    height: 30vh;
+    width: 101vw;
+    margin-left: -4vw;
+    position: relative;
+    top: 10vh;
+}
+.imgNewEventFile{
+    margin-top: 0 !important;
+    width: 100vw;
+    background:#EFEFF4 0% 0% no-repeat padding-box;
+}
+.imgNewInMobile{
+    padding: inherit;
+    position: relative;
+    opacity: 1;
+    z-index: 2!important;
+    height: 30vh;
+    
+}
+#imgNewEvent{
+    height:15vh;
+    width:35vw;
+    margin-top:8vh;
+}
+.newEventImgUpload{
+    height:100%;
+    width: 100%;
+    /* z-index: 100; */
+    position:absolute;
+}
+.newInputFile{
+    height: 30vh;
+    width: 101vw;
+    position: fixed;
+}
+.uploadImgCreateNew{
+    position: absolute;
+    height: 15vh;
+    width: 41vw !important;
+    vertical-align: middle;
+    z-index: 25;
+    width: var(--image-width);
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.wrapIconCreateNew{
+    width: 101vw;
+    height: 30vh;
+    position:absolute;
+    opacity: 0;
+}
+.wrapIconCreateNew:hover{
+    opacity: 0.3;
+}
+.uploadImgP{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    position: absolute;
+    bottom: 5px;
+    font-size: 6vw;
+}
+.titleInCreateEvent{
+    height: 8vh;
+    width: 95vw;
+    position: relative;
+    top: 10vh;
+    margin-right: -2vw;
+    /* margin-left: 14vw; */
+    float: right;
+    font-size: 9vw;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+}
+#priceInputInCreateEvent{
+    width: 22vw;
+    height: 5vh;
+    background-color: var(--main-color);
+    position: relative;
+    font-size: 7vw;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    margin: 2vh 2vw 2vh 2vw;
+
+}
+.setEventDetails{
+    height:50vh;
+}
+.newEventDetails{
+    position: relative;
+    top: 12vh;
+}
+.mobileNewEventTitle{
+    height: 9vh;
+    font-size: 14vw;
+    font-weight: 600;
+    border:1px dashed;
+    margin-left: 6px;
+    width: 97%;
+    margin-right: 6px;
+
+
+}
+.mobileNewEventLocation{
+    border: none;
+    border-bottom: 1px solid;
+    font-size:3vh;
+
+}
+.mobileNewEventAboutText{
+    font-size:3vh;
+    width: 95%;
+    margin-left: 10px;
+}
+.mobileNewEventDateTime{
+    width:72vw;
+    font-size:3vh;
+}
+.showParticipants{
+    width: 350%;
+    font-size: 5vw;
+}

@@ -171,11 +171,23 @@ background-color: rgba(196, 183, 183, 0.6);
 
 }
 .wrapAdminImgOrVieo{
-    margin-top: 6vh!important;
+    /* margin-top: 6vh!important; */
+
+    margin-top: -54vh;
+
+    height:50vh !important;
+    width:var(--image-width)!important;
+    vertical-align: middle;
+        float: right; 
+        margin-left: auto;
+        margin-right: auto !important;
+        margin-right: -2vw;
+
+    /* margin-top: -52vh!important;
     z-index: 3;
     margin-left: 21vw;
     height:var(--input-height);
-    border-style: dashed;
+    border-style: dashed; */
 }
 
 .adminImgOrVieo{
@@ -220,6 +232,13 @@ background-color: rgba(196, 183, 183, 0.6);
 }
 .adminSubscribe{
     margin-left: 0 !important;
+}
+@media(max-width:500px)
+{
+   body {
+       background-color: transparent !important;
+   }
+
 }
 .subscribeDivfromAdminTitle{
     width: 72vw;

@@ -59,7 +59,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
         '#54b9ff': lightBlue,
         '#51e7fb': lightBlue2
     }
-    
     function checkImg() {
         let x = headersettings.eventsPageImageOrVideo.replace(/[{()}]/g, '');
         if (x.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/)) {
@@ -68,7 +67,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
             return false;
         }
     }
-    
+
     function setHeightAndWidth() {
         var myImg = new Image();
         var size;
@@ -162,8 +161,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(function TitleEvent(
 
                     <div className="container-fluid evnetsUnderFilter">
                         <div className="row">
-                            <AllEvents style={{ zIndex: 1 }} sentBy={"titleEvent"}></AllEvents>
-                            {/* <div className="col-3 createEventArea">
+                            <div className="row" style={{ width: "75vw", marginLeft: "12.5vw", marginRight: "2vw" ,marginTop:"12vh"}}>
+                                <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
+                            </div>                            {/* <div className="col-3 createEventArea">
                         <CreateEvent></CreateEvent>
                     </div> */}
                         </div>

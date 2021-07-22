@@ -125,9 +125,9 @@ border-radius: 30px;
     display:none;
     position:fixed;
     z-index: 15;
-    height:50vh !important;
+    height:46vh !important;
     width: 100vw;
-    bottom:-50vh;
+    bottom:-40vh;
     animation-name: magnificent_popup;
    animation-duration: 0.5s;
    animation-timing-function: ease-in;
@@ -136,7 +136,7 @@ border-radius: 30px;
     /* display:var(--display-configurator); */
 }
 @keyframes magnificent_popup {
-    from{bottom:-50vh;}
+    from{bottom:-40vh;}
     to  {bottom:0px;}
 }
 
@@ -144,6 +144,9 @@ border-radius: 30px;
 .configuratorSettingsInMobile.active {
    display:block;
    bottom:0;
+   border-top: 8vh solid var(--main-color);
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
 }
 
 .showConfigurator{
