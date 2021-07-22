@@ -19,6 +19,495 @@ label {
     margin-top: 1vh;
 }
 
+
+
+.configuratorTextarea {
+    border: none;
+    resize: none !important;
+    background: #505066 0% 0% no-repeat padding-box;
+    height: 8vh;
+    text-align: left;
+    width: 13vw;
+    margin-left:1.5vw;
+}
+
+
+
+.inputfile {
+    width:  0.1px;
+    height: 0.1px;
+    opacity: 0;
+     overflow: hidden; 
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile+label {
+    cursor: pointer;
+}
+.github-picker{
+    width: 13vw;
+    background: #0000 !important;
+    border: #0000 !important;
+    box-shadow: #0000 0px 0px 0px !important;
+    border-radius: 4px;
+    position: unset !important;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1vw;
+} 
+.github-picker>span{
+    margin: 3px;
+}
+/* PICKER */
+.GithubPicker{
+    border: 3px solid #fff;
+    padding: 3px;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked+.MuiSwitch-track {
+    background-color: white !important;
+}
+
+.MuiSwitch-thumb {
+    background-color: #4b0083 !important;
+    /* width: 0.8vw !important;
+    height: 1.8vh !important; */
+    /* margin-top: 0.8vh;
+    margin-left: 0.3vw; */
+}
+
+
+
+.MuiTypography-body1 {
+    font-size: 1vw !important;
+}
+
+
+.MuiFormLabel-root {
+    /* font-size: small !important; */
+    /* padding-left: 20px; */
+    color: white !important;
+    font-size: 0.9rem;
+}
+
+.MuiFormGroup-root {
+    direction: rtl;
+    display: grid !important;
+    /* padding-left: 5px; */
+}
+
+.MuiTypography-root {
+    margin-right: 4vw !important;
+}
+
+.accordion>.card>.card-header {
+
+    background-color: #0A102E;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 1.1vw;
+   
+}
+ .accordion>.card>.card-header:hover{
+   
+    background: transparent linear-gradient( 
+        115deg , #FFFFFF -200%, #006C8000 100%) 0% 18% no-repeat padding-box;
+    color: white !important;
+ }
+
+.accordion>.card>.card-header:hover.cardName{
+    opacity: 0; 
+}
+
+
+.MuiFormControl-root {
+    margin: 1rem !important;
+}
+
+
+.github-picker>span{
+    margin:3px;
+    
+}
+        .github-picker>span>div{
+    width: 16px !important;
+    height: 16px !important;
+}
+.SelectChanel{
+    height: 4vh;
+    margin-left: 1.5vw;
+    width: 3vw;
+    background: #505066 0% 0% no-repeat padding-box;
+    color:white;
+}
+
+.card {
+    width: 100% !important;
+}
+.ChannelColorwidth{
+    width: 13vw !important;  
+}
+.MuiFormControlLabel-root {
+    margin-right: 0px !important;
+}
+.FormControlW{
+    width: 100%;
+    margin-left: 1vw;
+    color:white;
+}
+.marginTop{
+    margin-top: -12px;
+}
+.MuiFormControl-root{
+    margin-left: 0px !important;
+}
+Form.Label{
+    font:normal;
+}
+.iconSize{
+     width:3vw !important;
+     height: 3vh;
+}
+
+.inputLinkIcon{
+    background: #505066 0% 0% no-repeat padding-box;
+    opacity: 0.30;
+    display: inline-block;
+    background: #505066 0% 0% no-repeat padding-box;
+    height: 2vw;
+    width: 13.5vw;
+    margin: auto;
+    color: white;
+    margin-bottom: 2vh;
+    margin-top: -1vh;
+    direction: ltr;
+    border: none;
+    margin-right: 0.5vw;
+}
+::placeholder{
+    color: white;
+    font-weight: lighter;
+}
+.iconFooter{
+    display:flex;
+    
+}
+.icon{
+    margin-top: -1vh;
+    float: right;
+    font-size: 1vw;
+}
+
+#firstIcon{
+    margin-right: 4.3vw;
+}
+
+#secondIcon{
+    margin-right: 4.5vw;
+}
+#thirdIcon{
+margin-right: 3vw;
+}
+#fourthIcon{
+margin-right: 4vw;
+}
+.MuiTypography-body1 {
+    margin-top: -2vh;
+  
+}
+#firstLabel{
+    z-index: 11;
+    position: absolute;
+    margin-right: 8vw;
+}
+.colorSelected{
+    border: 2px solid #FFFFFF;
+    opacity: 1;
+}
+.iii{
+    margin: auto;
+    width: 90%;
+}
+
+.one{
+    margin-left: 2vw;
+}
+
+
+.showinpageRow{
+    font: normal normal 1.1vw/0vh Roboto;
+    margin-top: 2vh !important;
+    font-family: -webkit-pictograph;
+   
+}
+
+.labelToggle{
+    margin-left: 1.5vw !important;
+    font-size: 0.9rem !important;
+}
+.editSubscribtionFileds{
+    margin-left: 1.5vw !important;
+    font-size: 1vw !important;
+}
+.MuiFormControlLabel-root{
+    width: 14.5vw;
+    height: 6vh;
+}
+#firstIcon{
+    margin-right: 0.34vw;
+}
+
+.MuiSwitch-thumb {
+    background-color: #4b0083 !important;  
+}
+.MuiFormControlLabel-label.Mui-disabled{
+    color:white !important;
+}
+ .saveSettings{
+     display:none !important;
+ }
+
+/* mobile */
+@media only screen and (max-width:620px){
+    .inputLinkIcon {
+        height: 1.5vw;
+        font-size: 4vw;
+    }
+    .MuiTypography-body1 {
+        font-size: 7vw !important;
+    }
+    .MuiFormLabel-root {
+     
+        color: white !important;
+        font-size: 0.9rem;
+    }
+   .accordion>.card>.card-header {
+    
+        background-color: #0A102E;
+        color: #FFFFFF;
+        text-align: left;
+        font-size: 7vw;
+    font-weight: 600;
+     
+    }  
+    .icon{
+        margin-top: -1vh;
+        float: left;
+        font-size: 7vw;
+    }
+    .showinpageRow{
+        font: normal normal 8vw/0vh Roboto;
+        margin-top: 2vh !important;
+        font-family: -webkit-pictograph;
+       
+    } 
+    .labelToggle{
+        margin-left: 8vw !important;
+        font-size: 0.9rem !important;
+    }
+    .editSubscribtionFileds{
+        margin-left: 0vw !important;
+        font-size: 7vw !important;
+    }
+    .inputLinkIcon {
+        height: 8vw;
+        font-size: 0.8vw;
+    }
+    #showInRow{
+        display:none;
+    }
+    .buttoncreate{
+        display:none !important
+    }
+    
+    .wrapSaveSettings{
+        display:block !important;
+    }
+
+    .saveSettings{
+        display: block !important;
+    width: 25vw !important;
+    height: 5vh;
+    float: right;
+    background-color: transparent;
+    position: fixed;
+    right: 10vw;
+    font-size: 7vw;
+    line-height: 2.5vh;
+    border-radius: 10px;
+    z-index: 90;
+    margin-top:-6vh;
+    }
+}
+
+@media only screen and(max-width:1280px){
+
+} 
+.MuiTypography-root {
+    margin-right: 2vw !important;
+} 
+#firstIcon { 
+    margin-right: 0.83vw !important;
+}
+#secondIcon {
+    margin-right: 1.5vw !important;
+}
+#thirdIcon {
+    margin-right: 0.2vw !important;
+}
+#fourthIcon {
+    margin-right: 1vw !important;
+}
+
+
+@media only screen and(min-width:1440px){
+    .MuiTypography-root {
+        margin-right: 2.7vw !important;
+    }    
+
+    #firstIcon {
+        margin-right: 0.64vw !important;
+    }
+    #secondIcon {
+        margin-right: 1.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: 0vw !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
+    
+}
+@media only screen and (min-width:1920px)  {
+
+    #firstIcon {
+        margin-right: 0.16vw !important;
+    }
+    #secondIcon {
+        margin-right: -0.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: -0.5vw  !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
+    .MuiTypography-root {
+        margin-right: 4vw !important;
+    }
+    .MuiSwitch-root{
+        width: 3.2vw !important;
+        height: 3.8vh !important;
+        margin-top: 0.5vh !important;
+    }
+   .MuiSwitch-thumb { 
+    margin-top: 0.1vh !important;
+    }
+    .inputLinkIcon{
+        height: 1.6vw;
+    }
+}
+@media only screen and (min-width:3480px){
+    .MuiSwitch-root{        
+    margin-right: 0.5vw;
+    width: 58px !important;
+    height: 38px !important;
+    }
+    
+
+.MuiTypography-root {
+    margin-right: 5.4vw !important;
+}
+
+#firstIcon {
+    margin-right: -0.2vw !important;
+}
+
+#thirdIcon {
+    margin-right: -0.9vw !important;
+}
+.icon{
+    margin-top: 0vh;
+}
+#fourthIcon {
+    margin-right: -6.1vw !important;
+}
+.inputLinkIcon {
+    height: 1.5vw;
+    font-size: 0.8vw;
+}
+.AlignmentSpan{
+    margin-left: -1vw;
+}
+.warpDivalignment {
+    margin-left: 8.2vw;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+label {
+    margin-top: 0 !important;
+}
+
+.textField {
+    margin-top: 7px!important;
+    /* margin-right: 3px!important; */
+}
+.ChannelColorIcn{
+     color: #959595;
+     cursor: pointer;
+     font-size: 20px;
+}
+.ShowConfiguratorWith{
+    width: 99% !important;
+}
+
+.cardOne{
+    margin-top: 1vh;
+}
+
 /* .MuiSwitch-root {
     width: 4.4vw !important;
     height: 3.6vh !important;
@@ -82,6 +571,7 @@ label {
 
 .MuiSwitch-colorSecondary.Mui-checked+.MuiSwitch-track {
     background-color: white !important;
+    opacity: 1 !important;
 }
 
 .MuiSwitch-thumb {
@@ -117,10 +607,13 @@ margin-left: 0.3vw;
     /* padding-left: 5px; */
 }
 
-.MuiTypography-root {
+/* .MuiTypography-root {
     margin-right: 4vw !important;
+} */
+.switchPageSettings .MuiSwitch-root{
+    color:violet;
+    margin-right: 1vw;
 }
-
 .accordion>.card>.card-header {
 
     background-color: #0A102E;
@@ -157,7 +650,7 @@ margin-left: 0.3vw;
     height: 16px !important;
 }
 .SelectChanel{
-    height: 4vh;
+    height: 3vh;
     /* margin-left: 9vw; */
     margin-left: 1.5vw;
     width: 3vw;
@@ -169,12 +662,17 @@ margin-left: 0.3vw;
 .card {
     width: 100% !important;
 }
-.ChannelColorwidth{
-    width: 13vw !important;  
+.ChannelColorwidth {
+    width: 17vw !important;
+}
+.ChannelColorwidth >div{
+    margin-left: 1.5vw;
 }
 .MuiFormControlLabel-root {
     /* margin-left: 0px !important; */
     margin-right: 0px !important;
+        align-items: baseline;
+    justify-content: space-between;
 }
 .FormControlW{
     width: 100%;
@@ -226,12 +724,11 @@ Form.Label{
     float: right;
     font-size: 1vw;
 }
-/* .iconName{
+.iconName{
     margin-right: 0vw;
-} */
-#firstIcon{
-    /* margin-left: 1.5vw; */
-    margin-right: 4.3vw;
+}
+/* #firstIcon{
+    margin-right: -0.9vw;
 }
 
 #secondIcon{
@@ -242,7 +739,7 @@ margin-right: 3vw;
 }
 #fourthIcon{
 margin-right: 4vw;
-}
+} */
 .MuiTypography-body1 {
     margin-top: -2vh;
     /* position: absolute;
@@ -254,27 +751,10 @@ margin-right: 4vw;
     position: absolute;
     margin-right: 8vw;
 }
-.colorSelected{
-    border: 2px solid #FFFFFF;
-    opacity: 1;
-}
-.iii{
-    margin: auto;
-    width: 90%;
-}
 
 .one{
     /* display: inline; */
     margin-left: 2vw;
-}
-
-
-.showinpageRow{
-    font: normal normal 1.1vw/0vh Roboto;
-    margin-top: 2vh !important;
-    font-family: -webkit-pictograph;
-    /* margin-left: 0vw;
-    margin-bottom: 1vh; */
 }
 
 .labelToggle{
@@ -282,16 +762,12 @@ margin-right: 4vw;
     font-size: 0.9rem !important;
 }
 .editSubscribtionFileds{
-    margin-left: 1.5vw !important;
+    margin-left: 0.5vw !important;
     font-size: 1vw !important;
 }
 .MuiFormControlLabel-root{
     width: 14.5vw;
     height: 6vh;
-}
-#firstIcon{
-    /* margin-left: 1.5vw; */
-    margin-right: 0.34vw;
 }
 
 .MuiSwitch-thumb {
@@ -300,9 +776,11 @@ margin-right: 4vw;
 .MuiFormControlLabel-label.Mui-disabled{
     color:white !important;
 }
- .saveSettings{
-     display:none !important;
- }
+.showinpageRow{
+    font-size: 1vw;
+        margin-left: 0vw;
+        margin-bottom: 1vh;
+    }
 
 /* mobile */
 @media only screen and (max-width:620px){
@@ -354,32 +832,7 @@ margin-right: 4vw;
         height: 8vw;
         font-size: 0.8vw;
     }
-    #showInRow{
-        display:none;
-    }
-    .buttoncreate{
-        display:none !important
-    }
     
-    .wrapSaveSettings{
-        display:block !important;
-    }
-
-    .saveSettings{
-        display: block !important;
-    width: 25vw !important;
-    height: 5vh;
-    float: right;
-    background-color: transparent;
-    position: fixed;
-    right: 10vw;
-    /* top: 53vh; */
-    font-size: 7vw;
-    line-height: 2.5vh;
-    border-radius: 10px;
-    z-index: 90;
-    margin-top:-6vh;
-    }
 }
 
 @media only screen and(max-width:1280px){
@@ -395,17 +848,26 @@ margin-right: 4vw;
 .MuiTypography-root {
     margin-right: 2vw !important;
 } 
-#firstIcon { 
-    margin-right: 0.83vw !important;
+.ChannelColorwidth {
+    width: 16vw !important;
 }
-#secondIcon {
-    margin-right: 1.5vw !important;
+
+.circle-picker>span>div {
+    width: 18px !important;
+    height: 18px !important;
 }
-#thirdIcon {
-    margin-right: 0.2vw !important;
+
 }
-#fourthIcon {
-    margin-right: 1vw !important;
+.whatcPrevousEventLabel{
+    font-size: 1vw;
+    margin-top: 1vh;
+    margin-left:1.3vw ;
+    margin-bottom:-4vh;
+}
+@media only screen and(min-width:1336px){
+ 
+.SelectChanel{
+    height: 4vh;
 }
 }
 
@@ -415,56 +877,83 @@ margin-right: 4vw;
         margin-right: 2.7vw !important;
     }    
 
-    #firstIcon {
-        margin-right: 0.64vw !important;
-    }
-    #secondIcon {
-        margin-right: 1.5vw !important;
-    }
-    #thirdIcon {
-        margin-right: 0vw !important;
-    }
-    #fourthIcon {
-        margin-right: 0vw !important;
+    .whatcPrevousEventLabel {
+        font-size: 1vw !important;
+        margin-top: 1vh !important;
+        margin-left: 1.3vw !important;
+        margin-bottom: -2.5vh !important;
     }
     
+   .icon{
+    width: 7.8vw;
+   }
+    
 }
-@media only screen and (min-width:1920px)  {
 
-    #firstIcon {
-        margin-right: 0.16vw !important;
+@media only screen and (min-width:1920px)  {
+    .icon{
+        /* margin-left: 0vw !important; */
+        width: 7.77vw;
     }
-    #secondIcon {
-        margin-right: -0.5vw !important;
-    }
-    #thirdIcon {
-        margin-right: -0.5vw  !important;
-    }
-    #fourthIcon {
-        margin-right: 0vw !important;
-    }
+ 
     .MuiTypography-root {
         margin-right: 4vw !important;
     }
-    .MuiSwitch-root{
+    /* .MuiSwitch-root{
         width: 3.2vw !important;
         height: 3.8vh !important;
         margin-top: 0.5vh !important;
     }
    .MuiSwitch-thumb { 
     margin-top: 0.1vh !important;
-    }
+    } */
     .inputLinkIcon{
         height: 1.6vw;
     }
+    .SelectChanel{
+        width: 2.5vw;
+        height: 3vh;
+        margin-left: 2.5vw;
+    }
+    .circle-picker>span>div {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    .ChannelColorwidth {
+        width: 13vw !important;
+    }
+    .whatcPrevousEventLabel {
+        font-size: 1vw !important;
+        margin-top: 1vh !important;
+        margin-left: 1.3vw !important;
+        margin-bottom: -2.5vh !important;
+    }
+}
+
+.circle-picker>span>div {
+    width: 20px !important;
+    height: 20px !important;
 }
 @media only screen and (min-width:3480px){
-    .MuiSwitch-root{        
-    margin-right: 0.5vw;
-    width: 58px !important;
-    height: 38px !important;
+    .circle-picker>span>div {
+        width: 30px!important;
+        height: 30px !important;
     }
-    
+    .ChannelColorwidth >div {
+        margin-left: -2.5vw !important;
+        width: 8vw !important;
+    }
+   
+    .MuiSwitch-root {
+        width: 58px !important;
+        height: 38px !important;
+        margin-right: -1.5vw; 
+        margin-top: -1vh;
+    }
+    .github-picker{
+        width:8vw !important;
+    }
+   
 /* .MuiSwitch-thumb { 
     width: 0.6vw !important;
     height: 0.7 !important;
@@ -477,18 +966,13 @@ margin-right: 4vw;
     width: 2vw !important;
     height: 2vh !important;
 } */
-#firstIcon {
-    margin-right: -0.2vw !important;
-}
 
-#thirdIcon {
-    margin-right: -0.9vw !important;
-}
 .icon{
-    margin-top: 0vh;
+    width: 7vw !important;
 }
-#fourthIcon {
-    margin-right: -6.1vw !important;
+.iconSize {
+    width: 2vw !important;
+    height: 2vh !important;
 }
 .inputLinkIcon {
     height: 1.5vw;
@@ -500,4 +984,44 @@ margin-right: 4vw;
 .warpDivalignment {
     margin-left: 8.2vw;
 }
+.SelectChanel {
+    height: 2vh;
+    margin-left: 5vw;
+    margin-top: 0.5vh;
+    width: 2vw;
+    background: #505066 0% 0% no-repeat padding-box;
+    color: white;
+    font-size: 0.7vw;
+} 
+.showinpageRow {
+    font-size: 1vw;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+    margin-left: 0.vw;
+    width: 42.333333% !important;
 }
+.whatcPrevousEventLabel {
+    font-size: 1vw !important;
+    margin-top: 0vh !important;
+    margin-left: 1.5vw !important;
+    margin-bottom: -0.5vh !important;
+}
+
+    
+.whtchPrviesEventLabel{
+    font-size: 1vw !important;
+    margin-right: 2vw !important;
+}
+.MuiSwitch-thumb {
+    margin-top: 0vh !important;
+}
+whtchPrviesEventLabel > .MuiTypography-root {
+    margin-right: 1.4vw !important;
+}
+
+}
+
+
+
+
+
