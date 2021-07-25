@@ -29,12 +29,12 @@ function PageSettings(props) {
         }
         
         function ScrollGenericColor (value,color)  {
-         debugger
-         if(value==='showButtonSubscribe')
-          props.changeButtonStyle(color)
-          else props.changeMainColor(color) 
-            document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
-        }
+            debugger
+            if(value==='showButtonSubscribe')
+             props.changeButtonStyle(color)
+             else props.changeMainColor(color) 
+               document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
+           }
 
     // },[])
     return (

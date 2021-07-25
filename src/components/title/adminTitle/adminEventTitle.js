@@ -337,7 +337,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <div >
-                    <FooterEventsGallery /></div>
+                    <FooterEventsGallery  /></div>
             </div>
         </>
 
