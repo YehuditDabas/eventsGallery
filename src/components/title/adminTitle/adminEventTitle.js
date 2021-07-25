@@ -196,13 +196,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
     function ScrollGeneric(value) {
         debugger
         document.getElementById(value).scrollIntoView({ block: "end", behavior: 'smooth' })
-       let element= document.getElementById(value);
-       element.classList.add("addBorder");
-     
+        let element = document.getElementById(value);
+        element.classList.add("addBorder");
+
     }
 
     function changeToHeaderComponent() {
-        
+
         changeCurrentComponent('Edit Header')
         // if (value.currentTarget.className === 'adminTitleAndDescription')
         //     ScrollGeneric('idTitleText')
@@ -329,7 +329,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 </div>
             </div>
             <div className="container-fluid adminEvnetsUnderFilter">
-                <div className="row" >
+                {/* <div className="row" >
+                    <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
+                </div> */}
+
+                <div className="row" style={{ width: "75vw", marginLeft: "4vw", marginRight: "4vw" ,marginTop:"8vh"}}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
                 <div >

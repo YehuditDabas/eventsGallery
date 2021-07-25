@@ -343,7 +343,32 @@ margin-right: 4vw;
         height: 8vw;
         font-size: 0.8vw;
     }
-    
+    #showInRow{
+        display:none;
+    }
+    .buttoncreate{
+        display:none !important
+    }
+
+    .wrapSaveSettings{
+        display:block !important;
+    }
+
+    .saveSettings{
+        display: block !important;
+    width: 25vw !important;
+    height: 5vh;
+    float: right;
+    background-color: transparent;
+    position: fixed;
+    right: 10vw;
+    /* top: 53vh; */
+    font-size: 7vw;
+    line-height: 2.5vh;
+    border-radius: 10px;
+    z-index: 90;
+    margin-top:-6vh;
+    }
 }
 
 @media only screen and(max-width:1280px){
@@ -359,6 +384,18 @@ margin-right: 4vw;
 .MuiTypography-root {
     margin-right: 2vw !important;
 } 
+#firstIcon { 
+    margin-right: 0.83vw !important;
+}
+#secondIcon {
+    margin-right: 1.5vw !important;
+}
+#thirdIcon {
+    margin-right: 0.2vw !important;
+}
+#fourthIcon {
+    margin-right: 1vw !important;
+}
 .ChannelColorwidth {
     width: 16vw !important;
 }
@@ -387,7 +424,18 @@ margin-right: 4vw;
     .MuiTypography-root {
         margin-right: 2.7vw !important;
     }    
-
+    #firstIcon {
+        margin-right: 0.64vw !important;
+    }
+    #secondIcon {
+        margin-right: 1.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: 0vw !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
     .whatcPrevousEventLabel {
         font-size: 1vw !important;
         margin-top: 1vh !important;
@@ -406,7 +454,18 @@ margin-right: 4vw;
         /* margin-left: 0vw !important; */
         width: 7.77vw;
     }
- 
+    #firstIcon {
+        margin-right: 0.16vw !important;
+    }
+    #secondIcon {
+        margin-right: -0.5vw !important;
+    }
+    #thirdIcon {
+        margin-right: -0.5vw  !important;
+    }
+    #fourthIcon {
+        margin-right: 0vw !important;
+    }
     .MuiTypography-root {
         margin-right: 4vw !important;
     }
@@ -418,6 +477,14 @@ margin-right: 4vw;
    .MuiSwitch-thumb { 
     margin-top: 0.1vh !important;
     } */
+    .MuiSwitch-root{
+        width: 3.2vw !important;
+        height: 3.8vh !important;
+        margin-top: 0.5vh !important;
+    }
+   .MuiSwitch-thumb { 
+    margin-top: 0.1vh !important;
+    }
     .inputLinkIcon{
         height: 1.6vw;
     }
@@ -428,6 +495,7 @@ margin-right: 4vw;
     }
     .circle-picker>span>div {
         width: 25px !important;
+
         height: 25px !important;
     }
     .ChannelColorwidth {
@@ -459,7 +527,8 @@ margin-right: 4vw;
         width: 58px !important;
         height: 38px !important;
         margin-right: -1.5vw; 
-        margin-top: -1vh;
+        margin-right: 0.5vw;
+        /* margin-top: -1vh; */
     }
     .github-picker{
         width:8vw !important;
@@ -480,6 +549,17 @@ margin-right: 4vw;
 
 .icon{
     width: 7vw !important;
+    margin-top: 0vh;
+}
+#firstIcon {
+    margin-right: -0.2vw !important;
+}
+
+#thirdIcon {
+    margin-right: -0.9vw !important;
+}
+#fourthIcon {
+    margin-right: -6.1vw !important;
 }
 .iconSize {
     width: 2vw !important;
@@ -526,7 +606,7 @@ margin-right: 4vw;
 .MuiSwitch-thumb {
     margin-top: 0vh !important;
 }
-whtchPrviesEventLabel > .MuiTypography-root {
+.whtchPrviesEventLabel > .MuiTypography-root {
     margin-right: 1.4vw !important;
 }
 
