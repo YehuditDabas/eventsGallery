@@ -13,6 +13,8 @@ import { connect } from 'react-redux'
 import {useDispatch}from 'react-redux'
 import displayEvent from '../events/displayEvent/displayEvent'
 import { withRouter } from 'react-router-dom'
+import CardComponentConfigMobile from './mobile/cardComponentConfigMobile'
+import { useMediaQuery } from 'react-responsive';
 
 const mapStateToProps = (state) => {
 
@@ -73,6 +75,7 @@ function onbtnClick(){
 
   props.history.push({ pathname: `/${window.location.pathname.split('/')[1]}/newEventDetails/`})
 }
+const isMobile = useMediaQuery({ query: `(max-width: 620px)` });
 
 
   return (
@@ -82,6 +85,42 @@ function onbtnClick(){
 
         <div className='col-md-2 configurator'>
         <button onClick={onbtnClick} className=' p-2 m-2 ml-2 mr-2 btnCreateEvent'>+Create Event</button>
+        {isMobile==true?
+            <Accordion
+            activeKey={props.currentComponent}
+            className="accordion_warps "
+          >
+            <CardComponentConfigMobile
+             className="cardOne"  
+              eventKey={'Page Settings'}
+              component={pageSettings} קומפוננטה אחת
+            />
+          
+            <CardComponentConfigMobile
+             className="cardName"  
+              eventKey={'Edit Header'}
+              component={EditHeader} קומפוננטה שניה
+            />
+            <CardComponentConfigMobile
+               className="cardName"  
+              // eventKey={3}
+              eventKey={'Edit Subscription'}
+              component={EditSubscription} קומפוננטה שלישית
+            />
+            <CardComponentConfigMobile
+             className="cardName"      
+              eventKey={'Edit Footer'}
+              component={EditFooter} קומפוננטה רביעית
+            />
+            {/* <CardComponentConfig
+             className="cardName"      
+              eventKey={'Create Event'}
+              component={CreateNewEvent}קומפוננטה חמישית
+            /> */}
+
+            {/* <CardComponentConfig eventKey={1} component={ChannelDetails} nameComponent={'ChannelDetails'} />
+                <CardComponentConfig eventKey={2} component={AudioDetails} nameComponent={'AudioDetails'} />  */}
+          </Accordion>:
           <Accordion
             activeKey={props.currentComponent}
             className="accordion_warps "
@@ -91,6 +130,7 @@ function onbtnClick(){
               eventKey={'Page Settings'}
               component={pageSettings} קומפוננטה אחת
             />
+          
             <CardComponentConfig
              className="cardName"  
               eventKey={'Edit Header'}
@@ -115,7 +155,7 @@ function onbtnClick(){
 
             {/* <CardComponentConfig eventKey={1} component={ChannelDetails} nameComponent={'ChannelDetails'} />
                 <CardComponentConfig eventKey={2} component={AudioDetails} nameComponent={'AudioDetails'} />  */}
-          </Accordion>
+          </Accordion>}
 
           <div className="d-flex justify-content-center">
             <button type="submit" className="buttoncreate btn p-2 m-2 ml-2 mr-2"
