@@ -171,12 +171,18 @@ background-color: rgba(196, 183, 183, 0.6);
 
 }
 .wrapAdminImgOrVieo{
-    margin-top: 6vh!important;
+    /* margin-top: 6vh!important;
     z-index: 3;
     margin-left: 21vw;
     height:var(--input-height);
-    border-style: dashed;
+    border-style: dashed; */
+    margin-top: -57vh!important;
+    z-index: 3;
+    margin-left: 21vw;
+    height: var(--input-height);
+    /* border-style: dashed*/
 }
+
 
 .adminImgOrVieo{
     /* padding: inherit; */

@@ -251,7 +251,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
             <div className="container-fluid adminEventTitle" >
 
                 {/* <div className="row adminTitleDiv" id='showHeader'> */}
-                <div className="row" style={{ height: "75vh" }} id="showHeader">
+                <div className="row" style={{ height: "58vh" }} id="showHeader">
                     <img className="myImg titleImgColor" src={img[pagesettings.eventsPageColor]} onClick={changeToPageSettingsComponent}></img>
                     <label htmlFor='filelogo' className="adminLogoLabel">
                         <img className="adminMylogo" src={headersettings.eventsPageLogo} onClick={changeToHeaderComponent}></img>

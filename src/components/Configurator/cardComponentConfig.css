@@ -99,3 +99,24 @@
 font-size: 1vw;
 
 }
+
+
+@media(max-width:620px){
+  .configurator{
+    height:40vh;
+    align-items:baseline;
+    position: relative;
+    z-index: 30;
+    padding-bottom: 0 !important;
+  }
+  .buttoncreate{
+    position: relative;
+  }
+  
+}
+
+
+
+
+
+
