@@ -32,6 +32,7 @@ import Subscribe from '../../subscribe/subscribe'
 
 
 
+
 function mapStateToProps(state) {
 
     // red #86F3FF
@@ -336,6 +337,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(function AdminEventT
                 <div className="row" style={{ width: "75vw", marginLeft: "4vw", marginRight: "4vw" ,marginTop:"8vh"}}>
                     <AllEvents style={{ zIndex: 1 }} sentBy={"admin"}></AllEvents>
                 </div>
+              
                 <div >
                     <FooterEventsGallery  /></div>
             </div>

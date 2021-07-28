@@ -246,6 +246,8 @@ form .form-control:focus{
     /* height:50vh !important;
     width:var(--image-width)!important; */
     vertical-align: middle;
+    height: 49vh;
+    margin-top: -3vh;
         /* float: right; */
         /* margin-left: auto;
         margin-right: auto !important; */

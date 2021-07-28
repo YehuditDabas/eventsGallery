@@ -21,6 +21,7 @@ import FooterEventsGallery from './components/footer/footerEventsGallery';
 // import TitleEvents from './components/titleEvents';
 import AdminEventTitle from './components/title/adminTitle/adminEventTitle';
 import AppRouter from './routers/appRouter'
+import QR_code from './components/QR_Code/qrCode'
 function App() {
   const [show, setShow] = useState(false);
 
@@ -31,6 +32,7 @@ function App() {
     <>
     {/* <HeaderLeader  appName='eventsGallery' userName='gila'/>  */}
     <AppRouter/>
+    {/* <QR_code userName={'gili'}></QR_code> */}
     </>
   )
 }

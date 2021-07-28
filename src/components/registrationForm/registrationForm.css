@@ -1,0 +1,37 @@
+#RegistrationFormNumberTickets{ 
+    width: 5vw;
+    height:5vh;
+
+}
+
+.bodyRegistration{
+    background: #F0F2FA 0% 0% no-repeat padding-box;
+
+}
+.form-controlRegistration {
+    HEIGHT: 5vh!important;
+    width: 71%!important;
+}
+.allPageRegistration{
+    height: 45vh;
+ 
+    opacity: 1;
+
+}
+.registrationText{
+    font-size: 2vh!important;
+    font-weight: bold!important;
+ text-align: left!important;
+letter-spacing: 0px;
+color: #212641;
+text-transform: uppercase;
+opacity: 1;
+}
+.registrationPaymentButtom{
+    margin-top: -5vh;
+    height: 5vh;
+    width: 21vw;
+    background-color: #9653FF;
+
+}
+  

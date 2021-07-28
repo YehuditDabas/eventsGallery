@@ -11,6 +11,8 @@ const intioanalState = {
 const events = {
     addAllEvents(state, action) {
         state.events = action.payload;
+        state.events[7].registrants=5;
+        state.events[7].maxParticipants=10;
         console.log("allevents" + state.events);
     },
     addUserName(state, action) {

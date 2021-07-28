@@ -77,6 +77,7 @@
 import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
+  Switch,
   Route
 } from "react-router-dom";
 import EventDetails from '../components/events/eventDetails/eventDetails';
@@ -87,6 +88,7 @@ import TitleEvents from '../components/title/title/titleEvents';
 import showSettings from '../assets/show.png';
 import EventTitleMobile from '../components/title/mobile/titleMobile/eventTitleMobile'
 import { useMediaQuery } from 'react-responsive';
+import QR_code from '../components/QR_Code/qrCode'
 // import CreateEventInMobile from '../components/events/mobile/createEventInMobile/createEventInMobile'
 
 import EventDetailsMobile from '../components/events/mobile/eventDetailsMobile/eventDetailsMobile'
@@ -100,6 +102,10 @@ export default function AppRouter() {
   }
   return (
     <Router>
+      <Switch>
+       <Route exact path="/QR_code">
+        <QR_code></QR_code>
+      </Route>
       {/* <Route exact path="/:userName">
         <TitleEvents style={{ zIndex: 3 }}></TitleEvents>
       </Route>
@@ -125,6 +131,7 @@ export default function AppRouter() {
           <EventDetailsMobile /> :<EventDetails />}
 
       </Route>
+      </Switch>
     </Router>
   )
 }

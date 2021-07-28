@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,useRef} from 'react'
 import { connect } from 'react-redux'
 import { actionsStore } from '../../../redux/actions'
-import './eventDetails.css';
+import './eventDetails_.css';
 import { withRouter } from 'react-router-dom'
 import { Modal, Button } from 'react-bootstrap'
 import arrow from '../../../assets/Polygon 24@2x.png'
@@ -25,12 +25,16 @@ import turquoise from '../../../assets/turquoise.png'
 import reactImageSize from 'react-image-size';
 import FooterEventsGallery from '../../footer/footerEventsGallery'
 import Carousel from "react-multi-carousel";
+import RegistrationForm from '../../registrationForm/registrationForm'
+import QR_code from './../../QR_Code/qrCode'
+import $ from 'jquery'; 
+
 
 
 function mapStateToProps(state) {
     var year = new Date();
     year = year.getUTCFullYear();
-   
+
     return {
 
         events: state.allEvents.events,
@@ -64,7 +68,8 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
     let e1 = [];
     const [show, setShow] = useState(false);
 
-  
+
+
     const img =
     {
         '#ad60ff': purple1,
@@ -160,7 +165,7 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
         // setMore(e1);
         console.log(moreEvents != undefined ? moreEvents[0] : "no more")
     }
-    
+
     function setFontsize() {
         let textLength = events[index].title.length
         let textSize = 6
@@ -204,10 +209,21 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
             setFontsize();
 
         }
+        
     }, [events])
+    // function executeScroll(){
+    //     myRef.current.scrollIntoView()
+    //   }  
+    $(".eventdDetailsTickets").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#RegistrationForm").offset().top
+        },0);
+    });
+
     return (
         <>
-            {events.length !== 0 ? <>
+            {
+            events.length !== 0 ?<>
                 <div className="detailsContainer">
                     <div className="container-fluid">
                         <div className="row imgTitleDetails">
@@ -219,11 +235,20 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
                                     <div className="eventDetails">{month()} | {city()} | {events[index].price === undefined ? 'Free' : events[index].price}
                                         {/* <br /><a href={events[index].registrationURL} target="_blank" className="btn ticketsButton"  >Tickets</a> */}
                                     </div>
+                                    {/* this.content.scrollToBottom(300); */}
+                                    <button type="button" class="btn btn-secondary eventdDetailsTickets" >Tickets</button>
+                                    {/* onClick={()=>seBq(true)} */}
                                 </div>
+
+
                             </div>
+
                             <div class="col-5 picTitle"><img src={events[index].image} id="ti" height="100%" width="100%"></img>
+
+
                             </div>
                         </div>
+
                         <div className="row">
 
 
@@ -307,12 +332,16 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(function 
                         </div>
 
                     </div>
+                    <div>
+                        <div style={{ marginBottom: "7vh", marginTop: "4vh" }} id="RegistrationForm">
+                            <RegistrationForm ></RegistrationForm>
+                        </div></div>
                     <FooterEventsGallery style={{ marginTop: "5%" }} />
                 </div>
 
 
             </> : ''}
-            
+
         </>
 
     )
